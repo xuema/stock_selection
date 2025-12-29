@@ -5,3 +5,4 @@ ta
 streamlit
 matplotlib
 openpyxl
+fuzzywuzzy
