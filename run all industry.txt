@@ -1,0 +1,68 @@
+Please help execute the following steps to run all the industry stock selection scripts:
+all commands should be executed in the power shell on Windows.
+1. activate the virtual environment:
+D:\stock\myenv\Scripts\activate
+
+2. open msedge with remote debugging:
+ & "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --remote-debugging-port=9222 --user-data-dir="C:\sel_edge_data"
+
+3. execute the following commands in sequence if any output like "本页新增 0 只有效股票", run the step 4 to close the process that is listening on port 9222 and start from step 2 start again, and then run the following commands from which one you failed:
+
+python D:\stock\stock_selection\get_scope.py -i Sora概念;python D:\stock\stock_selection\get_scope.py -i 铜缆高速连接;python D:\stock\stock_selection\get_scope.py -i 商业航天;python D:\stock\stock_selection\get_scope.py -i BC电池;python D:\stock\stock_selection\get_scope.py -i 创新药;python D:\stock\stock_selection\get_scope.py -i 存储芯片;python D:\stock\stock_selection\get_scope.py -i 东数西算;python D:\stock\stock_selection\get_scope.py -i 光伏概念;
+
+python D:\stock\stock_selection\get_scope.py -i 风电
+python D:\stock\stock_selection\get_scope.py -i 军工
+python D:\stock\stock_selection\get_scope.py -i 黄金概念
+python D:\stock\stock_selection\get_scope.py -i 绿色电力
+python D:\stock\stock_selection\get_scope.py -i 脑机接口
+python D:\stock\stock_selection\get_scope.py -i 算力租赁
+python D:\stock\stock_selection\get_scope.py -i 金属铜
+python D:\stock\stock_selection\get_scope.py -i 特高压
+python D:\stock\stock_selection\get_scope.py -i 小金属概念
+python D:\stock\stock_selection\get_scope.py -i 金属钴
+python D:\stock\stock_selection\get_scope.py -i 数字货币
+python D:\stock\stock_selection\get_scope.py -i 磷化工
+python D:\stock\stock_selection\get_scope.py -i 煤化工概念
+python D:\stock\stock_selection\get_scope.py -i 俄乌冲突概念
+python D:\stock\stock_selection\get_scope.py -i 可燃冰
+python D:\stock\stock_selection\get_scope.py -i 天然气
+python D:\stock\stock_selection\get_scope.py -i 兵装重组
+python D:\stock\stock_selection\get_scope.py -i 军工信息化
+python D:\stock\stock_selection\get_scope.py -i 煤炭概念
+python D:\stock\stock_selection\get_scope.py -i 5G概念
+python D:\stock\stock_selection\get_scope.py -i 盐湖提锂
+python D:\stock\stock_selection\get_scope.py -i 超导概念
+python D:\stock\stock_selection\get_scope.py -i 海工装备
+python D:\stock\stock_selection\get_scope.py -i 氟化工概念
+python D:\stock\stock_selection\get_scope.py -i 液冷服务器
+python D:\stock\stock_selection\get_scope.py -i 智能电网
+python D:\stock\stock_selection\get_scope.py -i 3D打印
+python D:\stock\stock_selection\get_scope.py -i 农机
+python D:\stock\stock_selection\get_scope.py -i 海峡两岸
+python D:\stock\stock_selection\get_scope.py -i 先进封装
+python D:\stock\stock_selection\get_scope.py -i 乳业
+python D:\stock\stock_selection\get_scope.py -i 机器人概念
+python D:\stock\stock_selection\get_scope.py -i PEEK材料
+python D:\stock\stock_selection\get_scope.py -i 英伟达概念
+python D:\stock\stock_selection\get_scope.py -i 医疗器械概念
+python D:\stock\stock_selection\get_scope.py -i AI手机
+python D:\stock\stock_selection\get_scope.py -i 医药电商
+python D:\stock\stock_selection\get_scope.py -i OLED
+python D:\stock\stock_selection\get_scope.py -i MiniLED
+python D:\stock\stock_selection\get_scope.py -i 染料
+python D:\stock\stock_selection\get_scope.py -i 智能医疗
+python D:\stock\stock_selection\get_scope.py -i 养老概念
+python D:\stock\stock_selection\get_scope.py -i 华为昇腾
+python D:\stock\stock_selection\get_scope.py -i 文化传媒
+python D:\stock\stock_selection\get_scope.py -i AI应用
+python D:\stock\stock_selection\get_scope.py -i 电子纸
+python D:\stock\stock_selection\get_scope.py -i 柔性直流输电
+python D:\stock\stock_selection\get_scope.py -i 柔性屏
+python D:\stock\stock_selection\get_scope.py -i 电力物联网
+python D:\stock\stock_selection\get_scope.py -i 量子科技
+python D:\stock\stock_selection\get_scope.py -i 虚拟电厂
+python D:\stock\stock_selection\get_scope.py -i 足球概念
+python D:\stock\stock_selection\get_scope.py -i 消费电子
+
+4. Close any process that is listening on port 9222 (the remote debugging port):
+netstat -ano | findstr :9222 | ForEach-Object { if ($_ -match "LISTENING\s+(\d+)$") { Stop-Process -Id $matches[1] -Force } }
