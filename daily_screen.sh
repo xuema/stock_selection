@@ -87,6 +87,8 @@ DOCS_DIR="$REPO_DIR/docs"
 mkdir -p "$DOCS_DIR"
 cp "$OUTPUT_DIR/index.html" "$DOCS_DIR/"
 cp "$OUTPUT_DIR/dates.json" "$DOCS_DIR/"
+cp "$REPO_DIR/stock_names.json" "$DOCS_DIR/" 2>/dev/null || true
+cp "$REPO_DIR/stock_names.json" "$OUTPUT_DIR/" 2>/dev/null || true
 cp "$OUTPUT_DIR/screen_rsi_golden_cross_latest.json" "$DOCS_DIR/" 2>/dev/null || true
 cp "$OUTPUT_DIR/screen_signals_latest.json" "$DOCS_DIR/" 2>/dev/null || true
 # Copy all dated files

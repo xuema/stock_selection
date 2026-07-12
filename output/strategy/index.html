@@ -38,7 +38,6 @@
   .header .badge.live { background: rgba(63,185,80,0.15); color: var(--green); }
   .header .date { margin-left: auto; color: var(--muted); font-size: 0.9rem; }
 
-  /* Tabs */
   .tabs { display: flex; gap: 4px; margin-bottom: 20px; border-bottom: 1px solid var(--border); }
   .tab-btn {
     background: none; border: none; color: var(--muted);
@@ -48,7 +47,6 @@
   .tab-btn:hover { color: var(--text); }
   .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
 
-  /* Summary cards */
   .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 12px; margin-bottom: 24px; }
   .stat-card {
     background: var(--card); border: 1px solid var(--border); border-radius: 10px;
@@ -61,7 +59,6 @@
   .stat-card.purple .num { color: var(--purple); }
   .stat-card.orange .num { color: var(--orange); }
 
-  /* Table */
   .strategy-section { margin-bottom: 32px; display: none; }
   .strategy-section.active { display: block; }
   .strategy-section h2 { font-size: 1.15rem; margin-bottom: 12px; }
@@ -81,16 +78,10 @@
   .stock-table tr:hover td { background: rgba(88,166,255,0.04); }
   .stock-table td { border-bottom: 1px solid var(--border); }
   .stock-table .ticker { font-weight: 600; color: var(--accent); }
+  .stock-table .name { color: var(--muted); font-size: 0.85rem; }
   .stock-table .num { font-variant-numeric: tabular-nums; }
 
-  .tag {
-    display: inline-block; padding: 2px 8px; border-radius: 8px;
-    font-size: 0.78rem; font-weight: 500;
-  }
-  .tag.golden { background: rgba(63,185,80,0.15); color: var(--green); }
-
   .empty { text-align: center; padding: 40px; color: var(--muted); font-size: 0.95rem; }
-
   .loading { text-align: center; padding: 60px; color: var(--muted); }
   .loading::after { content: ''; display: inline-block; animation: dots 1.4s infinite; }
   @keyframes dots {
@@ -99,7 +90,6 @@
     60%, 100% { content: '...'; }
   }
 
-  /* History dropdown */
   .history-row { display: flex; gap: 8px; align-items: center; margin-bottom: 16px; }
   .history-row select {
     background: var(--card); color: var(--text); border: 1px solid var(--border);
@@ -107,7 +97,14 @@
   }
   .history-row label { font-size: 0.85rem; color: var(--muted); }
 
-  /* Responsive */
+  /* search */
+  .search-input {
+    background: var(--card); color: var(--text); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 12px; font-size: 0.85rem; width: 160px;
+  }
+  .search-input::placeholder { color: var(--muted); }
+  .search-area { margin-left: auto; display: flex; gap: 4px; align-items: center; }
+
   @media (max-width: 768px) {
     .stock-table { font-size: 0.82rem; }
     .stock-table th, .stock-table td { padding: 8px 8px; }
@@ -122,63 +119,55 @@
   <span class="date" id="headerDate"></span>
 </div>
 
-<!-- Strategy Tabs -->
 <div class="tabs">
   <button class="tab-btn active" data-tab="rsi">RSI 金叉</button>
   <button class="tab-btn" data-tab="signals">EXPMA+VOL+CR</button>
   <button class="tab-btn" data-tab="history">历史数据</button>
 </div>
 
-<!-- RSI Strategy Section -->
 <div class="strategy-section active" id="sec-rsi">
   <div class="summary" id="rsi-summary"></div>
   <div class="history-row">
     <label>选择日期：</label>
     <select id="rsi-date-select"><option value="latest">最新</option></select>
+    <div style="display:flex;gap:6px;align-items:center;">
+      <span class="search-area">
+        <input class="search-input" id="rsi-search" type="text" placeholder="搜索代码或名称…">
+      </span>
+    </div>
   </div>
   <div id="rsi-table-area"><div class="loading">加载中</div></div>
 </div>
 
-<!-- Signals Strategy Section -->
 <div class="strategy-section" id="sec-signals">
   <div class="summary" id="signals-summary"></div>
   <div class="history-row">
     <label>选择日期：</label>
     <select id="signals-date-select"><option value="latest">最新</option></select>
+    <div style="display:flex;gap:6px;align-items:center;">
+      <span class="search-area">
+        <input class="search-input" id="signals-search" type="text" placeholder="搜索代码或名称…">
+      </span>
+    </div>
   </div>
   <div id="signals-table-area"><div class="loading">加载中</div></div>
 </div>
 
-<!-- History Section -->
 <div class="strategy-section" id="sec-history">
   <h2>📅 历史筛选记录</h2>
   <div id="history-area"><div class="loading">加载历史数据中</div></div>
 </div>
 
 <script>
-// ─── Data loading ───
-const BASE = './';  // 同目录下加载，GitHub Pages 下直接相对路径
+const BASE = './';
 const RSI_PREFIX = 'screen_rsi_golden_cross_';
 const SIGNAL_PREFIX = 'screen_signals_';
 
-// 已知日期列表（由页面加载时自动探测，也可手动维护）
 let rsiDates = [];
 let signalsDates = [];
-
-// 手动维护的日期列表（新增日期加到这里即可）
-// 脚本每日运行时可以自动更新此文件
-const DATE_LIST_FILE = 'dates.json';
-
-async function loadDateList() {
-  try {
-    const res = await fetch(BASE + DATE_LIST_FILE + '?t=' + Date.now());
-    if (res.ok) {
-      const d = await res.json();
-      if (d.rsi) rsiDates = d.rsi;
-      if (d.signals) signalsDates = d.signals;
-    }
-  } catch(e) { console.log('No date list file, will use latest only'); }
-}
+let _names = {};          // { "000039": "中集集团", ... }
+let _currentRsiData = null;
+let _currentSignalsData = null;
 
 async function loadJSON(filename) {
   const res = await fetch(BASE + filename + '?t=' + Date.now());
@@ -186,10 +175,27 @@ async function loadJSON(filename) {
   return await res.json();
 }
 
+async function loadNames() {
+  try {
+    const d = await loadJSON('stock_names.json');
+    if (d) _names = d;
+  } catch(e) {}
+}
+
+async function loadDateList() {
+  try {
+    const res = await fetch(BASE + 'dates.json?t=' + Date.now());
+    if (res.ok) {
+      const d = await res.json();
+      if (d.rsi) rsiDates = d.rsi;
+      if (d.signals) signalsDates = d.signals;
+    }
+  } catch(e) { console.log('No date list file'); }
+}
+
 function fillDateSelect(selectId, dates) {
   const sel = document.getElementById(selectId);
   sel.innerHTML = '<option value="latest">✨ 最新</option>';
-  // 日期从新到旧
   const sorted = [...dates].sort().reverse();
   sorted.forEach(d => {
     const opt = document.createElement('option');
@@ -202,52 +208,47 @@ function renderSummary(containerId, data) {
   const el = document.getElementById(containerId);
   if (!data || !data.stocks || data.stocks.length === 0) {
     el.innerHTML = `
-      <div class="stat-card blue">
-        <div class="num">0</div>
-        <div class="label">今日筛选股票</div>
-      </div>
-      <div class="stat-card orange">
-        <div class="num">0</div>
-        <div class="label">满足条件</div>
-      </div>
-    `;
+      <div class="stat-card blue"><div class="num">0</div><div class="label">今日筛选股票</div></div>
+      <div class="stat-card orange"><div class="num">0</div><div class="label">满足条件</div></div>`;
     return;
   }
   el.innerHTML = `
-    <div class="stat-card blue">
-      <div class="num">${data.total_scanned || '-'}</div>
-      <div class="label">扫描股票总数</div>
-    </div>
-    <div class="stat-card green">
-      <div class="num">${data.total_matched || data.stocks.length}</div>
-      <div class="label">满足条件</div>
-    </div>
-    <div class="stat-card purple">
-      <div class="num">${data.screen_date || '-'}</div>
-      <div class="label">筛选日期</div>
-    </div>
-    <div class="stat-card orange">
-      <div class="num">${data.stocks.length ? (((data.total_matched || data.stocks.length) / (data.total_scanned || 1) * 100).toFixed(1) + '%') : '0%'}</div>
-      <div class="label">命中率</div>
-    </div>
-  `;
+    <div class="stat-card blue"><div class="num">${data.total_scanned || '-'}</div><div class="label">扫描股票总数</div></div>
+    <div class="stat-card green"><div class="num">${data.total_matched || data.stocks.length}</div><div class="label">满足条件</div></div>
+    <div class="stat-card purple"><div class="num">${data.screen_date || '-'}</div><div class="label">筛选日期</div></div>
+    <div class="stat-card orange"><div class="num">${data.stocks.length ? (((data.total_matched||data.stocks.length)/(data.total_scanned||1)*100).toFixed(1)+'%') : '0%'}</div><div class="label">命中率</div></div>`;
 }
 
-function renderTable(containerId, data, fields) {
+function renderTable(containerId, data, fields, searchText) {
   const el = document.getElementById(containerId);
   if (!data || !data.stocks || data.stocks.length === 0) {
     el.innerHTML = '<div class="empty">📭 今日没有满足条件的股票</div>';
     return;
   }
 
-  let html = `<table class="stock-table"><thead><tr><th>#</th><th>股票代码</th>`;
+  // filter by search
+  const q = (searchText || '').toLowerCase().trim();
+  const stocks = q
+    ? data.stocks.filter(s =>
+        (s.ticker || '').includes(q) ||
+        (s.name || _names[s.ticker] || '').toLowerCase().includes(q))
+    : data.stocks;
+
+  if (stocks.length === 0) {
+    el.innerHTML = `<div class="empty">🔍 没有找到匹配 "${q}" 的股票</div>`;
+    return;
+  }
+
+  let html = `<table class="stock-table"><thead><tr><th>#</th><th>代码</th><th>名称</th>`;
   fields.forEach(f => { html += `<th>${f.label}</th>`; });
   html += `</tr></thead><tbody>`;
 
-  data.stocks.forEach((s, i) => {
+  stocks.forEach((s, i) => {
+    const name = s.name || _names[s.ticker] || '';
     html += '<tr>';
     html += `<td>${i+1}</td>`;
     html += `<td class="ticker">${s.ticker}</td>`;
+    html += `<td class="name">${name}</td>`;
     fields.forEach(f => {
       let val = s[f.key] ?? '-';
       if (f.format) val = f.format(val);
@@ -259,7 +260,7 @@ function renderTable(containerId, data, fields) {
   el.innerHTML = html;
 }
 
-// ─── Tab switching ───
+// Tab switching
 document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -270,37 +271,48 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
   });
 });
 
-// ─── Load data ───
+// Search handlers
+document.getElementById('rsi-search').addEventListener('input', e => {
+  renderTable('rsi-table-area', _currentRsiData, [
+    {key:'date',label:'日期'},{key:'close',label:'收盘价',format:v=>typeof v==='number'?v.toFixed(2):v},
+    {key:'rsi12',label:'RSI(12)',class:'num'},{key:'rsi_ma56',label:'RSI MA(56)',class:'num'},
+    {key:'volume',label:'成交量',format:v=>typeof v==='number'?v.toLocaleString():v}
+  ], e.target.value);
+});
+document.getElementById('signals-search').addEventListener('input', e => {
+  renderTable('signals-table-area', _currentSignalsData, [
+    {key:'date',label:'日期'},{key:'close',label:'收盘价',format:v=>typeof v==='number'?v.toFixed(2):v},
+    {key:'ema5',label:'EMA5',class:'num'},{key:'ema29',label:'EMA29',class:'num'},
+    {key:'vol_ma8',label:'VOL MA8',format:v=>typeof v==='number'?Math.round(v).toLocaleString():v},
+    {key:'vol_ma89',label:'VOL MA89',format:v=>typeof v==='number'?Math.round(v).toLocaleString():v},
+    {key:'cr',label:'CR',class:'num'}
+  ], e.target.value);
+});
+
 async function refreshRsi(dateKey) {
-  const fname = dateKey === 'latest'
-    ? RSI_PREFIX + 'latest.json'
-    : RSI_PREFIX + dateKey + '.json';
+  const fname = dateKey === 'latest' ? RSI_PREFIX + 'latest.json' : RSI_PREFIX + dateKey + '.json';
   const data = await loadJSON(fname);
+  _currentRsiData = data;
   renderSummary('rsi-summary', data);
   renderTable('rsi-table-area', data, [
-    { key: 'date', label: '日期' },
-    { key: 'close', label: '收盘价', format: v => typeof v === 'number' ? v.toFixed(2) : v },
-    { key: 'rsi12', label: 'RSI(12)', class: 'num' },
-    { key: 'rsi_ma56', label: 'RSI MA(56)', class: 'num' },
-    { key: 'volume', label: '成交量', format: v => typeof v === 'number' ? v.toLocaleString() : v },
-  ]);
+    {key:'date',label:'日期'},{key:'close',label:'收盘价',format:v=>typeof v==='number'?v.toFixed(2):v},
+    {key:'rsi12',label:'RSI(12)',class:'num'},{key:'rsi_ma56',label:'RSI MA(56)',class:'num'},
+    {key:'volume',label:'成交量',format:v=>typeof v==='number'?v.toLocaleString():v}
+  ], document.getElementById('rsi-search').value);
 }
 
 async function refreshSignals(dateKey) {
-  const fname = dateKey === 'latest'
-    ? SIGNAL_PREFIX + 'latest.json'
-    : SIGNAL_PREFIX + dateKey + '.json';
+  const fname = dateKey === 'latest' ? SIGNAL_PREFIX + 'latest.json' : SIGNAL_PREFIX + dateKey + '.json';
   const data = await loadJSON(fname);
+  _currentSignalsData = data;
   renderSummary('signals-summary', data);
   renderTable('signals-table-area', data, [
-    { key: 'date', label: '日期' },
-    { key: 'close', label: '收盘价', format: v => typeof v === 'number' ? v.toFixed(2) : v },
-    { key: 'ema5', label: 'EMA5', class: 'num' },
-    { key: 'ema29', label: 'EMA29', class: 'num' },
-    { key: 'vol_ma8', label: 'VOL MA8', format: v => typeof v === 'number' ? Math.round(v).toLocaleString() : v },
-    { key: 'vol_ma89', label: 'VOL MA89', format: v => typeof v === 'number' ? Math.round(v).toLocaleString() : v },
-    { key: 'cr', label: 'CR', class: 'num' },
-  ]);
+    {key:'date',label:'日期'},{key:'close',label:'收盘价',format:v=>typeof v==='number'?v.toFixed(2):v},
+    {key:'ema5',label:'EMA5',class:'num'},{key:'ema29',label:'EMA29',class:'num'},
+    {key:'vol_ma8',label:'VOL MA8',format:v=>typeof v==='number'?Math.round(v).toLocaleString():v},
+    {key:'vol_ma89',label:'VOL MA89',format:v=>typeof v==='number'?Math.round(v).toLocaleString():v},
+    {key:'cr',label:'CR',class:'num'}
+  ], document.getElementById('signals-search').value);
 }
 
 async function renderHistory() {
@@ -309,10 +321,7 @@ async function renderHistory() {
     el.innerHTML = '<div class="empty">暂无历史日期记录。每日运行后将自动更新。</div>';
     return;
   }
-
-  let html = '<table class="stock-table"><thead><tr>';
-  html += '<th>日期</th><th>RSI 金叉</th><th>EXPMA+VOL+CR</th></tr></thead><tbody>';
-
+  let html = '<table class="stock-table"><thead><tr><th>日期</th><th>RSI 金叉</th><th>EXPMA+VOL+CR</th></tr></thead><tbody>';
   const allDates = [...new Set([...rsiDates, ...signalsDates])].sort().reverse();
   for (const d of allDates) {
     const rsiData = rsiDates.includes(d) ? await loadJSON(RSI_PREFIX + d + '.json') : null;
@@ -327,28 +336,21 @@ async function renderHistory() {
   el.innerHTML = html;
 }
 
-// ─── Select change ───
 document.getElementById('rsi-date-select').addEventListener('change', e => refreshRsi(e.target.value));
 document.getElementById('signals-date-select').addEventListener('change', e => refreshSignals(e.target.value));
 
-// ─── Init ───
 async function init() {
-  await loadDateList();
+  await Promise.all([loadNames(), loadDateList()]);
   fillDateSelect('rsi-date-select', rsiDates);
   fillDateSelect('signals-date-select', signalsDates);
+  await Promise.all([refreshRsi('latest'), refreshSignals('latest')]);
 
-  await refreshRsi('latest');
-  await refreshSignals('latest');
-
-  // header
   const now = new Date();
   document.getElementById('headerDate').textContent =
     `更新于 ${now.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}`;
   document.getElementById('statusBadge').innerHTML = '✅ 数据已加载';
 
-  if (rsiDates.length || signalsDates.length) {
-    renderHistory();
-  }
+  if (rsiDates.length || signalsDates.length) { renderHistory(); }
 }
 
 init();

@@ -21,6 +21,34 @@ import numpy as np
 from tqdm import tqdm
 from datetime import date
 
+# ─── 股票名称映射 ───
+_NAMES_CACHE = {}
+
+def _load_names():
+    global _NAMES_CACHE
+    if _NAMES_CACHE:
+        return _NAMES_CACHE
+    for p in [
+        os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "stock_names.json"),
+        os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "..", "stock_names.json"),
+        os.path.join(os.path.expanduser("~"), "workspace", "stock_selection", "stock_names.json"),
+        "/Users/skyler/workspace/stock_selection/stock_names.json",
+    ]:
+        if os.path.exists(p):
+            try:
+                with open(p) as f:
+                    _NAMES_CACHE = json.load(f)
+                return _NAMES_CACHE
+            except Exception:
+                pass
+    return _NAMES_CACHE
+
+
+def _name(ticker):
+    if not _NAMES_CACHE:
+        _load_names()
+    return _NAMES_CACHE.get(ticker, "")
+
 
 def ema(series, span):
     """计算指数移动平均"""
@@ -115,6 +143,7 @@ def check_stock(filepath):
         "vol_ma8": round(vol_ma8.iloc[-1]),
         "vol_ma89": round(vol_ma89.iloc[-1]),
         "cr": round(cr.iloc[-1], 2),
+        "name": _name(ticker),
     }
     return ticker, True, details
 
@@ -126,7 +155,8 @@ def save_json(results, output_dir):
 
     stocks = []
     for ticker, d in results:
-        stocks.append({"ticker": ticker, **d})
+        name = d.get("name", "") or _name(ticker)
+        stocks.append({"ticker": ticker, "name": name, **{k: v for k, v in d.items() if k != "name"}})
 
     payload = {
         "strategy": "expma_vol_cr_signals",
