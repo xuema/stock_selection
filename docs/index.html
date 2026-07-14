@@ -17,10 +17,12 @@
   .header .badge{background:var(--border);padding:4px 12px;border-radius:20px;font-size:.82rem;color:var(--muted)}
   .header .badge.live{background:rgba(63,185,80,.15);color:var(--green)}
   .header .date{margin-left:auto;color:var(--text);font-size:.9rem}
-  .tabs{display:flex;gap:4px;margin-bottom:20px;border-bottom:1px solid var(--border);flex-wrap:wrap}
-  .tab-btn{background:none;border:none;color:var(--muted);padding:10px 18px;font-size:.95rem;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s}
+  .tabs{display:flex;gap:4px;margin-bottom:20px;border-bottom:1px solid var(--border);flex-wrap:wrap;overflow-x:auto}
+  .tab-btn{background:none;border:none;color:var(--muted);padding:10px 18px;font-size:.95rem;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap}
   .tab-btn:hover{color:var(--text)}
   .tab-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+  .tab-btn.resonance{border-radius:20px 20px 0 0;border:1px solid var(--orange);border-bottom:none;background:rgba(210,153,34,.08);color:var(--orange)}
+  .tab-btn.resonance.active{background:rgba(210,153,34,.15);color:var(--orange);border-bottom-color:var(--accent)}
   .summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:24px}
   .stat-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
   .stat-card .num{font-size:1.8rem;font-weight:700}
@@ -75,6 +77,7 @@
   <button class="tab-btn" data-tab="sig">EXPMA+VOL+CR</button>
   <button class="tab-btn" data-tab="ma">MA 回调</button>
   <button class="tab-btn" data-tab="stb">超级顶底</button>
+  <button class="tab-btn resonance" data-tab="resonance">🔗 RSI+顶底共振</button>
   <button class="tab-btn" data-tab="history">历史数据</button>
 </div>
 
@@ -114,8 +117,6 @@
     <button class="sub-tab-btn active" data-stbtab="buy">🟢 买入信号</button>
     <button class="sub-tab-btn" data-stbtab="sell">🔴 卖出信号</button>
   </div>
-
-  <!-- Buy sub-section -->
   <div class="sub-section active" id="stb-sec-buy">
     <div class="summary" id="stb-buy-summary"></div>
     <div class="history-row">
@@ -124,8 +125,6 @@
     </div>
     <div id="stb-buy-table-area"><div class="loading">加载中</div></div>
   </div>
-
-  <!-- Sell sub-section -->
   <div class="sub-section" id="stb-sec-sell">
     <div class="summary" id="stb-sell-summary"></div>
     <div class="history-row">
@@ -134,6 +133,16 @@
     </div>
     <div id="stb-sell-table-area"><div class="loading">加载中</div></div>
   </div>
+</div>
+
+<!-- RSI+顶底 双重共振 -->
+<div class="strategy-section" id="sec-resonance">
+  <div class="summary" id="resonance-summary"></div>
+  <div class="history-row">
+    <label>日期:</label><select id="resonance-date-select"><option value="latest">✨ 最新</option></select>
+    <span style="margin-left:auto"><input class="search-input" id="resonance-search" type="search" placeholder="搜索代码或名称…"></span>
+  </div>
+  <div id="resonance-table-area"><div class="loading">加载中</div></div>
 </div>
 
 <!-- History -->
@@ -149,15 +158,16 @@ const SPF='screen_signals_';
 const MPF='screen_ma_pullback_';
 const STB_BUY='screen_super_top_bottom_buy_';
 const STB_SELL='screen_super_top_bottom_sell_';
+const RESF='screen_rsi_stb_resonance_';
 
-let rsiDates=[],sigDates=[],maDates=[],stbDates=[];
+let rsiDates=[],sigDates=[],maDates=[],stbDates=[],resDates=[];
 let _names={};
-let _curR=[],_curS=[],_curM=[],_curStbBuy=[],_curStbSell=[];
+let _curR=[],_curS=[],_curM=[],_curStbBuy=[],_curStbSell=[],_curRes=[];
 
 async function loadJSON(fn){try{const r=await fetch(BASE+fn+'?t='+Date.now());return r.ok?await r.json():null}catch(e){return null}}
 
 async function loadNames(){try{const d=await loadJSON('stock_names.json');if(d)_names=d}catch(e){}}
-async function loadDates(){try{const r=await fetch(BASE+'dates.json?t='+Date.now());if(r.ok){const d=await r.json();if(d.rsi)rsiDates=d.rsi;if(d.signals)sigDates=d.signals;if(d.ma)maDates=d.ma;if(d.stb)stbDates=d.stb}}catch(e){}}
+async function loadDates(){try{const r=await fetch(BASE+'dates.json?t='+Date.now());if(r.ok){const d=await r.json();if(d.rsi)rsiDates=d.rsi;if(d.signals)sigDates=d.signals;if(d.ma)maDates=d.ma;if(d.stb)stbDates=d.stb;if(d.resonance)resDates=d.resonance}}catch(e){}}
 
 function fill(selId,dates){
   const s=document.getElementById(selId);
@@ -168,8 +178,7 @@ function fill(selId,dates){
 function summary(cid,data,prefix,cardClass){
   const el=document.getElementById(cid);
   const n=data?data.length:0;
-  const label=prefix||'满足条件';
-  el.innerHTML=`<div class="stat-card ${cardClass||'blue'}"><div class="num">${n}</div><div class="label">${label}</div></div>`;
+  el.innerHTML=`<div class="stat-card ${cardClass||'blue'}"><div class="num">${n}</div><div class="label">${prefix||'满足条件'}</div></div>`;
 }
 
 const rsiF=[
@@ -200,20 +209,29 @@ const stbF=[
   {key:'close',label:'收盘价',format:v=>typeof v==='number'?v.toFixed(2):v},
   {key:'trend_line',label:'趋势线',format:v=>typeof v==='number'?v.toFixed(2):v},
   {key:'trend_prev',label:'前日趋势线',format:v=>typeof v==='number'?v.toFixed(2):v},
-  {key:'signal_note',label:'信号',class:'signal-note'}
+  {key:'signal_note',label:'信号'}
+];
+const resF=[
+  {key:'date',label:'日期'},
+  {key:'close',label:'收盘价',format:v=>typeof v==='number'?v.toFixed(2):v},
+  {key:'volume',label:'成交量',format:v=>typeof v==='number'?v.toLocaleString():v},
+  {key:'rsi12',label:'RSI(12)'},
+  {key:'rsi_ma56',label:'RSI MA(56)'},
+  {key:'trend_line',label:'趋势线',format:v=>typeof v==='number'?v.toFixed(2):v},
+  {key:'trend_prev',label:'前日趋势线',format:v=>typeof v==='number'?v.toFixed(2):v}
 ];
 
-function renderTable(cid,data,fields,q,sigType){
+function renderTable(cid,data,fields,q,tag){
   const el=document.getElementById(cid);
   q=(q||'').toLowerCase().trim();
-  const arr=q?data.filter(s=>(s.ticker||'').toLowerCase().includes(q)||((s.name||_names[s.ticker]||'').toLowerCase().includes(q))):data;
-  if(!arr.length){el.innerHTML=q?`<div class="empty">🔍 无匹配 "${q}"</div>`:'<div class="empty">📭 无数据</div>';return}
+  const arr=q?data.filter(s=>(s.ticker||'').includes(q)||((s.name||_names[s.ticker]||'').toLowerCase().includes(q))):data;
+  if(!arr.length){el.innerHTML=q?`<div class="empty">🔍 无匹配 "${q}"</div>`:'<div class="empty">📭 暂无数据</div>';return}
   let h='<table class="stock-table"><thead><tr><th>#</th><th>代码</th><th>名称</th>';
   fields.forEach(f=>h+=`<th>${f.label}</th>`);
   h+='</tr></thead><tbody>';
   arr.forEach((s,i)=>{
     h+=`<tr><td>${i+1}</td><td class="ticker">${s.ticker}</td><td class="name">${s.name||_names[s.ticker]||''}</td>`;
-    fields.forEach(f=>{let v=s[f.key]??'-';if(f.format)v=f.format(v);const cls=f.class||(sigType==='buy'?'signal-buy':'signal-sell');h+=`<td class="${cls}">${v}</td>`});
+    fields.forEach(f=>{let v=s[f.key]??'-';if(f.format)v=f.format(v);h+=`<td class="${f.class||'num'}">${v}</td>`});
     h+='</tr>';
   });
   h+='</tbody></table>';el.innerHTML=h;
@@ -234,8 +252,8 @@ document.querySelectorAll('.sub-tab-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{
     btn.parentElement.querySelectorAll('.sub-tab-btn').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
-    const stbSec=document.getElementById('sec-stb');
-    stbSec.querySelectorAll('.sub-section').forEach(s=>s.classList.remove('active'));
+    const sec=document.getElementById('sec-stb');
+    sec.querySelectorAll('.sub-section').forEach(s=>s.classList.remove('active'));
     document.getElementById('stb-sec-'+btn.dataset.stbtab).classList.add('active');
   });
 });
@@ -244,8 +262,9 @@ document.querySelectorAll('.sub-tab-btn').forEach(btn=>{
 document.getElementById('rsi-search').addEventListener('input',e=>renderTable('rsi-table-area',_curR,rsiF,e.target.value));
 document.getElementById('sig-search').addEventListener('input',e=>renderTable('sig-table-area',_curS,sigF,e.target.value));
 document.getElementById('ma-search').addEventListener('input',e=>renderTable('ma-table-area',_curM,maF,e.target.value));
-document.getElementById('stb-buy-search').addEventListener('input',e=>renderTable('stb-buy-table-area',_curStbBuy,stbF,e.target.value,'buy'));
-document.getElementById('stb-sell-search').addEventListener('input',e=>renderTable('stb-sell-table-area',_curStbSell,stbF,e.target.value,'sell'));
+document.getElementById('stb-buy-search').addEventListener('input',e=>renderTable('stb-buy-table-area',_curStbBuy,stbF,e.target.value));
+document.getElementById('stb-sell-search').addEventListener('input',e=>renderTable('stb-sell-table-area',_curStbSell,stbF,e.target.value));
+document.getElementById('resonance-search').addEventListener('input',e=>renderTable('resonance-table-area',_curRes,resF,e.target.value));
 
 // date selects
 document.getElementById('rsi-date-select').addEventListener('change',e=>refreshRsi(e.target.value));
@@ -253,6 +272,7 @@ document.getElementById('sig-date-select').addEventListener('change',e=>refreshS
 document.getElementById('ma-date-select').addEventListener('change',e=>refreshMa(e.target.value));
 document.getElementById('stb-buy-date-select').addEventListener('change',e=>refreshStbBuy(e.target.value));
 document.getElementById('stb-sell-date-select').addEventListener('change',e=>refreshStbSell(e.target.value));
+document.getElementById('resonance-date-select').addEventListener('change',e=>refreshRes(e.target.value));
 
 async function refreshRsi(dk){
   const fn=dk==='latest'?RPF+'latest.json':RPF+dk+'.json';
@@ -280,45 +300,54 @@ async function refreshStbBuy(dk){
   const d=await loadJSON(fn);
   _curStbBuy=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);
   summary('stb-buy-summary',_curStbBuy,'🟢 趋势线上穿11','green');
-  renderTable('stb-buy-table-area',_curStbBuy,stbF,'','buy');
+  renderTable('stb-buy-table-area',_curStbBuy,stbF,'');
 }
 async function refreshStbSell(dk){
   const fn=dk==='latest'?STB_SELL+'latest.json':STB_SELL+dk+'.json';
   const d=await loadJSON(fn);
   _curStbSell=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);
   summary('stb-sell-summary',_curStbSell,'🔴 趋势线下穿89','red');
-  renderTable('stb-sell-table-area',_curStbSell,stbF,'','sell');
+  renderTable('stb-sell-table-area',_curStbSell,stbF,'');
+}
+async function refreshRes(dk){
+  const fn=dk==='latest'?RESF+'latest.json':RESF+dk+'.json';
+  const d=await loadJSON(fn);
+  _curRes=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);
+  summary('resonance-summary',_curRes,'🔗 RSI金叉 + 超级顶底','orange');
+  renderTable('resonance-table-area',_curRes,resF,'');
 }
 
 async function renderHistory(){
   const el=document.getElementById('history-area');
-  if(!rsiDates.length&&!sigDates.length&&!maDates.length&&!stbDates.length){el.innerHTML='<div class="empty">暂无记录</div>';return}
-  const all=[...new Set([...rsiDates,...sigDates,...maDates,...stbDates])].sort().reverse();
-  let h='<table class="stock-table"><thead><tr><th>日期</th><th>RSI金叉</th><th>多因子</th><th>MA回调</th><th>顶底买入</th><th>顶底卖出</th></tr></thead><tbody>';
+  if(!rsiDates.length&&!sigDates.length&&!maDates.length&&!stbDates.length&&!resDates.length){el.innerHTML='<div class="empty">暂无记录</div>';return}
+  const all=[...new Set([...rsiDates,...sigDates,...maDates,...stbDates,...resDates])].sort().reverse();
+  let h='<table class="stock-table"><thead><tr><th>日期</th><th>RSI金叉</th><th>多因子</th><th>MA回调</th><th>顶底买入</th><th>顶底卖出</th><th>共振</th></tr></thead><tbody>';
   for(const dt of all){
     const rd=rsiDates.includes(dt)?await loadJSON(RPF+dt+'.json'):null;
     const sd=sigDates.includes(dt)?await loadJSON(SPF+dt+'.json'):null;
     const md=maDates.includes(dt)?await loadJSON(MPF+dt+'.json'):null;
     const bdt=stbDates.includes(dt)?await loadJSON(STB_BUY+dt+'.json'):null;
     const sdt=stbDates.includes(dt)?await loadJSON(STB_SELL+dt+'.json'):null;
+    const rdt=resDates.includes(dt)?await loadJSON(RESF+dt+'.json'):null;
     const rn=rd?((rd.stocks||[]).length||rd.length||0):'-';
     const sn=sd?((sd.stocks||[]).length||sd.length||0):'-';
     const mn=md?((md.stocks||[]).length||md.length||0):'-';
     const bn=bdt?((bdt.stocks||[]).length||bdt.length||0):'-';
     const sl=sdt?((sdt.stocks||[]).length||sdt.length||0):'-';
-    h+=`<tr><td>${dt}</td><td class="num">${rn}</td><td class="num">${sn}</td><td class="num">${mn}</td><td class="signal-buy">${bn}</td><td class="signal-sell">${sl}</td></tr>`;
+    const resN=rdt?((rdt.stocks||[]).length||rdt.length||0):'-';
+    h+=`<tr><td>${dt}</td><td class="num">${rn}</td><td class="num">${sn}</td><td class="num">${mn}</td><td class="signal-buy">${bn}</td><td class="signal-sell">${sl}</td><td class="signal-sell">${resN}</td></tr>`;
   }
   h+='</tbody></table>';el.innerHTML=h;
 }
 
 async function init(){
   await Promise.all([loadNames(),loadDates()]);
-  fill('rsi-date-select',rsiDates);fill('sig-date-select',sigDates);fill('ma-date-select',maDates);fill('stb-buy-date-select',stbDates);fill('stb-sell-date-select',stbDates);
-  await Promise.all([refreshRsi('latest'),refreshSig('latest'),refreshMa('latest'),refreshStbBuy('latest'),refreshStbSell('latest')]);
+  fill('rsi-date-select',rsiDates);fill('sig-date-select',sigDates);fill('ma-date-select',maDates);fill('stb-buy-date-select',stbDates);fill('stb-sell-date-select',stbDates);fill('resonance-date-select',resDates);
+  await Promise.all([refreshRsi('latest'),refreshSig('latest'),refreshMa('latest'),refreshStbBuy('latest'),refreshStbSell('latest'),refreshRes('latest')]);
   const now=new Date();
   document.getElementById('headerDate').textContent='更新于 '+now.toLocaleString('zh-CN',{timeZone:'Asia/Shanghai'});
   document.getElementById('statusBadge').innerHTML='✅ 数据已加载';
-  if(rsiDates.length||sigDates.length||maDates.length||stbDates.length)renderHistory();
+  if(rsiDates.length||sigDates.length||maDates.length||stbDates.length||resDates.length)renderHistory();
 }
 init();
 </script>

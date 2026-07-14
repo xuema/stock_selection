@@ -1,0 +1,119 @@
+{
+  "strategy": "rsi_stb_resonance",
+  "strategy_name": "RSI 金叉 + 超级顶底 双重共振",
+  "screen_date": "2026-07-14",
+  "total_scanned": 4363,
+  "total_matched": 10,
+  "stocks": [
+    {
+      "ticker": "000155",
+      "name": "川能动力",
+      "date": "2026-07-14",
+      "close": 11.14,
+      "volume": 40474541,
+      "rsi12": 36.57,
+      "rsi_ma56": 34.73,
+      "trend_line": 11.59,
+      "trend_prev": 4.58
+    },
+    {
+      "ticker": "002083",
+      "name": "孚日股份",
+      "date": "2026-07-14",
+      "close": 9.66,
+      "volume": 43713511,
+      "rsi12": 44.62,
+      "rsi_ma56": 39.36,
+      "trend_line": 11.55,
+      "trend_prev": 7.12
+    },
+    {
+      "ticker": "300189",
+      "name": "神农种业",
+      "date": "2026-07-14",
+      "close": 4.24,
+      "volume": 91598250,
+      "rsi12": 43.64,
+      "rsi_ma56": 32.12,
+      "trend_line": 12.41,
+      "trend_prev": 8.41
+    },
+    {
+      "ticker": "300502",
+      "name": "新易盛",
+      "date": "2026-07-14",
+      "close": 561.04,
+      "volume": 54677458,
+      "rsi12": 56.41,
+      "rsi_ma56": 53.13,
+      "trend_line": 11.35,
+      "trend_prev": 8.56
+    },
+    {
+      "ticker": "600985",
+      "name": "淮北矿业",
+      "date": "2026-07-14",
+      "close": 14.98,
+      "volume": 31274740,
+      "rsi12": 60.26,
+      "rsi_ma56": 47.98,
+      "trend_line": 18.43,
+      "trend_prev": 6.22
+    },
+    {
+      "ticker": "601600",
+      "name": "中国铝业",
+      "date": "2026-07-14",
+      "close": 8.67,
+      "volume": 337291658,
+      "rsi12": 51.35,
+      "rsi_ma56": 44.6,
+      "trend_line": 18.05,
+      "trend_prev": 9.79
+    },
+    {
+      "ticker": "601969",
+      "name": "海南矿业",
+      "date": "2026-07-14",
+      "close": 8.57,
+      "volume": 35572117,
+      "rsi12": 58.27,
+      "rsi_ma56": 43.49,
+      "trend_line": 25.94,
+      "trend_prev": 8.73
+    },
+    {
+      "ticker": "603077",
+      "name": "和邦生物",
+      "date": "2026-07-14",
+      "close": 2.29,
+      "volume": 287857580,
+      "rsi12": 54.9,
+      "rsi_ma56": 37.35,
+      "trend_line": 23.75,
+      "trend_prev": 6.48
+    },
+    {
+      "ticker": "603318",
+      "name": "水发燃气",
+      "date": "2026-07-14",
+      "close": 8.91,
+      "volume": 91186374,
+      "rsi12": 54.08,
+      "rsi_ma56": 49.14,
+      "trend_line": 19.89,
+      "trend_prev": 10.3
+    },
+    {
+      "ticker": "603806",
+      "name": "福斯特",
+      "date": "2026-07-14",
+      "close": 14.91,
+      "volume": 27340151,
+      "rsi12": 48.21,
+      "rsi_ma56": 45.25,
+      "trend_line": 15.98,
+      "trend_prev": 3.97
+    }
+  ]
+}
