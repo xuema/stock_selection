@@ -1,0 +1,127 @@
+{
+  "strategy": "screen_super_top_bottom_sell",
+  "strategy_name": "超级顶底 卖出信号",
+  "signal_type": "sell",
+  "screen_date": "2026-07-14",
+  "total_scanned": 4363,
+  "total_matched": 13,
+  "stocks": [
+    {
+      "ticker": "000938",
+      "name": "紫光股份",
+      "date": "2026-07-14",
+      "close": 35.78,
+      "trend_line": 85.24,
+      "trend_prev": 94.49,
+      "signal_note": "趋势线下穿89 → 准备卖出"
+    },
+    {
+      "ticker": "000977",
+      "name": "浪潮信息",
+      "date": "2026-07-14",
+      "close": 82.2,
+      "trend_line": 80.99,
+      "trend_prev": 90.75,
+      "signal_note": "趋势线下穿89 → 准备卖出"
+    },
+    {
+      "ticker": "001229",
+      "name": "魅视科技",
+      "date": "2026-07-14",
+      "close": 42.07,
+      "trend_line": 86.14,
+      "trend_prev": 97.61,
+      "signal_note": "趋势线下穿89 → 准备卖出"
+    },
+    {
+      "ticker": "002261",
+      "name": "拓维信息",
+      "date": "2026-07-14",
+      "close": 30.72,
+      "trend_line": 75.75,
+      "trend_prev": 90.62,
+      "signal_note": "趋势线下穿89 → 准备卖出"
+    },
+    {
+      "ticker": "002292",
+      "name": "奥飞娱乐",
+      "date": "2026-07-14",
+      "close": 7.36,
+      "trend_line": 78.71,
+      "trend_prev": 90.19,
+      "signal_note": "趋势线下穿89 → 准备卖出"
+    },
+    {
+      "ticker": "002396",
+      "name": "星网锐捷",
+      "date": "2026-07-14",
+      "close": 27.7,
+      "trend_line": 84.54,
+      "trend_prev": 93.39,
+      "signal_note": "趋势线下穿89 → 准备卖出"
+    },
+    {
+      "ticker": "002437",
+      "name": "誉衡药业",
+      "date": "2026-07-14",
+      "close": 3.03,
+      "trend_line": 87.4,
+      "trend_prev": 90.75,
+      "signal_note": "趋势线下穿89 → 准备卖出"
+    },
+    {
+      "ticker": "002828",
+      "name": "贝肯能源",
+      "date": "2026-07-14",
+      "close": 12.31,
+      "trend_line": 84.99,
+      "trend_prev": 91.86,
+      "signal_note": "趋势线下穿89 → 准备卖出"
+    },
+    {
+      "ticker": "300065",
+      "name": "海兰信",
+      "date": "2026-07-14",
+      "close": 21.79,
+      "trend_line": 65.36,
+      "trend_prev": 91.03,
+      "signal_note": "趋势线下穿89 → 准备卖出"
+    },
+    {
+      "ticker": "301516",
+      "name": "中远通",
+      "date": "2026-07-14",
+      "close": 19.57,
+      "trend_line": 86.49,
+      "trend_prev": 91.11,
+      "signal_note": "趋势线下穿89 → 准备卖出"
+    },
+    {
+      "ticker": "600671",
+      "name": "天目药业",
+      "date": "2026-07-14",
+      "close": 19.29,
+      "trend_line": 86.37,
+      "trend_prev": 94.61,
+      "signal_note": "趋势线下穿89 → 准备卖出"
+    },
+    {
+      "ticker": "603339",
+      "name": "四方科技",
+      "date": "2026-07-14",
+      "close": 14.69,
+      "trend_line": 78.09,
+      "trend_prev": 92.31,
+      "signal_note": "趋势线下穿89 → 准备卖出"
+    },
+    {
+      "ticker": "603928",
+      "name": "兴业股份",
+      "date": "2026-07-14",
+      "close": 15.29,
+      "trend_line": 72.84,
+      "trend_prev": 90.01,
+      "signal_note": "趋势线下穿89 → 准备卖出"
+    }
+  ]
+}

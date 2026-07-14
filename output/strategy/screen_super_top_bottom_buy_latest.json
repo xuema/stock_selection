@@ -1,0 +1,1063 @@
+{
+  "strategy": "screen_super_top_bottom_buy",
+  "strategy_name": "超级顶底 买入信号",
+  "signal_type": "buy",
+  "screen_date": "2026-07-14",
+  "total_scanned": 4363,
+  "total_matched": 117,
+  "stocks": [
+    {
+      "ticker": "000055",
+      "name": "方大集团",
+      "date": "2026-07-14",
+      "close": 3.36,
+      "trend_line": 15.43,
+      "trend_prev": 3.44,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "000155",
+      "name": "川能动力",
+      "date": "2026-07-14",
+      "close": 11.14,
+      "trend_line": 11.59,
+      "trend_prev": 4.58,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "000543",
+      "name": "皖能电力",
+      "date": "2026-07-14",
+      "close": 7.84,
+      "trend_line": 13.26,
+      "trend_prev": 8.54,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "000599",
+      "name": "青岛双星",
+      "date": "2026-07-14",
+      "close": 4.33,
+      "trend_line": 12.93,
+      "trend_prev": 10.04,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "000626",
+      "name": "远大控股",
+      "date": "2026-07-14",
+      "close": 6.49,
+      "trend_line": 11.96,
+      "trend_prev": 8.41,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "000629",
+      "name": "钒钛股份",
+      "date": "2026-07-14",
+      "close": 3.03,
+      "trend_line": 11.54,
+      "trend_prev": 10.71,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "000655",
+      "name": "金岭矿业",
+      "date": "2026-07-14",
+      "close": 6.36,
+      "trend_line": 13.36,
+      "trend_prev": 7.74,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "000753",
+      "name": "漳州发展",
+      "date": "2026-07-14",
+      "close": 4.35,
+      "trend_line": 11.13,
+      "trend_prev": 10.85,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "000778",
+      "name": "新兴铸管",
+      "date": "2026-07-14",
+      "close": 3.65,
+      "trend_line": 13.01,
+      "trend_prev": 9.42,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "000822",
+      "name": "山东海化",
+      "date": "2026-07-14",
+      "close": 4.06,
+      "trend_line": 15.76,
+      "trend_prev": 10.49,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "000852",
+      "name": "石化机械",
+      "date": "2026-07-14",
+      "close": 5.03,
+      "trend_line": 15.54,
+      "trend_prev": 10.19,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "000878",
+      "name": "云南铜业",
+      "date": "2026-07-14",
+      "close": 15.07,
+      "trend_line": 11.17,
+      "trend_prev": 8.75,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "000905",
+      "name": "厦门港务",
+      "date": "2026-07-14",
+      "close": 7.81,
+      "trend_line": 12.41,
+      "trend_prev": 9.54,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "001217",
+      "name": "华尔泰",
+      "date": "2026-07-14",
+      "close": 8.45,
+      "trend_line": 12.3,
+      "trend_prev": 10.45,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "001283",
+      "name": "豪鹏科技",
+      "date": "2026-07-14",
+      "close": 46.48,
+      "trend_line": 16.45,
+      "trend_prev": 6.86,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "001286",
+      "name": "陕西能源",
+      "date": "2026-07-14",
+      "close": 10.36,
+      "trend_line": 14.77,
+      "trend_prev": 7.72,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "002016",
+      "name": "世荣兆业",
+      "date": "2026-07-14",
+      "close": 4.07,
+      "trend_line": 14.1,
+      "trend_prev": 10.15,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "002028",
+      "name": "思源电气",
+      "date": "2026-07-14",
+      "close": 159.71,
+      "trend_line": 11.41,
+      "trend_prev": 10.44,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "002083",
+      "name": "孚日股份",
+      "date": "2026-07-14",
+      "close": 9.66,
+      "trend_line": 11.55,
+      "trend_prev": 7.12,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "002155",
+      "name": "湖南黄金",
+      "date": "2026-07-14",
+      "close": 22.27,
+      "trend_line": 11.52,
+      "trend_prev": 10.79,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "002170",
+      "name": "芭田股份",
+      "date": "2026-07-14",
+      "close": 10.75,
+      "trend_line": 16.81,
+      "trend_prev": 10.15,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "002197",
+      "name": "证通电子",
+      "date": "2026-07-14",
+      "close": 5.39,
+      "trend_line": 11.4,
+      "trend_prev": 9.94,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "002221",
+      "name": "东华能源",
+      "date": "2026-07-14",
+      "close": 5.39,
+      "trend_line": 14.09,
+      "trend_prev": 9.23,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "002295",
+      "name": "精艺股份",
+      "date": "2026-07-14",
+      "close": 8.3,
+      "trend_line": 12.94,
+      "trend_prev": 9.65,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "002357",
+      "name": "富临运业",
+      "date": "2026-07-14",
+      "close": 8.79,
+      "trend_line": 12.92,
+      "trend_prev": 9.58,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "002398",
+      "name": "垒知集团",
+      "date": "2026-07-14",
+      "close": 3.73,
+      "trend_line": 12.12,
+      "trend_prev": 10.55,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "002416",
+      "name": "爱施德",
+      "date": "2026-07-14",
+      "close": 8.96,
+      "trend_line": 13.38,
+      "trend_prev": 10.52,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "002432",
+      "name": "九安医疗",
+      "date": "2026-07-14",
+      "close": 60.9,
+      "trend_line": 12.68,
+      "trend_prev": 5.06,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "002480",
+      "name": "新筑股份",
+      "date": "2026-07-14",
+      "close": 5.25,
+      "trend_line": 12.25,
+      "trend_prev": 3.66,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "002514",
+      "name": "宝馨科技",
+      "date": "2026-07-14",
+      "close": 2.1,
+      "trend_line": 11.26,
+      "trend_prev": 9.22,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "002516",
+      "name": "旷达科技",
+      "date": "2026-07-14",
+      "close": 5.32,
+      "trend_line": 14.16,
+      "trend_prev": 10.99,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "002523",
+      "name": "天桥起重",
+      "date": "2026-07-14",
+      "close": 3.1,
+      "trend_line": 19.85,
+      "trend_prev": 9.33,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "002526",
+      "name": "山东矿机",
+      "date": "2026-07-14",
+      "close": 2.51,
+      "trend_line": 11.46,
+      "trend_prev": 10.49,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "002562",
+      "name": "兄弟科技",
+      "date": "2026-07-14",
+      "close": 4.24,
+      "trend_line": 11.34,
+      "trend_prev": 9.33,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "002591",
+      "name": "恒大高新",
+      "date": "2026-07-14",
+      "close": 6.06,
+      "trend_line": 11.15,
+      "trend_prev": 9.83,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "002666",
+      "name": "德联集团",
+      "date": "2026-07-14",
+      "close": 3.9,
+      "trend_line": 13.91,
+      "trend_prev": 9.58,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "002706",
+      "name": "良信股份",
+      "date": "2026-07-14",
+      "close": 10.17,
+      "trend_line": 11.89,
+      "trend_prev": 6.37,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "002785",
+      "name": "万里石",
+      "date": "2026-07-14",
+      "close": 37.95,
+      "trend_line": 14.04,
+      "trend_prev": 8.3,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "002799",
+      "name": "环球印务",
+      "date": "2026-07-14",
+      "close": 6.07,
+      "trend_line": 13.26,
+      "trend_prev": 10.46,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "002827",
+      "name": "高争民爆",
+      "date": "2026-07-14",
+      "close": 24.3,
+      "trend_line": 16.31,
+      "trend_prev": 7.26,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "003008",
+      "name": "开普检测",
+      "date": "2026-07-14",
+      "close": 17.19,
+      "trend_line": 14.38,
+      "trend_prev": 10.91,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "003039",
+      "name": "顺控发展",
+      "date": "2026-07-14",
+      "close": 11.13,
+      "trend_line": 13.33,
+      "trend_prev": 7.55,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "003816",
+      "name": "中国广核",
+      "date": "2026-07-14",
+      "close": 3.89,
+      "trend_line": 12.3,
+      "trend_prev": 9.48,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "300050",
+      "name": "世纪鼎利",
+      "date": "2026-07-14",
+      "close": 5.52,
+      "trend_line": 12.49,
+      "trend_prev": 9.49,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "300189",
+      "name": "神农种业",
+      "date": "2026-07-14",
+      "close": 4.24,
+      "trend_line": 12.41,
+      "trend_prev": 8.41,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "300206",
+      "name": "理邦仪器",
+      "date": "2026-07-14",
+      "close": 12.13,
+      "trend_line": 15.01,
+      "trend_prev": 10.34,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "300335",
+      "name": "迪森股份",
+      "date": "2026-07-14",
+      "close": 4.81,
+      "trend_line": 12.17,
+      "trend_prev": 10.4,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "300394",
+      "name": "天孚通信",
+      "date": "2026-07-14",
+      "close": 270.99,
+      "trend_line": 12.81,
+      "trend_prev": 11.0,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "300405",
+      "name": "科隆股份",
+      "date": "2026-07-14",
+      "close": 5.02,
+      "trend_line": 11.57,
+      "trend_prev": 10.79,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "300412",
+      "name": "迦南科技",
+      "date": "2026-07-14",
+      "close": 4.2,
+      "trend_line": 11.58,
+      "trend_prev": 9.72,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "300502",
+      "name": "新易盛",
+      "date": "2026-07-14",
+      "close": 561.04,
+      "trend_line": 11.35,
+      "trend_prev": 8.56,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "300514",
+      "name": "友讯达",
+      "date": "2026-07-14",
+      "close": 9.06,
+      "trend_line": 11.79,
+      "trend_prev": 10.41,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "300652",
+      "name": "雷迪克",
+      "date": "2026-07-14",
+      "close": 32.43,
+      "trend_line": 12.83,
+      "trend_prev": 7.87,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "300750",
+      "name": "宁德时代",
+      "date": "2026-07-14",
+      "close": 361.78,
+      "trend_line": 12.36,
+      "trend_prev": 10.78,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "300839",
+      "name": "博汇股份",
+      "date": "2026-07-14",
+      "close": 11.93,
+      "trend_line": 14.7,
+      "trend_prev": 9.9,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "300904",
+      "name": "威力传动",
+      "date": "2026-07-14",
+      "close": 37.27,
+      "trend_line": 15.68,
+      "trend_prev": 7.51,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "300949",
+      "name": "奥雅股份",
+      "date": "2026-07-14",
+      "close": 19.98,
+      "trend_line": 12.62,
+      "trend_prev": 9.52,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "301062",
+      "name": "上海艾录",
+      "date": "2026-07-14",
+      "close": 5.55,
+      "trend_line": 11.36,
+      "trend_prev": 9.1,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "301097",
+      "name": "天益医疗",
+      "date": "2026-07-14",
+      "close": 35.64,
+      "trend_line": 23.08,
+      "trend_prev": 7.33,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "301117",
+      "name": "佳缘科技",
+      "date": "2026-07-14",
+      "close": 17.74,
+      "trend_line": 14.15,
+      "trend_prev": 10.43,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "301125",
+      "name": "腾亚精工",
+      "date": "2026-07-14",
+      "close": 12.79,
+      "trend_line": 13.74,
+      "trend_prev": 5.63,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "301156",
+      "name": "美农生物",
+      "date": "2026-07-14",
+      "close": 10.84,
+      "trend_line": 12.14,
+      "trend_prev": 9.34,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "301168",
+      "name": "通灵股份",
+      "date": "2026-07-14",
+      "close": 40.82,
+      "trend_line": 11.76,
+      "trend_prev": 5.96,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "301169",
+      "name": "零点有数",
+      "date": "2026-07-14",
+      "close": 56.38,
+      "trend_line": 13.34,
+      "trend_prev": 10.32,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "301380",
+      "name": "挖金客",
+      "date": "2026-07-14",
+      "close": 26.35,
+      "trend_line": 15.56,
+      "trend_prev": 8.5,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "301578",
+      "name": "辰奕智能",
+      "date": "2026-07-14",
+      "close": 20.17,
+      "trend_line": 11.3,
+      "trend_prev": 7.36,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "600189",
+      "name": "泉阳泉",
+      "date": "2026-07-14",
+      "close": 7.37,
+      "trend_line": 16.58,
+      "trend_prev": 6.49,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "600212",
+      "name": "绿能慧充",
+      "date": "2026-07-14",
+      "close": 4.88,
+      "trend_line": 11.26,
+      "trend_prev": 10.8,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "600218",
+      "name": "全柴动力",
+      "date": "2026-07-14",
+      "close": 7.24,
+      "trend_line": 13.84,
+      "trend_prev": 10.68,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "600219",
+      "name": "南山铝业",
+      "date": "2026-07-14",
+      "close": 4.1,
+      "trend_line": 13.97,
+      "trend_prev": 8.93,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "600273",
+      "name": "嘉化能源",
+      "date": "2026-07-14",
+      "close": 6.47,
+      "trend_line": 12.02,
+      "trend_prev": 9.47,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "600292",
+      "name": "电投水电",
+      "date": "2026-07-14",
+      "close": 12.3,
+      "trend_line": 11.36,
+      "trend_prev": 4.8,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "600307",
+      "name": "酒钢宏兴",
+      "date": "2026-07-14",
+      "close": 1.4,
+      "trend_line": 13.08,
+      "trend_prev": 10.05,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "600312",
+      "name": "平高电气",
+      "date": "2026-07-14",
+      "close": 16.96,
+      "trend_line": 13.08,
+      "trend_prev": 8.58,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "600408",
+      "name": "安泰集团",
+      "date": "2026-07-14",
+      "close": 2.56,
+      "trend_line": 11.99,
+      "trend_prev": 7.3,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "600490",
+      "name": "鹏欣资源",
+      "date": "2026-07-14",
+      "close": 5.81,
+      "trend_line": 12.0,
+      "trend_prev": 9.59,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "600508",
+      "name": "上海能源",
+      "date": "2026-07-14",
+      "close": 8.57,
+      "trend_line": 14.27,
+      "trend_prev": 10.9,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "600575",
+      "name": "淮河能源",
+      "date": "2026-07-14",
+      "close": 3.15,
+      "trend_line": 11.7,
+      "trend_prev": 10.31,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "600691",
+      "name": "潞化科技",
+      "date": "2026-07-14",
+      "close": 2.28,
+      "trend_line": 13.39,
+      "trend_prev": 5.98,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "600697",
+      "name": "欧亚集团",
+      "date": "2026-07-14",
+      "close": 9.77,
+      "trend_line": 12.58,
+      "trend_prev": 9.62,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "600711",
+      "name": "盛屯矿业",
+      "date": "2026-07-14",
+      "close": 10.49,
+      "trend_line": 12.41,
+      "trend_prev": 10.1,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "600722",
+      "name": "金牛化工",
+      "date": "2026-07-14",
+      "close": 8.1,
+      "trend_line": 13.88,
+      "trend_prev": 9.9,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "600841",
+      "name": "动力新科",
+      "date": "2026-07-14",
+      "close": 6.05,
+      "trend_line": 11.14,
+      "trend_prev": 10.79,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "600894",
+      "name": "广日股份",
+      "date": "2026-07-14",
+      "close": 7.66,
+      "trend_line": 13.96,
+      "trend_prev": 10.34,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "600905",
+      "name": "三峡能源",
+      "date": "2026-07-14",
+      "close": 3.77,
+      "trend_line": 13.57,
+      "trend_prev": 9.3,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "600933",
+      "name": "爱柯迪",
+      "date": "2026-07-14",
+      "close": 13.46,
+      "trend_line": 11.49,
+      "trend_prev": 10.04,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "600956",
+      "name": "新天绿能",
+      "date": "2026-07-14",
+      "close": 7.1,
+      "trend_line": 12.66,
+      "trend_prev": 7.75,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "600970",
+      "name": "中材国际",
+      "date": "2026-07-14",
+      "close": 7.29,
+      "trend_line": 12.08,
+      "trend_prev": 10.38,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "600985",
+      "name": "淮北矿业",
+      "date": "2026-07-14",
+      "close": 14.98,
+      "trend_line": 18.43,
+      "trend_prev": 6.22,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "601001",
+      "name": "晋控煤业",
+      "date": "2026-07-14",
+      "close": 17.44,
+      "trend_line": 12.1,
+      "trend_prev": 7.75,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "601015",
+      "name": "陕西黑猫",
+      "date": "2026-07-14",
+      "close": 3.09,
+      "trend_line": 13.25,
+      "trend_prev": 8.22,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "601212",
+      "name": "白银有色",
+      "date": "2026-07-14",
+      "close": 4.72,
+      "trend_line": 11.14,
+      "trend_prev": 8.79,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "601388",
+      "name": "怡球资源",
+      "date": "2026-07-14",
+      "close": 2.86,
+      "trend_line": 17.53,
+      "trend_prev": 10.58,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "601566",
+      "name": "九牧王",
+      "date": "2026-07-14",
+      "close": 8.21,
+      "trend_line": 11.21,
+      "trend_prev": 10.98,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "601600",
+      "name": "中国铝业",
+      "date": "2026-07-14",
+      "close": 8.67,
+      "trend_line": 18.05,
+      "trend_prev": 9.79,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "601677",
+      "name": "明泰铝业",
+      "date": "2026-07-14",
+      "close": 15.89,
+      "trend_line": 12.78,
+      "trend_prev": 7.41,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "601828",
+      "name": "美凯龙",
+      "date": "2026-07-14",
+      "close": 2.12,
+      "trend_line": 16.04,
+      "trend_prev": 10.75,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "601963",
+      "name": "重庆银行",
+      "date": "2026-07-14",
+      "close": 10.16,
+      "trend_line": 12.25,
+      "trend_prev": 10.32,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "601969",
+      "name": "海南矿业",
+      "date": "2026-07-14",
+      "close": 8.57,
+      "trend_line": 25.94,
+      "trend_prev": 8.73,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "603028",
+      "name": "赛福天",
+      "date": "2026-07-14",
+      "close": 6.39,
+      "trend_line": 12.25,
+      "trend_prev": 10.47,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "603077",
+      "name": "和邦生物",
+      "date": "2026-07-14",
+      "close": 2.29,
+      "trend_line": 23.75,
+      "trend_prev": 6.48,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "603089",
+      "name": "正裕工业",
+      "date": "2026-07-14",
+      "close": 8.27,
+      "trend_line": 11.84,
+      "trend_prev": 9.89,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "603132",
+      "name": "金徽股份",
+      "date": "2026-07-14",
+      "close": 15.37,
+      "trend_line": 15.39,
+      "trend_prev": 6.53,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "603176",
+      "name": "汇通集团",
+      "date": "2026-07-14",
+      "close": 4.26,
+      "trend_line": 12.51,
+      "trend_prev": 10.7,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "603188",
+      "name": "亚邦股份",
+      "date": "2026-07-14",
+      "close": 3.86,
+      "trend_line": 14.51,
+      "trend_prev": 10.9,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "603318",
+      "name": "水发燃气",
+      "date": "2026-07-14",
+      "close": 8.91,
+      "trend_line": 19.89,
+      "trend_prev": 10.3,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "603332",
+      "name": "苏州龙杰",
+      "date": "2026-07-14",
+      "close": 10.17,
+      "trend_line": 12.71,
+      "trend_prev": 10.61,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "603348",
+      "name": "文灿股份",
+      "date": "2026-07-14",
+      "close": 13.45,
+      "trend_line": 11.13,
+      "trend_prev": 9.0,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "603599",
+      "name": "广信股份",
+      "date": "2026-07-14",
+      "close": 9.57,
+      "trend_line": 11.54,
+      "trend_prev": 10.64,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "603619",
+      "name": "中曼石油",
+      "date": "2026-07-14",
+      "close": 20.66,
+      "trend_line": 18.16,
+      "trend_prev": 10.89,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "603788",
+      "name": "宁波高发",
+      "date": "2026-07-14",
+      "close": 13.42,
+      "trend_line": 11.0,
+      "trend_prev": 9.12,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "603806",
+      "name": "福斯特",
+      "date": "2026-07-14",
+      "close": 14.91,
+      "trend_line": 15.98,
+      "trend_prev": 3.97,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "603836",
+      "name": "海程邦达",
+      "date": "2026-07-14",
+      "close": 8.38,
+      "trend_line": 11.07,
+      "trend_prev": 8.74,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "603839",
+      "name": "安正时尚",
+      "date": "2026-07-14",
+      "close": 5.83,
+      "trend_line": 13.21,
+      "trend_prev": 10.15,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "603968",
+      "name": "醋化股份",
+      "date": "2026-07-14",
+      "close": 9.31,
+      "trend_line": 14.53,
+      "trend_prev": 10.82,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "605066",
+      "name": "天正电气",
+      "date": "2026-07-14",
+      "close": 6.44,
+      "trend_line": 13.17,
+      "trend_prev": 8.54,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    },
+    {
+      "ticker": "688004",
+      "name": "博汇科技",
+      "date": "2026-07-14",
+      "close": 16.98,
+      "trend_line": 12.03,
+      "trend_prev": 9.99,
+      "signal_note": "趋势线上穿11 → 准备买入"
+    }
+  ]
+}
