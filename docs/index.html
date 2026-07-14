@@ -186,7 +186,9 @@ const rsiF=[
   {key:'close',label:'收盘价',format:v=>typeof v==='number'?v.toFixed(2):v},
   {key:'rsi12',label:'RSI(12)'},
   {key:'rsi_ma56',label:'RSI MA(56)'},
-  {key:'volume',label:'成交量',format:v=>typeof v==='number'?v.toLocaleString():v}
+  {key:'volume',label:'成交量',format:v=>typeof v==='number'?v.toLocaleString():v},
+  {key:'mcap_yi',label:'市值(亿)',format:v=>v!=null?v+'亿':'-'},
+  {key:'jl_growth_pct',label:'净利增长%',format:v=>v!=null?(v>=0?'+':'')+v.toFixed(2)+'%':'-'}
 ];
 const sigF=[
   {key:'date',label:'日期'},
@@ -194,7 +196,9 @@ const sigF=[
   {key:'ema5',label:'EMA5'},{key:'ema29',label:'EMA29'},
   {key:'vol_ma8',label:'VOL MA8',format:v=>typeof v==='number'?Math.round(v).toLocaleString():v},
   {key:'vol_ma89',label:'VOL MA89',format:v=>typeof v==='number'?Math.round(v).toLocaleString():v},
-  {key:'cr',label:'CR'}
+  {key:'cr',label:'CR'},
+  {key:'mcap_yi',label:'市值(亿)',format:v=>v!=null?v+'亿':'-'},
+  {key:'jl_growth_pct',label:'净利增长%',format:v=>v!=null?(v>=0?'+':'')+v.toFixed(2)+'%':'-'}
 ];
 const maF=[
   {key:'date',label:'日期'},
@@ -202,14 +206,18 @@ const maF=[
   {key:'pct_change',label:'涨幅',format:v=>typeof v==='number'?(v>=0?'+':'')+v.toFixed(2)+'%':v},
   {key:'turnover_yi',label:'成交额(亿)',format:v=>typeof v==='number'?v.toFixed(2):v},
   {key:'ma10',label:'MA10'},{key:'ma20',label:'MA20'},{key:'ma60',label:'MA60'},
-  {key:'pullback_pct',label:'回调%',format:v=>typeof v==='number'?v.toFixed(1)+'%':v}
+  {key:'pullback_pct',label:'回调%',format:v=>typeof v==='number'?v.toFixed(1)+'%':v},
+  {key:'mcap_yi',label:'市值(亿)',format:v=>v!=null?v+'亿':'-'},
+  {key:'jl_growth_pct',label:'净利增长%',format:v=>v!=null?(v>=0?'+':'')+v.toFixed(2)+'%':'-'}
 ];
 const stbF=[
   {key:'date',label:'日期'},
   {key:'close',label:'收盘价',format:v=>typeof v==='number'?v.toFixed(2):v},
   {key:'trend_line',label:'趋势线',format:v=>typeof v==='number'?v.toFixed(2):v},
   {key:'trend_prev',label:'前日趋势线',format:v=>typeof v==='number'?v.toFixed(2):v},
-  {key:'signal_note',label:'信号'}
+  {key:'signal_note',label:'信号'},
+  {key:'mcap_yi',label:'市值(亿)',format:v=>v!=null?v+'亿':'-'},
+  {key:'jl_growth_pct',label:'净利增长%',format:v=>v!=null?(v>=0?'+':'')+v.toFixed(2)+'%':'-'}
 ];
 const resF=[
   {key:'date',label:'日期'},
@@ -218,7 +226,9 @@ const resF=[
   {key:'rsi12',label:'RSI(12)'},
   {key:'rsi_ma56',label:'RSI MA(56)'},
   {key:'trend_line',label:'趋势线',format:v=>typeof v==='number'?v.toFixed(2):v},
-  {key:'trend_prev',label:'前日趋势线',format:v=>typeof v==='number'?v.toFixed(2):v}
+  {key:'trend_prev',label:'前日趋势线',format:v=>typeof v==='number'?v.toFixed(2):v},
+  {key:'mcap_yi',label:'市值(亿)',format:v=>v!=null?v+'亿':'-'},
+  {key:'jl_growth_pct',label:'净利增长%',format:v=>v!=null?(v>=0?'+':'')+v.toFixed(2)+'%':'-'}
 ];
 
 function renderTable(cid,data,fields,q,tag){
