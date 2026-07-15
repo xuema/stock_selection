@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Debug</title></head>
+<body>
+<h1>JSON Debug</h1>
+<div id="log"></div>
+<script>
+const BASE='./';
+async function log(msg){ document.getElementById('log').innerHTML += msg + '<br>'; }
+
+async function test(){
+  const files = [
+    'screen_rsi_golden_cross_latest.json',
+    'screen_super_top_bottom_buy_latest.json',
+    'screen_super_top_bottom_sell_latest.json',
+    'screen_rsi_stb_resonance_latest.json',
+    'screen_signals_latest.json',
+    'screen_ma_pullback_latest.json',
+  ];
+  for(const f of files){
+    try {
+      const r = await fetch(BASE+f+'?t='+Date.now());
+      if(r.ok){
+        const d = await r.json();
+        const n = (d.stocks?.length) ?? (Array.isArray(d)?d.length:0);
+        log(`✅ ${f} — ${n} stocks`);
+      } else {
+        log(`❌ ${f} — HTTP ${r.status}`);
+      }
+    } catch(e) {
+      log(`❌ ${f} — ${e.message}`);
+    }
+  }
+}
+test();
+</script>
+</body>
+</html>

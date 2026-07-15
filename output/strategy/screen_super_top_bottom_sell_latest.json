@@ -2,64 +2,31 @@
   "strategy": "screen_super_top_bottom_sell",
   "strategy_name": "超级顶底 卖出信号",
   "signal_type": "sell",
-  "screen_date": "2026-07-14",
+  "screen_date": "2026-07-15",
   "total_scanned": 4363,
-  "total_matched": 5,
+  "total_matched": 2,
   "stocks": [
     {
-      "ticker": "000977",
-      "name": "浪潮信息",
-      "date": "2026-07-14",
-      "close": 82.2,
-      "trend_line": 80.99,
-      "trend_prev": 90.75,
+      "ticker": "301047",
+      "name": "义翘神州",
+      "date": "2026-07-15",
+      "close": 73.98,
+      "trend_line": 88.84,
+      "trend_prev": 92.24,
       "signal_note": "趋势线下穿89 → 准备卖出",
-      "mcap_yi": 889.0,
-      "jl_growth_pct": 15.35
+      "mcap_yi": 85.0,
+      "jl_growth_pct": 10.94
     },
     {
-      "ticker": "002261",
-      "name": "拓维信息",
-      "date": "2026-07-14",
-      "close": 30.72,
-      "trend_line": 75.75,
-      "trend_prev": 90.62,
+      "ticker": "603118",
+      "name": "共进股份",
+      "date": "2026-07-15",
+      "close": 13.3,
+      "trend_line": 80.98,
+      "trend_prev": 90.58,
       "signal_note": "趋势线下穿89 → 准备卖出",
-      "mcap_yi": 448.0,
-      "jl_growth_pct": 852.03
-    },
-    {
-      "ticker": "002396",
-      "name": "星网锐捷",
-      "date": "2026-07-14",
-      "close": 27.7,
-      "trend_line": 84.54,
-      "trend_prev": 93.39,
-      "signal_note": "趋势线下穿89 → 准备卖出",
-      "mcap_yi": 175.0,
-      "jl_growth_pct": 31.06
-    },
-    {
-      "ticker": "002437",
-      "name": "誉衡药业",
-      "date": "2026-07-14",
-      "close": 3.03,
-      "trend_line": 87.4,
-      "trend_prev": 90.75,
-      "signal_note": "趋势线下穿89 → 准备卖出",
-      "mcap_yi": 71.0,
-      "jl_growth_pct": 32.85
-    },
-    {
-      "ticker": "300065",
-      "name": "海兰信",
-      "date": "2026-07-14",
-      "close": 21.79,
-      "trend_line": 65.36,
-      "trend_prev": 91.03,
-      "signal_note": "趋势线下穿89 → 准备卖出",
-      "mcap_yi": 177.0,
-      "jl_growth_pct": 290.58
+      "mcap_yi": 96.0,
+      "jl_growth_pct": 529.94
     }
   ]
 }

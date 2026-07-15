@@ -1,35 +1,22 @@
 {
   "strategy": "expma_vol_cr_signals",
   "strategy_name": "EXPMA+VOL+CR 多因子信号",
-  "screen_date": "2026-07-14",
+  "screen_date": "2026-07-15",
   "total_scanned": 4363,
-  "total_matched": 2,
+  "total_matched": 1,
   "stocks": [
     {
-      "ticker": "301584",
-      "name": "建发致新",
-      "date": "2026-07-14",
-      "close": 24.43,
-      "ema5": 21.98,
-      "ema29": 21.65,
-      "vol_ma8": 4503825,
-      "vol_ma89": 3556943,
-      "cr": 113.27,
-      "mcap_yi": 116.0,
-      "jl_growth_pct": 45.01
-    },
-    {
-      "ticker": "600881",
-      "name": "亚泰集团",
-      "date": "2026-07-14",
-      "close": 1.67,
-      "ema5": 1.59,
-      "ema29": 1.56,
-      "vol_ma8": 61386344,
-      "vol_ma89": 58831526,
-      "cr": 120.86,
-      "mcap_yi": 53.0,
-      "jl_growth_pct": 26.27
+      "ticker": "301381",
+      "name": "赛维时代",
+      "date": "2026-07-15",
+      "close": 21.54,
+      "ema5": 19.64,
+      "ema29": 18.89,
+      "vol_ma8": 6362479,
+      "vol_ma89": 4947623,
+      "cr": 173.34,
+      "mcap_yi": 83.0,
+      "jl_growth_pct": 7.34
     }
   ]
 }
