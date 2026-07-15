@@ -206,7 +206,18 @@ function showDownload(cid,imgKey,suffix){
   const selId=imgKey.replace('Buy','-buy').replace('Sell','-sell');
   const dk=suffix||document.getElementById(selId+'-date-select')?.value||'latest';
   const imgName=dk==='latest'?IMG_NAMES[imgKey]+'_latest.png':IMG_NAMES[imgKey]+'_'+dk+'.png';
-  el.innerHTML=`<a class="download-link" href="${imgName}" download>${DOWNLOAD_SVG} 下载图片</a>`;
+  el.innerHTML=`<a class="download-link" href="#" onclick="downloadFile('${imgName}');return false;">${DOWNLOAD_SVG} 下载图片</a>`;
+}
+
+function downloadFile(url){
+  fetch(BASE+url).then(r=>r.blob()).then(blob=>{
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download=url.split('/').pop();
+    document.body.appendChild(a);a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(a.href);
+  }).catch(()=>window.open(BASE+url,'_blank'));
 }
 
 const rsiF=[{key:'date',label:'日期'},{key:'close',label:'收盘价',format:v=>typeof v==='number'?v.toFixed(2):v},{key:'rsi12',label:'RSI(12)'},{key:'rsi_ma56',label:'RSI MA(56)'},{key:'volume',label:'成交量',format:v=>typeof v==='number'?v.toLocaleString():v},{key:'mcap_yi',label:'市值(亿)',format:v=>(v!=null&&typeof v==='number')?v.toFixed(2)+'亿':'-'},{key:'jl_growth_pct',label:'净利增长%',format:v=>(v!=null&&typeof v==='number')?(v>=0?'+':'')+v.toFixed(2)+'%':'-'}];
@@ -269,12 +280,12 @@ document.getElementById('stb-buy-date-select').addEventListener('change',e=>refr
 document.getElementById('stb-sell-date-select').addEventListener('change',e=>refreshStbSell(e.target.value));
 document.getElementById('resonance-date-select').addEventListener('change',e=>refreshRes(e.target.value));
 
-async function refreshRsi(dk){const fn=dk==='latest'?RPF+'latest.json':RPF+dk+'.json';const d=await loadJSON(fn);_curR=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('rsi-summary',_curR,'满足条件','blue');renderTable('rsi-table-area',_curR,rsiF,document.getElementById('rsi-search').value);showImg('rsi','rsi',dk);}
-async function refreshSig(dk){const fn=dk==='latest'?SPF+'latest.json':SPF+dk+'.json';const d=await loadJSON(fn);_curS=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('sig-summary',_curS,'满足条件','purple');renderTable('sig-table-area',_curS,sigF,document.getElementById('sig-search').value);showImg('sig','sig',dk);}
-async function refreshMa(dk){const fn=dk==='latest'?MPF+'latest.json':MPF+dk+'.json';const d=await loadJSON(fn);_curM=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('ma-summary',_curM,'满足条件','cyan');renderTable('ma-table-area',_curM,maF,document.getElementById('ma-search').value);showImg('ma','ma',dk);}
-async function refreshStbBuy(dk){const fn=dk==='latest'?STB_BUY+'latest.json':STB_BUY+dk+'.json';const d=await loadJSON(fn);_curStbBuy=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('stb-buy-summary',_curStbBuy,'🟢 趋势线上穿11','green');renderTable('stb-buy-table-area',_curStbBuy,stbF,'');showImg('stb-buy','stbBuy',dk);}
-async function refreshStbSell(dk){const fn=dk==='latest'?STB_SELL+'latest.json':STB_SELL+dk+'.json';const d=await loadJSON(fn);_curStbSell=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('stb-sell-summary',_curStbSell,'🔴 趋势线下穿89','red');renderTable('stb-sell-table-area',_curStbSell,stbF,'');showImg('stb-sell','stbSell',dk);}
-async function refreshRes(dk){const fn=dk==='latest'?RESF+'latest.json':RESF+dk+'.json';const d=await loadJSON(fn);_curRes=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('resonance-summary',_curRes,'🔗 RSI金叉 + 超级顶底','orange');renderTable('resonance-table-area',_curRes,resF,'');showImg('resonance','res',dk);}
+async function refreshRsi(dk){const fn=dk==='latest'?RPF+'latest.json':RPF+dk+'.json';const d=await loadJSON(fn);_curR=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('rsi-summary',_curR,'满足条件','blue');renderTable('rsi-table-area',_curR,rsiF,document.getElementById('rsi-search').value);showDownload('rsi','rsi',dk);}
+async function refreshSig(dk){const fn=dk==='latest'?SPF+'latest.json':SPF+dk+'.json';const d=await loadJSON(fn);_curS=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('sig-summary',_curS,'满足条件','purple');renderTable('sig-table-area',_curS,sigF,document.getElementById('sig-search').value);showDownload('sig','sig',dk);}
+async function refreshMa(dk){const fn=dk==='latest'?MPF+'latest.json':MPF+dk+'.json';const d=await loadJSON(fn);_curM=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('ma-summary',_curM,'满足条件','cyan');renderTable('ma-table-area',_curM,maF,document.getElementById('ma-search').value);showDownload('ma','ma',dk);}
+async function refreshStbBuy(dk){const fn=dk==='latest'?STB_BUY+'latest.json':STB_BUY+dk+'.json';const d=await loadJSON(fn);_curStbBuy=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('stb-buy-summary',_curStbBuy,'🟢 趋势线上穿11','green');renderTable('stb-buy-table-area',_curStbBuy,stbF,'');showDownload('stb-buy','stbBuy',dk);}
+async function refreshStbSell(dk){const fn=dk==='latest'?STB_SELL+'latest.json':STB_SELL+dk+'.json';const d=await loadJSON(fn);_curStbSell=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('stb-sell-summary',_curStbSell,'🔴 趋势线下穿89','red');renderTable('stb-sell-table-area',_curStbSell,stbF,'');showDownload('stb-sell','stbSell',dk);}
+async function refreshRes(dk){const fn=dk==='latest'?RESF+'latest.json':RESF+dk+'.json';const d=await loadJSON(fn);_curRes=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('resonance-summary',_curRes,'🔗 RSI金叉 + 超级顶底','orange');renderTable('resonance-table-area',_curRes,resF,'');showDownload('resonance','res',dk);}
 
 async function renderHistory(){
   const el=document.getElementById('history-area');
