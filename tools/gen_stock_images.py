@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""生成策略选股图片网格，每个策略一张 PNG，并同时生成 *_latest.png 软链接。"""
+"""生成策略选股图片网格，每个策略一张 PNG，并同时生成 *_latest.png 副本。
+使用 Pillow 纯 Python 生成，无需外部依赖。"""
 
-import json, os, sys
+import json, os, shutil
 from pathlib import Path
 from datetime import datetime
-import subprocess
+from PIL import Image, ImageDraw, ImageFont
 
 OUTPUT_DIR = Path(__file__).resolve().parent.parent / "output" / "strategy"
 
@@ -17,20 +18,34 @@ STRATEGY_CONFIGS = [
     {"prefix": "screen_rsi_stb_resonance", "title": "RSI共振"},
 ]
 
-
-def find_latest_json(prefix):
-    files = list(OUTPUT_DIR.glob(f"{prefix}_*.json"))
-    files = [f for f in files if "_latest" not in f.name]
-    if not files:
-        return None
-    return max(files, key=lambda f: f.name)
-
+# Colors (dark theme)
+BG = (13, 17, 23)
+CARD_BG = (22, 27, 34)
+BORDER = (48, 54, 61)
+TEXT = (230, 237, 243)
+ACCENT = (88, 166, 255)
 
 def load_stocks(json_path):
     with open(json_path, "r") as f:
         data = json.load(f)
     return data.get("stocks", data if isinstance(data, list) else [])
 
+def get_font(size):
+    for path in [
+        "/Library/Fonts/PingFang.ttc",
+        "/System/Library/Fonts/PingFang.ttc",
+        "/Library/Fonts/Microsoft/SimHei.ttf",
+        "/System/Library/Fonts/STHeiti Light.ttc",
+    ]:
+        if os.path.exists(path):
+            try:
+                return ImageFont.truetype(path, size)
+            except Exception:
+                pass
+    try:
+        return ImageFont.truetype("/Library/Fonts/Arial Unicode.ttf", size)
+    except Exception:
+        return ImageFont.load_default()
 
 def generate_image(prefix, title, json_path):
     stocks = load_stocks(json_path)
@@ -38,65 +53,89 @@ def generate_image(prefix, title, json_path):
         return None
 
     date_str = json_path.stem.split("_")[-1]
+    # Remove year prefix if present (e.g., 2026-07-15 → 0715)
+    if "-" in date_str:
+        date_short = date_str.replace("-", "")[4:]
+    else:
+        date_short = date_str
+
     codes = [s["ticker"] for s in stocks[:200]]
     count = len(codes)
 
     cols = 6
-    rows = (count + cols - 1) // cols + 1
-    cell_w, cell_h = 110, 34
-    margin_x, margin_y = 24, 24
-    header_h = 48
-    img_w = cols * cell_w + margin_x * 2
-    img_h = header_h + rows * cell_h + margin_y * 2
+    rows = (count + cols - 1) // cols
+    remainder = count % cols
+    if remainder:
+        rows += 1
 
-    html = f"""<!DOCTYPE html>
-<html><head><meta charset="utf-8"><style>
-body{{background:#1a1a2e;color:#eee;font-family:'SF Mono','Fira Code',monospace;margin:0;padding:{margin_y}px {margin_x}px 0}}
-.h1{{font-size:22px;font-weight:700;text-align:center;padding:12px 0 6px;border-bottom:2px solid #e94560;margin-bottom:6px}}
-.h2{{font-size:14px;color:#999;text-align:center;margin-bottom:14px}}
-.grid{{display:grid;grid-template-columns:repeat({cols},{cell_w}px);gap:6px 0;justify-content:center}}
-.cell{{background:#16213e;border:1px solid #0f3460;border-radius:4px;padding:6px 10px;text-align:center;font-size:15px;letter-spacing:1px}}
-</style></head><body>
-<div class="h1">{title}</div>
-<div class="h2">{date_str} | 共 {count} 只</div>
-<div class="grid">
-{''.join(f'<div class="cell">{c}</div>' for c in codes)}
-</div></body></html>"""
+    cell_w, cell_h = 108, 32
+    margin = 24
+    header_h = 60
+    img_w = cols * cell_w + margin * 2 + (cols - 1) * 4
+    img_h = header_h + rows * (cell_h + 4) + margin * 2
 
-    tmp_html = OUTPUT_DIR / f"_tmp_{prefix}.html"
-    tmp_html.write_text(html, encoding="utf-8")
+    img = Image.new("RGB", (img_w, img_h), BG)
+    draw = ImageDraw.Draw(img)
 
+    # Fonts
+    title_font = get_font(20)
+    subtitle_font = get_font(13)
+    cell_font = get_font(14)
+    header_font = get_font(13)
+
+    # Title
+    title_text = f"{title}"
+    title_bbox = draw.textbbox((0, 0), title_text, font=title_font)
+    tw = title_bbox[2] - title_bbox[0]
+    draw.text(((img_w - tw) // 2, 14), title_text, fill=ACCENT, font=title_font)
+
+    # Subtitle line: draw a subtle border under title, then subtitle
+    sub_y = 40
+    draw.line([(margin, sub_y), (img_w - margin, sub_y)], fill=BORDER, width=1)
+
+    subtitle_text = f"{date_str}  |  共 {count} 只"
+    sub_bbox = draw.textbbox((0, 0), subtitle_text, font=subtitle_font)
+    sw = sub_bbox[2] - sub_bbox[0]
+    draw.text(((img_w - sw) // 2, sub_y + 4), subtitle_text, fill=(139, 148, 158), font=subtitle_font)
+
+    # Grid
+    y_start = header_h + margin
+    for i, code in enumerate(codes):
+        col = i % cols
+        row = i // cols
+        x = margin + col * (cell_w + 4)
+        y = y_start + row * (cell_h + 4)
+
+        # Cell background
+        draw.rounded_rectangle(
+            [(x, y), (x + cell_w, y + cell_h)],
+            radius=4,
+            fill=CARD_BG,
+            outline=BORDER,
+        )
+
+        # Code text center
+        code_bbox = draw.textbbox((0, 0), code, font=cell_font)
+        cw = code_bbox[2] - code_bbox[0]
+        ch = code_bbox[3] - code_bbox[1]
+        draw.text(
+            (x + (cell_w - cw) // 2, y + (cell_h - ch) // 2 - cell_font.getmask(code).getbbox()[1] if hasattr(cell_font, 'getmask') else y + (cell_h - ch) // 2),
+            code,
+            fill=TEXT,
+            font=cell_font,
+        )
+
+    # Save
     today_short = datetime.now().strftime("%m%d")
     filename = f"{prefix}_{today_short}.png"
     out = OUTPUT_DIR / filename
+    img.save(out, "PNG")
 
-    try:
-        subprocess.run(
-            ["wkhtmltoimage", "--width", str(img_w), "--height", str(img_h),
-             "--background", "#1a1a2e", str(tmp_html), str(out)],
-            capture_output=True, timeout=120,
-        )
-    except FileNotFoundError:
-        img_w_px = 800; img_h_px = 600
-        html_full = f"""<html><head><meta charset="utf-8">
-<style>body{{background:#1a1a2e;color:#eee;font-family:monospace;padding:40px}}
-h1{{font-size:24px;text-align:center;color:#e94560}}h2{{color:#888;text-align:center}}
-.grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px;margin-top:20px}}
-.cell{{background:#16213e;border:1px solid #0f3460;border-radius:6px;padding:8px 8px;text-align:center;font-size:14px}}</style></head>
-<body><h1>{title}</h1><h2>{date_str} | 共{count}只</h2><div class="grid">
-{''.join(f'<div class="cell">{c}</div>' for c in codes)}</div></html>"""
-        tmp2 = OUTPUT_DIR / f"_tmp2_{prefix}.html"
-        tmp2.write_text(html_full, encoding="utf-8")
-        subprocess.run(
-            ["wkhtmltoimage", "--width", str(img_w_px),
-             "--background", "#1a1a2e", str(tmp2), str(out)],
-            capture_output=True, timeout=120,
-        )
+    # Create latest copy
+    latest = OUTPUT_DIR / f"{prefix}_latest.png"
+    shutil.copy2(out, latest)
 
-    if out.exists() and out.stat().st_size > 0:
-        return {"title": f"{title} {today_short}", "image": filename, "count": count, "base": prefix}
-    return None
-
+    return {"title": f"{title} {today_short}", "image": filename, "count": count, "base": prefix}
 
 def main():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -109,27 +148,19 @@ def main():
         if cfg.get("enabled", True) is False:
             skipped.append(f"{title}（已禁用）")
             continue
+
         json_path = OUTPUT_DIR / f"{prefix}_latest.json"
         if not json_path.exists():
-            json_path = find_latest_json(prefix)
-        if not json_path:
-            skipped.append(title)
+            skipped.append(f"{title}（无数据）")
             continue
 
         print(f"🖼️ 生成: {title}")
         result = generate_image(prefix, title, json_path)
         if result:
             image_index.append(result)
-            # 创建 latest 图片副本（软链无法推送到 GitHub Pages）
-            latest_link = OUTPUT_DIR / f"{prefix}_latest.png"
-            target_file = OUTPUT_DIR / result["image"]
-            if target_file.exists():
-                import shutil
-                shutil.copy2(target_file, latest_link)
-                print(f"   ✅ {result['image']} + {latest_link.name}")
+            print(f"   ✅ {result['image']} + _latest.png ({result['count']}只)")
         else:
             skipped.append(title)
-            print(f"   ⚠️ {title} 无数据或生成失败")
 
     index_path = OUTPUT_DIR / "image_index.json"
     with open(index_path, "w", encoding="utf-8") as f:
@@ -137,7 +168,6 @@ def main():
     print(f"\n📋 image_index.json → {len(image_index)} 张图片")
     if skipped:
         print(f"⚠️ 跳过: {', '.join(skipped)}")
-
 
 if __name__ == "__main__":
     main()

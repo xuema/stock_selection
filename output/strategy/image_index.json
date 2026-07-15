@@ -6,12 +6,6 @@
     "base": "screen_rsi_golden_cross"
   },
   {
-    "title": "RSI共振 0715",
-    "image": "screen_rsi_stb_resonance_0715.png",
-    "count": 8,
-    "base": "screen_rsi_stb_resonance"
-  },
-  {
     "title": "EXPMA+多因子 0715",
     "image": "screen_signals_0715.png",
     "count": 1,
@@ -28,5 +22,11 @@
     "image": "screen_super_top_bottom_sell_0715.png",
     "count": 2,
     "base": "screen_super_top_bottom_sell"
+  },
+  {
+    "title": "RSI共振 0715",
+    "image": "screen_rsi_stb_resonance_0715.png",
+    "count": 8,
+    "base": "screen_rsi_stb_resonance"
   }
 ]
