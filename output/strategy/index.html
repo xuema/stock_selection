@@ -210,7 +210,7 @@ function summary(cid,data,prefix,cardClass){
 const DOWNLOAD_SVG='<svg viewBox="0 0 24 24"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zM5 18h14v2H5z"/></svg>';
 
 function showImg(cid,imgKey,suffix){
-  const el=document.getElementById(cid);if(!el)return;
+  const el=document.getElementById(cid+'-download');if(!el)return;
   const selId=imgKey.replace('Buy','-buy').replace('Sell','-sell');
   const dk=suffix||document.getElementById(selId+'-date-select')?.value||'latest';
   const imgName=dk==='latest'?IMG_NAMES[imgKey]+'_latest.png':IMG_NAMES[imgKey]+'_'+dk+'.png';
