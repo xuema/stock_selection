@@ -35,7 +35,6 @@
   .stat-card.cyan .num{color:var(--cyan)}
   .strategy-section{margin-bottom:32px;display:none}
   .strategy-section.active{display:block}
-  .strategy-section h2{font-size:1.15rem;margin-bottom:12px}
   .sub-tabs{display:flex;gap:4px;margin-bottom:16px}
   .sub-tab-btn{background:var(--card);border:1px solid var(--border);color:var(--muted);padding:6px 14px;font-size:.85rem;cursor:pointer;border-radius:20px;transition:all .2s}
   .sub-tab-btn:hover{color:var(--text)}
@@ -209,12 +208,13 @@ function summary(cid,data,prefix,cardClass){
 }
 
 const DOWNLOAD_SVG='<svg viewBox="0 0 24 24"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zM5 18h14v2H5z"/></svg>';
+
 function showImg(cid,imgKey,suffix){
   const el=document.getElementById(cid);if(!el)return;
   const selId=imgKey.replace('Buy','-buy').replace('Sell','-sell');
-  const dk=suffix||document.getElementById(imgKey.replace('Buy','-buy').replace('Sell','-sell')+'-date-select')?.value||'latest';
+  const dk=suffix||document.getElementById(selId+'-date-select')?.value||'latest';
   const imgName=dk==='latest'?IMG_NAMES[imgKey]+'_latest.png':IMG_NAMES[imgKey]+'_'+dk+'.png';
-  el.innerHTML='<a class="download-link" href="'+imgName+'" download><a class="download-link" href="'+imgName+'" download>'+DOWNLOAD_SVG+' 下载图片</a>';
+  el.innerHTML='<a class="download-link" href="'+imgName+'" download>'+DOWNLOAD_SVG+' 下载图片</a>';
 }
 
 function previewImg(cid,imgKey,suffix){
@@ -226,7 +226,13 @@ function previewImg(cid,imgKey,suffix){
   const a=new Image();a.onload=()=>el.classList.add('visible');a.onerror=()=>el.style.display='none';a.src=imgName;
 }
 
-function doFor(cid,imgKey,suffix){showImg(cid,imgKey,suffix);previewImg(cid,imgKey,suffix)}
+function doFor(cid,imgKey,suffix){
+  if(suffix!==undefined)document.getElementById(cid+'-date-select')?.querySelectorAll('option').forEach(o=>{
+    if(o.value===suffix)o.selected=true;
+  });
+  showImg(cid,imgKey,suffix);
+  previewImg(cid,imgKey,suffix);
+}
 
 const rsiF=[
   {key:'date',label:'日期'},
@@ -313,6 +319,8 @@ document.querySelectorAll('.sub-tab-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{
     btn.parentElement.querySelectorAll('.sub-tab-btn').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
+    // deactivate all sibling sub-sections
+    document.querySelectorAll('#sec-stb .sub-section').forEach(s=>s.classList.remove('active'));
     document.getElementById('stb-sec-'+btn.dataset.stbtab).classList.add('active');
   });
 });
