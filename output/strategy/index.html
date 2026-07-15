@@ -61,6 +61,12 @@
   .history-row label{font-size:.85rem;color:var(--muted)}
   .search-input{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:6px 12px;font-size:.85rem;width:160px}
   .search-input::placeholder{color:var(--muted)}
+  .download-link{display:inline-flex;align-items:center;gap:6px;background:rgba(88,166,255,.12);border:1px solid rgba(88,166,255,.25);color:var(--accent);padding:6px 14px;font-size:.82rem;border-radius:20px;cursor:pointer;text-decoration:none;transition:all .2s}
+  .download-link:hover{background:rgba(88,166,255,.25);border-color:var(--accent)}
+  .download-link svg{width:14px;height:14px;fill:currentColor}
+  .download-row{margin-bottom:12px}
+  .img-preview{max-width:100%;border-radius:12px;margin-bottom:16px;border:1px solid var(--border);display:none}
+  .img-preview.visible{display:block}
   @media(max-width:768px){.stock-table{font-size:.82rem}.stock-table th,.stock-table td{padding:8px 8px}}
 </style>
 </head>
@@ -88,6 +94,8 @@
     <label>日期:</label><select id="rsi-date-select"><option value="latest">✨ 最新</option></select>
     <span style="margin-left:auto"><input class="search-input" id="rsi-search" type="search" placeholder="搜索代码或名称…"></span>
   </div>
+  <div class="download-row" id="rsi-download"></div>
+  <img class="img-preview" id="rsi-img">
   <div id="rsi-table-area"><div class="loading">加载中</div></div>
 </div>
 
@@ -98,6 +106,8 @@
     <label>日期:</label><select id="sig-date-select"><option value="latest">✨ 最新</option></select>
     <span style="margin-left:auto"><input class="search-input" id="sig-search" type="search" placeholder="搜索代码或名称…"></span>
   </div>
+  <div class="download-row" id="sig-download"></div>
+  <img class="img-preview" id="sig-img">
   <div id="sig-table-area"><div class="loading">加载中</div></div>
 </div>
 
@@ -108,6 +118,8 @@
     <label>日期:</label><select id="ma-date-select"><option value="latest">✨ 最新</option></select>
     <span style="margin-left:auto"><input class="search-input" id="ma-search" type="search" placeholder="搜索代码或名称…"></span>
   </div>
+  <div class="download-row" id="ma-download"></div>
+  <img class="img-preview" id="ma-img">
   <div id="ma-table-area"><div class="loading">加载中</div></div>
 </div>
 
@@ -123,6 +135,8 @@
       <label>日期:</label><select id="stb-buy-date-select"><option value="latest">✨ 最新</option></select>
       <span style="margin-left:auto"><input class="search-input" id="stb-buy-search" type="search" placeholder="搜索代码或名称…"></span>
     </div>
+    <div class="download-row" id="stb-buy-download"></div>
+    <img class="img-preview" id="stb-buy-img">
     <div id="stb-buy-table-area"><div class="loading">加载中</div></div>
   </div>
   <div class="sub-section" id="stb-sec-sell">
@@ -131,6 +145,8 @@
       <label>日期:</label><select id="stb-sell-date-select"><option value="latest">✨ 最新</option></select>
       <span style="margin-left:auto"><input class="search-input" id="stb-sell-search" type="search" placeholder="搜索代码或名称…"></span>
     </div>
+    <div class="download-row" id="stb-sell-download"></div>
+    <img class="img-preview" id="stb-sell-img">
     <div id="stb-sell-table-area"><div class="loading">加载中</div></div>
   </div>
 </div>
@@ -142,6 +158,8 @@
     <label>日期:</label><select id="resonance-date-select"><option value="latest">✨ 最新</option></select>
     <span style="margin-left:auto"><input class="search-input" id="resonance-search" type="search" placeholder="搜索代码或名称…"></span>
   </div>
+  <div class="download-row" id="resonance-download"></div>
+  <img class="img-preview" id="resonance-img">
   <div id="resonance-table-area"><div class="loading">加载中</div></div>
 </div>
 
@@ -159,6 +177,15 @@ const MPF='screen_ma_pullback_';
 const STB_BUY='screen_super_top_bottom_buy_';
 const STB_SELL='screen_super_top_bottom_sell_';
 const RESF='screen_rsi_stb_resonance_';
+
+const IMG_NAMES={
+  rsi:'screen_rsi_golden_cross',
+  sig:'screen_signals',
+  ma:'screen_ma_pullback',
+  stbBuy:'screen_super_top_bottom_buy',
+  stbSell:'screen_super_top_bottom_sell',
+  res:'screen_rsi_stb_resonance',
+};
 
 let rsiDates=[],sigDates=[],maDates=[],stbDates=[],resDates=[];
 let _names={};
@@ -180,6 +207,26 @@ function summary(cid,data,prefix,cardClass){
   const n=data?data.length:0;
   el.innerHTML=`<div class="stat-card ${cardClass||'blue'}"><div class="num">${n}</div><div class="label">${prefix||'满足条件'}</div></div>`;
 }
+
+const DOWNLOAD_SVG='<svg viewBox="0 0 24 24"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zM5 18h14v2H5z"/></svg>';
+function showImg(cid,imgKey,suffix){
+  const el=document.getElementById(cid);if(!el)return;
+  const selId=imgKey.replace('Buy','-buy').replace('Sell','-sell');
+  const dk=suffix||document.getElementById(imgKey.replace('Buy','-buy').replace('Sell','-sell')+'-date-select')?.value||'latest';
+  const imgName=dk==='latest'?IMG_NAMES[imgKey]+'_latest.png':IMG_NAMES[imgKey]+'_'+dk+'.png';
+  el.innerHTML='<a class="download-link" href="'+imgName+'" download><a class="download-link" href="'+imgName+'" download>'+DOWNLOAD_SVG+' 下载图片</a>';
+}
+
+function previewImg(cid,imgKey,suffix){
+  const el=document.getElementById(cid+'-img');if(!el)return;
+  const dk=suffix||document.getElementById(cid+'-date-select')?.value||'latest';
+  const imgName=dk==='latest'?IMG_NAMES[imgKey]+'_latest.png':IMG_NAMES[imgKey]+'_'+dk+'.png';
+  el.src=imgName;
+  el.classList.remove('visible');
+  const a=new Image();a.onload=()=>el.classList.add('visible');a.onerror=()=>el.style.display='none';a.src=imgName;
+}
+
+function doFor(cid,imgKey,suffix){showImg(cid,imgKey,suffix);previewImg(cid,imgKey,suffix)}
 
 const rsiF=[
   {key:'date',label:'日期'},
@@ -231,10 +278,14 @@ const resF=[
   {key:'jl_growth_pct',label:'净利增长%',format:v=>(v!=null&&typeof v==='number')?(v>=0?'+':'')+v.toFixed(2)+'%':'-'}
 ];
 
-function renderTable(cid,data,fields,q,tag){
+function renderTable(cid,data,fields,q){
   const el=document.getElementById(cid);
   q=(q||'').toLowerCase().trim();
-  const arr=q?data.filter(s=>(s.ticker||'').includes(q)||((s.name||_names[s.ticker]||'').toLowerCase().includes(q))):data;
+  const filterFn=s=>{
+    if(!q)return true;
+    return (s.ticker||'').includes(q)||((s.name||_names[s.ticker]||'').toLowerCase().includes(q));
+  };
+  const arr=data.filter(filterFn);
   if(!arr.length){el.innerHTML=q?`<div class="empty">🔍 无匹配 "${q}"</div>`:'<div class="empty">📭 暂无数据</div>';return}
   let h='<table class="stock-table"><thead><tr><th>#</th><th>代码</th><th>名称</th>';
   fields.forEach(f=>h+=`<th>${f.label}</th>`);
@@ -262,8 +313,6 @@ document.querySelectorAll('.sub-tab-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{
     btn.parentElement.querySelectorAll('.sub-tab-btn').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
-    const sec=document.getElementById('sec-stb');
-    sec.querySelectorAll('.sub-section').forEach(s=>s.classList.remove('active'));
     document.getElementById('stb-sec-'+btn.dataset.stbtab).classList.add('active');
   });
 });
@@ -290,6 +339,7 @@ async function refreshRsi(dk){
   _curR=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);
   summary('rsi-summary',_curR,'满足条件','blue');
   renderTable('rsi-table-area',_curR,rsiF,document.getElementById('rsi-search').value);
+  doFor('rsi','rsi',dk);
 }
 async function refreshSig(dk){
   const fn=dk==='latest'?SPF+'latest.json':SPF+dk+'.json';
@@ -297,6 +347,7 @@ async function refreshSig(dk){
   _curS=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);
   summary('sig-summary',_curS,'满足条件','purple');
   renderTable('sig-table-area',_curS,sigF,document.getElementById('sig-search').value);
+  doFor('sig','sig',dk);
 }
 async function refreshMa(dk){
   const fn=dk==='latest'?MPF+'latest.json':MPF+dk+'.json';
@@ -304,6 +355,7 @@ async function refreshMa(dk){
   _curM=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);
   summary('ma-summary',_curM,'满足条件','cyan');
   renderTable('ma-table-area',_curM,maF,document.getElementById('ma-search').value);
+  doFor('ma','ma',dk);
 }
 async function refreshStbBuy(dk){
   const fn=dk==='latest'?STB_BUY+'latest.json':STB_BUY+dk+'.json';
@@ -311,6 +363,7 @@ async function refreshStbBuy(dk){
   _curStbBuy=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);
   summary('stb-buy-summary',_curStbBuy,'🟢 趋势线上穿11','green');
   renderTable('stb-buy-table-area',_curStbBuy,stbF,'');
+  doFor('stb-buy','stbBuy',dk);
 }
 async function refreshStbSell(dk){
   const fn=dk==='latest'?STB_SELL+'latest.json':STB_SELL+dk+'.json';
@@ -318,6 +371,7 @@ async function refreshStbSell(dk){
   _curStbSell=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);
   summary('stb-sell-summary',_curStbSell,'🔴 趋势线下穿89','red');
   renderTable('stb-sell-table-area',_curStbSell,stbF,'');
+  doFor('stb-sell','stbSell',dk);
 }
 async function refreshRes(dk){
   const fn=dk==='latest'?RESF+'latest.json':RESF+dk+'.json';
@@ -325,6 +379,7 @@ async function refreshRes(dk){
   _curRes=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);
   summary('resonance-summary',_curRes,'🔗 RSI金叉 + 超级顶底','orange');
   renderTable('resonance-table-area',_curRes,resF,'');
+  doFor('resonance','res',dk);
 }
 
 async function renderHistory(){
