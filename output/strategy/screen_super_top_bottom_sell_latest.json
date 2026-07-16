@@ -2,31 +2,64 @@
   "strategy": "screen_super_top_bottom_sell",
   "strategy_name": "超级顶底 卖出信号",
   "signal_type": "sell",
-  "screen_date": "2026-07-15",
+  "screen_date": "2026-07-16",
   "total_scanned": 4363,
-  "total_matched": 2,
+  "total_matched": 5,
   "stocks": [
     {
-      "ticker": "301047",
-      "name": "义翘神州",
-      "date": "2026-07-15",
-      "close": 73.98,
-      "trend_line": 88.84,
-      "trend_prev": 92.24,
+      "ticker": "002317",
+      "name": "众生药业",
+      "date": "2026-07-16",
+      "close": 29.96,
+      "trend_line": 83.3,
+      "trend_prev": 94.09,
       "signal_note": "趋势线下穿89 → 准备卖出",
-      "mcap_yi": 85.0,
-      "jl_growth_pct": 10.94
+      "mcap_yi": 149.0,
+      "jl_growth_pct": 68.4
     },
     {
-      "ticker": "603118",
-      "name": "共进股份",
-      "date": "2026-07-15",
-      "close": 13.3,
-      "trend_line": 80.98,
-      "trend_prev": 90.58,
+      "ticker": "002546",
+      "name": "新联电子",
+      "date": "2026-07-16",
+      "close": 7.8,
+      "trend_line": 83.62,
+      "trend_prev": 94.91,
       "signal_note": "趋势线下穿89 → 准备卖出",
-      "mcap_yi": 96.0,
-      "jl_growth_pct": 529.94
+      "mcap_yi": 88.0,
+      "jl_growth_pct": 421.43
+    },
+    {
+      "ticker": "300369",
+      "name": "绿盟科技",
+      "date": "2026-07-16",
+      "close": 6.83,
+      "trend_line": 80.53,
+      "trend_prev": 90.57,
+      "signal_note": "趋势线下穿89 → 准备卖出",
+      "mcap_yi": 74.0,
+      "jl_growth_pct": 39.85
+    },
+    {
+      "ticker": "603233",
+      "name": "大参林",
+      "date": "2026-07-16",
+      "close": 19.25,
+      "trend_line": 88.91,
+      "trend_prev": 89.82,
+      "signal_note": "趋势线下穿89 → 准备卖出",
+      "mcap_yi": 206.0,
+      "jl_growth_pct": 25.97
+    },
+    {
+      "ticker": "688176",
+      "name": "亚虹医药",
+      "date": "2026-07-16",
+      "close": 14.43,
+      "trend_line": 84.34,
+      "trend_prev": 91.83,
+      "signal_note": "趋势线下穿89 → 准备卖出",
+      "mcap_yi": 78.0,
+      "jl_growth_pct": 8.08
     }
   ]
 }
