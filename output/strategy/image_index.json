@@ -1,32 +1,32 @@
 [
   {
-    "title": "RSI金叉 0716",
-    "image": "screen_rsi_golden_cross_0716.png",
-    "count": 30,
+    "title": "RSI金叉 0717",
+    "image": "screen_rsi_golden_cross_0717.png",
+    "count": 13,
     "base": "screen_rsi_golden_cross"
   },
   {
-    "title": "EXPMA+多因子 0716",
-    "image": "screen_signals_0716.png",
-    "count": 1,
+    "title": "EXPMA+多因子 0717",
+    "image": "screen_signals_0717.png",
+    "count": 3,
     "base": "screen_signals"
   },
   {
-    "title": "超级顶底买入 0716",
-    "image": "screen_super_top_bottom_buy_0716.png",
-    "count": 81,
+    "title": "超级顶底买入 0717",
+    "image": "screen_super_top_bottom_buy_0717.png",
+    "count": 15,
     "base": "screen_super_top_bottom_buy"
   },
   {
-    "title": "超级顶底卖出 0716",
-    "image": "screen_super_top_bottom_sell_0716.png",
-    "count": 5,
+    "title": "超级顶底卖出 0717",
+    "image": "screen_super_top_bottom_sell_0717.png",
+    "count": 20,
     "base": "screen_super_top_bottom_sell"
   },
   {
-    "title": "RSI共振 0716",
-    "image": "screen_rsi_stb_resonance_0716.png",
-    "count": 1,
+    "title": "RSI共振 0717",
+    "image": "screen_rsi_stb_resonance_0717.png",
+    "count": 4,
     "base": "screen_rsi_stb_resonance"
   }
 ]

@@ -1,22 +1,61 @@
 {
   "strategy": "rsi_stb_resonance",
   "strategy_name": "RSI 金叉 + 超级顶底 双重共振",
-  "screen_date": "2026-07-16",
+  "screen_date": "2026-07-17",
   "total_scanned": 4363,
-  "total_matched": 1,
+  "total_matched": 4,
   "stocks": [
     {
-      "ticker": "603596",
-      "name": "伯特利",
-      "date": "2026-07-16",
-      "close": 23.76,
-      "volume": 21652727,
-      "rsi12": 40.97,
-      "rsi_ma56": 34.92,
-      "trend_line": 14.92,
-      "trend_prev": 9.99,
-      "mcap_yi": 294.0,
-      "jl_growth_pct": 14.58
+      "ticker": "000899",
+      "name": "赣能股份",
+      "date": "2026-07-17",
+      "close": 10.7,
+      "volume": 36318879,
+      "rsi12": 70.14,
+      "rsi_ma56": 45.73,
+      "trend_line": 21.3,
+      "trend_prev": 8.21,
+      "mcap_yi": 135.0,
+      "jl_growth_pct": 36.26
+    },
+    {
+      "ticker": "600021",
+      "name": "上海电力",
+      "date": "2026-07-17",
+      "close": 14.77,
+      "volume": 96698557,
+      "rsi12": 61.78,
+      "rsi_ma56": 43.1,
+      "trend_line": 15.27,
+      "trend_prev": 4.41,
+      "mcap_yi": 598.0,
+      "jl_growth_pct": 24.04
+    },
+    {
+      "ticker": "600744",
+      "name": "华银电力",
+      "date": "2026-07-17",
+      "close": 5.96,
+      "volume": 79735920,
+      "rsi12": 58.33,
+      "rsi_ma56": 40.45,
+      "trend_line": 17.67,
+      "trend_prev": 6.71,
+      "mcap_yi": 169.0,
+      "jl_growth_pct": 954.94
+    },
+    {
+      "ticker": "600982",
+      "name": "宁波能源",
+      "date": "2026-07-17",
+      "close": 5.0,
+      "volume": 80403252,
+      "rsi12": 67.95,
+      "rsi_ma56": 44.0,
+      "trend_line": 23.34,
+      "trend_prev": 9.5,
+      "mcap_yi": 57.0,
+      "jl_growth_pct": 22.53
     }
   ]
 }

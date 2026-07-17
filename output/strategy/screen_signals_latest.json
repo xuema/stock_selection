@@ -1,22 +1,48 @@
 {
   "strategy": "expma_vol_cr_signals",
   "strategy_name": "EXPMA+VOL+CR 多因子信号",
-  "screen_date": "2026-07-16",
+  "screen_date": "2026-07-17",
   "total_scanned": 4363,
-  "total_matched": 1,
+  "total_matched": 3,
   "stocks": [
     {
-      "ticker": "600763",
-      "name": "通策医疗",
-      "date": "2026-07-16",
-      "close": 36.64,
-      "ema5": 35.44,
-      "ema29": 35.17,
-      "vol_ma8": 8297350,
-      "vol_ma89": 8073649,
-      "cr": 126.1,
-      "mcap_yi": 189.0,
-      "jl_growth_pct": 3.16
+      "ticker": "003010",
+      "name": "若羽臣",
+      "date": "2026-07-17",
+      "close": 26.62,
+      "ema5": 25.05,
+      "ema29": 24.47,
+      "vol_ma8": 9098266,
+      "vol_ma89": 7916330,
+      "cr": 118.02,
+      "mcap_yi": 92.0,
+      "jl_growth_pct": 81.57
+    },
+    {
+      "ticker": "300146",
+      "name": "汤臣倍健",
+      "date": "2026-07-17",
+      "close": 10.18,
+      "ema5": 9.81,
+      "ema29": 9.75,
+      "vol_ma8": 17534602,
+      "vol_ma89": 14111884,
+      "cr": 151.37,
+      "mcap_yi": 192.0,
+      "jl_growth_pct": 19.81
+    },
+    {
+      "ticker": "605179",
+      "name": "一鸣食品",
+      "date": "2026-07-17",
+      "close": 14.55,
+      "ema5": 13.78,
+      "ema29": 13.7,
+      "vol_ma8": 3960526,
+      "vol_ma89": 2716306,
+      "cr": 116.41,
+      "mcap_yi": 69.0,
+      "jl_growth_pct": 25.74
     }
   ]
 }
