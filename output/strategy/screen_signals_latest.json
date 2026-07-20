@@ -1,48 +1,22 @@
 {
   "strategy": "expma_vol_cr_signals",
   "strategy_name": "EXPMA+VOL+CR 多因子信号",
-  "screen_date": "2026-07-17",
+  "screen_date": "2026-07-20",
   "total_scanned": 4363,
-  "total_matched": 3,
+  "total_matched": 1,
   "stocks": [
     {
-      "ticker": "003010",
-      "name": "若羽臣",
-      "date": "2026-07-17",
-      "close": 26.62,
-      "ema5": 25.05,
-      "ema29": 24.47,
-      "vol_ma8": 9098266,
-      "vol_ma89": 7916330,
-      "cr": 118.02,
-      "mcap_yi": 92.0,
-      "jl_growth_pct": 81.57
-    },
-    {
-      "ticker": "300146",
-      "name": "汤臣倍健",
-      "date": "2026-07-17",
-      "close": 10.18,
-      "ema5": 9.81,
-      "ema29": 9.75,
-      "vol_ma8": 17534602,
-      "vol_ma89": 14111884,
-      "cr": 151.37,
-      "mcap_yi": 192.0,
-      "jl_growth_pct": 19.81
-    },
-    {
-      "ticker": "605179",
-      "name": "一鸣食品",
-      "date": "2026-07-17",
-      "close": 14.55,
-      "ema5": 13.78,
-      "ema29": 13.7,
-      "vol_ma8": 3960526,
-      "vol_ma89": 2716306,
-      "cr": 116.41,
-      "mcap_yi": 69.0,
-      "jl_growth_pct": 25.74
+      "ticker": "001872",
+      "name": "招商港口",
+      "date": "2026-07-20",
+      "close": 22.24,
+      "ema5": 21.6,
+      "ema29": 21.45,
+      "vol_ma8": 3665917,
+      "vol_ma89": 3436696,
+      "cr": 141.96,
+      "mcap_yi": 575.0,
+      "jl_growth_pct": 1.89
     }
   ]
 }
