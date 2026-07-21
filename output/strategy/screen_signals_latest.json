@@ -1,22 +1,8 @@
 {
   "strategy": "expma_vol_cr_signals",
   "strategy_name": "EXPMA+VOL+CR 多因子信号",
-  "screen_date": "2026-07-20",
+  "screen_date": "2026-07-21",
   "total_scanned": 4363,
-  "total_matched": 1,
-  "stocks": [
-    {
-      "ticker": "001872",
-      "name": "招商港口",
-      "date": "2026-07-20",
-      "close": 22.24,
-      "ema5": 21.6,
-      "ema29": 21.45,
-      "vol_ma8": 3665917,
-      "vol_ma89": 3436696,
-      "cr": 141.96,
-      "mcap_yi": 575.0,
-      "jl_growth_pct": 1.89
-    }
-  ]
+  "total_matched": 0,
+  "stocks": []
 }
