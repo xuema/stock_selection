@@ -1,8 +1,22 @@
 {
   "strategy": "expma_vol_cr_signals",
   "strategy_name": "EXPMA+VOL+CR 多因子信号",
-  "screen_date": "2026-07-21",
+  "screen_date": "2026-07-22",
   "total_scanned": 4363,
-  "total_matched": 0,
-  "stocks": []
+  "total_matched": 1,
+  "stocks": [
+    {
+      "ticker": "600489",
+      "name": "中金黄金",
+      "date": "2026-07-22",
+      "close": 22.16,
+      "ema5": 20.67,
+      "ema29": 20.52,
+      "vol_ma8": 77192848,
+      "vol_ma89": 74177894,
+      "cr": 89.9,
+      "mcap_yi": 1294.0,
+      "jl_growth_pct": 39.18
+    }
+  ]
 }
