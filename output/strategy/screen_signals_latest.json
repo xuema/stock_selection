@@ -1,22 +1,35 @@
 {
   "strategy": "expma_vol_cr_signals",
   "strategy_name": "EXPMA+VOL+CR 多因子信号",
-  "screen_date": "2026-07-22",
+  "screen_date": "2026-07-23",
   "total_scanned": 4363,
-  "total_matched": 1,
+  "total_matched": 2,
   "stocks": [
     {
-      "ticker": "600489",
-      "name": "中金黄金",
-      "date": "2026-07-22",
-      "close": 22.16,
-      "ema5": 20.67,
-      "ema29": 20.52,
-      "vol_ma8": 77192848,
-      "vol_ma89": 74177894,
-      "cr": 89.9,
-      "mcap_yi": 1294.0,
-      "jl_growth_pct": 39.18
+      "ticker": "002953",
+      "name": "日丰股份",
+      "date": "2026-07-23",
+      "close": 10.35,
+      "ema5": 9.53,
+      "ema29": 9.29,
+      "vol_ma8": 9571496,
+      "vol_ma89": 6660051,
+      "cr": 109.96,
+      "mcap_yi": 62.0,
+      "jl_growth_pct": 10.4
+    },
+    {
+      "ticker": "301609",
+      "name": "山大电力",
+      "date": "2026-07-23",
+      "close": 37.8,
+      "ema5": 35.66,
+      "ema29": 35.29,
+      "vol_ma8": 3964394,
+      "vol_ma89": 3763223,
+      "cr": 97.26,
+      "mcap_yi": 85.0,
+      "jl_growth_pct": 7.6
     }
   ]
 }
