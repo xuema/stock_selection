@@ -2,21 +2,10 @@
   "strategy": "screen_super_top_bottom_buy",
   "strategy_name": "超级顶底 买入信号",
   "signal_type": "buy",
-  "screen_date": "2026-07-24",
+  "screen_date": "2026-07-25",
   "total_scanned": 4363,
-  "total_matched": 57,
+  "total_matched": 54,
   "stocks": [
-    {
-      "ticker": "000158",
-      "name": "常山北明",
-      "date": "2026-07-23",
-      "close": 12.44,
-      "trend_line": 12.23,
-      "trend_prev": 9.44,
-      "signal_note": "趋势线上穿11 → 准备买入",
-      "mcap_yi": 322.0,
-      "jl_growth_pct": 48.05
-    },
     {
       "ticker": "000859",
       "name": "国风新材",
@@ -159,17 +148,6 @@
       "signal_note": "趋势线上穿11 → 准备买入",
       "mcap_yi": 64.0,
       "jl_growth_pct": 42.99
-    },
-    {
-      "ticker": "300322",
-      "name": "硕贝德",
-      "date": "2026-07-23",
-      "close": 17.57,
-      "trend_line": 12.34,
-      "trend_prev": 10.33,
-      "signal_note": "趋势线上穿11 → 准备买入",
-      "mcap_yi": 121.0,
-      "jl_growth_pct": 1290.66
     },
     {
       "ticker": "300433",
@@ -357,17 +335,6 @@
       "signal_note": "趋势线上穿11 → 准备买入",
       "mcap_yi": 120.0,
       "jl_growth_pct": 223.71
-    },
-    {
-      "ticker": "600855",
-      "name": "航天长峰",
-      "date": "2026-07-23",
-      "close": 11.56,
-      "trend_line": 15.79,
-      "trend_prev": 10.61,
-      "signal_note": "趋势线上穿11 → 准备买入",
-      "mcap_yi": 83.0,
-      "jl_growth_pct": 22.26
     },
     {
       "ticker": "603092",

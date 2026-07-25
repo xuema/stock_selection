@@ -4,8 +4,73 @@
   "signal_type": "sell",
   "screen_date": "2026-07-24",
   "total_scanned": 4363,
-  "total_matched": 14,
+  "total_matched": 33,
   "stocks": [
+    {
+      "ticker": "000661",
+      "name": "长春高新",
+      "date": "2026-07-24",
+      "close": 75.5,
+      "trend_line": 81.34,
+      "trend_prev": 91.98,
+      "v_ratio": 0.74,
+      "atr": 4.22,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 83.93
+    },
+    {
+      "ticker": "000676",
+      "name": "智度股份",
+      "date": "2026-07-24",
+      "close": 6.51,
+      "trend_line": 84.39,
+      "trend_prev": 92.82,
+      "v_ratio": 1.72,
+      "atr": 0.47,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 7.45
+    },
+    {
+      "ticker": "000938",
+      "name": "紫光股份",
+      "date": "2026-07-24",
+      "close": 42.09,
+      "trend_line": 86.23,
+      "trend_prev": 89.06,
+      "v_ratio": 0.82,
+      "atr": 3.68,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 49.46
+    },
+    {
+      "ticker": "002197",
+      "name": "证通电子",
+      "date": "2026-07-24",
+      "close": 6.9,
+      "trend_line": 86.6,
+      "trend_prev": 93.32,
+      "v_ratio": 3.67,
+      "atr": 0.46,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 7.81
+    },
+    {
+      "ticker": "002252",
+      "name": "上海莱士",
+      "date": "2026-07-24",
+      "close": 5.01,
+      "trend_line": 83.35,
+      "trend_prev": 90.03,
+      "v_ratio": 0.52,
+      "atr": 0.19,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 5.39
+    },
     {
       "ticker": "002396",
       "name": "星网锐捷",
@@ -13,9 +78,11 @@
       "close": 33.11,
       "trend_line": 85.93,
       "trend_prev": 89.48,
-      "signal_note": "趋势线下穿89 → 准备卖出",
-      "mcap_yi": 175.0,
-      "jl_growth_pct": 31.06
+      "v_ratio": 0.87,
+      "atr": 3.36,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 39.83
     },
     {
       "ticker": "002440",
@@ -24,9 +91,24 @@
       "close": 11.85,
       "trend_line": 85.83,
       "trend_prev": 96.48,
-      "signal_note": "趋势线下穿89 → 准备卖出",
-      "mcap_yi": 126.0,
-      "jl_growth_pct": 49.1
+      "v_ratio": 0.99,
+      "atr": 0.88,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 13.61
+    },
+    {
+      "ticker": "300039",
+      "name": "上海凯宝",
+      "date": "2026-07-24",
+      "close": 5.16,
+      "trend_line": 77.19,
+      "trend_prev": 89.81,
+      "v_ratio": 1.0,
+      "atr": 0.46,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 6.08
     },
     {
       "ticker": "300164",
@@ -35,9 +117,50 @@
       "close": 12.3,
       "trend_line": 87.86,
       "trend_prev": 90.2,
-      "signal_note": "趋势线下穿89 → 准备卖出",
-      "mcap_yi": 116.0,
-      "jl_growth_pct": 16.84
+      "v_ratio": 1.25,
+      "atr": 1.38,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 15.07
+    },
+    {
+      "ticker": "300534",
+      "name": "陇神戎发",
+      "date": "2026-07-24",
+      "close": 11.5,
+      "trend_line": 81.76,
+      "trend_prev": 92.95,
+      "v_ratio": 1.41,
+      "atr": 1.36,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 14.22
+    },
+    {
+      "ticker": "300628",
+      "name": "亿联网络",
+      "date": "2026-07-24",
+      "close": 36.67,
+      "trend_line": 83.57,
+      "trend_prev": 90.67,
+      "v_ratio": 0.75,
+      "atr": 1.66,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 39.99
+    },
+    {
+      "ticker": "300832",
+      "name": "新产业",
+      "date": "2026-07-24",
+      "close": 47.47,
+      "trend_line": 88.8,
+      "trend_prev": 91.9,
+      "v_ratio": 0.35,
+      "atr": 2.22,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 51.91
     },
     {
       "ticker": "301367",
@@ -46,9 +169,24 @@
       "close": 46.32,
       "trend_line": 76.43,
       "trend_prev": 90.74,
-      "signal_note": "趋势线下穿89 → 准备卖出",
-      "mcap_yi": 64.0,
-      "jl_growth_pct": 43.87
+      "v_ratio": 1.62,
+      "atr": 4.12,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 54.57
+    },
+    {
+      "ticker": "600018",
+      "name": "上港集团",
+      "date": "2026-07-24",
+      "close": 5.17,
+      "trend_line": 86.44,
+      "trend_prev": 89.72,
+      "v_ratio": 0.51,
+      "atr": 0.1,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 5.37
     },
     {
       "ticker": "600025",
@@ -57,9 +195,11 @@
       "close": 10.1,
       "trend_line": 88.8,
       "trend_prev": 91.57,
-      "signal_note": "趋势线下穿89 → 准备卖出",
-      "mcap_yi": 1954.0,
-      "jl_growth_pct": 4.34
+      "v_ratio": 0.67,
+      "atr": 0.24,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 10.59
     },
     {
       "ticker": "600039",
@@ -68,9 +208,24 @@
       "close": 8.83,
       "trend_line": 81.62,
       "trend_prev": 94.9,
-      "signal_note": "趋势线下穿89 → 准备卖出",
-      "mcap_yi": 847.0,
-      "jl_growth_pct": 11.04
+      "v_ratio": 1.04,
+      "atr": 0.35,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 9.53
+    },
+    {
+      "ticker": "600227",
+      "name": "赤天化",
+      "date": "2026-07-24",
+      "close": 3.21,
+      "trend_line": 85.92,
+      "trend_prev": 90.19,
+      "v_ratio": 1.7,
+      "atr": 0.29,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 3.79
     },
     {
       "ticker": "600236",
@@ -79,9 +234,24 @@
       "close": 10.63,
       "trend_line": 79.2,
       "trend_prev": 93.9,
-      "signal_note": "趋势线下穿89 → 准备卖出",
-      "mcap_yi": 775.0,
-      "jl_growth_pct": 11.8
+      "v_ratio": 1.66,
+      "atr": 0.68,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 11.99
+    },
+    {
+      "ticker": "600339",
+      "name": "中油工程",
+      "date": "2026-07-24",
+      "close": 3.37,
+      "trend_line": 84.39,
+      "trend_prev": 91.14,
+      "v_ratio": 1.08,
+      "atr": 0.13,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 3.63
     },
     {
       "ticker": "600406",
@@ -90,9 +260,37 @@
       "close": 23.72,
       "trend_line": 88.87,
       "trend_prev": 91.74,
-      "signal_note": "趋势线下穿89 → 准备卖出",
-      "mcap_yi": 2200.0,
-      "jl_growth_pct": 8.43
+      "v_ratio": 1.01,
+      "atr": 0.68,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 25.08
+    },
+    {
+      "ticker": "600583",
+      "name": "海油工程",
+      "date": "2026-07-24",
+      "close": 5.51,
+      "trend_line": 82.69,
+      "trend_prev": 89.83,
+      "v_ratio": 1.26,
+      "atr": 0.21,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 5.92
+    },
+    {
+      "ticker": "600602",
+      "name": "云赛智联",
+      "date": "2026-07-24",
+      "close": 17.51,
+      "trend_line": 76.34,
+      "trend_prev": 93.92,
+      "v_ratio": 1.24,
+      "atr": 1.38,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 20.28
     },
     {
       "ticker": "600644",
@@ -101,9 +299,11 @@
       "close": 9.39,
       "trend_line": 79.49,
       "trend_prev": 94.98,
-      "signal_note": "趋势线下穿89 → 准备卖出",
-      "mcap_yi": 74.0,
-      "jl_growth_pct": 6.22
+      "v_ratio": 1.94,
+      "atr": 0.69,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 10.76
     },
     {
       "ticker": "600690",
@@ -112,9 +312,37 @@
       "close": 21.73,
       "trend_line": 88.76,
       "trend_prev": 91.78,
-      "signal_note": "趋势线下穿89 → 准备卖出",
-      "mcap_yi": 2338.0,
-      "jl_growth_pct": 14.68
+      "v_ratio": 0.68,
+      "atr": 0.47,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 22.67
+    },
+    {
+      "ticker": "600821",
+      "name": "金开新能",
+      "date": "2026-07-24",
+      "close": 6.32,
+      "trend_line": 76.89,
+      "trend_prev": 90.62,
+      "v_ratio": 1.51,
+      "atr": 0.42,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 7.17
+    },
+    {
+      "ticker": "600929",
+      "name": "雪天盐业",
+      "date": "2026-07-24",
+      "close": 5.46,
+      "trend_line": 86.81,
+      "trend_prev": 92.65,
+      "v_ratio": 1.73,
+      "atr": 0.26,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 5.99
     },
     {
       "ticker": "600968",
@@ -123,9 +351,11 @@
       "close": 3.81,
       "trend_line": 88.71,
       "trend_prev": 90.23,
-      "signal_note": "趋势线下穿89 → 准备卖出",
-      "mcap_yi": 473.0,
-      "jl_growth_pct": 6.11
+      "v_ratio": 1.13,
+      "atr": 0.13,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 4.06
     },
     {
       "ticker": "600989",
@@ -134,9 +364,24 @@
       "close": 23.68,
       "trend_line": 87.28,
       "trend_prev": 90.86,
-      "signal_note": "趋势线下穿89 → 准备卖出",
-      "mcap_yi": 2337.0,
-      "jl_growth_pct": 79.09
+      "v_ratio": 0.99,
+      "atr": 1.17,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 26.02
+    },
+    {
+      "ticker": "600997",
+      "name": "开滦股份",
+      "date": "2026-07-24",
+      "close": 5.27,
+      "trend_line": 86.3,
+      "trend_prev": 90.15,
+      "v_ratio": 0.65,
+      "atr": 0.2,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 5.67
     },
     {
       "ticker": "601808",
@@ -145,9 +390,37 @@
       "close": 12.24,
       "trend_line": 85.77,
       "trend_prev": 92.82,
-      "signal_note": "趋势线下穿89 → 准备卖出",
-      "mcap_yi": 829.0,
-      "jl_growth_pct": 31.28
+      "v_ratio": 1.28,
+      "atr": 0.46,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 13.17
+    },
+    {
+      "ticker": "603567",
+      "name": "珍宝岛",
+      "date": "2026-07-24",
+      "close": 5.93,
+      "trend_line": 85.8,
+      "trend_prev": 93.04,
+      "v_ratio": 1.88,
+      "atr": 0.47,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 6.86
+    },
+    {
+      "ticker": "603823",
+      "name": "百合花",
+      "date": "2026-07-24",
+      "close": 77.66,
+      "trend_line": 87.0,
+      "trend_prev": 90.69,
+      "v_ratio": 0.72,
+      "atr": 8.12,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 93.9
     },
     {
       "ticker": "603939",
@@ -156,9 +429,11 @@
       "close": 21.79,
       "trend_line": 88.79,
       "trend_prev": 89.07,
-      "signal_note": "趋势线下穿89 → 准备卖出",
-      "mcap_yi": 296.0,
-      "jl_growth_pct": 10.27
+      "v_ratio": 0.34,
+      "atr": 0.88,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 23.55
     }
   ]
 }
