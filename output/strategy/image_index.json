@@ -14,13 +14,13 @@
   {
     "title": "超级顶底买入 0725",
     "image": "screen_super_top_bottom_buy_0725.png",
-    "count": 54,
+    "count": 26,
     "base": "screen_super_top_bottom_buy"
   },
   {
     "title": "超级顶底卖出 0725",
     "image": "screen_super_top_bottom_sell_0725.png",
-    "count": 14,
+    "count": 33,
     "base": "screen_super_top_bottom_sell"
   },
   {
