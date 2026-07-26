@@ -1,7 +1,7 @@
 {
   "strategy": "expma_vol_cr_signals",
   "strategy_name": "EXPMA+VOL+CR 多因子信号",
-  "screen_date": "2026-07-25",
+  "screen_date": "2026-07-26",
   "total_scanned": 4363,
   "total_matched": 5,
   "stocks": [

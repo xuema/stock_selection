@@ -2,7 +2,7 @@
   "strategy": "screen_super_top_bottom_buy",
   "strategy_name": "超级顶底 买入信号(Top20+评分)",
   "signal_type": "buy",
-  "screen_date": "2026-07-25",
+  "screen_date": "2026-07-26",
   "total_scanned": 4363,
   "total_matched": 26,
   "stocks": [
