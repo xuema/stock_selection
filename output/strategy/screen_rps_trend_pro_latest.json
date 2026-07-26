@@ -1,0 +1,69 @@
+{
+  "strategy": "screen_rps_trend_pro",
+  "strategy_name": "RPS多周期趋势跟踪 Pro",
+  "signal_type": "buy",
+  "screen_date": "2026-07-26",
+  "market_bullish": true,
+  "params": {
+    "rps_day_min": 85,
+    "rps_month_min": 80,
+    "near_high_ratio": 0.9,
+    "volume_ratio_min": 1.2,
+    "atr_multiplier": 2.0,
+    "hard_stop_loss": 0.08,
+    "min_market_cap": 50.0,
+    "max_hold_count": 5,
+    "high_window": 180
+  },
+  "total_matched": 3,
+  "stocks": [
+    {
+      "ticker": "001258",
+      "name": "立新能源",
+      "date": "2026-07-24",
+      "close": 13.32,
+      "rps_20": 100.0,
+      "rps_120": 97.2,
+      "score": 197.2,
+      "volume_ratio": 1.57,
+      "high_ratio": 1.0,
+      "high_window": 180,
+      "atr_14": 0.62,
+      "atr_stop_2x": 12.09,
+      "hard_stop_8pct": 12.25,
+      "mcap_yi": 87.0
+    },
+    {
+      "ticker": "002832",
+      "name": "比音勒芬",
+      "date": "2026-07-24",
+      "close": 22.67,
+      "rps_20": 92.1,
+      "rps_120": 95.3,
+      "score": 187.4,
+      "volume_ratio": 1.48,
+      "high_ratio": 1.0,
+      "high_window": 180,
+      "atr_14": 0.99,
+      "atr_stop_2x": 20.69,
+      "hard_stop_8pct": 20.86,
+      "mcap_yi": 94.0
+    },
+    {
+      "ticker": "603129",
+      "name": "春风动力",
+      "date": "2026-07-24",
+      "close": 280.0,
+      "rps_20": 93.9,
+      "rps_120": 83.2,
+      "score": 177.2,
+      "volume_ratio": 1.2,
+      "high_ratio": 0.942,
+      "high_window": 180,
+      "atr_14": 13.51,
+      "atr_stop_2x": 252.97,
+      "hard_stop_8pct": 257.6,
+      "mcap_yi": 342.0
+    }
+  ]
+}
