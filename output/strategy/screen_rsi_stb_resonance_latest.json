@@ -1,35 +1,48 @@
 {
   "strategy": "rsi_stb_resonance",
   "strategy_name": "RSI 金叉 + 超级顶底 双重共振",
-  "screen_date": "2026-07-26",
+  "screen_date": "2026-07-27",
   "total_scanned": 4363,
-  "total_matched": 2,
+  "total_matched": 3,
   "stocks": [
     {
-      "ticker": "002326",
-      "name": "永太科技",
-      "date": "2026-07-24",
-      "close": 18.19,
-      "volume": 67818885,
-      "rsi12": 46.8,
-      "rsi_ma56": 43.91,
-      "trend_line": 12.94,
-      "trend_prev": 6.43,
-      "mcap_yi": 200.0,
-      "jl_growth_pct": 136.23
+      "ticker": "002611",
+      "name": "东方精工",
+      "date": "2026-07-27",
+      "close": 14.8,
+      "volume": 22144218,
+      "rsi12": 46.94,
+      "rsi_ma56": 45.91,
+      "trend_line": 15.99,
+      "trend_prev": 9.86,
+      "mcap_yi": 197.0,
+      "jl_growth_pct": 54.64
     },
     {
-      "ticker": "300801",
-      "name": "泰和科技",
-      "date": "2026-07-24",
-      "close": 23.42,
-      "volume": 18725880,
-      "rsi12": 52.78,
-      "rsi_ma56": 46.18,
-      "trend_line": 18.49,
-      "trend_prev": 10.15,
-      "mcap_yi": 62.0,
-      "jl_growth_pct": 5.99
+      "ticker": "300450",
+      "name": "先导智能",
+      "date": "2026-07-27",
+      "close": 33.13,
+      "volume": 44302969,
+      "rsi12": 45.81,
+      "rsi_ma56": 37.23,
+      "trend_line": 12.46,
+      "trend_prev": 9.99,
+      "mcap_yi": 868.0,
+      "jl_growth_pct": 94.97
+    },
+    {
+      "ticker": "300580",
+      "name": "贝斯特",
+      "date": "2026-07-27",
+      "close": 20.04,
+      "volume": 16763585,
+      "rsi12": 47.93,
+      "rsi_ma56": 42.4,
+      "trend_line": 13.39,
+      "trend_prev": 7.6,
+      "mcap_yi": 109.0,
+      "jl_growth_pct": 5.06
     }
   ]
 }

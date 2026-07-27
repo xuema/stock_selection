@@ -1,74 +1,8 @@
 {
   "strategy": "expma_vol_cr_signals",
   "strategy_name": "EXPMA+VOL+CR 多因子信号",
-  "screen_date": "2026-07-26",
+  "screen_date": "2026-07-27",
   "total_scanned": 4363,
-  "total_matched": 5,
-  "stocks": [
-    {
-      "ticker": "002545",
-      "name": "东方铁塔",
-      "date": "2026-07-24",
-      "close": 18.76,
-      "ema5": 18.01,
-      "ema29": 17.89,
-      "vol_ma8": 23637519,
-      "vol_ma89": 23085816,
-      "cr": 101.8,
-      "mcap_yi": 340.0,
-      "jl_growth_pct": 77.57
-    },
-    {
-      "ticker": "300062",
-      "name": "中能电气",
-      "date": "2026-07-24",
-      "close": 7.01,
-      "ema5": 6.12,
-      "ema29": 5.89,
-      "vol_ma8": 31673893,
-      "vol_ma89": 24167778,
-      "cr": 125.03,
-      "mcap_yi": 57.0,
-      "jl_growth_pct": 223.05
-    },
-    {
-      "ticker": "301357",
-      "name": "北方长龙",
-      "date": "2026-07-24",
-      "close": 93.46,
-      "ema5": 82.33,
-      "ema29": 80.78,
-      "vol_ma8": 3049247,
-      "vol_ma89": 2533482,
-      "cr": 116.2,
-      "mcap_yi": 109.0,
-      "jl_growth_pct": 208.52
-    },
-    {
-      "ticker": "600698",
-      "name": "湖南天雁",
-      "date": "2026-07-24",
-      "close": 6.84,
-      "ema5": 6.17,
-      "ema29": 6.08,
-      "vol_ma8": 18990146,
-      "vol_ma89": 18517807,
-      "cr": 104.45,
-      "mcap_yi": 77.0,
-      "jl_growth_pct": 4.73
-    },
-    {
-      "ticker": "601678",
-      "name": "滨化股份",
-      "date": "2026-07-24",
-      "close": 6.67,
-      "ema5": 6.06,
-      "ema29": 5.87,
-      "vol_ma8": 161870398,
-      "vol_ma89": 134611663,
-      "cr": 125.22,
-      "mcap_yi": 99.0,
-      "jl_growth_pct": 1.63
-    }
-  ]
+  "total_matched": 0,
+  "stocks": []
 }
