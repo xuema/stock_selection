@@ -1,8 +1,35 @@
 {
   "strategy": "expma_vol_cr_signals",
   "strategy_name": "EXPMA+VOL+CR 多因子信号",
-  "screen_date": "2026-07-27",
+  "screen_date": "2026-07-28",
   "total_scanned": 4363,
-  "total_matched": 0,
-  "stocks": []
+  "total_matched": 2,
+  "stocks": [
+    {
+      "ticker": "002612",
+      "name": "朗姿股份",
+      "date": "2026-07-28",
+      "close": 13.33,
+      "ema5": 12.42,
+      "ema29": 12.06,
+      "vol_ma8": 7052031,
+      "vol_ma89": 5477975,
+      "cr": 137.24,
+      "mcap_yi": 69.0,
+      "jl_growth_pct": 366.95
+    },
+    {
+      "ticker": "300850",
+      "name": "新强联",
+      "date": "2026-07-28",
+      "close": 29.34,
+      "ema5": 26.76,
+      "ema29": 26.3,
+      "vol_ma8": 15932613,
+      "vol_ma89": 15361034,
+      "cr": 111.97,
+      "mcap_yi": 203.0,
+      "jl_growth_pct": 1939.5
+    }
+  ]
 }
