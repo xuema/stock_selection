@@ -1,48 +1,35 @@
 {
   "strategy": "expma_vol_cr_signals",
   "strategy_name": "EXPMA+VOL+CR 多因子信号",
-  "screen_date": "2026-07-29",
+  "screen_date": "2026-07-30",
   "total_scanned": 4363,
-  "total_matched": 3,
+  "total_matched": 2,
   "stocks": [
     {
-      "ticker": "300138",
-      "name": "晨光生物",
-      "date": "2026-07-29",
-      "close": 11.55,
-      "ema5": 10.87,
-      "ema29": 10.87,
-      "vol_ma8": 7615000,
-      "vol_ma89": 6620375,
-      "cr": 164.9,
-      "mcap_yi": 65.0,
-      "jl_growth_pct": 385.3
+      "ticker": "000997",
+      "name": "新大陆",
+      "date": "2026-07-30",
+      "close": 18.48,
+      "ema5": 17.51,
+      "ema29": 17.25,
+      "vol_ma8": 24700959,
+      "vol_ma89": 24327080,
+      "cr": 116.98,
+      "mcap_yi": 212.0,
+      "jl_growth_pct": 12.15
     },
     {
-      "ticker": "600733",
-      "name": "北汽蓝谷",
-      "date": "2026-07-29",
-      "close": 5.74,
-      "ema5": 5.2,
-      "ema29": 5.08,
-      "vol_ma8": 71118724,
-      "vol_ma89": 69925596,
-      "cr": 100.8,
-      "mcap_yi": 494.0,
-      "jl_growth_pct": 23.73
-    },
-    {
-      "ticker": "600861",
-      "name": "北京人力",
-      "date": "2026-07-29",
-      "close": 13.56,
-      "ema5": 13.21,
-      "ema29": 13.1,
-      "vol_ma8": 2868630,
-      "vol_ma89": 2854175,
-      "cr": 127.52,
-      "mcap_yi": 92.0,
-      "jl_growth_pct": 57.02
+      "ticker": "002537",
+      "name": "海联金汇",
+      "date": "2026-07-30",
+      "close": 5.81,
+      "ema5": 5.65,
+      "ema29": 5.63,
+      "vol_ma8": 29098908,
+      "vol_ma89": 28405422,
+      "cr": 103.97,
+      "mcap_yi": 101.0,
+      "jl_growth_pct": 354.05
     }
   ]
 }
