@@ -1,7 +1,7 @@
 {
   "strategy": "screen_rsp_trend_break",
   "strategy_name": "RSP趋势突破策略",
-  "screen_date": "2026-07-31",
+  "screen_date": "2026-08-01",
   "index": "000300",
   "params": {
     "min_market_cap": 50.0,
