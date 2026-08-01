@@ -104,6 +104,7 @@
   <button class="tab-btn" data-tab="stb">超级顶底</button>
   <button class="tab-btn resonance" data-tab="resonance">🔗 RSI+顶底共振</button>
   <button class="tab-btn" id="tab-midcap" data-tab="midcap">🔥 活跃中盘</button>
+  <button class="tab-btn" id="tab-sectors" data-tab="sectors">📊 RSP热门板块</button>
   <button class="tab-btn" data-tab="history">历史数据</button>
 </div>
 
@@ -368,6 +369,34 @@
   <div id="midcap-table-area"><div class="loading">加载中</div></div>
 </div>
 
+<!-- RSP热门板块 -->
+<div class="strategy-section" id="sec-sectors">
+  <div class="summary" id="sectors-summary"></div>
+
+<div class="strategy-rules">
+  <h3>📋 RSP热门板块策略</h3>
+  <div class="columns">
+    <div class="col">
+      <ul>
+        <li><b class="cond">RSP = 个股涨幅 - 基准指数涨幅</b></li>
+        <li><b class="cond">板块综合评分 = RSP×40% + 涨幅×40% + 领涨比例×20%</b></li>
+      </ul>
+    </div>
+    <div class="col">
+      <ul>
+        <li><b class="filter">🔒 板块最少3只股票</b></li>
+        <li><b class="sort">📊 评分降序排列</b></li>
+      </ul>
+    </div>
+  </div>
+</div>
+  <div class="history-row">
+    <label>日期:</label><select id="sectors-date-select"><option value="latest">✨ 最新</option></select>
+  </div>
+  <div class="download-row" id="sectors-download"></div>
+  <div id="sectors-table-area"><div class="loading">加载中</div></div>
+</div>
+
 <!-- History -->
 <div class="strategy-section" id="sec-history">
   <h2>📅 历史筛选记录</h2>
@@ -386,6 +415,7 @@ const RSPF='screen_rsp_trend_break_';
 const RPV2F='screen_rps_trend_v2_';
 const RPROF='screen_rps_trend_pro_';
 const MIDF='screen_active_midcap_';
+const SECTF='screen_hot_sectors_';
 
 const IMG_NAMES={
   rsp:'screen_rsp_trend_break',
@@ -398,16 +428,17 @@ const IMG_NAMES={
   stbSell:'screen_super_top_bottom_sell',
   res:'screen_rsi_stb_resonance',
   midcap:'screen_active_midcap',
+  sectors:'screen_hot_sectors',
 };
 
-let rsiDates=[],sigDates=[],maDates=[],stbDates=[],resDates=[],rspDates=[],rpsv2Dates=[],proDates=[],midcapDates=[];
+let rsiDates=[],sigDates=[],maDates=[],stbDates=[],resDates=[],rspDates=[],rpsv2Dates=[],proDates=[],midcapDates=[],sectorsDates=[];
 let _names={};
-let _curR=[],_curS=[],_curM=[],_curStbBuy=[],_curStbSell=[],_curRes=[],_curRsp=[],_curRpsv2=[],_curPro=[],_curMidcap=[];
+let _curR=[],_curS=[],_curM=[],_curStbBuy=[],_curStbSell=[],_curRes=[],_curRsp=[],_curRpsv2=[],_curPro=[],_curMidcap=[],_curSectors=[];
 
 async function loadJSON(fn){try{const r=await fetch(BASE+fn);if(!r.ok)return null;return await r.json()}catch(e){return null}}
 
 async function loadNames(){try{const d=await loadJSON('stock_names.json');if(d)_names=d}catch(e){}}
-async function loadDates(){try{const d=await loadJSON('dates.json');if(d){if(d.rsi)rsiDates=d.rsi;if(d.signals)sigDates=d.signals;if(d.ma)maDates=d.ma;if(d.stb)stbDates=d.stb;if(d.resonance)resDates=d.resonance;if(d.rsp)rspDates=d.rsp;if(d.rpsv2)rpsv2Dates=d.rpsv2;if(d.pro)proDates=d.pro;if(d.midcap)midcapDates=d.midcap}}catch(e){}}
+async function loadDates(){try{const d=await loadJSON('dates.json');if(d){if(d.rsi)rsiDates=d.rsi;if(d.signals)sigDates=d.signals;if(d.ma)maDates=d.ma;if(d.stb)stbDates=d.stb;if(d.resonance)resDates=d.resonance;if(d.rsp)rspDates=d.rsp;if(d.rpsv2)rpsv2Dates=d.rpsv2;if(d.pro)proDates=d.pro;if(d.midcap)midcapDates=d.midcap;if(d.sectors)sectorsDates=d.sectors}}catch(e){}}
 
 function fill(selId,dates){
   const s=document.getElementById(selId);
@@ -515,6 +546,7 @@ document.getElementById('ma-date-select').addEventListener('change',e=>refreshMa
 document.getElementById('stb-buy-date-select').addEventListener('change',e=>refreshStbBuy(e.target.value));
 document.getElementById('stb-sell-date-select').addEventListener('change',e=>refreshStbSell(e.target.value));
 document.getElementById('resonance-date-select').addEventListener('change',e=>refreshRes(e.target.value));
+document.getElementById('sectors-date-select').addEventListener('change',e=>refreshSectors(e.target.value));
 document.getElementById('midcap-date-select').addEventListener('change',e=>refreshMidcap(e.target.value));
 
 async function refreshRsp(dk){const fn=dk==='latest'?RSPF+'latest.json':RSPF+dk+'.json';const d=await loadJSON(fn);_curRsp=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('rsp-summary',_curRsp,'满足条件','teal');renderTable('rsp-table-area',_curRsp,rspF,document.getElementById('rsp-search').value);showDownload('rsp','rsp',dk);}
@@ -526,13 +558,41 @@ async function refreshMa(dk){const fn=dk==='latest'?MPF+'latest.json':MPF+dk+'.j
 async function refreshStbBuy(dk){const fn=dk==='latest'?STB_BUY+'latest.json':STB_BUY+dk+'.json';const d=await loadJSON(fn);_curStbBuy=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('stb-buy-summary',_curStbBuy,'🟢 趋势线上穿11','green');renderTable('stb-buy-table-area',_curStbBuy,stbBuyF,document.getElementById('stb-buy-search').value);showDownload('stb-buy','stbBuy',dk);}
 async function refreshStbSell(dk){const fn=dk==='latest'?STB_SELL+'latest.json':STB_SELL+dk+'.json';const d=await loadJSON(fn);_curStbSell=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('stb-sell-summary',_curStbSell,'🔴 趋势线下穿89','red');renderTable('stb-sell-table-area',_curStbSell,stbSellF,document.getElementById('stb-sell-search').value);showDownload('stb-sell','stbSell',dk);}
 async function refreshRes(dk){const fn=dk==='latest'?RESF+'latest.json':RESF+dk+'.json';const d=await loadJSON(fn);_curRes=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('resonance-summary',_curRes,'🔗 RSI金叉 + 超级顶底','orange');renderTable('resonance-table-area',_curRes,resF,'');showDownload('resonance','res',dk);}
+async function refreshSectors(dk){
+  const fn=dk==='latest'?SECTF+'latest.json':SECTF+dk+'.json';
+  const d=await loadJSON(fn);
+  if(!d){document.getElementById('sectors-table-area').innerHTML='<div class="empty">暂无数据</div>';return}
+  _curSectors=d;
+  const sectors=d.sectors||[];
+  const stocks=d.stocks||[];
+  document.getElementById('sectors-summary').innerHTML=`<div class="stat-card teal"><div class="num">${sectors.length}</div><div class="label">热门板块</div></div><div class="stat-card amber"><div class="num">${stocks.length}</div><div class="label">板块内股票</div></div>`;
+  showDownload('sectors','sectors',dk);
+  const el=document.getElementById('sectors-table-area');
+  if(!sectors.length){el.innerHTML='<div class="empty">暂无板块数据</div>';return}
+  let h='<h3 style="margin-bottom:12px;color:var(--cyan)">🏆 板块排名</h3>';
+  h+='<table class="stock-table"><thead><tr><th>排名</th><th>板块</th><th>股票数</th><th>平均RSP</th><th>平均涨幅</th><th>中位涨幅</th><th>最大涨幅</th><th>领涨股</th><th>综合评分</th></tr></thead><tbody>';
+  sectors.forEach((s,i)=>{
+    const cls=i<3?'signal-buy':'';
+    h+=`<tr><td class="${cls}">${i+1}</td><td class="ticker">${s.sector}</td><td>${s.n_stocks}</td><td>${s.avg_rsp>0?'+':''}${s.avg_rsp}</td><td class="${s.avg_pct>=0?'pos':'neg'}">${s.avg_pct>=0?'+':''}${s.avg_pct}%</td><td>${s.median_pct>=0?'+':''}${s.median_pct}%</td><td class="pos">+${s.max_pct}%</td><td>${s.n_leaders}</td><td>★${s.score}</td></tr>`;
+  });
+  h+='</tbody></table>';
+  if(stocks.length){
+    h+='<h3 style="margin:16px 0 12px;color:var(--amber)">📈 热门板块内强势股</h3>';
+    h+='<table class="stock-table"><thead><tr><th>#</th><th>代码</th><th>名称</th><th>板块</th><th>RSP</th><th>涨幅</th><th>收盘价</th><th>市值(亿)</th></tr></thead><tbody>';
+    stocks.forEach((s,i)=>{
+      h+=`<tr><td>${i+1}</td><td class="ticker">${s.ticker}</td><td class="name">${s.name||_names[s.ticker]||''}</td><td>${s.sector}</td><td>${s.rsp>0?'+':''}${s.rsp}</td><td class="${s.pct>=0?'pos':'neg'}">${s.pct>=0?'+':''}${s.pct}%</td><td>${s.close}</td><td>${s.mcap_yi||'-'}</td></tr>`;
+    });
+    h+='</tbody></table>';
+  }
+  el.innerHTML=h;
+}
 async function refreshMidcap(dk){const fn=dk==='latest'?MIDF+'latest.json':MIDF+dk+'.json';const d=await loadJSON(fn);_curMidcap=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('midcap-summary',_curMidcap,'🔥 量价共振','green');renderTable('midcap-table-area',_curMidcap,midcapF,document.getElementById('midcap-search').value);showDownload('midcap','midcap',dk);}
 
 async function renderHistory(){
   const el=document.getElementById('history-area');
-  if(!proDates.length&&!rpsv2Dates.length&&!rspDates.length&&!rsiDates.length&&!sigDates.length&&!maDates.length&&!stbDates.length&&!resDates.length&&!midcapDates.length){el.innerHTML='<div class="empty">暂无记录</div>';return}
-  const all=[...new Set([...proDates,...rpsv2Dates,...rspDates,...rsiDates,...sigDates,...maDates,...stbDates,...resDates,...midcapDates])].sort().reverse();
-  let h='<table class="stock-table"><thead><tr><th>日期</th><th>RPS超强势</th><th>RPS V2</th><th>RSP趋势突破</th><th>RSI金叉</th><th>多因子</th><th>MA回调</th><th>顶底买入</th><th>顶底卖出</th><th>共振</th><th>活跃中盘</th></tr></thead><tbody>';
+  if(!proDates.length&&!rpsv2Dates.length&&!rspDates.length&&!rsiDates.length&&!sigDates.length&&!maDates.length&&!stbDates.length&&!resDates.length&&!midcapDates.length&&!sectorsDates.length){el.innerHTML='<div class="empty">暂无记录</div>';return}
+  const all=[...new Set([...proDates,...rpsv2Dates,...rspDates,...rsiDates,...sigDates,...maDates,...stbDates,...resDates,...midcapDates,...sectorsDates])].sort().reverse();
+  let h='<table class="stock-table"><thead><tr><th>日期</th><th>RPS超强势</th><th>RPS V2</th><th>RSP趋势突破</th><th>RSI金叉</th><th>多因子</th><th>MA回调</th><th>顶底买入</th><th>顶底卖出</th><th>共振</th><th>活跃中盘</th><th>RSP板块</th></tr></thead><tbody>';
   for(const dt of all){
     const prod=proDates.includes(dt)?await loadJSON(RPROF+dt+'.json'):null;
     const rpsv2d=rpsv2Dates.includes(dt)?await loadJSON(RPV2F+dt+'.json'):null;
@@ -554,19 +614,21 @@ async function renderHistory(){
     const resN=rdt?((rdt.stocks||[]).length||rdt.length||0):'-';
     const midN=midcapDates.includes(dt)?await loadJSON(MIDF+dt+'.json'):null;
     const midcapN=midN?((midN.stocks||[]).length||midN.length||0):'-';
-    h+=`<tr><td>${dt}</td><td class="num" style="color:var(--accent)">${proN}</td><td class="num" style="color:var(--amber)">${rpsv2N}</td><td class="num" style="color:var(--teal)">${respN}</td><td class="num">${rn}</td><td class="num">${sn}</td><td class="num">${mn}</td><td class="signal-buy">${bn}</td><td class="signal-sell">${sl}</td><td class="signal-sell">${resN}</td><td class="signal-buy">${midcapN}</td></tr>`;
+    const secD=sectorsDates.includes(dt)?await loadJSON(SECTF+dt+'.json'):null;
+    const secN=secD?((secD.sectors||[]).length||0):'-';
+    h+=`<tr><td>${dt}</td><td class="num" style="color:var(--accent)">${proN}</td><td class="num" style="color:var(--amber)">${rpsv2N}</td><td class="num" style="color:var(--teal)">${respN}</td><td class="num">${rn}</td><td class="num">${sn}</td><td class="num">${mn}</td><td class="signal-buy">${bn}</td><td class="signal-sell">${sl}</td><td class="signal-sell">${resN}</td><td class="signal-buy">${midcapN}</td><td class="num" style="color:var(--cyan)">${secN}</td></tr>`;
   }
   h+='</tbody></table>';el.innerHTML=h;
 }
 
 async function init(){
   await Promise.all([loadNames(),loadDates()]);
-  fill('pro-date-select',proDates);fill('rpsv2-date-select',rpsv2Dates);fill('rsp-date-select',rspDates);fill('rsi-date-select',rsiDates);fill('sig-date-select',sigDates);fill('ma-date-select',maDates);fill('stb-buy-date-select',stbDates);fill('stb-sell-date-select',stbDates);fill('resonance-date-select',resDates);fill('midcap-date-select',midcapDates);
-  await Promise.all([refreshPro('latest'),refreshRpsv2('latest'),refreshRsp('latest'),refreshRsi('latest'),refreshSig('latest'),refreshMa('latest'),refreshStbBuy('latest'),refreshStbSell('latest'),refreshRes('latest'),refreshMidcap('latest')]);
+  fill('pro-date-select',proDates);fill('rpsv2-date-select',rpsv2Dates);fill('rsp-date-select',rspDates);fill('rsi-date-select',rsiDates);fill('sig-date-select',sigDates);fill('ma-date-select',maDates);fill('stb-buy-date-select',stbDates);fill('stb-sell-date-select',stbDates);fill('resonance-date-select',resDates);fill('midcap-date-select',midcapDates);fill('sectors-date-select',sectorsDates);
+  await Promise.all([refreshPro('latest'),refreshRpsv2('latest'),refreshRsp('latest'),refreshRsi('latest'),refreshSig('latest'),refreshMa('latest'),refreshStbBuy('latest'),refreshStbSell('latest'),refreshRes('latest'),refreshMidcap('latest'),refreshSectors('latest')]);
   const now=new Date();
   document.getElementById('headerDate').textContent='更新于 '+now.toLocaleString('zh-CN',{timeZone:'Asia/Shanghai'});
   document.getElementById('statusBadge').innerHTML='✅ 数据已加载';
-  if(proDates.length||rpsv2Dates.length||rspDates.length||rsiDates.length||sigDates.length||maDates.length||stbDates.length||resDates.length||midcapDates.length)renderHistory();
+  if(proDates.length||rpsv2Dates.length||rspDates.length||rsiDates.length||sigDates.length||maDates.length||stbDates.length||resDates.length||midcapDates.length||sectorsDates.length)renderHistory();
 }
 init();
 </script>

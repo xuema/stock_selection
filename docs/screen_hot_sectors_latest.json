@@ -1,0 +1,7456 @@
+{
+  "strategy": "screen_hot_sectors",
+  "strategy_name": "RSP热门板块",
+  "screen_date": "2026-08-01",
+  "params": {
+    "lookback": 20,
+    "min_stocks": 3,
+    "top_n": 15
+  },
+  "total_sectors": 11,
+  "total_stocks": 733,
+  "sectors": [
+    {
+      "sector": "Healthcare",
+      "n_stocks": 68,
+      "avg_rsp": 0.165,
+      "avg_pct": 6.01,
+      "median_pct": 5.54,
+      "max_pct": 43.67,
+      "n_leaders": 34,
+      "score": 90.0
+    },
+    {
+      "sector": "Consumer Defensive",
+      "n_stocks": 48,
+      "avg_rsp": 0.1157,
+      "avg_pct": 1.09,
+      "median_pct": 1.85,
+      "max_pct": 25.4,
+      "n_leaders": 24,
+      "score": 74.4
+    },
+    {
+      "sector": "Communication Services",
+      "n_stocks": 28,
+      "avg_rsp": 0.0454,
+      "avg_pct": -5.95,
+      "median_pct": -4.74,
+      "max_pct": 19.17,
+      "n_leaders": 14,
+      "score": 48.1
+    },
+    {
+      "sector": "Real Estate",
+      "n_stocks": 24,
+      "avg_rsp": 0.0413,
+      "avg_pct": -6.36,
+      "median_pct": -6.43,
+      "max_pct": 4.57,
+      "n_leaders": 12,
+      "score": 46.5
+    },
+    {
+      "sector": "Energy",
+      "n_stocks": 19,
+      "avg_rsp": 0.0396,
+      "avg_pct": -6.53,
+      "median_pct": -2.79,
+      "max_pct": 6.75,
+      "n_leaders": 9,
+      "score": 45.3
+    },
+    {
+      "sector": "Financial Services",
+      "n_stocks": 5,
+      "avg_rsp": 0.0385,
+      "avg_pct": -6.63,
+      "median_pct": -7.82,
+      "max_pct": 3.35,
+      "n_leaders": 2,
+      "score": 43.4
+    },
+    {
+      "sector": "Consumer Cyclical",
+      "n_stocks": 131,
+      "avg_rsp": 0.0153,
+      "avg_pct": -8.96,
+      "median_pct": -7.7,
+      "max_pct": 26.18,
+      "n_leaders": 65,
+      "score": 36.0
+    },
+    {
+      "sector": "Utilities",
+      "n_stocks": 34,
+      "avg_rsp": 0.0051,
+      "avg_pct": -9.98,
+      "median_pct": -8.72,
+      "max_pct": 11.63,
+      "n_leaders": 17,
+      "score": 32.0
+    },
+    {
+      "sector": "Industrials",
+      "n_stocks": 236,
+      "avg_rsp": -0.0133,
+      "avg_pct": -11.8,
+      "median_pct": -11.14,
+      "max_pct": 57.79,
+      "n_leaders": 118,
+      "score": 24.7
+    },
+    {
+      "sector": "Technology",
+      "n_stocks": 140,
+      "avg_rsp": -0.0421,
+      "avg_pct": -14.7,
+      "median_pct": -14.57,
+      "max_pct": 49.75,
+      "n_leaders": 70,
+      "score": 13.1
+    },
+    {
+      "sector": "Basic Materials",
+      "n_stocks": 167,
+      "avg_rsp": -0.0473,
+      "avg_pct": -15.21,
+      "median_pct": -13.88,
+      "max_pct": 12.39,
+      "n_leaders": 83,
+      "score": 11.0
+    }
+  ],
+  "stocks": [
+    {
+      "ticker": "000002",
+      "name": "万科A",
+      "sector": "Real Estate",
+      "rsp": 0.1049,
+      "pct": 0.0,
+      "close": 3.33,
+      "mcap_yi": 479.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000008",
+      "name": "神州高铁",
+      "sector": "Industrials",
+      "rsp": 0.0439,
+      "pct": -6.1,
+      "close": 2.37,
+      "mcap_yi": 69.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000009",
+      "name": "中国宝安",
+      "sector": "Industrials",
+      "rsp": -0.0114,
+      "pct": -11.63,
+      "close": 7.87,
+      "mcap_yi": 230.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000010",
+      "name": "美丽生态",
+      "sector": "Industrials",
+      "rsp": 0.0018,
+      "pct": -10.31,
+      "close": 1.6,
+      "mcap_yi": 53.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000011",
+      "name": "深物业A",
+      "sector": "Real Estate",
+      "rsp": 0.0203,
+      "pct": -8.46,
+      "close": 7.93,
+      "mcap_yi": 48.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000016",
+      "name": "深康佳A",
+      "sector": "Technology",
+      "rsp": 0.097,
+      "pct": -0.78,
+      "close": 2.55,
+      "mcap_yi": 79.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000017",
+      "name": "深中华A",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.1603,
+      "pct": 5.54,
+      "close": 6.1,
+      "mcap_yi": 49.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000019",
+      "name": "深粮控股",
+      "sector": "Consumer Defensive",
+      "rsp": 0.095,
+      "pct": -0.98,
+      "close": 6.08,
+      "mcap_yi": 79.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000021",
+      "name": "深科技",
+      "sector": "Technology",
+      "rsp": -0.0571,
+      "pct": -16.2,
+      "close": 38.32,
+      "mcap_yi": 486.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000025",
+      "name": "特力A",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0201,
+      "pct": -12.49,
+      "close": 15.18,
+      "mcap_yi": 71.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000026",
+      "name": "飞亚达",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.1129,
+      "pct": -21.78,
+      "close": 16.43,
+      "mcap_yi": 61.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000027",
+      "name": "深圳能源",
+      "sector": "Utilities",
+      "rsp": 0.0116,
+      "pct": -9.33,
+      "close": 6.46,
+      "mcap_yi": 345.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000028",
+      "name": "国药一致",
+      "sector": "Healthcare",
+      "rsp": 0.1562,
+      "pct": 5.14,
+      "close": 20.93,
+      "mcap_yi": 144.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000030",
+      "name": "富奥股份",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.1205,
+      "pct": 1.56,
+      "close": 4.29,
+      "mcap_yi": 92.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000032",
+      "name": "深桑达A",
+      "sector": "Industrials",
+      "rsp": -0.2441,
+      "pct": -34.89,
+      "close": 13.54,
+      "mcap_yi": 220.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000034",
+      "name": "神州数码",
+      "sector": "Technology",
+      "rsp": 0.0691,
+      "pct": -3.58,
+      "close": 24.41,
+      "mcap_yi": 257.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000035",
+      "name": "中国天楹",
+      "sector": "Industrials",
+      "rsp": -0.0535,
+      "pct": -15.84,
+      "close": 5.03,
+      "mcap_yi": 190.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000036",
+      "name": "华联控股",
+      "sector": "Real Estate",
+      "rsp": -0.0541,
+      "pct": -15.9,
+      "close": 3.93,
+      "mcap_yi": 67.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000037",
+      "name": "深南电A",
+      "sector": "Utilities",
+      "rsp": 0.0122,
+      "pct": -9.27,
+      "close": 9.14,
+      "mcap_yi": 59.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000039",
+      "name": "中集集团",
+      "sector": "Industrials",
+      "rsp": -0.0655,
+      "pct": -17.04,
+      "close": 8.66,
+      "mcap_yi": 593.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000045",
+      "name": "深纺织A",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0487,
+      "pct": -15.36,
+      "close": 9.65,
+      "mcap_yi": 64.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000048",
+      "name": "京基智农",
+      "sector": "Consumer Defensive",
+      "rsp": 0.0186,
+      "pct": -8.63,
+      "close": 18.81,
+      "mcap_yi": 108.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000049",
+      "name": "德赛电池",
+      "sector": "Industrials",
+      "rsp": 0.0923,
+      "pct": -1.25,
+      "close": 24.52,
+      "mcap_yi": 104.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000050",
+      "name": "深天马A",
+      "sector": "Technology",
+      "rsp": -0.2238,
+      "pct": -32.87,
+      "close": 6.48,
+      "mcap_yi": 230.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000055",
+      "name": "方大集团",
+      "sector": "Industrials",
+      "rsp": 0.0269,
+      "pct": -7.8,
+      "close": 3.4,
+      "mcap_yi": 38.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000056",
+      "name": "皇庭国际",
+      "sector": "Real Estate",
+      "rsp": 0.1506,
+      "pct": 4.57,
+      "close": 1.88,
+      "mcap_yi": 23.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000058",
+      "name": "深赛格",
+      "sector": "Real Estate",
+      "rsp": 0.0233,
+      "pct": -8.16,
+      "close": 6.67,
+      "mcap_yi": 103.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000061",
+      "name": "农产品",
+      "sector": "Consumer Defensive",
+      "rsp": 0.0694,
+      "pct": -3.55,
+      "close": 5.91,
+      "mcap_yi": 168.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000062",
+      "name": "深圳华强",
+      "sector": "Technology",
+      "rsp": -0.165,
+      "pct": -26.98,
+      "close": 21.88,
+      "mcap_yi": 274.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000063",
+      "name": "中兴通讯",
+      "sector": "Technology",
+      "rsp": 0.0179,
+      "pct": -8.7,
+      "close": 33.96,
+      "mcap_yi": 1639.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000065",
+      "name": "北方国际",
+      "sector": "Industrials",
+      "rsp": -0.172,
+      "pct": -27.68,
+      "close": 9.33,
+      "mcap_yi": 159.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000066",
+      "name": "中国长城",
+      "sector": "Technology",
+      "rsp": -0.0829,
+      "pct": -18.78,
+      "close": 13.82,
+      "mcap_yi": 513.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000068",
+      "name": "华控赛格",
+      "sector": "Technology",
+      "rsp": -0.0429,
+      "pct": -14.78,
+      "close": 2.75,
+      "mcap_yi": 34.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000069",
+      "name": "华侨城A",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0484,
+      "pct": -5.65,
+      "close": 1.76,
+      "mcap_yi": 172.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000070",
+      "name": "特发信息",
+      "sector": "Technology",
+      "rsp": -0.2956,
+      "pct": -40.04,
+      "close": 12.93,
+      "mcap_yi": 136.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000078",
+      "name": "海王生物",
+      "sector": "Healthcare",
+      "rsp": 0.4497,
+      "pct": 34.48,
+      "close": 1.6,
+      "mcap_yi": 80.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000088",
+      "name": "盐田港",
+      "sector": "Industrials",
+      "rsp": 0.1448,
+      "pct": 3.99,
+      "close": 4.46,
+      "mcap_yi": 227.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000089",
+      "name": "深圳机场",
+      "sector": "Industrials",
+      "rsp": 0.1999,
+      "pct": 9.51,
+      "close": 6.73,
+      "mcap_yi": 146.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000090",
+      "name": "天健集团",
+      "sector": "Industrials",
+      "rsp": 0.0868,
+      "pct": -1.8,
+      "close": 3.37,
+      "mcap_yi": 74.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000096",
+      "name": "广聚能源",
+      "sector": "Energy",
+      "rsp": 0.1585,
+      "pct": 5.36,
+      "close": 7.7,
+      "mcap_yi": 58.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000099",
+      "name": "中信海直",
+      "sector": "Industrials",
+      "rsp": -0.0387,
+      "pct": -14.36,
+      "close": 14.47,
+      "mcap_yi": 151.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000100",
+      "name": "TCL科技",
+      "sector": "Technology",
+      "rsp": 0.0808,
+      "pct": -2.4,
+      "close": 4.78,
+      "mcap_yi": 1004.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000151",
+      "name": "中成股份",
+      "sector": "Industrials",
+      "rsp": -0.1847,
+      "pct": -28.95,
+      "close": 9.59,
+      "mcap_yi": 37.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000156",
+      "name": "华数传媒",
+      "sector": "Communication Services",
+      "rsp": 0.0785,
+      "pct": -2.64,
+      "close": 7.0,
+      "mcap_yi": 142.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000157",
+      "name": "中联重科",
+      "sector": "Industrials",
+      "rsp": 0.0416,
+      "pct": -6.33,
+      "close": 7.62,
+      "mcap_yi": 736.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000158",
+      "name": "常山北明",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0559,
+      "pct": -16.08,
+      "close": 13.29,
+      "mcap_yi": 322.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000159",
+      "name": "国际实业",
+      "sector": "Energy",
+      "rsp": 0.0311,
+      "pct": -7.37,
+      "close": 5.35,
+      "mcap_yi": 30.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000333",
+      "name": "美的集团",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.2122,
+      "pct": 10.74,
+      "close": 87.35,
+      "mcap_yi": 5843.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000338",
+      "name": "潍柴动力",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.1217,
+      "pct": -22.66,
+      "close": 28.34,
+      "mcap_yi": 2168.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000400",
+      "name": "许继电气",
+      "sector": "Industrials",
+      "rsp": -0.0004,
+      "pct": -10.53,
+      "close": 22.76,
+      "mcap_yi": 315.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000404",
+      "name": "长虹华意",
+      "sector": "Industrials",
+      "rsp": 0.0759,
+      "pct": -2.89,
+      "close": 7.76,
+      "mcap_yi": 51.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000407",
+      "name": "胜利股份",
+      "sector": "Energy",
+      "rsp": 0.0769,
+      "pct": -2.79,
+      "close": 3.93,
+      "mcap_yi": 44.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000409",
+      "name": "云鼎科技",
+      "sector": "Industrials",
+      "rsp": 0.0234,
+      "pct": -8.14,
+      "close": 8.79,
+      "mcap_yi": 72.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000410",
+      "name": "沈阳机床",
+      "sector": "Industrials",
+      "rsp": 0.0287,
+      "pct": -7.62,
+      "close": 4.95,
+      "mcap_yi": 191.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000411",
+      "name": "英特集团",
+      "sector": "Healthcare",
+      "rsp": 0.0778,
+      "pct": -2.71,
+      "close": 9.48,
+      "mcap_yi": 61.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000415",
+      "name": "渤海租赁",
+      "sector": "Industrials",
+      "rsp": 0.0666,
+      "pct": -3.83,
+      "close": 4.57,
+      "mcap_yi": 252.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000417",
+      "name": "合百集团",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.1432,
+      "pct": -24.81,
+      "close": 5.75,
+      "mcap_yi": 53.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000420",
+      "name": "吉林化纤",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0607,
+      "pct": -16.55,
+      "close": 3.78,
+      "mcap_yi": 107.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000421",
+      "name": "南京公用",
+      "sector": "Industrials",
+      "rsp": 0.1105,
+      "pct": 0.57,
+      "close": 5.36,
+      "mcap_yi": 40.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000423",
+      "name": "东阿阿胶",
+      "sector": "Healthcare",
+      "rsp": 0.2148,
+      "pct": 10.99,
+      "close": 55.5,
+      "mcap_yi": 360.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000425",
+      "name": "徐工机械",
+      "sector": "Industrials",
+      "rsp": 0.0261,
+      "pct": -7.87,
+      "close": 8.93,
+      "mcap_yi": 1204.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000498",
+      "name": "山东路桥",
+      "sector": "Industrials",
+      "rsp": 0.165,
+      "pct": 6.01,
+      "close": 5.08,
+      "mcap_yi": 97.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000501",
+      "name": "武商集团",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.1005,
+      "pct": -0.43,
+      "close": 7.19,
+      "mcap_yi": 61.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000503",
+      "name": "国新健康",
+      "sector": "Healthcare",
+      "rsp": 0.0526,
+      "pct": -5.22,
+      "close": 7.6,
+      "mcap_yi": 80.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000505",
+      "name": "京粮控股",
+      "sector": "Consumer Defensive",
+      "rsp": 0.1272,
+      "pct": 2.24,
+      "close": 5.54,
+      "mcap_yi": 46.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000507",
+      "name": "珠海港",
+      "sector": "Industrials",
+      "rsp": 0.1453,
+      "pct": 4.05,
+      "close": 5.08,
+      "mcap_yi": 52.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000509",
+      "name": "华塑控股",
+      "sector": "Industrials",
+      "rsp": -0.1924,
+      "pct": -29.72,
+      "close": 2.96,
+      "mcap_yi": 43.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000513",
+      "name": "丽珠集团",
+      "sector": "Healthcare",
+      "rsp": 0.153,
+      "pct": 4.82,
+      "close": 31.04,
+      "mcap_yi": 304.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000516",
+      "name": "国际医学",
+      "sector": "Healthcare",
+      "rsp": 0.1719,
+      "pct": 6.7,
+      "close": 4.26,
+      "mcap_yi": 108.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000519",
+      "name": "中兵红箭",
+      "sector": "Industrials",
+      "rsp": -0.2847,
+      "pct": -38.95,
+      "close": 14.38,
+      "mcap_yi": 237.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000520",
+      "name": "凤凰航运",
+      "sector": "Industrials",
+      "rsp": -0.0248,
+      "pct": -12.96,
+      "close": 3.72,
+      "mcap_yi": 42.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000521",
+      "name": "长虹美菱",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0436,
+      "pct": -6.12,
+      "close": 4.93,
+      "mcap_yi": 63.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000524",
+      "name": "岭南控股",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0507,
+      "pct": -5.42,
+      "close": 9.2,
+      "mcap_yi": 86.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000526",
+      "name": "学大教育",
+      "sector": "Consumer Defensive",
+      "rsp": 0.0829,
+      "pct": -2.2,
+      "close": 35.54,
+      "mcap_yi": 37.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000528",
+      "name": "柳工",
+      "sector": "Industrials",
+      "rsp": 0.095,
+      "pct": -0.98,
+      "close": 8.75,
+      "mcap_yi": 196.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000530",
+      "name": "冰山冷热",
+      "sector": "Industrials",
+      "rsp": 0.0242,
+      "pct": -8.06,
+      "close": 4.86,
+      "mcap_yi": 52.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000531",
+      "name": "穗恒运A",
+      "sector": "Utilities",
+      "rsp": -0.0227,
+      "pct": -12.76,
+      "close": 5.86,
+      "mcap_yi": 74.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000532",
+      "name": "华金资本",
+      "sector": "Financial Services",
+      "rsp": -0.0391,
+      "pct": -14.39,
+      "close": 10.64,
+      "mcap_yi": 50.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000533",
+      "name": "顺钠股份",
+      "sector": "Industrials",
+      "rsp": -0.1395,
+      "pct": -24.44,
+      "close": 10.48,
+      "mcap_yi": 117.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000534",
+      "name": "万泽股份",
+      "sector": "Healthcare",
+      "rsp": -0.1583,
+      "pct": -26.32,
+      "close": 25.01,
+      "mcap_yi": 213.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000536",
+      "name": "华映科技",
+      "sector": "Technology",
+      "rsp": -0.0215,
+      "pct": -12.64,
+      "close": 3.18,
+      "mcap_yi": 135.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000537",
+      "name": "绿发电力",
+      "sector": "Utilities",
+      "rsp": 0.0271,
+      "pct": -7.78,
+      "close": 7.73,
+      "mcap_yi": 256.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000538",
+      "name": "云南白药",
+      "sector": "Healthcare",
+      "rsp": 0.1606,
+      "pct": 5.57,
+      "close": 52.63,
+      "mcap_yi": 1014.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000539",
+      "name": "粤电力A",
+      "sector": "Utilities",
+      "rsp": -0.1787,
+      "pct": -28.36,
+      "close": 5.6,
+      "mcap_yi": 278.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000541",
+      "name": "佛山照明",
+      "sector": "Industrials",
+      "rsp": 0.0904,
+      "pct": -1.44,
+      "close": 5.02,
+      "mcap_yi": 94.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000543",
+      "name": "皖能电力",
+      "sector": "Utilities",
+      "rsp": 0.0577,
+      "pct": -4.72,
+      "close": 7.97,
+      "mcap_yi": 201.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000544",
+      "name": "中原环保",
+      "sector": "Industrials",
+      "rsp": 0.0834,
+      "pct": -2.14,
+      "close": 7.41,
+      "mcap_yi": 89.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000546",
+      "name": "金圆股份",
+      "sector": "Industrials",
+      "rsp": -0.1362,
+      "pct": -24.11,
+      "close": 4.36,
+      "mcap_yi": 44.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000547",
+      "name": "航天发展",
+      "sector": "Technology",
+      "rsp": -0.1937,
+      "pct": -29.86,
+      "close": 14.3,
+      "mcap_yi": 485.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000548",
+      "name": "湖南投资",
+      "sector": "Industrials",
+      "rsp": 0.0705,
+      "pct": -3.44,
+      "close": 4.28,
+      "mcap_yi": 26.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000550",
+      "name": "江铃汽车",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0436,
+      "pct": -6.13,
+      "close": 16.96,
+      "mcap_yi": 154.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000551",
+      "name": "创元科技",
+      "sector": "Industrials",
+      "rsp": -0.0271,
+      "pct": -13.19,
+      "close": 12.59,
+      "mcap_yi": 65.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000552",
+      "name": "甘肃能化",
+      "sector": "Energy",
+      "rsp": 0.1089,
+      "pct": 0.4,
+      "close": 2.58,
+      "mcap_yi": 151.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000554",
+      "name": "泰山石油",
+      "sector": "Energy",
+      "rsp": 0.1146,
+      "pct": 0.97,
+      "close": 6.36,
+      "mcap_yi": 44.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000555",
+      "name": "神州信息",
+      "sector": "Technology",
+      "rsp": -0.08,
+      "pct": -18.48,
+      "close": 11.26,
+      "mcap_yi": 172.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000557",
+      "name": "西部创业",
+      "sector": "Industrials",
+      "rsp": 0.086,
+      "pct": -1.89,
+      "close": 3.68,
+      "mcap_yi": 71.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000558",
+      "name": "天府文旅",
+      "sector": "Real Estate",
+      "rsp": 0.0376,
+      "pct": -6.73,
+      "close": 3.41,
+      "mcap_yi": 54.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000559",
+      "name": "万向钱潮",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.1196,
+      "pct": -22.45,
+      "close": 11.28,
+      "mcap_yi": 527.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000560",
+      "name": "我爱我家",
+      "sector": "Real Estate",
+      "rsp": 0.073,
+      "pct": -3.18,
+      "close": 2.24,
+      "mcap_yi": 78.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000561",
+      "name": "烽火电子",
+      "sector": "Industrials",
+      "rsp": 0.0087,
+      "pct": -9.62,
+      "close": 7.53,
+      "mcap_yi": 87.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000564",
+      "name": "供销大集",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0424,
+      "pct": -6.25,
+      "close": 1.41,
+      "mcap_yi": 371.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000566",
+      "name": "海南海药",
+      "sector": "Healthcare",
+      "rsp": 0.5415,
+      "pct": 43.67,
+      "close": 5.89,
+      "mcap_yi": 67.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000570",
+      "name": "苏常柴A",
+      "sector": "Industrials",
+      "rsp": 0.0493,
+      "pct": -5.56,
+      "close": 4.95,
+      "mcap_yi": 39.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000571",
+      "name": "新大洲A",
+      "sector": "Industrials",
+      "rsp": 0.1683,
+      "pct": 6.35,
+      "close": 5.79,
+      "mcap_yi": 54.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000572",
+      "name": "海马汽车",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0351,
+      "pct": -14.0,
+      "close": 3.8,
+      "mcap_yi": 97.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000573",
+      "name": "粤宏远A",
+      "sector": "Real Estate",
+      "rsp": 0.0194,
+      "pct": -8.54,
+      "close": 3.53,
+      "mcap_yi": 27.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000576",
+      "name": "甘化科工",
+      "sector": "Industrials",
+      "rsp": 0.008,
+      "pct": -9.69,
+      "close": 6.77,
+      "mcap_yi": 45.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000581",
+      "name": "威孚高科",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.054,
+      "pct": -5.09,
+      "close": 17.96,
+      "mcap_yi": 230.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000582",
+      "name": "北部湾港",
+      "sector": "Industrials",
+      "rsp": 0.0446,
+      "pct": -6.03,
+      "close": 12.3,
+      "mcap_yi": 266.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000586",
+      "name": "汇源通信",
+      "sector": "Technology",
+      "rsp": -0.1861,
+      "pct": -29.1,
+      "close": 10.7,
+      "mcap_yi": 28.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000589",
+      "name": "贵州轮胎",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.1119,
+      "pct": 0.7,
+      "close": 4.35,
+      "mcap_yi": 72.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000590",
+      "name": "古汉医药",
+      "sector": "Healthcare",
+      "rsp": 0.0115,
+      "pct": -9.34,
+      "close": 8.2,
+      "mcap_yi": 28.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000591",
+      "name": "太阳能",
+      "sector": "Utilities",
+      "rsp": 0.0212,
+      "pct": -8.37,
+      "close": 4.52,
+      "mcap_yi": 245.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000593",
+      "name": "德龙汇能",
+      "sector": "Utilities",
+      "rsp": -0.1297,
+      "pct": -23.45,
+      "close": 16.92,
+      "mcap_yi": 53.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000597",
+      "name": "东北制药",
+      "sector": "Healthcare",
+      "rsp": 0.1843,
+      "pct": 7.94,
+      "close": 4.57,
+      "mcap_yi": 72.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000599",
+      "name": "青岛双星",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0637,
+      "pct": -4.11,
+      "close": 4.68,
+      "mcap_yi": 51.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000600",
+      "name": "建投能源",
+      "sector": "Utilities",
+      "rsp": -0.0752,
+      "pct": -18.01,
+      "close": 8.55,
+      "mcap_yi": 183.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000601",
+      "name": "韶能股份",
+      "sector": "Utilities",
+      "rsp": 0.0648,
+      "pct": -4.01,
+      "close": 6.4,
+      "mcap_yi": 68.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000605",
+      "name": "渤海股份",
+      "sector": "Utilities",
+      "rsp": 0.0624,
+      "pct": -4.25,
+      "close": 5.55,
+      "mcap_yi": 24.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000607",
+      "name": "华媒控股",
+      "sector": "Communication Services",
+      "rsp": 0.0899,
+      "pct": -1.5,
+      "close": 3.49,
+      "mcap_yi": 43.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000610",
+      "name": "西安旅游",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0278,
+      "pct": -7.7,
+      "close": 5.6,
+      "mcap_yi": 20.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000617",
+      "name": "中油资本",
+      "sector": "Financial Services",
+      "rsp": -0.008,
+      "pct": -11.28,
+      "close": 7.18,
+      "mcap_yi": 1254.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000619",
+      "name": "海螺新材",
+      "sector": "Industrials",
+      "rsp": 0.0219,
+      "pct": -8.3,
+      "close": 4.45,
+      "mcap_yi": 23.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000620",
+      "name": "盈新发展",
+      "sector": "Industrials",
+      "rsp": 0.0737,
+      "pct": -3.11,
+      "close": 2.66,
+      "mcap_yi": 172.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000623",
+      "name": "吉林敖东",
+      "sector": "Healthcare",
+      "rsp": 0.0891,
+      "pct": -1.58,
+      "close": 18.34,
+      "mcap_yi": 215.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000625",
+      "name": "长安汽车",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0695,
+      "pct": -3.53,
+      "close": 7.84,
+      "mcap_yi": 1072.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000628",
+      "name": "高新发展",
+      "sector": "Industrials",
+      "rsp": -0.2143,
+      "pct": -31.92,
+      "close": 36.81,
+      "mcap_yi": 188.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000631",
+      "name": "顺发恒能",
+      "sector": "Real Estate",
+      "rsp": 0.0204,
+      "pct": -8.44,
+      "close": 2.9,
+      "mcap_yi": 90.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000632",
+      "name": "三木集团",
+      "sector": "Real Estate",
+      "rsp": 0.1017,
+      "pct": -0.32,
+      "close": 3.4,
+      "mcap_yi": 20.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000633",
+      "name": "合金投资",
+      "sector": "Industrials",
+      "rsp": 0.0347,
+      "pct": -7.02,
+      "close": 4.9,
+      "mcap_yi": 27.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000636",
+      "name": "风华高科",
+      "sector": "Technology",
+      "rsp": -0.2576,
+      "pct": -36.24,
+      "close": 51.22,
+      "mcap_yi": 260.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000639",
+      "name": "西王食品",
+      "sector": "Consumer Defensive",
+      "rsp": 0.3236,
+      "pct": 21.87,
+      "close": 1.56,
+      "mcap_yi": 28.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000650",
+      "name": "仁和药业",
+      "sector": "Healthcare",
+      "rsp": 0.1612,
+      "pct": 5.63,
+      "close": 5.4,
+      "mcap_yi": 79.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000651",
+      "name": "格力电器",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.1797,
+      "pct": 7.49,
+      "close": 41.97,
+      "mcap_yi": 2161.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000652",
+      "name": "泰达股份",
+      "sector": "Industrials",
+      "rsp": 0.0879,
+      "pct": -1.69,
+      "close": 3.53,
+      "mcap_yi": 60.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000661",
+      "name": "长春高新",
+      "sector": "Healthcare",
+      "rsp": 0.2256,
+      "pct": 12.08,
+      "close": 81.18,
+      "mcap_yi": 358.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000665",
+      "name": "湖北广电",
+      "sector": "Communication Services",
+      "rsp": 0.062,
+      "pct": -4.28,
+      "close": 3.9,
+      "mcap_yi": 58.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000670",
+      "name": "盈方微",
+      "sector": "Technology",
+      "rsp": -0.1748,
+      "pct": -27.97,
+      "close": 7.09,
+      "mcap_yi": 71.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000676",
+      "name": "智度股份",
+      "sector": "Communication Services",
+      "rsp": 0.2549,
+      "pct": 15.0,
+      "close": 7.49,
+      "mcap_yi": 91.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000677",
+      "name": "恒天海龙",
+      "sector": "Industrials",
+      "rsp": 0.1892,
+      "pct": 8.43,
+      "close": 1.67,
+      "mcap_yi": 39.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000678",
+      "name": "襄阳轴承",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.02,
+      "pct": -12.49,
+      "close": 8.43,
+      "mcap_yi": 54.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000680",
+      "name": "山推股份",
+      "sector": "Industrials",
+      "rsp": 0.0547,
+      "pct": -5.01,
+      "close": 11.31,
+      "mcap_yi": 160.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000681",
+      "name": "视觉中国",
+      "sector": "Communication Services",
+      "rsp": -0.1649,
+      "pct": -26.98,
+      "close": 17.88,
+      "mcap_yi": 154.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000682",
+      "name": "东方电子",
+      "sector": "Industrials",
+      "rsp": -0.0789,
+      "pct": -18.37,
+      "close": 12.01,
+      "mcap_yi": 190.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000685",
+      "name": "中山公用",
+      "sector": "Utilities",
+      "rsp": 0.0331,
+      "pct": -7.17,
+      "close": 11.12,
+      "mcap_yi": 173.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000690",
+      "name": "宝新能源",
+      "sector": "Utilities",
+      "rsp": 0.017,
+      "pct": -8.79,
+      "close": 4.95,
+      "mcap_yi": 107.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000692",
+      "name": "惠天热电",
+      "sector": "Utilities",
+      "rsp": -0.0251,
+      "pct": -12.99,
+      "close": 3.69,
+      "mcap_yi": 22.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000695",
+      "name": "滨海能源",
+      "sector": "Utilities",
+      "rsp": -0.0235,
+      "pct": -12.84,
+      "close": 12.65,
+      "mcap_yi": 33.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000700",
+      "name": "模塑科技",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0809,
+      "pct": -18.58,
+      "close": 10.36,
+      "mcap_yi": 111.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000701",
+      "name": "厦门信达",
+      "sector": "Technology",
+      "rsp": 0.0403,
+      "pct": -6.45,
+      "close": 4.83,
+      "mcap_yi": 40.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000705",
+      "name": "浙江震元",
+      "sector": "Healthcare",
+      "rsp": 0.1397,
+      "pct": 3.48,
+      "close": 6.48,
+      "mcap_yi": 29.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000710",
+      "name": "贝瑞基因",
+      "sector": "Healthcare",
+      "rsp": 0.1124,
+      "pct": 0.76,
+      "close": 8.44,
+      "mcap_yi": 37.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000713",
+      "name": "国投丰乐",
+      "sector": "Consumer Defensive",
+      "rsp": 0.1267,
+      "pct": 2.18,
+      "close": 5.73,
+      "mcap_yi": 53.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000715",
+      "name": "中兴商业",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.107,
+      "pct": 0.21,
+      "close": 4.74,
+      "mcap_yi": 30.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000716",
+      "name": "黑芝麻",
+      "sector": "Consumer Defensive",
+      "rsp": 0.1605,
+      "pct": 5.57,
+      "close": 4.68,
+      "mcap_yi": 39.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000718",
+      "name": "苏宁环球",
+      "sector": "Real Estate",
+      "rsp": 0.1157,
+      "pct": 1.09,
+      "close": 1.87,
+      "mcap_yi": 60.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000719",
+      "name": "中原传媒",
+      "sector": "Communication Services",
+      "rsp": 0.2026,
+      "pct": 9.78,
+      "close": 12.82,
+      "mcap_yi": 132.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000720",
+      "name": "新能泰山",
+      "sector": "Industrials",
+      "rsp": -0.1531,
+      "pct": -25.8,
+      "close": 3.41,
+      "mcap_yi": 49.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000722",
+      "name": "湖南发展",
+      "sector": "Industrials",
+      "rsp": 0.1146,
+      "pct": 0.97,
+      "close": 12.73,
+      "mcap_yi": 63.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000725",
+      "name": "京东方A",
+      "sector": "Technology",
+      "rsp": -0.0106,
+      "pct": -11.54,
+      "close": 5.55,
+      "mcap_yi": 1511.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000726",
+      "name": "鲁泰A",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.1223,
+      "pct": 1.74,
+      "close": 5.98,
+      "mcap_yi": 62.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000727",
+      "name": "冠捷科技",
+      "sector": "Technology",
+      "rsp": -0.0937,
+      "pct": -19.86,
+      "close": 2.25,
+      "mcap_yi": 122.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000729",
+      "name": "燕京啤酒",
+      "sector": "Consumer Defensive",
+      "rsp": 0.2683,
+      "pct": 16.34,
+      "close": 12.9,
+      "mcap_yi": 360.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000733",
+      "name": "振华科技",
+      "sector": "Technology",
+      "rsp": -0.2303,
+      "pct": -33.52,
+      "close": 41.35,
+      "mcap_yi": 266.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000735",
+      "name": "罗牛山",
+      "sector": "Consumer Defensive",
+      "rsp": 0.0989,
+      "pct": -0.6,
+      "close": 5.23,
+      "mcap_yi": 81.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000738",
+      "name": "航发控制",
+      "sector": "Industrials",
+      "rsp": -0.0266,
+      "pct": -13.14,
+      "close": 18.16,
+      "mcap_yi": 297.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000739",
+      "name": "普洛药业",
+      "sector": "Healthcare",
+      "rsp": 0.3315,
+      "pct": 22.66,
+      "close": 20.16,
+      "mcap_yi": 191.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000753",
+      "name": "漳州发展",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0122,
+      "pct": -9.27,
+      "close": 4.7,
+      "mcap_yi": 63.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000755",
+      "name": "山西高速",
+      "sector": "Industrials",
+      "rsp": 0.1689,
+      "pct": 6.41,
+      "close": 4.68,
+      "mcap_yi": 78.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000756",
+      "name": "新华制药",
+      "sector": "Healthcare",
+      "rsp": 0.2382,
+      "pct": 13.34,
+      "close": 13.54,
+      "mcap_yi": 102.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000759",
+      "name": "中百集团",
+      "sector": "Consumer Defensive",
+      "rsp": 0.1813,
+      "pct": 7.65,
+      "close": 6.98,
+      "mcap_yi": 36.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000766",
+      "name": "通化金马",
+      "sector": "Healthcare",
+      "rsp": -0.1788,
+      "pct": -28.37,
+      "close": 17.05,
+      "mcap_yi": 190.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000767",
+      "name": "晋控电力",
+      "sector": "Utilities",
+      "rsp": -0.1271,
+      "pct": -23.2,
+      "close": 3.68,
+      "mcap_yi": 116.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000768",
+      "name": "中航西飞",
+      "sector": "Industrials",
+      "rsp": 0.0448,
+      "pct": -6.0,
+      "close": 21.0,
+      "mcap_yi": 716.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000777",
+      "name": "中核科技",
+      "sector": "Industrials",
+      "rsp": -0.0536,
+      "pct": -15.85,
+      "close": 17.23,
+      "mcap_yi": 102.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000779",
+      "name": "甘咨询",
+      "sector": "Industrials",
+      "rsp": 0.6827,
+      "pct": 57.79,
+      "close": 12.61,
+      "mcap_yi": 42.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000785",
+      "name": "居然智家",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.1049,
+      "pct": 0.0,
+      "close": 2.27,
+      "mcap_yi": 170.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000788",
+      "name": "北大医药",
+      "sector": "Healthcare",
+      "rsp": 0.1397,
+      "pct": 3.48,
+      "close": 5.19,
+      "mcap_yi": 34.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000790",
+      "name": "华神科技",
+      "sector": "Healthcare",
+      "rsp": 0.1267,
+      "pct": 2.18,
+      "close": 3.77,
+      "mcap_yi": 24.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000791",
+      "name": "甘肃能源",
+      "sector": "Utilities",
+      "rsp": -0.0185,
+      "pct": -12.34,
+      "close": 7.81,
+      "mcap_yi": 270.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000796",
+      "name": "凯撒旅业",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0335,
+      "pct": -13.83,
+      "close": 3.8,
+      "mcap_yi": 83.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000797",
+      "name": "中国武夷",
+      "sector": "Real Estate",
+      "rsp": 0.0791,
+      "pct": -2.58,
+      "close": 2.34,
+      "mcap_yi": 42.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000800",
+      "name": "一汽解放",
+      "sector": "Industrials",
+      "rsp": 0.1195,
+      "pct": 1.47,
+      "close": 6.45,
+      "mcap_yi": 326.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000801",
+      "name": "四川九洲",
+      "sector": "Technology",
+      "rsp": 0.0644,
+      "pct": -4.05,
+      "close": 11.61,
+      "mcap_yi": 149.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000802",
+      "name": "北京文化",
+      "sector": "Communication Services",
+      "rsp": 0.0128,
+      "pct": -9.2,
+      "close": 3.91,
+      "mcap_yi": 27.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000809",
+      "name": "和展能源",
+      "sector": "Utilities",
+      "rsp": -0.0376,
+      "pct": -14.25,
+      "close": 3.18,
+      "mcap_yi": 31.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000810",
+      "name": "创维数字",
+      "sector": "Technology",
+      "rsp": -0.1253,
+      "pct": -23.01,
+      "close": 9.52,
+      "mcap_yi": 127.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000811",
+      "name": "冰轮环境",
+      "sector": "Industrials",
+      "rsp": 0.1046,
+      "pct": -0.02,
+      "close": 36.1,
+      "mcap_yi": 178.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000813",
+      "name": "德展健康",
+      "sector": "Healthcare",
+      "rsp": 0.2428,
+      "pct": 13.79,
+      "close": 3.31,
+      "mcap_yi": 70.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000816",
+      "name": "智慧农业",
+      "sector": "Industrials",
+      "rsp": 0.0844,
+      "pct": -2.05,
+      "close": 2.56,
+      "mcap_yi": 48.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000823",
+      "name": "超声电子",
+      "sector": "Technology",
+      "rsp": -0.3084,
+      "pct": -41.33,
+      "close": 12.86,
+      "mcap_yi": 85.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000826",
+      "name": "启迪环境",
+      "sector": "Industrials",
+      "rsp": -0.1809,
+      "pct": -28.57,
+      "close": 1.72,
+      "mcap_yi": 31.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000829",
+      "name": "天音控股",
+      "sector": "Technology",
+      "rsp": 0.1986,
+      "pct": 9.37,
+      "close": 8.42,
+      "mcap_yi": 110.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000833",
+      "name": "粤桂股份",
+      "sector": "Consumer Defensive",
+      "rsp": -0.1119,
+      "pct": -21.67,
+      "close": 19.05,
+      "mcap_yi": 198.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000837",
+      "name": "秦川机床",
+      "sector": "Industrials",
+      "rsp": -0.1394,
+      "pct": -24.43,
+      "close": 9.7,
+      "mcap_yi": 115.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000839",
+      "name": "国安股份",
+      "sector": "Communication Services",
+      "rsp": -0.089,
+      "pct": -19.39,
+      "close": 2.75,
+      "mcap_yi": 134.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000848",
+      "name": "承德露露",
+      "sector": "Consumer Defensive",
+      "rsp": 0.2072,
+      "pct": 10.24,
+      "close": 9.13,
+      "mcap_yi": 78.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000850",
+      "name": "华茂股份",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.1818,
+      "pct": 7.69,
+      "close": 3.96,
+      "mcap_yi": 47.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000852",
+      "name": "石化机械",
+      "sector": "Energy",
+      "rsp": 0.0371,
+      "pct": -6.78,
+      "close": 5.26,
+      "mcap_yi": 71.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000856",
+      "name": "冀东装备",
+      "sector": "Industrials",
+      "rsp": 0.0374,
+      "pct": -6.74,
+      "close": 7.52,
+      "mcap_yi": 24.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000862",
+      "name": "银星能源",
+      "sector": "Industrials",
+      "rsp": 0.0474,
+      "pct": -5.75,
+      "close": 5.51,
+      "mcap_yi": 69.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000863",
+      "name": "三湘印象",
+      "sector": "Real Estate",
+      "rsp": 0.0377,
+      "pct": -6.71,
+      "close": 3.76,
+      "mcap_yi": 60.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000868",
+      "name": "安凯客车",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0543,
+      "pct": -5.06,
+      "close": 3.62,
+      "mcap_yi": 43.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000875",
+      "name": "电投绿能",
+      "sector": "Utilities",
+      "rsp": 0.0088,
+      "pct": -9.6,
+      "close": 5.45,
+      "mcap_yi": 290.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000876",
+      "name": "新希望",
+      "sector": "Consumer Defensive",
+      "rsp": 0.2337,
+      "pct": 12.88,
+      "close": 6.95,
+      "mcap_yi": 381.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000880",
+      "name": "潍柴重机",
+      "sector": "Industrials",
+      "rsp": -0.0868,
+      "pct": -19.17,
+      "close": 21.86,
+      "mcap_yi": 128.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000881",
+      "name": "中广核技",
+      "sector": "Industrials",
+      "rsp": 0.0062,
+      "pct": -9.87,
+      "close": 6.39,
+      "mcap_yi": 71.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000882",
+      "name": "华联股份",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.1349,
+      "pct": 3.01,
+      "close": 1.42,
+      "mcap_yi": 43.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000883",
+      "name": "湖北能源",
+      "sector": "Utilities",
+      "rsp": 0.0942,
+      "pct": -1.07,
+      "close": 4.71,
+      "mcap_yi": 353.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000885",
+      "name": "城发环境",
+      "sector": "Industrials",
+      "rsp": 0.0774,
+      "pct": -2.75,
+      "close": 12.89,
+      "mcap_yi": 93.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000886",
+      "name": "海南高速",
+      "sector": "Industrials",
+      "rsp": 0.135,
+      "pct": 3.02,
+      "close": 4.58,
+      "mcap_yi": 54.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000887",
+      "name": "中鼎股份",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0128,
+      "pct": -11.77,
+      "close": 17.26,
+      "mcap_yi": 243.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000888",
+      "name": "峨眉山A",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.1166,
+      "pct": 1.17,
+      "close": 9.76,
+      "mcap_yi": 64.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000889",
+      "name": "中嘉博创",
+      "sector": "Technology",
+      "rsp": -0.1534,
+      "pct": -25.82,
+      "close": 3.7,
+      "mcap_yi": 28.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000892",
+      "name": "欢瑞世纪",
+      "sector": "Communication Services",
+      "rsp": 0.1186,
+      "pct": 1.38,
+      "close": 3.69,
+      "mcap_yi": 63.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000899",
+      "name": "赣能股份",
+      "sector": "Utilities",
+      "rsp": 0.0883,
+      "pct": -1.65,
+      "close": 10.94,
+      "mcap_yi": 135.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000901",
+      "name": "航天科技",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.1557,
+      "pct": -26.05,
+      "close": 14.25,
+      "mcap_yi": 183.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000905",
+      "name": "厦门港务",
+      "sector": "Industrials",
+      "rsp": 0.0506,
+      "pct": -5.43,
+      "close": 8.53,
+      "mcap_yi": 86.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000906",
+      "name": "浙商中拓",
+      "sector": "Industrials",
+      "rsp": 0.092,
+      "pct": -1.29,
+      "close": 5.46,
+      "mcap_yi": 37.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000913",
+      "name": "钱江摩托",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.1085,
+      "pct": 0.37,
+      "close": 12.23,
+      "mcap_yi": 83.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000915",
+      "name": "华特达因",
+      "sector": "Healthcare",
+      "rsp": 0.1229,
+      "pct": 1.8,
+      "close": 25.98,
+      "mcap_yi": 76.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000917",
+      "name": "电广传媒",
+      "sector": "Communication Services",
+      "rsp": -0.0337,
+      "pct": -13.85,
+      "close": 7.05,
+      "mcap_yi": 145.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000919",
+      "name": "金陵药业",
+      "sector": "Healthcare",
+      "rsp": 0.1464,
+      "pct": 4.15,
+      "close": 6.26,
+      "mcap_yi": 44.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000920",
+      "name": "沃顿科技",
+      "sector": "Industrials",
+      "rsp": 0.1254,
+      "pct": 2.06,
+      "close": 10.87,
+      "mcap_yi": 59.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000921",
+      "name": "海信家电",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0379,
+      "pct": -6.69,
+      "close": 27.18,
+      "mcap_yi": 313.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000922",
+      "name": "佳电股份",
+      "sector": "Industrials",
+      "rsp": -0.1605,
+      "pct": -26.53,
+      "close": 10.95,
+      "mcap_yi": 100.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000923",
+      "name": "河钢资源",
+      "sector": "Industrials",
+      "rsp": 0.0305,
+      "pct": -7.44,
+      "close": 14.81,
+      "mcap_yi": 124.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000925",
+      "name": "众合科技",
+      "sector": "Technology",
+      "rsp": -0.0886,
+      "pct": -19.34,
+      "close": 7.11,
+      "mcap_yi": 51.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000926",
+      "name": "福星股份",
+      "sector": "Real Estate",
+      "rsp": 0.0999,
+      "pct": -0.49,
+      "close": 2.1,
+      "mcap_yi": 36.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000927",
+      "name": "中国铁物",
+      "sector": "Industrials",
+      "rsp": 0.1228,
+      "pct": 1.79,
+      "close": 2.51,
+      "mcap_yi": 160.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000928",
+      "name": "中钢国际",
+      "sector": "Industrials",
+      "rsp": -0.0098,
+      "pct": -11.46,
+      "close": 5.2,
+      "mcap_yi": 102.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000931",
+      "name": "中关村",
+      "sector": "Healthcare",
+      "rsp": 0.1144,
+      "pct": 0.96,
+      "close": 3.93,
+      "mcap_yi": 37.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000937",
+      "name": "冀中能源",
+      "sector": "Energy",
+      "rsp": 0.1138,
+      "pct": 0.89,
+      "close": 4.69,
+      "mcap_yi": 203.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000938",
+      "name": "紫光股份",
+      "sector": "Technology",
+      "rsp": 0.4057,
+      "pct": 30.08,
+      "close": 35.4,
+      "mcap_yi": 726.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000948",
+      "name": "南天信息",
+      "sector": "Technology",
+      "rsp": 0.2032,
+      "pct": 9.83,
+      "close": 15.69,
+      "mcap_yi": 63.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000950",
+      "name": "重药控股",
+      "sector": "Healthcare",
+      "rsp": 0.1437,
+      "pct": 3.88,
+      "close": 5.46,
+      "mcap_yi": 94.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000951",
+      "name": "中国重汽",
+      "sector": "Industrials",
+      "rsp": 0.0418,
+      "pct": -6.31,
+      "close": 23.29,
+      "mcap_yi": 263.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000955",
+      "name": "欣龙控股",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.077,
+      "pct": -18.18,
+      "close": 3.87,
+      "mcap_yi": 27.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000957",
+      "name": "中通客车",
+      "sector": "Industrials",
+      "rsp": 0.0787,
+      "pct": -2.61,
+      "close": 10.37,
+      "mcap_yi": 66.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000958",
+      "name": "电投产融",
+      "sector": "Utilities",
+      "rsp": 0.0198,
+      "pct": -8.5,
+      "close": 5.46,
+      "mcap_yi": 1183.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000963",
+      "name": "华东医药",
+      "sector": "Healthcare",
+      "rsp": 0.1507,
+      "pct": 4.59,
+      "close": 29.06,
+      "mcap_yi": 613.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000965",
+      "name": "天保基建",
+      "sector": "Real Estate",
+      "rsp": 0.0827,
+      "pct": -2.21,
+      "close": 3.13,
+      "mcap_yi": 42.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000966",
+      "name": "长源电力",
+      "sector": "Utilities",
+      "rsp": 0.0912,
+      "pct": -1.37,
+      "close": 4.29,
+      "mcap_yi": 172.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000967",
+      "name": "盈峰环境",
+      "sector": "Industrials",
+      "rsp": -0.1803,
+      "pct": -28.52,
+      "close": 7.85,
+      "mcap_yi": 277.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000968",
+      "name": "蓝焰控股",
+      "sector": "Energy",
+      "rsp": 0.1009,
+      "pct": -0.4,
+      "close": 6.93,
+      "mcap_yi": 99.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000970",
+      "name": "中科三环",
+      "sector": "Technology",
+      "rsp": 0.0127,
+      "pct": -9.21,
+      "close": 12.26,
+      "mcap_yi": 148.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000977",
+      "name": "浪潮信息",
+      "sector": "Technology",
+      "rsp": 0.2922,
+      "pct": 18.73,
+      "close": 72.66,
+      "mcap_yi": 889.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000978",
+      "name": "桂林旅游",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0886,
+      "pct": -1.62,
+      "close": 5.9,
+      "mcap_yi": 30.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000980",
+      "name": "众泰汽车",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.1645,
+      "pct": -26.94,
+      "close": 1.71,
+      "mcap_yi": 117.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000981",
+      "name": "山子高科",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.1467,
+      "pct": -25.16,
+      "close": 2.66,
+      "mcap_yi": 420.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000983",
+      "name": "山西焦煤",
+      "sector": "Energy",
+      "rsp": 0.0289,
+      "pct": -7.6,
+      "close": 6.46,
+      "mcap_yi": 391.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000987",
+      "name": "越秀资本",
+      "sector": "Financial Services",
+      "rsp": 0.0266,
+      "pct": -7.82,
+      "close": 7.89,
+      "mcap_yi": 428.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000988",
+      "name": "华工科技",
+      "sector": "Industrials",
+      "rsp": -0.2218,
+      "pct": -32.66,
+      "close": 96.82,
+      "mcap_yi": 1194.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000989",
+      "name": "九芝堂",
+      "sector": "Healthcare",
+      "rsp": 0.2533,
+      "pct": 14.84,
+      "close": 9.01,
+      "mcap_yi": 75.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000990",
+      "name": "诚志股份",
+      "sector": "Healthcare",
+      "rsp": 0.1583,
+      "pct": 5.34,
+      "close": 6.48,
+      "mcap_yi": 122.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000993",
+      "name": "闽东电力",
+      "sector": "Utilities",
+      "rsp": 0.005,
+      "pct": -9.99,
+      "close": 10.09,
+      "mcap_yi": 64.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000995",
+      "name": "皇台酒业",
+      "sector": "Consumer Defensive",
+      "rsp": 0.0353,
+      "pct": -6.96,
+      "close": 10.53,
+      "mcap_yi": 25.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000997",
+      "name": "新大陆",
+      "sector": "Technology",
+      "rsp": -0.0082,
+      "pct": -11.31,
+      "close": 18.78,
+      "mcap_yi": 212.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000998",
+      "name": "隆平高科",
+      "sector": "Consumer Defensive",
+      "rsp": 0.1265,
+      "pct": 2.16,
+      "close": 8.38,
+      "mcap_yi": 148.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "000999",
+      "name": "华润三九",
+      "sector": "Healthcare",
+      "rsp": 0.1785,
+      "pct": 7.36,
+      "close": 26.23,
+      "mcap_yi": 484.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001201",
+      "name": "东瑞股份",
+      "sector": "Consumer Defensive",
+      "rsp": 0.182,
+      "pct": 7.71,
+      "close": 11.25,
+      "mcap_yi": 38.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001202",
+      "name": "炬申股份",
+      "sector": "Industrials",
+      "rsp": 0.0745,
+      "pct": -3.04,
+      "close": 12.32,
+      "mcap_yi": 27.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001205",
+      "name": "盛航股份",
+      "sector": "Industrials",
+      "rsp": 0.0219,
+      "pct": -8.3,
+      "close": 13.3,
+      "mcap_yi": 27.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001206",
+      "name": "依依股份",
+      "sector": "Consumer Defensive",
+      "rsp": 0.3589,
+      "pct": 25.4,
+      "close": 15.71,
+      "mcap_yi": 36.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001208",
+      "name": "华菱线缆",
+      "sector": "Industrials",
+      "rsp": -0.057,
+      "pct": -16.18,
+      "close": 13.4,
+      "mcap_yi": 127.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001210",
+      "name": "金房能源",
+      "sector": "Technology",
+      "rsp": -0.0703,
+      "pct": -17.52,
+      "close": 17.43,
+      "mcap_yi": 33.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001213",
+      "name": "中铁特货",
+      "sector": "Industrials",
+      "rsp": 0.1175,
+      "pct": 1.26,
+      "close": 3.58,
+      "mcap_yi": 184.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001215",
+      "name": "千味央厨",
+      "sector": "Consumer Defensive",
+      "rsp": -0.1573,
+      "pct": -26.22,
+      "close": 31.23,
+      "mcap_yi": 32.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001216",
+      "name": "华瓷股份",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.1503,
+      "pct": -25.52,
+      "close": 13.62,
+      "mcap_yi": 51.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001219",
+      "name": "青岛食品",
+      "sector": "Consumer Defensive",
+      "rsp": 0.0895,
+      "pct": -1.54,
+      "close": 12.35,
+      "mcap_yi": 25.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001222",
+      "name": "源飞宠物",
+      "sector": "Consumer Defensive",
+      "rsp": 0.0949,
+      "pct": -1.0,
+      "close": 14.12,
+      "mcap_yi": 37.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001223",
+      "name": "欧克科技",
+      "sector": "Industrials",
+      "rsp": -0.2546,
+      "pct": -35.94,
+      "close": 32.88,
+      "mcap_yi": 48.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001225",
+      "name": "和泰机电",
+      "sector": "Industrials",
+      "rsp": -0.0319,
+      "pct": -13.67,
+      "close": 42.38,
+      "mcap_yi": 31.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001227",
+      "name": "兰州银行",
+      "sector": "Financial Services",
+      "rsp": 0.1384,
+      "pct": 3.35,
+      "close": 2.2,
+      "mcap_yi": 131.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001228",
+      "name": "永泰运",
+      "sector": "Industrials",
+      "rsp": 0.1497,
+      "pct": 4.48,
+      "close": 26.84,
+      "mcap_yi": 32.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001229",
+      "name": "魅视科技",
+      "sector": "Technology",
+      "rsp": 0.4765,
+      "pct": 37.16,
+      "close": 32.05,
+      "mcap_yi": 41.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001230",
+      "name": "劲旅环境",
+      "sector": "Industrials",
+      "rsp": 0.2011,
+      "pct": 9.63,
+      "close": 17.37,
+      "mcap_yi": 33.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001233",
+      "name": "海安集团",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0668,
+      "pct": -17.17,
+      "close": 44.11,
+      "mcap_yi": 122.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001234",
+      "name": "泰慕士",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0283,
+      "pct": -13.32,
+      "close": 19.67,
+      "mcap_yi": 27.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001239",
+      "name": "永达股份",
+      "sector": "Industrials",
+      "rsp": -0.0919,
+      "pct": -19.68,
+      "close": 11.17,
+      "mcap_yi": 38.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001258",
+      "name": "立新能源",
+      "sector": "Utilities",
+      "rsp": 0.2212,
+      "pct": 11.63,
+      "close": 12.36,
+      "mcap_yi": 87.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001266",
+      "name": "宏英智能",
+      "sector": "Technology",
+      "rsp": -0.28,
+      "pct": -38.48,
+      "close": 30.49,
+      "mcap_yi": 36.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001267",
+      "name": "汇绿生态",
+      "sector": "Industrials",
+      "rsp": -0.2759,
+      "pct": -38.07,
+      "close": 29.82,
+      "mcap_yi": 335.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001269",
+      "name": "欧晶科技",
+      "sector": "Technology",
+      "rsp": -0.144,
+      "pct": -24.88,
+      "close": 18.99,
+      "mcap_yi": 48.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001270",
+      "name": "铖昌科技",
+      "sector": "Technology",
+      "rsp": -0.0381,
+      "pct": -14.3,
+      "close": 93.86,
+      "mcap_yi": null,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001277",
+      "name": "速达股份",
+      "sector": "Industrials",
+      "rsp": -0.012,
+      "pct": -11.69,
+      "close": 26.97,
+      "mcap_yi": 27.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001278",
+      "name": "一彬科技",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0319,
+      "pct": -13.68,
+      "close": 14.41,
+      "mcap_yi": 25.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001280",
+      "name": "中国铀业",
+      "sector": "Energy",
+      "rsp": -0.1285,
+      "pct": -23.34,
+      "close": 62.73,
+      "mcap_yi": 1673.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001282",
+      "name": "三联锻造",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.1923,
+      "pct": -29.72,
+      "close": 15.53,
+      "mcap_yi": 50.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001283",
+      "name": "豪鹏科技",
+      "sector": "Industrials",
+      "rsp": -0.0919,
+      "pct": -19.68,
+      "close": 42.88,
+      "mcap_yi": 63.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001285",
+      "name": "瑞立科密",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0105,
+      "pct": -9.44,
+      "close": 41.2,
+      "mcap_yi": 96.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001286",
+      "name": "陕西能源",
+      "sector": "Utilities",
+      "rsp": 0.0373,
+      "pct": -6.76,
+      "close": 10.29,
+      "mcap_yi": 418.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001287",
+      "name": "中电港",
+      "sector": "Technology",
+      "rsp": -0.138,
+      "pct": -24.28,
+      "close": 21.2,
+      "mcap_yi": 186.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001288",
+      "name": "运机集团",
+      "sector": "Industrials",
+      "rsp": -0.1401,
+      "pct": -24.5,
+      "close": 25.7,
+      "mcap_yi": 71.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001289",
+      "name": "龙源电力",
+      "sector": "Utilities",
+      "rsp": 0.0888,
+      "pct": -1.61,
+      "close": 16.52,
+      "mcap_yi": 1523.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001296",
+      "name": "长江材料",
+      "sector": "Industrials",
+      "rsp": -0.137,
+      "pct": -24.18,
+      "close": 17.12,
+      "mcap_yi": 37.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001298",
+      "name": "好上好",
+      "sector": "Technology",
+      "rsp": -0.076,
+      "pct": -18.08,
+      "close": 16.5,
+      "mcap_yi": 93.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001299",
+      "name": "美能能源",
+      "sector": "Utilities",
+      "rsp": 0.0336,
+      "pct": -7.13,
+      "close": 9.64,
+      "mcap_yi": 33.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001300",
+      "name": "三柏硕",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0399,
+      "pct": -14.47,
+      "close": 9.97,
+      "mcap_yi": 38.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001301",
+      "name": "尚太科技",
+      "sector": "Industrials",
+      "rsp": -0.1331,
+      "pct": -23.8,
+      "close": 55.92,
+      "mcap_yi": 226.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001306",
+      "name": "夏厦精密",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.095,
+      "pct": -19.99,
+      "close": 48.76,
+      "mcap_yi": 45.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001308",
+      "name": "康冠科技",
+      "sector": "Technology",
+      "rsp": -0.0207,
+      "pct": -12.55,
+      "close": 17.38,
+      "mcap_yi": 140.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001309",
+      "name": "德明利",
+      "sector": "Technology",
+      "rsp": -0.1672,
+      "pct": -27.21,
+      "close": 399.6,
+      "mcap_yi": 848.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001311",
+      "name": "多利科技",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0033,
+      "pct": -10.81,
+      "close": 15.95,
+      "mcap_yi": 106.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001313",
+      "name": "粤海饲料",
+      "sector": "Consumer Defensive",
+      "rsp": 0.0546,
+      "pct": -5.03,
+      "close": 7.22,
+      "mcap_yi": 48.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001314",
+      "name": "亿道信息",
+      "sector": "Technology",
+      "rsp": 0.1697,
+      "pct": 6.49,
+      "close": 47.35,
+      "mcap_yi": 65.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001316",
+      "name": "润贝航科",
+      "sector": "Industrials",
+      "rsp": -0.2168,
+      "pct": -32.16,
+      "close": 25.53,
+      "mcap_yi": 53.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001317",
+      "name": "三羊马",
+      "sector": "Industrials",
+      "rsp": 0.1471,
+      "pct": 4.22,
+      "close": 52.88,
+      "mcap_yi": 38.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001318",
+      "name": "阳光乳业",
+      "sector": "Consumer Defensive",
+      "rsp": 0.0861,
+      "pct": -1.88,
+      "close": 10.85,
+      "mcap_yi": 38.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001319",
+      "name": "铭科精技",
+      "sector": "Industrials",
+      "rsp": 0.0227,
+      "pct": -8.22,
+      "close": 18.7,
+      "mcap_yi": 36.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001322",
+      "name": "箭牌家居",
+      "sector": "Industrials",
+      "rsp": 0.2095,
+      "pct": 10.46,
+      "close": 6.19,
+      "mcap_yi": 81.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001323",
+      "name": "慕思股份",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0132,
+      "pct": -9.17,
+      "close": 17.27,
+      "mcap_yi": 118.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001324",
+      "name": "长青科技",
+      "sector": "Industrials",
+      "rsp": 0.066,
+      "pct": -3.88,
+      "close": 18.91,
+      "mcap_yi": 28.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001325",
+      "name": "元创股份",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0314,
+      "pct": -13.63,
+      "close": 35.92,
+      "mcap_yi": 44.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001326",
+      "name": "联域股份",
+      "sector": "Technology",
+      "rsp": -0.1686,
+      "pct": -27.35,
+      "close": 44.9,
+      "mcap_yi": 36.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001328",
+      "name": "登康口腔",
+      "sector": "Consumer Defensive",
+      "rsp": 0.152,
+      "pct": 4.72,
+      "close": 31.86,
+      "mcap_yi": 55.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001330",
+      "name": "博纳影业",
+      "sector": "Communication Services",
+      "rsp": -0.1942,
+      "pct": -29.91,
+      "close": 4.88,
+      "mcap_yi": 101.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001331",
+      "name": "胜通能源",
+      "sector": "Energy",
+      "rsp": 0.1025,
+      "pct": -0.24,
+      "close": 39.45,
+      "mcap_yi": 153.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001332",
+      "name": "锡装股份",
+      "sector": "Industrials",
+      "rsp": -0.2535,
+      "pct": -35.84,
+      "close": 30.11,
+      "mcap_yi": 59.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001338",
+      "name": "永顺泰",
+      "sector": "Consumer Defensive",
+      "rsp": 0.0611,
+      "pct": -4.38,
+      "close": 8.77,
+      "mcap_yi": 63.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001339",
+      "name": "智微智能",
+      "sector": "Technology",
+      "rsp": -0.11,
+      "pct": -21.48,
+      "close": 68.07,
+      "mcap_yi": 166.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001360",
+      "name": "南矿集团",
+      "sector": "Industrials",
+      "rsp": -0.2421,
+      "pct": -34.69,
+      "close": 14.68,
+      "mcap_yi": 40.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001366",
+      "name": "播恩集团",
+      "sector": "Consumer Defensive",
+      "rsp": 0.0131,
+      "pct": -9.17,
+      "close": 10.95,
+      "mcap_yi": 21.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001368",
+      "name": "通达创智",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0514,
+      "pct": -5.34,
+      "close": 20.18,
+      "mcap_yi": 27.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001373",
+      "name": "翔腾新材",
+      "sector": "Technology",
+      "rsp": -0.1425,
+      "pct": -24.74,
+      "close": 25.71,
+      "mcap_yi": 27.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001379",
+      "name": "腾达科技",
+      "sector": "Industrials",
+      "rsp": -0.0035,
+      "pct": -10.83,
+      "close": 15.01,
+      "mcap_yi": 40.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001380",
+      "name": "华纬科技",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0805,
+      "pct": -2.44,
+      "close": 16.31,
+      "mcap_yi": 58.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001382",
+      "name": "新亚电缆",
+      "sector": "Industrials",
+      "rsp": -0.0664,
+      "pct": -17.13,
+      "close": 17.08,
+      "mcap_yi": 91.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001387",
+      "name": "雪祺电气",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0013,
+      "pct": -10.62,
+      "close": 11.41,
+      "mcap_yi": 25.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001388",
+      "name": "信通电子",
+      "sector": "Technology",
+      "rsp": -0.0677,
+      "pct": -17.26,
+      "close": 20.03,
+      "mcap_yi": 70.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001389",
+      "name": "广合科技",
+      "sector": "Technology",
+      "rsp": 0.0214,
+      "pct": -8.34,
+      "close": 142.85,
+      "mcap_yi": 493.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001391",
+      "name": "国货航",
+      "sector": "Industrials",
+      "rsp": 0.0983,
+      "pct": -0.66,
+      "close": 4.34,
+      "mcap_yi": 639.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001696",
+      "name": "宗申动力",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.2651,
+      "pct": -37.0,
+      "close": 14.32,
+      "mcap_yi": 239.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001872",
+      "name": "招商港口",
+      "sector": "Industrials",
+      "rsp": 0.2083,
+      "pct": 10.34,
+      "close": 21.86,
+      "mcap_yi": 575.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001896",
+      "name": "豫能控股",
+      "sector": "Utilities",
+      "rsp": -0.1809,
+      "pct": -28.57,
+      "close": 12.17,
+      "mcap_yi": 235.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "001979",
+      "name": "招商蛇口",
+      "sector": "Real Estate",
+      "rsp": 0.0249,
+      "pct": -8.0,
+      "close": 6.93,
+      "mcap_yi": 826.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002001",
+      "name": "新和成",
+      "sector": "Healthcare",
+      "rsp": 0.1042,
+      "pct": -0.07,
+      "close": 29.98,
+      "mcap_yi": 1052.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002006",
+      "name": "精工科技",
+      "sector": "Industrials",
+      "rsp": 0.0216,
+      "pct": -8.32,
+      "close": 13.47,
+      "mcap_yi": 101.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002007",
+      "name": "华兰生物",
+      "sector": "Healthcare",
+      "rsp": 0.1499,
+      "pct": 4.51,
+      "close": 13.67,
+      "mcap_yi": 270.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002008",
+      "name": "大族激光",
+      "sector": "Industrials",
+      "rsp": -0.1213,
+      "pct": -22.62,
+      "close": 85.85,
+      "mcap_yi": 707.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002009",
+      "name": "天奇股份",
+      "sector": "Industrials",
+      "rsp": -0.0876,
+      "pct": -19.25,
+      "close": 16.64,
+      "mcap_yi": 104.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002011",
+      "name": "盾安环境",
+      "sector": "Industrials",
+      "rsp": 0.0589,
+      "pct": -4.59,
+      "close": 10.58,
+      "mcap_yi": 134.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002014",
+      "name": "永新股份",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.1413,
+      "pct": 3.65,
+      "close": 10.93,
+      "mcap_yi": 74.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002015",
+      "name": "协鑫能科",
+      "sector": "Utilities",
+      "rsp": -0.1766,
+      "pct": -28.15,
+      "close": 14.87,
+      "mcap_yi": 361.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002016",
+      "name": "世荣兆业",
+      "sector": "Real Estate",
+      "rsp": 0.0745,
+      "pct": -3.03,
+      "close": 4.25,
+      "mcap_yi": 46.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002017",
+      "name": "东信和平",
+      "sector": "Technology",
+      "rsp": -0.1353,
+      "pct": -24.02,
+      "close": 13.63,
+      "mcap_yi": 111.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002019",
+      "name": "亿帆医药",
+      "sector": "Healthcare",
+      "rsp": 0.1601,
+      "pct": 5.52,
+      "close": 10.27,
+      "mcap_yi": 161.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002020",
+      "name": "京新药业",
+      "sector": "Healthcare",
+      "rsp": 0.2782,
+      "pct": 17.34,
+      "close": 13.6,
+      "mcap_yi": 130.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002021",
+      "name": "中捷资源",
+      "sector": "Industrials",
+      "rsp": 0.0637,
+      "pct": -4.12,
+      "close": 2.54,
+      "mcap_yi": 34.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002022",
+      "name": "科华生物",
+      "sector": "Healthcare",
+      "rsp": 0.1621,
+      "pct": 5.73,
+      "close": 5.06,
+      "mcap_yi": 29.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002023",
+      "name": "海特高新",
+      "sector": "Industrials",
+      "rsp": -0.2129,
+      "pct": -31.78,
+      "close": 9.42,
+      "mcap_yi": 80.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002025",
+      "name": "航天电器",
+      "sector": "Technology",
+      "rsp": 0.1866,
+      "pct": 8.18,
+      "close": 60.86,
+      "mcap_yi": 276.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002026",
+      "name": "山东威达",
+      "sector": "Industrials",
+      "rsp": -0.0641,
+      "pct": -16.89,
+      "close": 9.83,
+      "mcap_yi": 58.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002027",
+      "name": "分众传媒",
+      "sector": "Communication Services",
+      "rsp": 0.0871,
+      "pct": -1.78,
+      "close": 5.6,
+      "mcap_yi": 922.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002028",
+      "name": "思源电气",
+      "sector": "Industrials",
+      "rsp": -0.1647,
+      "pct": -26.96,
+      "close": 159.79,
+      "mcap_yi": 1653.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002029",
+      "name": "七匹狼",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0322,
+      "pct": -7.27,
+      "close": 8.28,
+      "mcap_yi": 66.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002030",
+      "name": "达安基因",
+      "sector": "Healthcare",
+      "rsp": 0.064,
+      "pct": -4.08,
+      "close": 5.44,
+      "mcap_yi": 83.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002031",
+      "name": "巨轮智能",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0163,
+      "pct": -12.12,
+      "close": 4.91,
+      "mcap_yi": 156.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002032",
+      "name": "苏泊尔",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.1889,
+      "pct": 8.4,
+      "close": 43.77,
+      "mcap_yi": 357.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002034",
+      "name": "旺能环境",
+      "sector": "Industrials",
+      "rsp": -0.0896,
+      "pct": -19.45,
+      "close": 14.3,
+      "mcap_yi": 81.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002036",
+      "name": "联创电子",
+      "sector": "Technology",
+      "rsp": -0.1738,
+      "pct": -27.86,
+      "close": 6.85,
+      "mcap_yi": 93.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002038",
+      "name": "双鹭药业",
+      "sector": "Healthcare",
+      "rsp": 0.2755,
+      "pct": 17.06,
+      "close": 5.56,
+      "mcap_yi": 59.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002039",
+      "name": "黔源电力",
+      "sector": "Utilities",
+      "rsp": 0.0937,
+      "pct": -1.11,
+      "close": 19.96,
+      "mcap_yi": 83.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002041",
+      "name": "登海种业",
+      "sector": "Consumer Defensive",
+      "rsp": 0.0734,
+      "pct": -3.14,
+      "close": 8.69,
+      "mcap_yi": 95.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002042",
+      "name": "华孚时尚",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0635,
+      "pct": -4.13,
+      "close": 3.74,
+      "mcap_yi": 71.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002044",
+      "name": "美年健康",
+      "sector": "Healthcare",
+      "rsp": -0.0675,
+      "pct": -17.24,
+      "close": 4.84,
+      "mcap_yi": 226.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002045",
+      "name": "国光电器",
+      "sector": "Technology",
+      "rsp": 0.0654,
+      "pct": -3.95,
+      "close": 8.38,
+      "mcap_yi": 72.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002046",
+      "name": "国机精工",
+      "sector": "Industrials",
+      "rsp": -0.1364,
+      "pct": -24.12,
+      "close": 43.29,
+      "mcap_yi": 248.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002048",
+      "name": "宁波华翔",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.1408,
+      "pct": -24.56,
+      "close": 18.77,
+      "mcap_yi": 211.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002049",
+      "name": "紫光国微",
+      "sector": "Technology",
+      "rsp": -0.0823,
+      "pct": -18.71,
+      "close": 66.04,
+      "mcap_yi": 616.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002050",
+      "name": "三花智控",
+      "sector": "Industrials",
+      "rsp": -0.0143,
+      "pct": -11.92,
+      "close": 37.54,
+      "mcap_yi": 1990.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002051",
+      "name": "中工国际",
+      "sector": "Industrials",
+      "rsp": -0.2573,
+      "pct": -36.22,
+      "close": 9.11,
+      "mcap_yi": 103.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002052",
+      "name": "同洲电子",
+      "sector": "Technology",
+      "rsp": 0.0496,
+      "pct": -5.52,
+      "close": 8.84,
+      "mcap_yi": 88.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002056",
+      "name": "横店东磁",
+      "sector": "Technology",
+      "rsp": -0.0668,
+      "pct": -17.17,
+      "close": 21.01,
+      "mcap_yi": 353.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002057",
+      "name": "中钢天源",
+      "sector": "Technology",
+      "rsp": -0.3023,
+      "pct": -40.71,
+      "close": 8.05,
+      "mcap_yi": 71.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002059",
+      "name": "云南旅游",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.1165,
+      "pct": 1.17,
+      "close": 4.43,
+      "mcap_yi": 51.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002060",
+      "name": "广东建工",
+      "sector": "Industrials",
+      "rsp": 0.1174,
+      "pct": 1.25,
+      "close": 3.32,
+      "mcap_yi": 148.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002061",
+      "name": "浙江交科",
+      "sector": "Industrials",
+      "rsp": 0.1363,
+      "pct": 3.14,
+      "close": 3.6,
+      "mcap_yi": 99.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002062",
+      "name": "宏润建设",
+      "sector": "Industrials",
+      "rsp": -0.1657,
+      "pct": -23.08,
+      "close": 7.57,
+      "mcap_yi": 103.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002063",
+      "name": "远光软件",
+      "sector": "Technology",
+      "rsp": 0.088,
+      "pct": -1.69,
+      "close": 5.54,
+      "mcap_yi": 137.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002065",
+      "name": "东华软件",
+      "sector": "Technology",
+      "rsp": 0.019,
+      "pct": -8.59,
+      "close": 7.26,
+      "mcap_yi": 275.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002069",
+      "name": "獐子岛",
+      "sector": "Consumer Defensive",
+      "rsp": 0.1306,
+      "pct": 2.57,
+      "close": 3.14,
+      "mcap_yi": 25.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002072",
+      "name": "凯瑞德",
+      "sector": "Industrials",
+      "rsp": -0.1743,
+      "pct": -27.91,
+      "close": 6.89,
+      "mcap_yi": 26.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002073",
+      "name": "软控股份",
+      "sector": "Industrials",
+      "rsp": 0.0975,
+      "pct": -0.74,
+      "close": 5.78,
+      "mcap_yi": 79.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002074",
+      "name": "国轩高科",
+      "sector": "Industrials",
+      "rsp": -0.0335,
+      "pct": -13.83,
+      "close": 28.59,
+      "mcap_yi": 683.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002077",
+      "name": "大港股份",
+      "sector": "Real Estate",
+      "rsp": -0.1567,
+      "pct": -26.15,
+      "close": 11.68,
+      "mcap_yi": 91.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002079",
+      "name": "苏州固锝",
+      "sector": "Technology",
+      "rsp": -0.2341,
+      "pct": -33.9,
+      "close": 8.97,
+      "mcap_yi": 83.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002081",
+      "name": "金螳螂",
+      "sector": "Industrials",
+      "rsp": -0.1282,
+      "pct": -23.31,
+      "close": 3.76,
+      "mcap_yi": 96.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002082",
+      "name": "万邦德",
+      "sector": "Healthcare",
+      "rsp": -0.037,
+      "pct": -14.19,
+      "close": 9.9,
+      "mcap_yi": 114.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002083",
+      "name": "孚日股份",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0265,
+      "pct": -7.84,
+      "close": 10.97,
+      "mcap_yi": 98.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002084",
+      "name": "海鸥住工",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0879,
+      "pct": -1.69,
+      "close": 3.52,
+      "mcap_yi": 27.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002085",
+      "name": "万丰奥威",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0969,
+      "pct": -20.18,
+      "close": 10.63,
+      "mcap_yi": 324.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002086",
+      "name": "东方海洋",
+      "sector": "Consumer Defensive",
+      "rsp": 0.0934,
+      "pct": -1.14,
+      "close": 1.81,
+      "mcap_yi": 43.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002088",
+      "name": "鲁阳节能",
+      "sector": "Industrials",
+      "rsp": -0.042,
+      "pct": -14.69,
+      "close": 7.29,
+      "mcap_yi": 57.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002090",
+      "name": "金智科技",
+      "sector": "Technology",
+      "rsp": 0.0697,
+      "pct": -3.52,
+      "close": 9.55,
+      "mcap_yi": 48.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002091",
+      "name": "江苏国泰",
+      "sector": "Industrials",
+      "rsp": 0.0722,
+      "pct": -3.26,
+      "close": 7.91,
+      "mcap_yi": 154.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002093",
+      "name": "国脉科技",
+      "sector": "Technology",
+      "rsp": 0.0066,
+      "pct": -9.83,
+      "close": 6.95,
+      "mcap_yi": 99.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002094",
+      "name": "青岛金王",
+      "sector": "Consumer Defensive",
+      "rsp": 0.0217,
+      "pct": -8.32,
+      "close": 4.67,
+      "mcap_yi": 42.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002095",
+      "name": "生意宝",
+      "sector": "Technology",
+      "rsp": 0.0147,
+      "pct": -9.02,
+      "close": 14.2,
+      "mcap_yi": 45.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002097",
+      "name": "山河智能",
+      "sector": "Industrials",
+      "rsp": -0.0384,
+      "pct": -14.32,
+      "close": 7.25,
+      "mcap_yi": 111.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002098",
+      "name": "浔兴股份",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0467,
+      "pct": -5.81,
+      "close": 6.58,
+      "mcap_yi": 30.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002099",
+      "name": "海翔药业",
+      "sector": "Healthcare",
+      "rsp": 0.0682,
+      "pct": -3.67,
+      "close": 5.46,
+      "mcap_yi": 104.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002103",
+      "name": "广博股份",
+      "sector": "Industrials",
+      "rsp": 0.092,
+      "pct": -1.29,
+      "close": 6.52,
+      "mcap_yi": 42.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002104",
+      "name": "恒宝股份",
+      "sector": "Industrials",
+      "rsp": -0.088,
+      "pct": -19.28,
+      "close": 10.31,
+      "mcap_yi": 113.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002105",
+      "name": "信隆健康",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.1049,
+      "pct": 0.0,
+      "close": 5.26,
+      "mcap_yi": 22.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002106",
+      "name": "莱宝高科",
+      "sector": "Technology",
+      "rsp": -0.2192,
+      "pct": -32.41,
+      "close": 9.91,
+      "mcap_yi": 89.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002107",
+      "name": "沃华医药",
+      "sector": "Healthcare",
+      "rsp": 0.2099,
+      "pct": 10.5,
+      "close": 6.05,
+      "mcap_yi": 36.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002108",
+      "name": "沧州明珠",
+      "sector": "Industrials",
+      "rsp": 0.0117,
+      "pct": -9.31,
+      "close": 4.35,
+      "mcap_yi": 83.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002111",
+      "name": "威海广泰",
+      "sector": "Industrials",
+      "rsp": 0.0942,
+      "pct": -1.06,
+      "close": 9.59,
+      "mcap_yi": 54.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002112",
+      "name": "三变科技",
+      "sector": "Technology",
+      "rsp": -0.1497,
+      "pct": -25.46,
+      "close": 16.77,
+      "mcap_yi": 74.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002115",
+      "name": "三维通信",
+      "sector": "Technology",
+      "rsp": 0.0989,
+      "pct": -0.6,
+      "close": 11.0,
+      "mcap_yi": 103.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002116",
+      "name": "中国海诚",
+      "sector": "Industrials",
+      "rsp": 0.0567,
+      "pct": -4.81,
+      "close": 7.06,
+      "mcap_yi": 48.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002117",
+      "name": "东港股份",
+      "sector": "Industrials",
+      "rsp": 0.0068,
+      "pct": -9.8,
+      "close": 8.14,
+      "mcap_yi": 58.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002119",
+      "name": "康强电子",
+      "sector": "Technology",
+      "rsp": -0.2058,
+      "pct": -31.07,
+      "close": 20.84,
+      "mcap_yi": 79.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002120",
+      "name": "韵达股份",
+      "sector": "Industrials",
+      "rsp": 0.1592,
+      "pct": 5.43,
+      "close": 6.91,
+      "mcap_yi": 194.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002121",
+      "name": "科陆电子",
+      "sector": "Industrials",
+      "rsp": -0.0924,
+      "pct": -19.72,
+      "close": 5.08,
+      "mcap_yi": 159.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002123",
+      "name": "梦网科技",
+      "sector": "Technology",
+      "rsp": 0.1177,
+      "pct": 1.29,
+      "close": 8.32,
+      "mcap_yi": 86.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002124",
+      "name": "天邦食品",
+      "sector": "Consumer Defensive",
+      "rsp": 0.1518,
+      "pct": 4.69,
+      "close": 2.22,
+      "mcap_yi": 57.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002126",
+      "name": "银轮股份",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0004,
+      "pct": -10.44,
+      "close": 38.88,
+      "mcap_yi": 388.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002127",
+      "name": "南极电商",
+      "sector": "Communication Services",
+      "rsp": 0.2966,
+      "pct": 19.17,
+      "close": 3.09,
+      "mcap_yi": 74.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002128",
+      "name": "电投能源",
+      "sector": "Energy",
+      "rsp": 0.0809,
+      "pct": -2.4,
+      "close": 27.0,
+      "mcap_yi": 753.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002129",
+      "name": "TCL中环",
+      "sector": "Technology",
+      "rsp": -0.0229,
+      "pct": -12.78,
+      "close": 8.88,
+      "mcap_yi": 410.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002130",
+      "name": "沃尔核材",
+      "sector": "Industrials",
+      "rsp": -0.1358,
+      "pct": -24.07,
+      "close": 16.71,
+      "mcap_yi": 352.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002131",
+      "name": "利欧股份",
+      "sector": "Communication Services",
+      "rsp": -0.1707,
+      "pct": -27.56,
+      "close": 4.66,
+      "mcap_yi": 520.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002133",
+      "name": "广宇集团",
+      "sector": "Real Estate",
+      "rsp": 0.0433,
+      "pct": -6.15,
+      "close": 2.52,
+      "mcap_yi": 26.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002134",
+      "name": "天津普林",
+      "sector": "Technology",
+      "rsp": -0.1121,
+      "pct": -21.7,
+      "close": 18.69,
+      "mcap_yi": 51.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002135",
+      "name": "东南网架",
+      "sector": "Industrials",
+      "rsp": -0.05,
+      "pct": -15.48,
+      "close": 6.23,
+      "mcap_yi": 74.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002137",
+      "name": "实益达",
+      "sector": "Industrials",
+      "rsp": -0.2248,
+      "pct": -32.97,
+      "close": 7.39,
+      "mcap_yi": 47.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002138",
+      "name": "顺络电子",
+      "sector": "Technology",
+      "rsp": -0.3262,
+      "pct": -43.11,
+      "close": 43.38,
+      "mcap_yi": 308.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002139",
+      "name": "拓邦股份",
+      "sector": "Technology",
+      "rsp": 0.1059,
+      "pct": 0.1,
+      "close": 10.31,
+      "mcap_yi": 162.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002140",
+      "name": "东华科技",
+      "sector": "Industrials",
+      "rsp": -0.0164,
+      "pct": -12.12,
+      "close": 8.97,
+      "mcap_yi": 91.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002141",
+      "name": "贤丰控股",
+      "sector": "Industrials",
+      "rsp": 0.4671,
+      "pct": 36.22,
+      "close": 5.84,
+      "mcap_yi": 42.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002144",
+      "name": "宏达高科",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0853,
+      "pct": -1.96,
+      "close": 10.04,
+      "mcap_yi": 28.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002146",
+      "name": "荣盛发展",
+      "sector": "Real Estate",
+      "rsp": 0.0292,
+      "pct": -7.56,
+      "close": 1.12,
+      "mcap_yi": 63.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002148",
+      "name": "北纬科技",
+      "sector": "Communication Services",
+      "rsp": 0.0222,
+      "pct": -8.27,
+      "close": 6.26,
+      "mcap_yi": 39.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002150",
+      "name": "正泰电源",
+      "sector": "Industrials",
+      "rsp": -0.0928,
+      "pct": -19.76,
+      "close": 20.56,
+      "mcap_yi": 125.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002151",
+      "name": "北斗星通",
+      "sector": "Technology",
+      "rsp": -0.0629,
+      "pct": -16.78,
+      "close": 28.61,
+      "mcap_yi": 242.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002152",
+      "name": "广电运通",
+      "sector": "Industrials",
+      "rsp": 0.0852,
+      "pct": -1.96,
+      "close": 10.25,
+      "mcap_yi": 319.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002153",
+      "name": "石基信息",
+      "sector": "Technology",
+      "rsp": 0.0625,
+      "pct": -4.24,
+      "close": 8.52,
+      "mcap_yi": 301.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002154",
+      "name": "报喜鸟",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0529,
+      "pct": -5.19,
+      "close": 3.9,
+      "mcap_yi": 56.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002156",
+      "name": "通富微电",
+      "sector": "Technology",
+      "rsp": 0.0643,
+      "pct": -4.06,
+      "close": 58.33,
+      "mcap_yi": 696.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002157",
+      "name": "正邦科技",
+      "sector": "Consumer Defensive",
+      "rsp": 0.1014,
+      "pct": -0.34,
+      "close": 2.91,
+      "mcap_yi": 302.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002158",
+      "name": "汉钟精机",
+      "sector": "Industrials",
+      "rsp": -0.1083,
+      "pct": -21.32,
+      "close": 25.91,
+      "mcap_yi": 130.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002159",
+      "name": "三特索道",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0344,
+      "pct": -7.04,
+      "close": 13.2,
+      "mcap_yi": 31.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002161",
+      "name": "远望谷",
+      "sector": "Technology",
+      "rsp": -0.0815,
+      "pct": -18.64,
+      "close": 5.46,
+      "mcap_yi": 51.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002162",
+      "name": "悦心健康",
+      "sector": "Industrials",
+      "rsp": 0.1891,
+      "pct": 8.43,
+      "close": 3.92,
+      "mcap_yi": 42.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002164",
+      "name": "宁波东力",
+      "sector": "Industrials",
+      "rsp": -0.0608,
+      "pct": -16.56,
+      "close": 11.0,
+      "mcap_yi": 67.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002166",
+      "name": "莱茵生物",
+      "sector": "Consumer Defensive",
+      "rsp": 0.0559,
+      "pct": -4.9,
+      "close": 6.65,
+      "mcap_yi": 66.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002169",
+      "name": "智光电气",
+      "sector": "Technology",
+      "rsp": -0.0915,
+      "pct": -19.64,
+      "close": 11.08,
+      "mcap_yi": 121.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002173",
+      "name": "创新医疗",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.185,
+      "pct": 8.02,
+      "close": 19.41,
+      "mcap_yi": 118.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002174",
+      "name": "游族网络",
+      "sector": "Communication Services",
+      "rsp": 0.0173,
+      "pct": -8.76,
+      "close": 11.39,
+      "mcap_yi": 101.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002175",
+      "name": "东方智造",
+      "sector": "Technology",
+      "rsp": 0.2863,
+      "pct": 18.14,
+      "close": 2.36,
+      "mcap_yi": 44.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002176",
+      "name": "江特电机",
+      "sector": "Industrials",
+      "rsp": -0.1998,
+      "pct": -30.46,
+      "close": 8.23,
+      "mcap_yi": 157.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002178",
+      "name": "延华智能",
+      "sector": "Industrials",
+      "rsp": -0.0366,
+      "pct": -14.14,
+      "close": 4.5,
+      "mcap_yi": 44.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002179",
+      "name": "中航光电",
+      "sector": "Technology",
+      "rsp": -0.1301,
+      "pct": -23.5,
+      "close": 34.22,
+      "mcap_yi": 731.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002180",
+      "name": "纳思达",
+      "sector": "Technology",
+      "rsp": 0.24,
+      "pct": 13.52,
+      "close": 17.04,
+      "mcap_yi": 255.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002181",
+      "name": "粤传媒",
+      "sector": "Communication Services",
+      "rsp": -0.1755,
+      "pct": -28.03,
+      "close": 8.59,
+      "mcap_yi": 121.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002183",
+      "name": "怡亚通",
+      "sector": "Industrials",
+      "rsp": -0.0648,
+      "pct": -16.97,
+      "close": 4.64,
+      "mcap_yi": 136.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002184",
+      "name": "海得控制",
+      "sector": "Technology",
+      "rsp": 0.0044,
+      "pct": -10.05,
+      "close": 9.66,
+      "mcap_yi": 42.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002185",
+      "name": "华天科技",
+      "sector": "Technology",
+      "rsp": 0.0207,
+      "pct": -8.41,
+      "close": 15.71,
+      "mcap_yi": 445.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002186",
+      "name": "全聚德",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.1333,
+      "pct": 2.84,
+      "close": 9.26,
+      "mcap_yi": 29.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002187",
+      "name": "广百股份",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0811,
+      "pct": -2.38,
+      "close": 5.27,
+      "mcap_yi": 42.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002188",
+      "name": "中天服务",
+      "sector": "Technology",
+      "rsp": -0.0286,
+      "pct": -13.35,
+      "close": 4.86,
+      "mcap_yi": 20.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002189",
+      "name": "中光学",
+      "sector": "Technology",
+      "rsp": 0.05,
+      "pct": -5.49,
+      "close": 18.38,
+      "mcap_yi": 52.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002190",
+      "name": "成飞集成",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0946,
+      "pct": -19.95,
+      "close": 22.92,
+      "mcap_yi": 115.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002191",
+      "name": "劲嘉股份",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0224,
+      "pct": -8.25,
+      "close": 3.74,
+      "mcap_yi": 57.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002194",
+      "name": "武汉凡谷",
+      "sector": "Technology",
+      "rsp": -0.2394,
+      "pct": -34.42,
+      "close": 8.83,
+      "mcap_yi": 80.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002195",
+      "name": "岩山科技",
+      "sector": "Technology",
+      "rsp": -0.0971,
+      "pct": -20.19,
+      "close": 6.84,
+      "mcap_yi": 530.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002196",
+      "name": "方正电机",
+      "sector": "Industrials",
+      "rsp": -0.0947,
+      "pct": -19.95,
+      "close": 10.67,
+      "mcap_yi": 68.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002197",
+      "name": "证通电子",
+      "sector": "Technology",
+      "rsp": -0.0266,
+      "pct": -13.15,
+      "close": 6.72,
+      "mcap_yi": 50.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002198",
+      "name": "嘉应制药",
+      "sector": "Healthcare",
+      "rsp": 0.108,
+      "pct": 0.31,
+      "close": 3.26,
+      "mcap_yi": 37.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002202",
+      "name": "金风科技",
+      "sector": "Industrials",
+      "rsp": -0.1301,
+      "pct": -23.5,
+      "close": 18.46,
+      "mcap_yi": 1259.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002204",
+      "name": "大连重工",
+      "sector": "Industrials",
+      "rsp": 0.0256,
+      "pct": -7.93,
+      "close": 5.39,
+      "mcap_yi": 128.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002205",
+      "name": "国统股份",
+      "sector": "Industrials",
+      "rsp": -0.02,
+      "pct": -12.49,
+      "close": 9.76,
+      "mcap_yi": 25.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002207",
+      "name": "准油股份",
+      "sector": "Energy",
+      "rsp": -0.0575,
+      "pct": -16.24,
+      "close": 5.9,
+      "mcap_yi": 29.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002208",
+      "name": "合肥城建",
+      "sector": "Real Estate",
+      "rsp": -0.1416,
+      "pct": -24.64,
+      "close": 10.83,
+      "mcap_yi": 111.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002209",
+      "name": "达意隆",
+      "sector": "Industrials",
+      "rsp": 0.059,
+      "pct": -4.59,
+      "close": 10.53,
+      "mcap_yi": 30.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002210",
+      "name": "飞马国际",
+      "sector": "Utilities",
+      "rsp": 0.0183,
+      "pct": -8.66,
+      "close": 2.24,
+      "mcap_yi": 77.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002212",
+      "name": "天融信",
+      "sector": "Technology",
+      "rsp": -0.0195,
+      "pct": -12.44,
+      "close": 6.6,
+      "mcap_yi": 93.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002213",
+      "name": "大为股份",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.297,
+      "pct": -40.19,
+      "close": 26.21,
+      "mcap_yi": 67.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002216",
+      "name": "三全食品",
+      "sector": "Consumer Defensive",
+      "rsp": 0.1978,
+      "pct": 9.29,
+      "close": 13.24,
+      "mcap_yi": 101.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002217",
+      "name": "合力泰",
+      "sector": "Technology",
+      "rsp": -0.3141,
+      "pct": -41.9,
+      "close": 1.46,
+      "mcap_yi": 192.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002218",
+      "name": "拓日新能",
+      "sector": "Technology",
+      "rsp": -0.0355,
+      "pct": -14.04,
+      "close": 3.97,
+      "mcap_yi": 84.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002219",
+      "name": "新里程",
+      "sector": "Healthcare",
+      "rsp": 0.1631,
+      "pct": 5.82,
+      "close": 2.08,
+      "mcap_yi": 77.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002221",
+      "name": "东华能源",
+      "sector": "Energy",
+      "rsp": 0.005,
+      "pct": -9.98,
+      "close": 5.61,
+      "mcap_yi": 148.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002222",
+      "name": "福晶科技",
+      "sector": "Technology",
+      "rsp": -0.3082,
+      "pct": -41.3,
+      "close": 50.47,
+      "mcap_yi": 276.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002223",
+      "name": "鱼跃医疗",
+      "sector": "Healthcare",
+      "rsp": 0.1891,
+      "pct": 8.42,
+      "close": 27.99,
+      "mcap_yi": 350.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002224",
+      "name": "三力士",
+      "sector": "Industrials",
+      "rsp": 0.0678,
+      "pct": -3.7,
+      "close": 3.45,
+      "mcap_yi": 41.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002225",
+      "name": "濮耐股份",
+      "sector": "Industrials",
+      "rsp": -0.0437,
+      "pct": -14.86,
+      "close": 3.59,
+      "mcap_yi": 68.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002227",
+      "name": "奥特迅",
+      "sector": "Industrials",
+      "rsp": -0.0183,
+      "pct": -12.32,
+      "close": 6.01,
+      "mcap_yi": 24.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002228",
+      "name": "合兴包装",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0892,
+      "pct": -1.57,
+      "close": 3.1,
+      "mcap_yi": 49.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002229",
+      "name": "鸿博股份",
+      "sector": "Industrials",
+      "rsp": -0.114,
+      "pct": -21.89,
+      "close": 10.27,
+      "mcap_yi": 83.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002230",
+      "name": "科大讯飞",
+      "sector": "Technology",
+      "rsp": 0.0374,
+      "pct": -6.75,
+      "close": 42.37,
+      "mcap_yi": 1134.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002232",
+      "name": "启明信息",
+      "sector": "Technology",
+      "rsp": 0.016,
+      "pct": -8.88,
+      "close": 14.25,
+      "mcap_yi": 73.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002234",
+      "name": "民和股份",
+      "sector": "Consumer Defensive",
+      "rsp": 0.1663,
+      "pct": 6.14,
+      "close": 7.02,
+      "mcap_yi": 32.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002236",
+      "name": "大华股份",
+      "sector": "Industrials",
+      "rsp": 0.0824,
+      "pct": -2.24,
+      "close": 16.66,
+      "mcap_yi": 575.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002238",
+      "name": "天威视讯",
+      "sector": "Communication Services",
+      "rsp": 0.0613,
+      "pct": -4.36,
+      "close": 6.02,
+      "mcap_yi": 56.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002239",
+      "name": "奥特佳",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.1197,
+      "pct": 1.49,
+      "close": 2.56,
+      "mcap_yi": 105.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002241",
+      "name": "歌尔股份",
+      "sector": "Technology",
+      "rsp": 0.0829,
+      "pct": -2.19,
+      "close": 23.23,
+      "mcap_yi": 893.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002242",
+      "name": "九阳股份",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.1144,
+      "pct": 0.95,
+      "close": 9.06,
+      "mcap_yi": 79.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002243",
+      "name": "力合科创",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0424,
+      "pct": -6.25,
+      "close": 7.12,
+      "mcap_yi": 117.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002244",
+      "name": "滨江集团",
+      "sector": "Real Estate",
+      "rsp": 0.1084,
+      "pct": 0.36,
+      "close": 9.2,
+      "mcap_yi": 317.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002245",
+      "name": "蔚蓝锂芯",
+      "sector": "Industrials",
+      "rsp": -0.1442,
+      "pct": -24.91,
+      "close": 16.21,
+      "mcap_yi": 208.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002249",
+      "name": "大洋电机",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0575,
+      "pct": -16.23,
+      "close": 7.4,
+      "mcap_yi": 245.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002252",
+      "name": "上海莱士",
+      "sector": "Healthcare",
+      "rsp": 0.2264,
+      "pct": 12.15,
+      "close": 5.18,
+      "mcap_yi": 399.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002255",
+      "name": "海陆重工",
+      "sector": "Industrials",
+      "rsp": -0.059,
+      "pct": -16.38,
+      "close": 8.31,
+      "mcap_yi": 112.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002256",
+      "name": "兆新股份",
+      "sector": "Utilities",
+      "rsp": -0.1165,
+      "pct": -22.14,
+      "close": 3.28,
+      "mcap_yi": 78.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002259",
+      "name": "升达林业",
+      "sector": "Energy",
+      "rsp": -0.0425,
+      "pct": -14.73,
+      "close": 3.61,
+      "mcap_yi": 43.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002261",
+      "name": "拓维信息",
+      "sector": "Technology",
+      "rsp": -0.0041,
+      "pct": -10.9,
+      "close": 26.19,
+      "mcap_yi": 448.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002262",
+      "name": "恩华药业",
+      "sector": "Healthcare",
+      "rsp": 0.2141,
+      "pct": 10.93,
+      "close": 22.03,
+      "mcap_yi": 224.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002263",
+      "name": "大东南",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.2862,
+      "pct": -39.1,
+      "close": 2.91,
+      "mcap_yi": 65.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002264",
+      "name": "新华都",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.1099,
+      "pct": 0.5,
+      "close": 6.49,
+      "mcap_yi": 56.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002265",
+      "name": "建设工业",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0478,
+      "pct": -15.26,
+      "close": 19.34,
+      "mcap_yi": 221.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002266",
+      "name": "浙富控股",
+      "sector": "Industrials",
+      "rsp": -0.0474,
+      "pct": -15.23,
+      "close": 4.62,
+      "mcap_yi": 253.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002267",
+      "name": "陕天然气",
+      "sector": "Energy",
+      "rsp": 0.1724,
+      "pct": 6.75,
+      "close": 7.35,
+      "mcap_yi": 90.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002268",
+      "name": "电科网安",
+      "sector": "Technology",
+      "rsp": 0.1623,
+      "pct": 5.74,
+      "close": 14.58,
+      "mcap_yi": 155.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002270",
+      "name": "华明装备",
+      "sector": "Industrials",
+      "rsp": -0.0901,
+      "pct": -19.5,
+      "close": 20.31,
+      "mcap_yi": 284.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002272",
+      "name": "川润股份",
+      "sector": "Industrials",
+      "rsp": -0.1145,
+      "pct": -21.94,
+      "close": 13.43,
+      "mcap_yi": 87.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002273",
+      "name": "水晶光电",
+      "sector": "Technology",
+      "rsp": -0.1256,
+      "pct": -23.05,
+      "close": 25.59,
+      "mcap_yi": 384.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002275",
+      "name": "桂林三金",
+      "sector": "Healthcare",
+      "rsp": 0.1927,
+      "pct": 8.78,
+      "close": 13.25,
+      "mcap_yi": 81.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002276",
+      "name": "万马股份",
+      "sector": "Industrials",
+      "rsp": -0.0654,
+      "pct": -17.02,
+      "close": 10.36,
+      "mcap_yi": 147.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002277",
+      "name": "友阿股份",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0582,
+      "pct": -4.67,
+      "close": 5.65,
+      "mcap_yi": 98.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002278",
+      "name": "神开股份",
+      "sector": "Industrials",
+      "rsp": -0.0109,
+      "pct": -11.58,
+      "close": 7.71,
+      "mcap_yi": 48.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002279",
+      "name": "久其软件",
+      "sector": "Technology",
+      "rsp": -0.0203,
+      "pct": -12.52,
+      "close": 6.96,
+      "mcap_yi": 71.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002281",
+      "name": "光迅科技",
+      "sector": "Technology",
+      "rsp": -0.2089,
+      "pct": -31.38,
+      "close": 165.57,
+      "mcap_yi": 670.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002282",
+      "name": "博深股份",
+      "sector": "Industrials",
+      "rsp": 0.0538,
+      "pct": -5.11,
+      "close": 5.77,
+      "mcap_yi": 41.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002283",
+      "name": "天润工业",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.2267,
+      "pct": -33.16,
+      "close": 8.51,
+      "mcap_yi": 104.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002285",
+      "name": "世联行",
+      "sector": "Real Estate",
+      "rsp": 0.0058,
+      "pct": -9.91,
+      "close": 2.09,
+      "mcap_yi": 69.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002286",
+      "name": "保龄宝",
+      "sector": "Healthcare",
+      "rsp": -0.0143,
+      "pct": -11.92,
+      "close": 7.94,
+      "mcap_yi": 34.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002287",
+      "name": "奇正藏药",
+      "sector": "Healthcare",
+      "rsp": 0.1921,
+      "pct": 8.72,
+      "close": 20.86,
+      "mcap_yi": 133.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002291",
+      "name": "遥望科技",
+      "sector": "Communication Services",
+      "rsp": 0.0537,
+      "pct": -5.11,
+      "close": 5.14,
+      "mcap_yi": 60.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002292",
+      "name": "奥飞娱乐",
+      "sector": "Communication Services",
+      "rsp": 0.2479,
+      "pct": 14.31,
+      "close": 8.25,
+      "mcap_yi": 115.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002293",
+      "name": "罗莱生活",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.1913,
+      "pct": 8.65,
+      "close": 11.08,
+      "mcap_yi": 77.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002294",
+      "name": "信立泰",
+      "sector": "Healthcare",
+      "rsp": 0.3505,
+      "pct": 24.56,
+      "close": 33.26,
+      "mcap_yi": 647.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002295",
+      "name": "精艺股份",
+      "sector": "Industrials",
+      "rsp": -0.0748,
+      "pct": -17.97,
+      "close": 8.1,
+      "mcap_yi": 28.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002296",
+      "name": "辉煌科技",
+      "sector": "Industrials",
+      "rsp": 0.0205,
+      "pct": -8.43,
+      "close": 8.87,
+      "mcap_yi": 46.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002298",
+      "name": "中电鑫龙",
+      "sector": "Industrials",
+      "rsp": -0.072,
+      "pct": -17.68,
+      "close": 9.08,
+      "mcap_yi": 92.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002299",
+      "name": "圣农发展",
+      "sector": "Consumer Defensive",
+      "rsp": 0.0874,
+      "pct": -1.74,
+      "close": 16.63,
+      "mcap_yi": 204.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002300",
+      "name": "太阳电缆",
+      "sector": "Industrials",
+      "rsp": -0.0837,
+      "pct": -18.86,
+      "close": 6.98,
+      "mcap_yi": 70.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002301",
+      "name": "齐心集团",
+      "sector": "Industrials",
+      "rsp": 0.1128,
+      "pct": 0.8,
+      "close": 6.62,
+      "mcap_yi": 53.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002303",
+      "name": "美盈森",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.3667,
+      "pct": 26.18,
+      "close": 4.58,
+      "mcap_yi": 59.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002307",
+      "name": "北新路桥",
+      "sector": "Industrials",
+      "rsp": -0.0946,
+      "pct": -19.94,
+      "close": 3.02,
+      "mcap_yi": 74.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002309",
+      "name": "中利集团",
+      "sector": "Industrials",
+      "rsp": -0.049,
+      "pct": -15.38,
+      "close": 3.21,
+      "mcap_yi": 104.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002310",
+      "name": "东方新能",
+      "sector": "Industrials",
+      "rsp": 0.0962,
+      "pct": -0.86,
+      "close": 2.49,
+      "mcap_yi": 208.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002313",
+      "name": "日海智能",
+      "sector": "Technology",
+      "rsp": 0.0998,
+      "pct": -0.5,
+      "close": 7.96,
+      "mcap_yi": 33.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002314",
+      "name": "南山控股",
+      "sector": "Real Estate",
+      "rsp": 0.0902,
+      "pct": -1.46,
+      "close": 2.09,
+      "mcap_yi": 69.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002315",
+      "name": "焦点科技",
+      "sector": "Technology",
+      "rsp": 0.0787,
+      "pct": -2.61,
+      "close": 26.97,
+      "mcap_yi": 128.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002316",
+      "name": "亚联发展",
+      "sector": "Technology",
+      "rsp": -0.0092,
+      "pct": -11.41,
+      "close": 4.17,
+      "mcap_yi": 22.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002317",
+      "name": "众生药业",
+      "sector": "Healthcare",
+      "rsp": 0.4245,
+      "pct": 31.96,
+      "close": 26.46,
+      "mcap_yi": 149.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002321",
+      "name": "华英农业",
+      "sector": "Consumer Defensive",
+      "rsp": 0.1617,
+      "pct": 5.68,
+      "close": 1.85,
+      "mcap_yi": 46.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002322",
+      "name": "理工能科",
+      "sector": "Industrials",
+      "rsp": 0.0894,
+      "pct": -1.55,
+      "close": 10.71,
+      "mcap_yi": 51.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002323",
+      "name": "雅博股份",
+      "sector": "Industrials",
+      "rsp": 0.2089,
+      "pct": 10.4,
+      "close": 1.3,
+      "mcap_yi": 53.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002328",
+      "name": "新朋股份",
+      "sector": "Industrials",
+      "rsp": -0.0622,
+      "pct": -16.71,
+      "close": 6.59,
+      "mcap_yi": 53.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002329",
+      "name": "皇氏集团",
+      "sector": "Consumer Defensive",
+      "rsp": 0.2547,
+      "pct": 14.98,
+      "close": 3.01,
+      "mcap_yi": 31.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002330",
+      "name": "得利斯",
+      "sector": "Consumer Defensive",
+      "rsp": 0.1291,
+      "pct": 2.43,
+      "close": 3.8,
+      "mcap_yi": 30.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002331",
+      "name": "皖通科技",
+      "sector": "Technology",
+      "rsp": -0.0756,
+      "pct": -18.05,
+      "close": 6.66,
+      "mcap_yi": 37.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002332",
+      "name": "仙琚制药",
+      "sector": "Healthcare",
+      "rsp": 0.1535,
+      "pct": 4.86,
+      "close": 8.55,
+      "mcap_yi": 88.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002334",
+      "name": "英威腾",
+      "sector": "Industrials",
+      "rsp": -0.0961,
+      "pct": -20.1,
+      "close": 6.56,
+      "mcap_yi": 71.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002335",
+      "name": "科华数据",
+      "sector": "Industrials",
+      "rsp": -0.1522,
+      "pct": -25.71,
+      "close": 29.19,
+      "mcap_yi": 324.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002337",
+      "name": "赛象科技",
+      "sector": "Industrials",
+      "rsp": 0.0134,
+      "pct": -9.15,
+      "close": 4.39,
+      "mcap_yi": 39.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002338",
+      "name": "奥普光电",
+      "sector": "Technology",
+      "rsp": -0.1413,
+      "pct": -24.62,
+      "close": 40.38,
+      "mcap_yi": 119.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002339",
+      "name": "积成电子",
+      "sector": "Industrials",
+      "rsp": -0.0391,
+      "pct": -14.4,
+      "close": 7.14,
+      "mcap_yi": 60.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002340",
+      "name": "格林美",
+      "sector": "Industrials",
+      "rsp": -0.0845,
+      "pct": -18.93,
+      "close": 6.72,
+      "mcap_yi": 454.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002342",
+      "name": "巨力索具",
+      "sector": "Industrials",
+      "rsp": -0.1346,
+      "pct": -23.95,
+      "close": 7.36,
+      "mcap_yi": 123.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002343",
+      "name": "慈文传媒",
+      "sector": "Communication Services",
+      "rsp": 0.0821,
+      "pct": -2.27,
+      "close": 4.93,
+      "mcap_yi": 31.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002344",
+      "name": "海宁皮城",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.1075,
+      "pct": 0.27,
+      "close": 3.77,
+      "mcap_yi": 53.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002345",
+      "name": "潮宏基",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.111,
+      "pct": 0.61,
+      "close": 10.83,
+      "mcap_yi": 90.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002346",
+      "name": "柘中股份",
+      "sector": "Industrials",
+      "rsp": 0.039,
+      "pct": -6.59,
+      "close": 17.13,
+      "mcap_yi": 91.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002347",
+      "name": "泰尔股份",
+      "sector": "Industrials",
+      "rsp": -0.0448,
+      "pct": -14.97,
+      "close": 5.63,
+      "mcap_yi": 43.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002348",
+      "name": "高乐股份",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0093,
+      "pct": -11.42,
+      "close": 9.88,
+      "mcap_yi": 82.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002349",
+      "name": "精华制药",
+      "sector": "Healthcare",
+      "rsp": 0.1742,
+      "pct": 6.93,
+      "close": 6.7,
+      "mcap_yi": 63.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002350",
+      "name": "北京科锐",
+      "sector": "Industrials",
+      "rsp": 0.1822,
+      "pct": 7.73,
+      "close": 14.01,
+      "mcap_yi": 74.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002351",
+      "name": "漫步者",
+      "sector": "Technology",
+      "rsp": 0.1401,
+      "pct": 3.52,
+      "close": 10.37,
+      "mcap_yi": 98.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002352",
+      "name": "顺丰控股",
+      "sector": "Industrials",
+      "rsp": 0.1381,
+      "pct": 3.33,
+      "close": 34.84,
+      "mcap_yi": 1917.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002353",
+      "name": "杰瑞股份",
+      "sector": "Energy",
+      "rsp": -0.2188,
+      "pct": -32.37,
+      "close": 137.28,
+      "mcap_yi": 1003.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002354",
+      "name": "天娱数科",
+      "sector": "Communication Services",
+      "rsp": -0.0528,
+      "pct": -15.76,
+      "close": 6.51,
+      "mcap_yi": 95.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002355",
+      "name": "兴民智通",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0077,
+      "pct": -9.72,
+      "close": 4.38,
+      "mcap_yi": 49.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002356",
+      "name": "赫美集团",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0761,
+      "pct": -18.09,
+      "close": 2.61,
+      "mcap_yi": 58.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002357",
+      "name": "富临运业",
+      "sector": "Industrials",
+      "rsp": -0.011,
+      "pct": -11.59,
+      "close": 8.54,
+      "mcap_yi": 45.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002358",
+      "name": "森源电气",
+      "sector": "Industrials",
+      "rsp": -0.0385,
+      "pct": -14.33,
+      "close": 5.58,
+      "mcap_yi": 80.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002362",
+      "name": "汉王科技",
+      "sector": "Technology",
+      "rsp": -0.0689,
+      "pct": -17.38,
+      "close": 15.4,
+      "mcap_yi": 46.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002363",
+      "name": "隆基机械",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.039,
+      "pct": -6.58,
+      "close": 6.27,
+      "mcap_yi": 34.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002364",
+      "name": "中恒电气",
+      "sector": "Industrials",
+      "rsp": -0.1052,
+      "pct": -21.01,
+      "close": 36.25,
+      "mcap_yi": 171.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002365",
+      "name": "永安药业",
+      "sector": "Healthcare",
+      "rsp": 0.2131,
+      "pct": 10.83,
+      "close": 12.52,
+      "mcap_yi": 37.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002366",
+      "name": "融发核电",
+      "sector": "Industrials",
+      "rsp": -0.0409,
+      "pct": -14.58,
+      "close": 5.73,
+      "mcap_yi": 162.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002367",
+      "name": "康力电梯",
+      "sector": "Industrials",
+      "rsp": 0.0196,
+      "pct": -8.53,
+      "close": 5.31,
+      "mcap_yi": 56.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002368",
+      "name": "太极股份",
+      "sector": "Technology",
+      "rsp": -0.1282,
+      "pct": -23.3,
+      "close": 14.77,
+      "mcap_yi": 126.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002369",
+      "name": "卓翼科技",
+      "sector": "Technology",
+      "rsp": -0.0174,
+      "pct": -12.22,
+      "close": 5.41,
+      "mcap_yi": 38.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002370",
+      "name": "亚太药业",
+      "sector": "Healthcare",
+      "rsp": 0.1557,
+      "pct": 5.08,
+      "close": 4.84,
+      "mcap_yi": 45.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002371",
+      "name": "北方华创",
+      "sector": "Technology",
+      "rsp": 0.0218,
+      "pct": -8.31,
+      "close": 700.04,
+      "mcap_yi": 3319.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002372",
+      "name": "伟星新材",
+      "sector": "Industrials",
+      "rsp": 0.0087,
+      "pct": -9.62,
+      "close": 8.7,
+      "mcap_yi": 165.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002373",
+      "name": "千方科技",
+      "sector": "Technology",
+      "rsp": 0.0314,
+      "pct": -7.35,
+      "close": 7.92,
+      "mcap_yi": 148.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002374",
+      "name": "中锐股份",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0451,
+      "pct": -15.0,
+      "close": 3.01,
+      "mcap_yi": 33.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002375",
+      "name": "亚厦股份",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0968,
+      "pct": -0.81,
+      "close": 3.51,
+      "mcap_yi": 56.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002376",
+      "name": "新北洋",
+      "sector": "Industrials",
+      "rsp": 0.1032,
+      "pct": -0.17,
+      "close": 6.39,
+      "mcap_yi": 61.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002380",
+      "name": "科远智慧",
+      "sector": "Technology",
+      "rsp": -0.205,
+      "pct": -30.99,
+      "close": 27.98,
+      "mcap_yi": 90.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002381",
+      "name": "双箭股份",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.09,
+      "pct": -1.48,
+      "close": 5.18,
+      "mcap_yi": 26.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002382",
+      "name": "蓝帆医疗",
+      "sector": "Healthcare",
+      "rsp": 0.1384,
+      "pct": 3.36,
+      "close": 5.82,
+      "mcap_yi": 78.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002383",
+      "name": "合众思壮",
+      "sector": "Technology",
+      "rsp": 0.0039,
+      "pct": -10.1,
+      "close": 6.85,
+      "mcap_yi": 74.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002384",
+      "name": "东山精密",
+      "sector": "Technology",
+      "rsp": -0.001,
+      "pct": -10.58,
+      "close": 174.18,
+      "mcap_yi": 2032.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002385",
+      "name": "大北农",
+      "sector": "Consumer Defensive",
+      "rsp": 0.1606,
+      "pct": 5.57,
+      "close": 3.03,
+      "mcap_yi": 175.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002387",
+      "name": "维信诺",
+      "sector": "Technology",
+      "rsp": -0.1279,
+      "pct": -23.28,
+      "close": 6.98,
+      "mcap_yi": 118.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002388",
+      "name": "新亚制程",
+      "sector": "Industrials",
+      "rsp": -0.173,
+      "pct": -27.79,
+      "close": 4.71,
+      "mcap_yi": 26.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002389",
+      "name": "航天彩虹",
+      "sector": "Industrials",
+      "rsp": 0.0213,
+      "pct": -8.36,
+      "close": 18.82,
+      "mcap_yi": 230.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002390",
+      "name": "信邦制药",
+      "sector": "Healthcare",
+      "rsp": 0.2023,
+      "pct": 9.75,
+      "close": 2.99,
+      "mcap_yi": 61.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002393",
+      "name": "力生制药",
+      "sector": "Healthcare",
+      "rsp": 0.1346,
+      "pct": 2.97,
+      "close": 14.16,
+      "mcap_yi": 52.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002394",
+      "name": "联发股份",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0123,
+      "pct": -11.71,
+      "close": 9.15,
+      "mcap_yi": 41.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002395",
+      "name": "双象股份",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0536,
+      "pct": -5.13,
+      "close": 11.91,
+      "mcap_yi": 45.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002396",
+      "name": "星网锐捷",
+      "sector": "Technology",
+      "rsp": 0.6024,
+      "pct": 49.75,
+      "close": 26.54,
+      "mcap_yi": 175.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002397",
+      "name": "梦洁股份",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0778,
+      "pct": -18.27,
+      "close": 3.43,
+      "mcap_yi": 26.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002399",
+      "name": "海普瑞",
+      "sector": "Healthcare",
+      "rsp": 0.2107,
+      "pct": 10.59,
+      "close": 9.63,
+      "mcap_yi": 161.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002400",
+      "name": "省广集团",
+      "sector": "Communication Services",
+      "rsp": -0.0594,
+      "pct": -16.43,
+      "close": 6.84,
+      "mcap_yi": 143.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002401",
+      "name": "中远海科",
+      "sector": "Technology",
+      "rsp": -0.0126,
+      "pct": -11.75,
+      "close": 12.19,
+      "mcap_yi": 59.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002402",
+      "name": "和而泰",
+      "sector": "Technology",
+      "rsp": -0.0361,
+      "pct": -14.1,
+      "close": 20.29,
+      "mcap_yi": 282.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002403",
+      "name": "爱仕达",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0606,
+      "pct": -4.42,
+      "close": 9.1,
+      "mcap_yi": 39.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002404",
+      "name": "嘉欣丝绸",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0391,
+      "pct": -6.58,
+      "close": 5.78,
+      "mcap_yi": 39.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002405",
+      "name": "四维图新",
+      "sector": "Technology",
+      "rsp": -0.05,
+      "pct": -15.48,
+      "close": 6.68,
+      "mcap_yi": 265.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002406",
+      "name": "远东传动",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0056,
+      "pct": -11.05,
+      "close": 6.69,
+      "mcap_yi": 55.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002409",
+      "name": "雅克科技",
+      "sector": "Technology",
+      "rsp": -0.0118,
+      "pct": -11.67,
+      "close": 139.97,
+      "mcap_yi": 405.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002410",
+      "name": "广联达",
+      "sector": "Technology",
+      "rsp": 0.0621,
+      "pct": -4.27,
+      "close": 9.41,
+      "mcap_yi": 206.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002412",
+      "name": "汉森制药",
+      "sector": "Healthcare",
+      "rsp": 0.2084,
+      "pct": 10.36,
+      "close": 6.77,
+      "mcap_yi": 33.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002413",
+      "name": "雷科防务",
+      "sector": "Technology",
+      "rsp": -0.1252,
+      "pct": -23.01,
+      "close": 7.99,
+      "mcap_yi": 178.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002414",
+      "name": "高德红外",
+      "sector": "Technology",
+      "rsp": 0.0485,
+      "pct": -5.64,
+      "close": 12.76,
+      "mcap_yi": 579.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002415",
+      "name": "海康威视",
+      "sector": "Technology",
+      "rsp": 0.1082,
+      "pct": 0.34,
+      "close": 37.33,
+      "mcap_yi": 2910.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002416",
+      "name": "爱施德",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0367,
+      "pct": -14.15,
+      "close": 9.96,
+      "mcap_yi": 146.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002419",
+      "name": "天虹股份",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0493,
+      "pct": -5.56,
+      "close": 4.54,
+      "mcap_yi": 66.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002420",
+      "name": "毅昌科技",
+      "sector": "Technology",
+      "rsp": 0.0488,
+      "pct": -5.61,
+      "close": 5.37,
+      "mcap_yi": 32.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002421",
+      "name": "达实智能",
+      "sector": "Technology",
+      "rsp": -0.2396,
+      "pct": -34.44,
+      "close": 2.89,
+      "mcap_yi": 57.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002422",
+      "name": "科伦药业",
+      "sector": "Healthcare",
+      "rsp": 0.3302,
+      "pct": 22.54,
+      "close": 43.66,
+      "mcap_yi": 549.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002423",
+      "name": "中粮资本",
+      "sector": "Financial Services",
+      "rsp": 0.0746,
+      "pct": -3.03,
+      "close": 9.25,
+      "mcap_yi": 253.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002425",
+      "name": "凯撒文化",
+      "sector": "Communication Services",
+      "rsp": 0.0337,
+      "pct": -7.12,
+      "close": 2.82,
+      "mcap_yi": 33.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002426",
+      "name": "胜利精密",
+      "sector": "Industrials",
+      "rsp": -0.24,
+      "pct": -34.48,
+      "close": 2.61,
+      "mcap_yi": 150.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002427",
+      "name": "尤夫股份",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0674,
+      "pct": -3.75,
+      "close": 4.18,
+      "mcap_yi": 72.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002429",
+      "name": "兆驰股份",
+      "sector": "Technology",
+      "rsp": -0.1855,
+      "pct": -29.04,
+      "close": 7.52,
+      "mcap_yi": 540.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002430",
+      "name": "杭氧股份",
+      "sector": "Industrials",
+      "rsp": -0.0346,
+      "pct": -13.95,
+      "close": 23.25,
+      "mcap_yi": 271.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002431",
+      "name": "棕榈股份",
+      "sector": "Industrials",
+      "rsp": 0.0614,
+      "pct": -4.35,
+      "close": 1.32,
+      "mcap_yi": 48.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002432",
+      "name": "九安医疗",
+      "sector": "Healthcare",
+      "rsp": 0.1916,
+      "pct": 8.67,
+      "close": 68.46,
+      "mcap_yi": 289.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002434",
+      "name": "万里扬",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0523,
+      "pct": -15.71,
+      "close": 5.63,
+      "mcap_yi": 114.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002436",
+      "name": "兴森科技",
+      "sector": "Technology",
+      "rsp": -0.2561,
+      "pct": -36.1,
+      "close": 28.24,
+      "mcap_yi": 380.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002437",
+      "name": "誉衡药业",
+      "sector": "Healthcare",
+      "rsp": 0.2439,
+      "pct": 13.9,
+      "close": 2.85,
+      "mcap_yi": 71.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002438",
+      "name": "江苏神通",
+      "sector": "Industrials",
+      "rsp": -0.0889,
+      "pct": -19.38,
+      "close": 12.76,
+      "mcap_yi": 89.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002439",
+      "name": "启明星辰",
+      "sector": "Technology",
+      "rsp": 0.0607,
+      "pct": -4.42,
+      "close": 14.02,
+      "mcap_yi": 167.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002441",
+      "name": "众业达",
+      "sector": "Industrials",
+      "rsp": 0.0146,
+      "pct": -9.02,
+      "close": 7.91,
+      "mcap_yi": 59.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002444",
+      "name": "巨星科技",
+      "sector": "Industrials",
+      "rsp": 0.0838,
+      "pct": -2.11,
+      "close": 30.03,
+      "mcap_yi": 361.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002445",
+      "name": "中南文化",
+      "sector": "Industrials",
+      "rsp": -0.0254,
+      "pct": -13.03,
+      "close": 2.87,
+      "mcap_yi": 97.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002446",
+      "name": "盛路通信",
+      "sector": "Technology",
+      "rsp": -0.2217,
+      "pct": -32.65,
+      "close": 7.63,
+      "mcap_yi": 92.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002448",
+      "name": "中原内配",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.1211,
+      "pct": -22.59,
+      "close": 11.82,
+      "mcap_yi": 83.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002449",
+      "name": "国星光电",
+      "sector": "Technology",
+      "rsp": -0.1205,
+      "pct": -22.54,
+      "close": 6.28,
+      "mcap_yi": 57.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002451",
+      "name": "摩恩电气",
+      "sector": "Industrials",
+      "rsp": -0.0481,
+      "pct": -15.3,
+      "close": 6.97,
+      "mcap_yi": 44.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002452",
+      "name": "长高电新",
+      "sector": "Industrials",
+      "rsp": 0.0296,
+      "pct": -7.53,
+      "close": 10.86,
+      "mcap_yi": 69.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002454",
+      "name": "松芝股份",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0116,
+      "pct": -11.64,
+      "close": 4.87,
+      "mcap_yi": 48.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002456",
+      "name": "欧菲光",
+      "sector": "Technology",
+      "rsp": -0.0486,
+      "pct": -15.34,
+      "close": 7.22,
+      "mcap_yi": 325.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002457",
+      "name": "青龙管业",
+      "sector": "Industrials",
+      "rsp": -0.0921,
+      "pct": -19.7,
+      "close": 10.41,
+      "mcap_yi": 37.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002458",
+      "name": "益生股份",
+      "sector": "Consumer Defensive",
+      "rsp": 0.1446,
+      "pct": 3.98,
+      "close": 8.72,
+      "mcap_yi": 105.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002459",
+      "name": "晶澳科技",
+      "sector": "Technology",
+      "rsp": -0.062,
+      "pct": -16.69,
+      "close": 7.55,
+      "mcap_yi": 421.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002462",
+      "name": "嘉事堂",
+      "sector": "Healthcare",
+      "rsp": 0.0124,
+      "pct": -9.24,
+      "close": 11.85,
+      "mcap_yi": 41.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002463",
+      "name": "沪电股份",
+      "sector": "Technology",
+      "rsp": -0.0429,
+      "pct": -14.77,
+      "close": 105.75,
+      "mcap_yi": 1561.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002465",
+      "name": "海格通信",
+      "sector": "Technology",
+      "rsp": -0.1492,
+      "pct": -25.41,
+      "close": 10.05,
+      "mcap_yi": 384.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002467",
+      "name": "二六三",
+      "sector": "Communication Services",
+      "rsp": -0.0787,
+      "pct": -18.36,
+      "close": 4.7,
+      "mcap_yi": 103.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002468",
+      "name": "申通快递",
+      "sector": "Industrials",
+      "rsp": 0.1599,
+      "pct": 5.5,
+      "close": 14.15,
+      "mcap_yi": 214.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002469",
+      "name": "三维化学",
+      "sector": "Industrials",
+      "rsp": -0.0406,
+      "pct": -14.55,
+      "close": 5.73,
+      "mcap_yi": 58.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002471",
+      "name": "中超控股",
+      "sector": "Industrials",
+      "rsp": -0.1579,
+      "pct": -26.28,
+      "close": 5.21,
+      "mcap_yi": 112.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002472",
+      "name": "双环传动",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0237,
+      "pct": -8.12,
+      "close": 38.73,
+      "mcap_yi": 324.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002474",
+      "name": "榕基软件",
+      "sector": "Technology",
+      "rsp": -0.0141,
+      "pct": -11.89,
+      "close": 6.22,
+      "mcap_yi": 50.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002475",
+      "name": "立讯精密",
+      "sector": "Technology",
+      "rsp": -0.0389,
+      "pct": -14.37,
+      "close": 57.28,
+      "mcap_yi": 3594.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002479",
+      "name": "富春环保",
+      "sector": "Utilities",
+      "rsp": 0.1781,
+      "pct": 7.33,
+      "close": 5.35,
+      "mcap_yi": 48.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002480",
+      "name": "新筑股份",
+      "sector": "Industrials",
+      "rsp": 0.0523,
+      "pct": -5.25,
+      "close": 5.26,
+      "mcap_yi": 52.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002481",
+      "name": "双塔食品",
+      "sector": "Consumer Defensive",
+      "rsp": 0.1756,
+      "pct": 7.07,
+      "close": 4.21,
+      "mcap_yi": 60.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002482",
+      "name": "广田集团",
+      "sector": "Industrials",
+      "rsp": 0.0146,
+      "pct": -9.02,
+      "close": 1.25,
+      "mcap_yi": 60.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002483",
+      "name": "润邦股份",
+      "sector": "Industrials",
+      "rsp": 0.0668,
+      "pct": -3.8,
+      "close": 5.14,
+      "mcap_yi": 65.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002484",
+      "name": "江海股份",
+      "sector": "Technology",
+      "rsp": -0.1972,
+      "pct": -30.21,
+      "close": 59.88,
+      "mcap_yi": 243.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002486",
+      "name": "嘉麟杰",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0257,
+      "pct": -7.92,
+      "close": 2.28,
+      "mcap_yi": 21.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002487",
+      "name": "大金重工",
+      "sector": "Industrials",
+      "rsp": -0.2812,
+      "pct": -38.61,
+      "close": 39.7,
+      "mcap_yi": 448.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002488",
+      "name": "金固股份",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0139,
+      "pct": -11.88,
+      "close": 8.96,
+      "mcap_yi": 120.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002489",
+      "name": "浙江永强",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0062,
+      "pct": -9.86,
+      "close": 2.69,
+      "mcap_yi": 69.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002490",
+      "name": "山东墨龙",
+      "sector": "Energy",
+      "rsp": 0.1189,
+      "pct": 1.41,
+      "close": 7.44,
+      "mcap_yi": 92.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002491",
+      "name": "通鼎互联",
+      "sector": "Industrials",
+      "rsp": -0.3804,
+      "pct": -48.53,
+      "close": 14.23,
+      "mcap_yi": 138.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002494",
+      "name": "华斯股份",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0542,
+      "pct": -5.06,
+      "close": 4.41,
+      "mcap_yi": 18.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002498",
+      "name": "汉缆股份",
+      "sector": "Industrials",
+      "rsp": -0.1876,
+      "pct": -29.25,
+      "close": 6.86,
+      "mcap_yi": 298.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002506",
+      "name": "协鑫集成",
+      "sector": "Technology",
+      "rsp": -0.1267,
+      "pct": -23.15,
+      "close": 2.55,
+      "mcap_yi": 317.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002510",
+      "name": "天汽模",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0314,
+      "pct": -13.62,
+      "close": 5.63,
+      "mcap_yi": 73.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002514",
+      "name": "宝馨科技",
+      "sector": "Industrials",
+      "rsp": -0.2575,
+      "pct": -36.23,
+      "close": 1.86,
+      "mcap_yi": 34.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002515",
+      "name": "金字火腿",
+      "sector": "Consumer Defensive",
+      "rsp": -0.1133,
+      "pct": -21.82,
+      "close": 6.69,
+      "mcap_yi": 68.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002516",
+      "name": "旷达科技",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0125,
+      "pct": -11.73,
+      "close": 5.31,
+      "mcap_yi": 86.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002517",
+      "name": "恺英网络",
+      "sector": "Communication Services",
+      "rsp": 0.195,
+      "pct": 9.01,
+      "close": 17.28,
+      "mcap_yi": 410.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002518",
+      "name": "科士达",
+      "sector": "Industrials",
+      "rsp": -0.2532,
+      "pct": -35.81,
+      "close": 31.25,
+      "mcap_yi": 266.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002519",
+      "name": "银河电子",
+      "sector": "Technology",
+      "rsp": -0.1154,
+      "pct": -22.03,
+      "close": 5.24,
+      "mcap_yi": 89.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002520",
+      "name": "日发精机",
+      "sector": "Industrials",
+      "rsp": -0.0583,
+      "pct": -16.32,
+      "close": 5.53,
+      "mcap_yi": 46.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002522",
+      "name": "浙江众成",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.2159,
+      "pct": -32.08,
+      "close": 4.93,
+      "mcap_yi": 49.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002523",
+      "name": "天桥起重",
+      "sector": "Industrials",
+      "rsp": 0.1146,
+      "pct": 0.97,
+      "close": 3.28,
+      "mcap_yi": 59.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002524",
+      "name": "光正眼科",
+      "sector": "Industrials",
+      "rsp": 0.1539,
+      "pct": 4.9,
+      "close": 3.66,
+      "mcap_yi": 22.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002526",
+      "name": "山东矿机",
+      "sector": "Industrials",
+      "rsp": 0.0185,
+      "pct": -8.63,
+      "close": 2.65,
+      "mcap_yi": 61.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002527",
+      "name": "新时达",
+      "sector": "Industrials",
+      "rsp": -0.1651,
+      "pct": -27.0,
+      "close": 10.95,
+      "mcap_yi": 95.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002530",
+      "name": "金财互联",
+      "sector": "Industrials",
+      "rsp": -0.0193,
+      "pct": -12.42,
+      "close": 7.18,
+      "mcap_yi": 74.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002531",
+      "name": "天顺风能",
+      "sector": "Industrials",
+      "rsp": -0.2241,
+      "pct": -32.9,
+      "close": 6.41,
+      "mcap_yi": 201.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002533",
+      "name": "金杯电工",
+      "sector": "Industrials",
+      "rsp": -0.0014,
+      "pct": -10.63,
+      "close": 11.45,
+      "mcap_yi": 101.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002534",
+      "name": "西子洁能",
+      "sector": "Industrials",
+      "rsp": -0.2269,
+      "pct": -33.18,
+      "close": 13.89,
+      "mcap_yi": 158.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002535",
+      "name": "林州重机",
+      "sector": "Industrials",
+      "rsp": 0.0542,
+      "pct": -5.06,
+      "close": 2.31,
+      "mcap_yi": 28.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002536",
+      "name": "飞龙股份",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.2676,
+      "pct": 16.28,
+      "close": 35.79,
+      "mcap_yi": 216.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002537",
+      "name": "海联金汇",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0124,
+      "pct": -11.73,
+      "close": 5.86,
+      "mcap_yi": 101.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002541",
+      "name": "鸿路钢构",
+      "sector": "Industrials",
+      "rsp": 0.325,
+      "pct": 22.02,
+      "close": 20.36,
+      "mcap_yi": 156.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002542",
+      "name": "中化岩土",
+      "sector": "Industrials",
+      "rsp": 0.1197,
+      "pct": 1.48,
+      "close": 1.68,
+      "mcap_yi": 58.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002543",
+      "name": "万和电气",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.1263,
+      "pct": 2.15,
+      "close": 6.68,
+      "mcap_yi": 68.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002544",
+      "name": "普天科技",
+      "sector": "Technology",
+      "rsp": -0.0986,
+      "pct": -20.34,
+      "close": 15.87,
+      "mcap_yi": 185.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002546",
+      "name": "新联电子",
+      "sector": "Industrials",
+      "rsp": 0.1713,
+      "pct": 6.65,
+      "close": 8.33,
+      "mcap_yi": 88.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002548",
+      "name": "金新农",
+      "sector": "Consumer Defensive",
+      "rsp": 0.2118,
+      "pct": 10.7,
+      "close": 3.82,
+      "mcap_yi": 46.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002550",
+      "name": "千红制药",
+      "sector": "Healthcare",
+      "rsp": 0.271,
+      "pct": 16.61,
+      "close": 6.78,
+      "mcap_yi": 92.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002551",
+      "name": "尚荣医疗",
+      "sector": "Healthcare",
+      "rsp": 0.1543,
+      "pct": 4.95,
+      "close": 2.94,
+      "mcap_yi": 29.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002552",
+      "name": "宝鼎科技",
+      "sector": "Industrials",
+      "rsp": -0.2583,
+      "pct": -36.32,
+      "close": 35.05,
+      "mcap_yi": 73.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002553",
+      "name": "南方精工",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.0433,
+      "pct": -14.82,
+      "close": 15.76,
+      "mcap_yi": 89.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002554",
+      "name": "惠博普",
+      "sector": "Energy",
+      "rsp": -0.0516,
+      "pct": -15.64,
+      "close": 2.8,
+      "mcap_yi": 51.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002555",
+      "name": "三七互娱",
+      "sector": "Communication Services",
+      "rsp": 0.0977,
+      "pct": -0.71,
+      "close": 20.0,
+      "mcap_yi": 518.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002557",
+      "name": "洽洽食品",
+      "sector": "Consumer Defensive",
+      "rsp": 0.1562,
+      "pct": 5.14,
+      "close": 20.44,
+      "mcap_yi": 108.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002558",
+      "name": "巨人网络",
+      "sector": "Communication Services",
+      "rsp": 0.275,
+      "pct": 17.02,
+      "close": 29.58,
+      "mcap_yi": 665.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002559",
+      "name": "亚威股份",
+      "sector": "Industrials",
+      "rsp": 0.033,
+      "pct": -7.18,
+      "close": 8.92,
+      "mcap_yi": 57.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002560",
+      "name": "通达股份",
+      "sector": "Industrials",
+      "rsp": -0.2103,
+      "pct": -31.52,
+      "close": 6.1,
+      "mcap_yi": 52.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002561",
+      "name": "徐家汇",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0884,
+      "pct": -1.65,
+      "close": 6.64,
+      "mcap_yi": 33.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002563",
+      "name": "森马服饰",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.1468,
+      "pct": 4.19,
+      "close": 6.26,
+      "mcap_yi": 136.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002564",
+      "name": "天沃科技",
+      "sector": "Industrials",
+      "rsp": 0.0073,
+      "pct": -9.76,
+      "close": 4.38,
+      "mcap_yi": 57.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002565",
+      "name": "顺灏股份",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.186,
+      "pct": -29.09,
+      "close": 8.51,
+      "mcap_yi": 181.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002566",
+      "name": "益盛药业",
+      "sector": "Healthcare",
+      "rsp": 0.0987,
+      "pct": -0.62,
+      "close": 6.47,
+      "mcap_yi": 26.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002570",
+      "name": "贝因美",
+      "sector": "Consumer Defensive",
+      "rsp": 0.007,
+      "pct": -9.78,
+      "close": 4.35,
+      "mcap_yi": 56.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002571",
+      "name": "德力股份",
+      "sector": "Consumer Defensive",
+      "rsp": 0.0896,
+      "pct": -1.53,
+      "close": 10.57,
+      "mcap_yi": 41.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002572",
+      "name": "索菲亚",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.1099,
+      "pct": 0.5,
+      "close": 8.69,
+      "mcap_yi": 119.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002573",
+      "name": "清新环境",
+      "sector": "Industrials",
+      "rsp": 0.1049,
+      "pct": 0.0,
+      "close": 3.22,
+      "mcap_yi": 58.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002574",
+      "name": "明牌珠宝",
+      "sector": "Consumer Cyclical",
+      "rsp": 0.0525,
+      "pct": -5.24,
+      "close": 4.47,
+      "mcap_yi": 30.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002575",
+      "name": "群兴玩具",
+      "sector": "Consumer Cyclical",
+      "rsp": -0.1273,
+      "pct": -23.22,
+      "close": 5.1,
+      "mcap_yi": 53.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002576",
+      "name": "通达动力",
+      "sector": "Industrials",
+      "rsp": -0.0374,
+      "pct": -14.23,
+      "close": 14.41,
+      "mcap_yi": 31.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002577",
+      "name": "雷柏科技",
+      "sector": "Technology",
+      "rsp": 0.0543,
+      "pct": -5.05,
+      "close": 18.23,
+      "mcap_yi": 47.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002579",
+      "name": "中京电子",
+      "sector": "Technology",
+      "rsp": -0.3062,
+      "pct": -41.11,
+      "close": 11.06,
+      "mcap_yi": 73.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002580",
+      "name": "圣阳股份",
+      "sector": "Industrials",
+      "rsp": -0.1632,
+      "pct": -26.8,
+      "close": 19.74,
+      "mcap_yi": 61.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002582",
+      "name": "好想你",
+      "sector": "Consumer Defensive",
+      "rsp": 0.1202,
+      "pct": 1.54,
+      "close": 10.27,
+      "mcap_yi": 47.0,
+      "date": "2026-07-31"
+    },
+    {
+      "ticker": "002583",
+      "name": "海能达",
+      "sector": "Technology",
+      "rsp": 0.0205,
+      "pct": -8.44,
+      "close": 8.23,
+      "mcap_yi": 186.0,
+      "date": "2026-07-31"
+    }
+  ]
+}

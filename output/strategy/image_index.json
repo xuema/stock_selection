@@ -1,5 +1,11 @@
 [
   {
+    "title": "RSP热门板块 0801",
+    "image": "screen_hot_sectors_0801.png",
+    "count": 200,
+    "base": "screen_hot_sectors"
+  },
+  {
     "title": "RSP趋势突破 0801",
     "image": "screen_rsp_trend_break_0801.png",
     "count": 52,
@@ -10,12 +16,6 @@
     "image": "screen_rps_trend_v2_0801.png",
     "count": 25,
     "base": "screen_rps_trend_v2"
-  },
-  {
-    "title": "RPS超强势 0801",
-    "image": "screen_rps_trend_pro_0801.png",
-    "count": 11,
-    "base": "screen_rps_trend_pro"
   },
   {
     "title": "RSI金叉 0801",
