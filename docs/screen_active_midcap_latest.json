@@ -1,0 +1,141 @@
+{
+  "strategy": "screen_active_midcap",
+  "strategy_name": "活跃中盘股",
+  "screen_date": "2026-08-01",
+  "total_scanned": 4363,
+  "total_matched": 12,
+  "stocks": [
+    {
+      "ticker": "002212",
+      "name": "天融信",
+      "date": "2026-07-31",
+      "close": 6.6,
+      "pct": 5.94,
+      "turnover_pct": 8.73,
+      "v_ratio": 2.72,
+      "board": "mb",
+      "mcap_yi": 93.0
+    },
+    {
+      "ticker": "002969",
+      "name": "嘉美包装",
+      "date": "2026-07-31",
+      "close": 12.53,
+      "pct": 5.92,
+      "turnover_pct": 5.04,
+      "v_ratio": 2.21,
+      "board": "mb",
+      "mcap_yi": 273.0
+    },
+    {
+      "ticker": "002279",
+      "name": "久其软件",
+      "date": "2026-07-31",
+      "close": 6.96,
+      "pct": 2.96,
+      "turnover_pct": 8.74,
+      "v_ratio": 2.09,
+      "board": "mb",
+      "mcap_yi": 71.0
+    },
+    {
+      "ticker": "603660",
+      "name": "苏州科达",
+      "date": "2026-07-31",
+      "close": 9.1,
+      "pct": 3.06,
+      "turnover_pct": 6.31,
+      "v_ratio": 1.72,
+      "board": "mb",
+      "mcap_yi": 55.0
+    },
+    {
+      "ticker": "002112",
+      "name": "三变科技",
+      "date": "2026-07-31",
+      "close": 16.77,
+      "pct": 3.14,
+      "turnover_pct": 8.61,
+      "v_ratio": 1.69,
+      "board": "mb",
+      "mcap_yi": 74.0
+    },
+    {
+      "ticker": "002303",
+      "name": "美盈森",
+      "date": "2026-07-31",
+      "close": 4.58,
+      "pct": 5.77,
+      "turnover_pct": 8.84,
+      "v_ratio": 1.69,
+      "board": "mb",
+      "mcap_yi": 59.0
+    },
+    {
+      "ticker": "300067",
+      "name": "安诺其",
+      "date": "2026-07-31",
+      "close": 5.65,
+      "pct": 4.24,
+      "turnover_pct": 9.84,
+      "v_ratio": 1.48,
+      "board": "cx",
+      "mcap_yi": 55.0
+    },
+    {
+      "ticker": "600513",
+      "name": "联环药业",
+      "date": "2026-07-31",
+      "close": 17.35,
+      "pct": 3.52,
+      "turnover_pct": 9.35,
+      "v_ratio": 1.45,
+      "board": "mb",
+      "mcap_yi": 63.0
+    },
+    {
+      "ticker": "000510",
+      "name": "新金路",
+      "date": "2026-07-31",
+      "close": 13.71,
+      "pct": 5.46,
+      "turnover_pct": 8.2,
+      "v_ratio": 1.36,
+      "board": "mb",
+      "mcap_yi": 97.0
+    },
+    {
+      "ticker": "600330",
+      "name": "天通股份",
+      "date": "2026-07-31",
+      "close": 16.95,
+      "pct": 3.42,
+      "turnover_pct": 7.72,
+      "v_ratio": 1.22,
+      "board": "mb",
+      "mcap_yi": 209.0
+    },
+    {
+      "ticker": "600722",
+      "name": "金牛化工",
+      "date": "2026-07-31",
+      "close": 11.17,
+      "pct": 2.57,
+      "turnover_pct": 9.75,
+      "v_ratio": 1.19,
+      "board": "mb",
+      "mcap_yi": 115.0
+    },
+    {
+      "ticker": "002980",
+      "name": "华盛昌",
+      "date": "2026-07-31",
+      "close": 67.68,
+      "pct": 6.53,
+      "turnover_pct": 8.14,
+      "v_ratio": 1.0,
+      "board": "mb",
+      "mcap_yi": 70.0
+    }
+  ]
+}

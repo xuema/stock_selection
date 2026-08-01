@@ -46,5 +46,11 @@
     "image": "screen_rsi_stb_resonance_0801.png",
     "count": 18,
     "base": "screen_rsi_stb_resonance"
+  },
+  {
+    "title": "活跃中盘股 0801",
+    "image": "screen_active_midcap_0801.png",
+    "count": 12,
+    "base": "screen_active_midcap"
   }
 ]
