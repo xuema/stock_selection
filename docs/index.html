@@ -584,28 +584,6 @@ async function refreshSectors(dk){
     });
     h+='</tbody></table>';
   }
-  // 板块Top5强势股
-  const top5 = d.sector_top5;
-  if(top5 && typeof top5 === 'object' && Object.keys(top5).length){
-    h+='<h3 style="margin:24px 0 12px;color:var(--cyan)">🏅 各板块Top5强势股</h3>';
-    sectors.forEach(s=>{
-      const name = s.sector;
-      const items = top5[name];
-      if(!items || !items.length) return;
-      h+=`<h4 style="margin:12px 0 6px;color:var(--text2);font-size:13px">▸ ${name} (评分 ★${s.score})</h4>`;
-      h+='<table class="stock-table"><thead><tr><th>#</th><th>代码</th><th>名称</th><th>RSP</th><th>涨幅</th><th>收盘价</th><th>市值(亿)</th></tr></thead><tbody>';
-      items.forEach((t,i)=>{
-        const rsp = t.rsp||t.score||0;
-        const pct = t.pct||t.change||0;
-        const close = t.close||t.price||'-';
-        const mcap = t.mcap_yi||t.mcap||'-';
-        const ticker = t.ticker||t.code||'';
-        const nm = t.name||_names[ticker]||'';
-        h+=`<tr><td>${i+1}</td><td class="ticker">${ticker}</td><td class="name">${nm}</td><td>${rsp>0?'+':''}${rsp}</td><td class="${pct>=0?'pos':'neg'}">${pct>=0?'+':''}${pct}%</td><td>${close}</td><td>${mcap}</td></tr>`;
-      });
-      h+='</tbody></table>';
-    });
-  }
   el.innerHTML=h;
 }
 async function refreshMidcap(dk){const fn=dk==='latest'?MIDF+'latest.json':MIDF+dk+'.json';const d=await loadJSON(fn);_curMidcap=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('midcap-summary',_curMidcap,'🔥 量价共振','green');renderTable('midcap-table-area',_curMidcap,midcapF,document.getElementById('midcap-search').value);showDownload('midcap','midcap',dk);}
