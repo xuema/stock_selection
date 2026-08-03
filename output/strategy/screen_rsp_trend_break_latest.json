@@ -1,7 +1,7 @@
 {
   "strategy": "screen_rsp_trend_break",
   "strategy_name": "RSP趋势突破策略",
-  "screen_date": "2026-08-02",
+  "screen_date": "2026-08-03",
   "index": "000300",
   "params": {
     "min_market_cap": 50.0,
@@ -11,8 +11,22 @@
     "volume_ratio_min": 1.2,
     "max_hold_count": 5
   },
-  "total_matched": 91,
+  "total_matched": 93,
   "stocks": [
+    {
+      "ticker": "605179",
+      "name": "一鸣食品",
+      "date": "2026-07-31",
+      "close": 19.37,
+      "rsp": 4.22,
+      "rsp_ma20": 3.04,
+      "rsp_ma60": 3.0,
+      "volume_ratio": 3.98,
+      "atr_14": 1.19,
+      "atr_stop_2x": 16.98,
+      "mcap_yi": 69.0,
+      "avg_amount_yi": 1.29
+    },
     {
       "ticker": "000566",
       "name": "海南海药",
@@ -25,7 +39,7 @@
       "atr_14": 0.58,
       "atr_stop_2x": 4.72,
       "mcap_yi": 67.0,
-      "avg_amount_yi": 10.71
+      "avg_amount_yi": 10.04
     },
     {
       "ticker": "600882",
@@ -39,7 +53,7 @@
       "atr_14": 1.24,
       "atr_stop_2x": 20.69,
       "mcap_yi": 100.0,
-      "avg_amount_yi": 2.86
+      "avg_amount_yi": 2.9
     },
     {
       "ticker": "600988",
@@ -53,7 +67,7 @@
       "atr_14": 2.82,
       "atr_stop_2x": 33.44,
       "mcap_yi": 775.0,
-      "avg_amount_yi": 23.82
+      "avg_amount_yi": 22.33
     },
     {
       "ticker": "000948",
@@ -67,7 +81,7 @@
       "atr_14": 1.19,
       "atr_stop_2x": 13.31,
       "mcap_yi": 63.0,
-      "avg_amount_yi": 2.78
+      "avg_amount_yi": 2.95
     },
     {
       "ticker": "688111",
@@ -81,7 +95,7 @@
       "atr_14": 16.03,
       "atr_stop_2x": 241.51,
       "mcap_yi": 1242.0,
-      "avg_amount_yi": 25.24
+      "avg_amount_yi": 27.38
     },
     {
       "ticker": "300369",
@@ -95,7 +109,7 @@
       "atr_14": 0.71,
       "atr_stop_2x": 6.14,
       "mcap_yi": 74.0,
-      "avg_amount_yi": 4.86
+      "avg_amount_yi": 5.07
     },
     {
       "ticker": "689009",
@@ -109,7 +123,7 @@
       "atr_14": 2.35,
       "atr_stop_2x": 39.73,
       "mcap_yi": 357.0,
-      "avg_amount_yi": 5.12
+      "avg_amount_yi": 4.99
     },
     {
       "ticker": "600756",
@@ -123,7 +137,7 @@
       "atr_14": 1.07,
       "atr_stop_2x": 14.31,
       "mcap_yi": 60.0,
-      "avg_amount_yi": 3.83
+      "avg_amount_yi": 4.12
     },
     {
       "ticker": "300454",
@@ -137,7 +151,7 @@
       "atr_14": 10.14,
       "atr_stop_2x": 102.17,
       "mcap_yi": 503.0,
-      "avg_amount_yi": 20.2
+      "avg_amount_yi": 21.49
     },
     {
       "ticker": "002841",
@@ -151,7 +165,7 @@
       "atr_14": 2.47,
       "atr_stop_2x": 40.37,
       "mcap_yi": 246.0,
-      "avg_amount_yi": 9.38
+      "avg_amount_yi": 9.31
     },
     {
       "ticker": "603444",
@@ -165,7 +179,21 @@
       "atr_14": 17.03,
       "atr_stop_2x": 358.52,
       "mcap_yi": 255.0,
-      "avg_amount_yi": 7.45
+      "avg_amount_yi": 7.61
+    },
+    {
+      "ticker": "600663",
+      "name": "陆家嘴",
+      "date": "2026-07-31",
+      "close": 7.96,
+      "rsp": 1.73,
+      "rsp_ma20": 1.47,
+      "rsp_ma60": 1.46,
+      "volume_ratio": 2.31,
+      "atr_14": 0.28,
+      "atr_stop_2x": 7.39,
+      "mcap_yi": 390.0,
+      "avg_amount_yi": 1.13
     },
     {
       "ticker": "300972",
@@ -179,7 +207,7 @@
       "atr_14": 12.79,
       "atr_stop_2x": 190.97,
       "mcap_yi": 365.0,
-      "avg_amount_yi": 4.46
+      "avg_amount_yi": 4.47
     },
     {
       "ticker": "002303",
@@ -193,7 +221,7 @@
       "atr_14": 0.39,
       "atr_stop_2x": 3.8,
       "mcap_yi": 59.0,
-      "avg_amount_yi": 3.44
+      "avg_amount_yi": 3.49
     },
     {
       "ticker": "603233",
@@ -207,7 +235,7 @@
       "atr_14": 0.74,
       "atr_stop_2x": 17.57,
       "mcap_yi": 206.0,
-      "avg_amount_yi": 1.48
+      "avg_amount_yi": 1.5
     },
     {
       "ticker": "301526",
@@ -221,7 +249,7 @@
       "atr_14": 4.14,
       "atr_stop_2x": 25.55,
       "mcap_yi": 454.0,
-      "avg_amount_yi": 58.68
+      "avg_amount_yi": 56.68
     },
     {
       "ticker": "688617",
@@ -235,7 +263,7 @@
       "atr_14": 9.93,
       "atr_stop_2x": 207.11,
       "mcap_yi": 326.0,
-      "avg_amount_yi": 3.55
+      "avg_amount_yi": 3.52
     },
     {
       "ticker": "301345",
@@ -249,7 +277,7 @@
       "atr_14": 21.32,
       "atr_stop_2x": 207.98,
       "mcap_yi": 227.0,
-      "avg_amount_yi": 4.59
+      "avg_amount_yi": 4.13
     },
     {
       "ticker": "300209",
@@ -263,7 +291,7 @@
       "atr_14": 3.71,
       "atr_stop_2x": 21.84,
       "mcap_yi": 86.0,
-      "avg_amount_yi": 21.46
+      "avg_amount_yi": 21.77
     },
     {
       "ticker": "688578",
@@ -277,7 +305,7 @@
       "atr_14": 8.41,
       "atr_stop_2x": 94.53,
       "mcap_yi": 406.0,
-      "avg_amount_yi": 13.86
+      "avg_amount_yi": 12.95
     },
     {
       "ticker": "002541",
@@ -291,7 +319,7 @@
       "atr_14": 1.15,
       "atr_stop_2x": 18.06,
       "mcap_yi": 156.0,
-      "avg_amount_yi": 2.06
+      "avg_amount_yi": 2.07
     },
     {
       "ticker": "603882",
@@ -305,7 +333,7 @@
       "atr_14": 1.31,
       "atr_stop_2x": 25.21,
       "mcap_yi": 124.0,
-      "avg_amount_yi": 2.25
+      "avg_amount_yi": 2.26
     },
     {
       "ticker": "300071",
@@ -319,7 +347,7 @@
       "atr_14": 0.41,
       "atr_stop_2x": 3.75,
       "mcap_yi": 50.0,
-      "avg_amount_yi": 5.5
+      "avg_amount_yi": 5.52
     },
     {
       "ticker": "002078",
@@ -333,7 +361,7 @@
       "atr_14": 0.5,
       "atr_stop_2x": 13.51,
       "mcap_yi": 404.0,
-      "avg_amount_yi": 2.82
+      "avg_amount_yi": 2.71
     },
     {
       "ticker": "688363",
@@ -361,7 +389,7 @@
       "atr_14": 0.72,
       "atr_stop_2x": 40.54,
       "mcap_yi": 2161.0,
-      "avg_amount_yi": 16.71
+      "avg_amount_yi": 16.8
     },
     {
       "ticker": "600872",
@@ -375,7 +403,7 @@
       "atr_14": 0.64,
       "atr_stop_2x": 18.98,
       "mcap_yi": 145.0,
-      "avg_amount_yi": 2.8
+      "avg_amount_yi": 2.72
     },
     {
       "ticker": "600285",
@@ -389,7 +417,7 @@
       "atr_14": 0.64,
       "atr_stop_2x": 22.17,
       "mcap_yi": 127.0,
-      "avg_amount_yi": 2.31
+      "avg_amount_yi": 2.3
     },
     {
       "ticker": "000999",
@@ -403,7 +431,7 @@
       "atr_14": 0.75,
       "atr_stop_2x": 24.73,
       "mcap_yi": 484.0,
-      "avg_amount_yi": 3.51
+      "avg_amount_yi": 3.47
     },
     {
       "ticker": "002558",
@@ -417,7 +445,7 @@
       "atr_14": 2.2,
       "atr_stop_2x": 25.18,
       "mcap_yi": 665.0,
-      "avg_amount_yi": 33.63
+      "avg_amount_yi": 34.62
     },
     {
       "ticker": "000333",
@@ -431,7 +459,7 @@
       "atr_14": 2.08,
       "atr_stop_2x": 83.18,
       "mcap_yi": 5843.0,
-      "avg_amount_yi": 24.94
+      "avg_amount_yi": 23.94
     },
     {
       "ticker": "000415",
@@ -445,7 +473,7 @@
       "atr_14": 0.17,
       "atr_stop_2x": 4.22,
       "mcap_yi": 252.0,
-      "avg_amount_yi": 3.24
+      "avg_amount_yi": 3.03
     },
     {
       "ticker": "603823",
@@ -459,7 +487,7 @@
       "atr_14": 8.25,
       "atr_stop_2x": 34.1,
       "mcap_yi": 70.0,
-      "avg_amount_yi": 14.33
+      "avg_amount_yi": 14.1
     },
     {
       "ticker": "002517",
@@ -473,7 +501,7 @@
       "atr_14": 0.99,
       "atr_stop_2x": 15.3,
       "mcap_yi": 410.0,
-      "avg_amount_yi": 14.59
+      "avg_amount_yi": 14.92
     },
     {
       "ticker": "688120",
@@ -487,7 +515,7 @@
       "atr_14": 29.6,
       "atr_stop_2x": 218.89,
       "mcap_yi": 607.0,
-      "avg_amount_yi": 44.67
+      "avg_amount_yi": 44.25
     },
     {
       "ticker": "603099",
@@ -501,7 +529,7 @@
       "atr_14": 1.3,
       "atr_stop_2x": 36.48,
       "mcap_yi": 95.0,
-      "avg_amount_yi": 1.92
+      "avg_amount_yi": 1.94
     },
     {
       "ticker": "600066",
@@ -515,7 +543,7 @@
       "atr_14": 1.65,
       "atr_stop_2x": 28.81,
       "mcap_yi": 678.0,
-      "avg_amount_yi": 5.08
+      "avg_amount_yi": 4.99
     },
     {
       "ticker": "000680",
@@ -529,7 +557,7 @@
       "atr_14": 0.43,
       "atr_stop_2x": 10.44,
       "mcap_yi": 160.0,
-      "avg_amount_yi": 2.08
+      "avg_amount_yi": 1.98
     },
     {
       "ticker": "603883",
@@ -557,7 +585,7 @@
       "atr_14": 1.76,
       "atr_stop_2x": 32.0,
       "mcap_yi": 419.0,
-      "avg_amount_yi": 6.47
+      "avg_amount_yi": 5.93
     },
     {
       "ticker": "603301",
@@ -585,7 +613,7 @@
       "atr_14": 3.94,
       "atr_stop_2x": 107.82,
       "mcap_yi": 939.0,
-      "avg_amount_yi": 7.25
+      "avg_amount_yi": 6.98
     },
     {
       "ticker": "300866",
@@ -599,7 +627,7 @@
       "atr_14": 7.12,
       "atr_stop_2x": 108.68,
       "mcap_yi": 520.0,
-      "avg_amount_yi": 4.61
+      "avg_amount_yi": 4.59
     },
     {
       "ticker": "601963",
@@ -613,7 +641,7 @@
       "atr_14": 0.35,
       "atr_stop_2x": 10.67,
       "mcap_yi": 382.0,
-      "avg_amount_yi": 1.53
+      "avg_amount_yi": 1.5
     },
     {
       "ticker": "300676",
@@ -627,7 +655,7 @@
       "atr_14": 1.3,
       "atr_stop_2x": 35.65,
       "mcap_yi": 176.0,
-      "avg_amount_yi": 2.4
+      "avg_amount_yi": 2.33
     },
     {
       "ticker": "000048",
@@ -641,7 +669,7 @@
       "atr_14": 1.63,
       "atr_stop_2x": 15.54,
       "mcap_yi": 108.0,
-      "avg_amount_yi": 3.96
+      "avg_amount_yi": 3.81
     },
     {
       "ticker": "600499",
@@ -655,7 +683,7 @@
       "atr_14": 0.65,
       "atr_stop_2x": 15.18,
       "mcap_yi": 293.0,
-      "avg_amount_yi": 4.04
+      "avg_amount_yi": 3.83
     },
     {
       "ticker": "600900",
@@ -669,7 +697,7 @@
       "atr_14": 0.75,
       "atr_stop_2x": 27.42,
       "mcap_yi": 6709.0,
-      "avg_amount_yi": 38.56
+      "avg_amount_yi": 38.45
     },
     {
       "ticker": "002701",
@@ -683,7 +711,7 @@
       "atr_14": 0.14,
       "atr_stop_2x": 4.68,
       "mcap_yi": 125.0,
-      "avg_amount_yi": 1.39
+      "avg_amount_yi": 1.34
     },
     {
       "ticker": "600718",
@@ -711,7 +739,7 @@
       "atr_14": 0.81,
       "atr_stop_2x": 18.38,
       "mcap_yi": 518.0,
-      "avg_amount_yi": 8.58
+      "avg_amount_yi": 8.87
     },
     {
       "ticker": "002180",
@@ -725,7 +753,7 @@
       "atr_14": 0.82,
       "atr_stop_2x": 15.39,
       "mcap_yi": 255.0,
-      "avg_amount_yi": 3.17
+      "avg_amount_yi": 3.06
     },
     {
       "ticker": "603993",
@@ -739,7 +767,7 @@
       "atr_14": 0.99,
       "atr_stop_2x": 17.54,
       "mcap_yi": 3818.0,
-      "avg_amount_yi": 38.96
+      "avg_amount_yi": 37.46
     },
     {
       "ticker": "600941",
@@ -753,7 +781,7 @@
       "atr_14": 1.97,
       "atr_stop_2x": 93.37,
       "mcap_yi": 20841.0,
-      "avg_amount_yi": 9.86
+      "avg_amount_yi": 10.18
     },
     {
       "ticker": "600323",
@@ -767,7 +795,7 @@
       "atr_14": 0.98,
       "atr_stop_2x": 29.01,
       "mcap_yi": 250.0,
-      "avg_amount_yi": 1.61
+      "avg_amount_yi": 1.6
     },
     {
       "ticker": "600390",
@@ -795,7 +823,7 @@
       "atr_14": 0.62,
       "atr_stop_2x": 20.43,
       "mcap_yi": 249.0,
-      "avg_amount_yi": 1.03
+      "avg_amount_yi": 1.05
     },
     {
       "ticker": "300768",
@@ -809,7 +837,7 @@
       "atr_14": 1.07,
       "atr_stop_2x": 14.18,
       "mcap_yi": 110.0,
-      "avg_amount_yi": 2.33
+      "avg_amount_yi": 2.25
     },
     {
       "ticker": "300002",
@@ -823,7 +851,7 @@
       "atr_14": 0.39,
       "atr_stop_2x": 7.81,
       "mcap_yi": 197.0,
-      "avg_amount_yi": 5.09
+      "avg_amount_yi": 5.23
     },
     {
       "ticker": "002948",
@@ -837,7 +865,7 @@
       "atr_14": 0.15,
       "atr_stop_2x": 5.5,
       "mcap_yi": 296.0,
-      "avg_amount_yi": 2.03
+      "avg_amount_yi": 2.07
     },
     {
       "ticker": "300033",
@@ -851,7 +879,7 @@
       "atr_14": 10.63,
       "atr_stop_2x": 215.43,
       "mcap_yi": 1700.0,
-      "avg_amount_yi": 33.04
+      "avg_amount_yi": 31.72
     },
     {
       "ticker": "002268",
@@ -865,7 +893,7 @@
       "atr_14": 0.69,
       "atr_stop_2x": 13.19,
       "mcap_yi": 155.0,
-      "avg_amount_yi": 2.4
+      "avg_amount_yi": 2.35
     },
     {
       "ticker": "688538",
@@ -879,7 +907,7 @@
       "atr_14": 0.06,
       "atr_stop_2x": 2.32,
       "mcap_yi": 346.0,
-      "avg_amount_yi": 2.39
+      "avg_amount_yi": 2.29
     },
     {
       "ticker": "601225",
@@ -893,7 +921,7 @@
       "atr_14": 0.91,
       "atr_stop_2x": 22.61,
       "mcap_yi": 2633.0,
-      "avg_amount_yi": 10.09
+      "avg_amount_yi": 9.53
     },
     {
       "ticker": "688002",
@@ -907,7 +935,7 @@
       "atr_14": 11.16,
       "atr_stop_2x": 121.33,
       "mcap_yi": 467.0,
-      "avg_amount_yi": 20.25
+      "avg_amount_yi": 20.11
     },
     {
       "ticker": "600050",
@@ -921,7 +949,7 @@
       "atr_14": 0.08,
       "atr_stop_2x": 4.31,
       "mcap_yi": 1466.0,
-      "avg_amount_yi": 6.5
+      "avg_amount_yi": 6.66
     },
     {
       "ticker": "600018",
@@ -935,7 +963,7 @@
       "atr_14": 0.1,
       "atr_stop_2x": 5.08,
       "mcap_yi": 1152.0,
-      "avg_amount_yi": 2.75
+      "avg_amount_yi": 2.71
     },
     {
       "ticker": "603893",
@@ -949,7 +977,7 @@
       "atr_14": 21.09,
       "atr_stop_2x": 148.19,
       "mcap_yi": 703.0,
-      "avg_amount_yi": 52.86
+      "avg_amount_yi": 53.31
     },
     {
       "ticker": "002601",
@@ -963,7 +991,7 @@
       "atr_14": 0.61,
       "atr_stop_2x": 15.13,
       "mcap_yi": 465.0,
-      "avg_amount_yi": 3.0
+      "avg_amount_yi": 2.8
     },
     {
       "ticker": "601088",
@@ -977,7 +1005,7 @@
       "atr_14": 1.38,
       "atr_stop_2x": 41.74,
       "mcap_yi": 9719.0,
-      "avg_amount_yi": 14.61
+      "avg_amount_yi": 14.2
     },
     {
       "ticker": "002714",
@@ -991,7 +1019,7 @@
       "atr_14": 1.54,
       "atr_stop_2x": 35.87,
       "mcap_yi": 2854.0,
-      "avg_amount_yi": 24.24
+      "avg_amount_yi": 23.14
     },
     {
       "ticker": "603345",
@@ -1005,7 +1033,7 @@
       "atr_14": 3.6,
       "atr_stop_2x": 82.32,
       "mcap_yi": 272.0,
-      "avg_amount_yi": 4.26
+      "avg_amount_yi": 4.17
     },
     {
       "ticker": "601607",
@@ -1019,7 +1047,7 @@
       "atr_14": 0.35,
       "atr_stop_2x": 16.02,
       "mcap_yi": 626.0,
-      "avg_amount_yi": 2.14
+      "avg_amount_yi": 2.08
     },
     {
       "ticker": "600862",
@@ -1033,7 +1061,7 @@
       "atr_14": 0.62,
       "atr_stop_2x": 17.59,
       "mcap_yi": 311.0,
-      "avg_amount_yi": 3.4
+      "avg_amount_yi": 3.31
     },
     {
       "ticker": "600309",
@@ -1047,7 +1075,7 @@
       "atr_14": 2.59,
       "atr_stop_2x": 69.03,
       "mcap_yi": 2644.0,
-      "avg_amount_yi": 26.27
+      "avg_amount_yi": 25.63
     },
     {
       "ticker": "603358",
@@ -1061,7 +1089,7 @@
       "atr_14": 3.17,
       "atr_stop_2x": 31.09,
       "mcap_yi": 227.0,
-      "avg_amount_yi": 3.77
+      "avg_amount_yi": 3.56
     },
     {
       "ticker": "600177",
@@ -1089,7 +1117,7 @@
       "atr_14": 0.12,
       "atr_stop_2x": 4.87,
       "mcap_yi": 623.0,
-      "avg_amount_yi": 1.44
+      "avg_amount_yi": 1.45
     },
     {
       "ticker": "300244",
@@ -1103,7 +1131,7 @@
       "atr_14": 1.47,
       "atr_stop_2x": 15.49,
       "mcap_yi": 116.0,
-      "avg_amount_yi": 6.77
+      "avg_amount_yi": 6.66
     },
     {
       "ticker": "300285",
@@ -1117,7 +1145,7 @@
       "atr_14": 6.99,
       "atr_stop_2x": 49.89,
       "mcap_yi": 343.0,
-      "avg_amount_yi": 64.08
+      "avg_amount_yi": 62.9
     },
     {
       "ticker": "300059",
@@ -1131,7 +1159,7 @@
       "atr_14": 0.61,
       "atr_stop_2x": 19.05,
       "mcap_yi": 3352.0,
-      "avg_amount_yi": 54.8
+      "avg_amount_yi": 52.23
     },
     {
       "ticker": "300418",
@@ -1145,7 +1173,7 @@
       "atr_14": 3.63,
       "atr_stop_2x": 35.94,
       "mcap_yi": 634.0,
-      "avg_amount_yi": 39.87
+      "avg_amount_yi": 39.93
     },
     {
       "ticker": "002236",
@@ -1159,7 +1187,7 @@
       "atr_14": 0.52,
       "atr_stop_2x": 15.63,
       "mcap_yi": 575.0,
-      "avg_amount_yi": 6.51
+      "avg_amount_yi": 6.71
     },
     {
       "ticker": "688114",
@@ -1173,7 +1201,7 @@
       "atr_14": 2.29,
       "atr_stop_2x": 45.77,
       "mcap_yi": 215.0,
-      "avg_amount_yi": 2.54
+      "avg_amount_yi": 2.26
     },
     {
       "ticker": "000571",
@@ -1201,7 +1229,7 @@
       "atr_14": 2.36,
       "atr_stop_2x": 15.54,
       "mcap_yi": 102.0,
-      "avg_amount_yi": 5.45
+      "avg_amount_yi": 5.09
     },
     {
       "ticker": "000301",
@@ -1215,7 +1243,7 @@
       "atr_14": 0.58,
       "atr_stop_2x": 10.63,
       "mcap_yi": 764.0,
-      "avg_amount_yi": 4.51
+      "avg_amount_yi": 3.97
     },
     {
       "ticker": "600160",
@@ -1229,7 +1257,7 @@
       "atr_14": 1.99,
       "atr_stop_2x": 35.89,
       "mcap_yi": 1045.0,
-      "avg_amount_yi": 20.84
+      "avg_amount_yi": 18.87
     },
     {
       "ticker": "000100",
@@ -1243,7 +1271,7 @@
       "atr_14": 0.21,
       "atr_stop_2x": 4.37,
       "mcap_yi": 1004.0,
-      "avg_amount_yi": 40.02
+      "avg_amount_yi": 36.59
     },
     {
       "ticker": "688469",
@@ -1257,7 +1285,7 @@
       "atr_14": 0.49,
       "atr_stop_2x": 6.87,
       "mcap_yi": 587.0,
-      "avg_amount_yi": 17.13
+      "avg_amount_yi": 16.32
     },
     {
       "ticker": "688277",
@@ -1271,7 +1299,7 @@
       "atr_14": 0.75,
       "atr_stop_2x": 15.98,
       "mcap_yi": 103.0,
-      "avg_amount_yi": 1.02
+      "avg_amount_yi": 1.01
     },
     {
       "ticker": "603379",
@@ -1285,7 +1313,7 @@
       "atr_14": 2.81,
       "atr_stop_2x": 54.69,
       "mcap_yi": 383.0,
-      "avg_amount_yi": 7.82
+      "avg_amount_yi": 7.08
     }
   ]
 }

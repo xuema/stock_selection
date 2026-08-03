@@ -1,22 +1,35 @@
 {
   "strategy": "expma_vol_cr_signals",
   "strategy_name": "EXPMA+VOL+CR 多因子信号",
-  "screen_date": "2026-08-02",
+  "screen_date": "2026-08-03",
   "total_scanned": 4364,
-  "total_matched": 1,
+  "total_matched": 2,
   "stocks": [
     {
-      "ticker": "688023",
-      "name": "安恒信息",
-      "date": "2026-07-31",
-      "close": 39.61,
-      "ema5": 36.91,
-      "ema29": 36.9,
-      "vol_ma8": 2921561,
-      "vol_ma89": 2569784,
-      "cr": 117.59,
-      "mcap_yi": 52.0,
-      "jl_growth_pct": 38.63
+      "ticker": "002131",
+      "name": "利欧股份",
+      "date": "2026-08-03",
+      "close": 5.13,
+      "ema5": 4.56,
+      "ema29": 4.49,
+      "vol_ma8": 497102114,
+      "vol_ma89": 402191084,
+      "cr": 101.86,
+      "mcap_yi": 520.0,
+      "jl_growth_pct": 469.1
+    },
+    {
+      "ticker": "603039",
+      "name": "泛微网络",
+      "date": "2026-08-03",
+      "close": 40.37,
+      "ema5": 35.55,
+      "ema29": 33.84,
+      "vol_ma8": 15561868,
+      "vol_ma89": 13342784,
+      "cr": 143.52,
+      "mcap_yi": 111.0,
+      "jl_growth_pct": 15.99
     }
   ]
 }
