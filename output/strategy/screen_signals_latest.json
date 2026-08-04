@@ -1,35 +1,35 @@
 {
   "strategy": "expma_vol_cr_signals",
   "strategy_name": "EXPMA+VOL+CR 多因子信号",
-  "screen_date": "2026-08-03",
+  "screen_date": "2026-08-04",
   "total_scanned": 4364,
   "total_matched": 2,
   "stocks": [
     {
-      "ticker": "002131",
-      "name": "利欧股份",
-      "date": "2026-08-03",
-      "close": 5.13,
-      "ema5": 4.56,
-      "ema29": 4.49,
-      "vol_ma8": 497102114,
-      "vol_ma89": 402191084,
-      "cr": 101.86,
-      "mcap_yi": 520.0,
-      "jl_growth_pct": 469.1
+      "ticker": "300063",
+      "name": "天龙集团",
+      "date": "2026-08-04",
+      "close": 9.41,
+      "ema5": 8.75,
+      "ema29": 8.6,
+      "vol_ma8": 56060570,
+      "vol_ma89": 50429098,
+      "cr": 125.59,
+      "mcap_yi": 91.0,
+      "jl_growth_pct": 129.06
     },
     {
-      "ticker": "603039",
-      "name": "泛微网络",
-      "date": "2026-08-03",
-      "close": 40.37,
-      "ema5": 35.55,
-      "ema29": 33.84,
-      "vol_ma8": 15561868,
-      "vol_ma89": 13342784,
-      "cr": 143.52,
-      "mcap_yi": 111.0,
-      "jl_growth_pct": 15.99
+      "ticker": "300781",
+      "name": "因赛集团",
+      "date": "2026-08-04",
+      "close": 29.52,
+      "ema5": 27.26,
+      "ema29": 26.38,
+      "vol_ma8": 5459000,
+      "vol_ma89": 4828894,
+      "cr": 132.61,
+      "mcap_yi": 62.0,
+      "jl_growth_pct": null
     }
   ]
 }
