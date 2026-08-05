@@ -2,7 +2,7 @@
   "strategy": "screen_rps_trend_pro",
   "strategy_name": "RPS多周期趋势跟踪 Pro",
   "signal_type": "buy",
-  "screen_date": "2026-08-04",
+  "screen_date": "2026-08-05",
   "market_bullish": false,
   "params": {
     "rps_day_min": 85,
