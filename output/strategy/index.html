@@ -72,6 +72,12 @@
   .download-link:hover{background:rgba(88,166,255,.25);border-color:var(--accent)}
   .download-link svg{width:16px;height:16px;fill:currentColor}
   .download-row{margin:12px 0 20px}
+  .screenshot-wrap{margin:16px 0 20px;text-align:center}
+  .screenshot-wrap img{max-width:100%;border-radius:10px;border:1px solid var(--border);cursor:pointer;transition:transform .2s}
+  .screenshot-wrap img:hover{transform:scale(1.01)}
+  .modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.85);z-index:1000;cursor:pointer;align-items:center;justify-content:center}
+  .modal-overlay.show{display:flex}
+  .modal-overlay img{max-width:92%;max-height:92%;border-radius:8px;box-shadow:0 0 40px rgba(0,0,0,.5)}
   .strategy-rules{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin-bottom:16px}
   .strategy-rules h3{font-size:.95rem;margin-bottom:8px;color:var(--accent)}
   .strategy-rules ul{margin:0;padding-left:18px;font-size:.85rem;color:var(--text)}
@@ -454,14 +460,37 @@ function summary(cid,data,prefix,cardClass){
 
 const DOWNLOAD_SVG='<svg viewBox="0 0 24 24"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zM5 18h14v2H5z"/></svg>';
 
+function isoToShort(d){if(!d||d==='latest')return'latest';return d.slice(5,7)+d.slice(8,10)}
+
+function imgSrc(imgKey,dk){
+  const short=isoToShort(dk);
+  return short==='latest'?IMG_NAMES[imgKey]+'_latest.png':IMG_NAMES[imgKey]+'_'+short+'.png';
+}
+
+function showScreenshot(cid,imgKey,dk){
+  const area=document.getElementById(cid+'-table-area');if(!area)return;
+  const src=imgSrc(imgKey,dk);
+  // remove old screenshot if exists
+  const old=area.parentNode.querySelector('.screenshot-wrap');if(old)old.remove();
+  const wrap=document.createElement('div');wrap.className='screenshot-wrap';
+  wrap.innerHTML=`<img src="${src}" alt="${imgKey}" onclick="openModal('${src}')" onerror="this.style.display='none'">`;
+  area.parentNode.insertBefore(wrap,area.nextSibling);
+}
+
+function openModal(src){
+  let m=document.getElementById('imgModal');
+  if(!m){m=document.createElement('div');m.id='imgModal';m.className='modal-overlay';m.innerHTML='<img src="" alt="">';m.onclick=()=>m.classList.remove('show');document.body.appendChild(m)}
+  m.querySelector('img').src=src;m.classList.add('show');
+}
+
 function showDownload(cid,imgKey,suffix){
   const el=document.getElementById(cid+'-download');if(!el)return;
   let selId=cid+'-date-select';
   if(imgKey==='stbBuy')selId='stb-buy-date-select';
   if(imgKey==='stbSell')selId='stb-sell-date-select';
   const dk=suffix||document.getElementById(selId)?.value||'latest';
-  const imgName=dk==='latest'?IMG_NAMES[imgKey]+'_latest.png':IMG_NAMES[imgKey]+'_'+dk+'.png';
-  el.innerHTML=`<a class="download-link" href="#" onclick="downloadFile('${imgName}');return false;">${DOWNLOAD_SVG} 下载图片</a>`;
+  const imgName=imgSrc(imgKey,dk);
+  el.innerHTML=`<a class="download-link" href="${imgName}" download="${imgName}">${DOWNLOAD_SVG} 下载图片</a>`;
 }
 
 function downloadFile(url){
@@ -549,15 +578,15 @@ document.getElementById('resonance-date-select').addEventListener('change',e=>re
 document.getElementById('sectors-date-select').addEventListener('change',e=>refreshSectors(e.target.value));
 document.getElementById('midcap-date-select').addEventListener('change',e=>refreshMidcap(e.target.value));
 
-async function refreshRsp(dk){const fn=dk==='latest'?RSPF+'latest.json':RSPF+dk+'.json';const d=await loadJSON(fn);_curRsp=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('rsp-summary',_curRsp,'满足条件','teal');renderTable('rsp-table-area',_curRsp,rspF,document.getElementById('rsp-search').value);showDownload('rsp','rsp',dk);}
-async function refreshPro(dk){const fn=dk==='latest'?RPROF+'latest.json':RPROF+dk+'.json';const d=await loadJSON(fn);_curPro=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('pro-summary',_curPro,'满足条件','blue');renderTable('pro-table-area',_curPro,proF,document.getElementById('pro-search').value);showDownload('pro','pro',dk);}
-async function refreshRpsv2(dk){const fn=dk==='latest'?RPV2F+'latest.json':RPV2F+dk+'.json';const d=await loadJSON(fn);_curRpsv2=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('rpsv2-summary',_curRpsv2,'满足条件','amber');renderTable('rpsv2-table-area',_curRpsv2,rpsv2F,document.getElementById('rpsv2-search').value);showDownload('rpsv2','rpsv2',dk);}
-async function refreshRsi(dk){const fn=dk==='latest'?RPF+'latest.json':RPF+dk+'.json';const d=await loadJSON(fn);_curR=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('rsi-summary',_curR,'满足条件','blue');renderTable('rsi-table-area',_curR,rsiF,document.getElementById('rsi-search').value);showDownload('rsi','rsi',dk);}
-async function refreshSig(dk){const fn=dk==='latest'?SPF+'latest.json':SPF+dk+'.json';const d=await loadJSON(fn);_curS=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('sig-summary',_curS,'满足条件','purple');renderTable('sig-table-area',_curS,sigF,document.getElementById('sig-search').value);showDownload('sig','sig',dk);}
-async function refreshMa(dk){const fn=dk==='latest'?MPF+'latest.json':MPF+dk+'.json';const d=await loadJSON(fn);_curM=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('ma-summary',_curM,'满足条件','cyan');renderTable('ma-table-area',_curM,maF,document.getElementById('ma-search').value);showDownload('ma','ma',dk);}
-async function refreshStbBuy(dk){const fn=dk==='latest'?STB_BUY+'latest.json':STB_BUY+dk+'.json';const d=await loadJSON(fn);_curStbBuy=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('stb-buy-summary',_curStbBuy,'🟢 趋势线上穿11','green');renderTable('stb-buy-table-area',_curStbBuy,stbBuyF,document.getElementById('stb-buy-search').value);showDownload('stb-buy','stbBuy',dk);}
-async function refreshStbSell(dk){const fn=dk==='latest'?STB_SELL+'latest.json':STB_SELL+dk+'.json';const d=await loadJSON(fn);_curStbSell=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('stb-sell-summary',_curStbSell,'🔴 趋势线下穿89','red');renderTable('stb-sell-table-area',_curStbSell,stbSellF,document.getElementById('stb-sell-search').value);showDownload('stb-sell','stbSell',dk);}
-async function refreshRes(dk){const fn=dk==='latest'?RESF+'latest.json':RESF+dk+'.json';const d=await loadJSON(fn);_curRes=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('resonance-summary',_curRes,'🔗 RSI金叉 + 超级顶底','orange');renderTable('resonance-table-area',_curRes,resF,'');showDownload('resonance','res',dk);}
+async function refreshRsp(dk){const fn=dk==='latest'?RSPF+'latest.json':RSPF+dk+'.json';const d=await loadJSON(fn);_curRsp=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('rsp-summary',_curRsp,'满足条件','teal');renderTable('rsp-table-area',_curRsp,rspF,document.getElementById('rsp-search').value);showScreenshot('rsp-table-area','rsp',dk);showDownload('rsp','rsp',dk);}
+async function refreshPro(dk){const fn=dk==='latest'?RPROF+'latest.json':RPROF+dk+'.json';const d=await loadJSON(fn);_curPro=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('pro-summary',_curPro,'满足条件','blue');renderTable('pro-table-area',_curPro,proF,document.getElementById('pro-search').value);showScreenshot('pro-table-area','pro',dk);showDownload('pro','pro',dk);}
+async function refreshRpsv2(dk){const fn=dk==='latest'?RPV2F+'latest.json':RPV2F+dk+'.json';const d=await loadJSON(fn);_curRpsv2=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('rpsv2-summary',_curRpsv2,'满足条件','amber');renderTable('rpsv2-table-area',_curRpsv2,rpsv2F,document.getElementById('rpsv2-search').value);showScreenshot('rpsv2-table-area','rpsv2',dk);showDownload('rpsv2','rpsv2',dk);}
+async function refreshRsi(dk){const fn=dk==='latest'?RPF+'latest.json':RPF+dk+'.json';const d=await loadJSON(fn);_curR=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('rsi-summary',_curR,'满足条件','blue');renderTable('rsi-table-area',_curR,rsiF,document.getElementById('rsi-search').value);showScreenshot('rsi-table-area','rsi',dk);showDownload('rsi','rsi',dk);}
+async function refreshSig(dk){const fn=dk==='latest'?SPF+'latest.json':SPF+dk+'.json';const d=await loadJSON(fn);_curS=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('sig-summary',_curS,'满足条件','purple');renderTable('sig-table-area',_curS,sigF,document.getElementById('sig-search').value);showScreenshot('sig-table-area','sig',dk);showDownload('sig','sig',dk);}
+async function refreshMa(dk){const fn=dk==='latest'?MPF+'latest.json':MPF+dk+'.json';const d=await loadJSON(fn);_curM=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('ma-summary',_curM,'满足条件','cyan');renderTable('ma-table-area',_curM,maF,document.getElementById('ma-search').value);showScreenshot('ma-table-area','ma',dk);showDownload('ma','ma',dk);}
+async function refreshStbBuy(dk){const fn=dk==='latest'?STB_BUY+'latest.json':STB_BUY+dk+'.json';const d=await loadJSON(fn);_curStbBuy=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('stb-buy-summary',_curStbBuy,'🟢 趋势线上穿11','green');renderTable('stb-buy-table-area',_curStbBuy,stbBuyF,document.getElementById('stb-buy-search').value);showScreenshot('stb-buy-table-area','stbBuy',dk);showDownload('stb-buy','stbBuy',dk);}
+async function refreshStbSell(dk){const fn=dk==='latest'?STB_SELL+'latest.json':STB_SELL+dk+'.json';const d=await loadJSON(fn);_curStbSell=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('stb-sell-summary',_curStbSell,'🔴 趋势线下穿89','red');renderTable('stb-sell-table-area',_curStbSell,stbSellF,document.getElementById('stb-sell-search').value);showScreenshot('stb-sell-table-area','stbSell',dk);showDownload('stb-sell','stbSell',dk);}
+async function refreshRes(dk){const fn=dk==='latest'?RESF+'latest.json':RESF+dk+'.json';const d=await loadJSON(fn);_curRes=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('resonance-summary',_curRes,'🔗 RSI金叉 + 超级顶底','orange');renderTable('resonance-table-area',_curRes,resF,'');showScreenshot('resonance-table-area','res',dk);showDownload('resonance','res',dk);}
 async function refreshSectors(dk){
   const fn=dk==='latest'?SECTF+'latest.json':SECTF+dk+'.json';
   const d=await loadJSON(fn);
@@ -566,6 +595,7 @@ async function refreshSectors(dk){
   const sectors=d.sectors||[];
   const stocks=d.stocks||[];
   document.getElementById('sectors-summary').innerHTML=`<div class="stat-card teal"><div class="num">${sectors.length}</div><div class="label">热门板块</div></div><div class="stat-card amber"><div class="num">${stocks.length}</div><div class="label">板块内股票</div></div>`;
+  showScreenshot('sectors-table-area','sectors',dk);
   showDownload('sectors','sectors',dk);
   const el=document.getElementById('sectors-table-area');
   if(!sectors.length){el.innerHTML='<div class="empty">暂无板块数据</div>';return}
@@ -586,7 +616,7 @@ async function refreshSectors(dk){
   }
   el.innerHTML=h;
 }
-async function refreshMidcap(dk){const fn=dk==='latest'?MIDF+'latest.json':MIDF+dk+'.json';const d=await loadJSON(fn);_curMidcap=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('midcap-summary',_curMidcap,'🔥 量价共振','green');renderTable('midcap-table-area',_curMidcap,midcapF,document.getElementById('midcap-search').value);showDownload('midcap','midcap',dk);}
+async function refreshMidcap(dk){const fn=dk==='latest'?MIDF+'latest.json':MIDF+dk+'.json';const d=await loadJSON(fn);_curMidcap=(d&&d.stocks)?d.stocks:(Array.isArray(d)?d:[]);summary('midcap-summary',_curMidcap,'🔥 量价共振','green');renderTable('midcap-table-area',_curMidcap,midcapF,document.getElementById('midcap-search').value);showScreenshot('midcap-table-area','midcap',dk);showDownload('midcap','midcap',dk);}
 
 async function renderHistory(){
   const el=document.getElementById('history-area');
