@@ -2,7 +2,7 @@
   "strategy": "screen_super_top_bottom_sell",
   "strategy_name": "超级顶底 卖出信号",
   "signal_type": "sell",
-  "screen_date": "2026-08-07",
+  "screen_date": "2026-08-08",
   "total_scanned": 4364,
   "total_matched": 131,
   "stocks": [
