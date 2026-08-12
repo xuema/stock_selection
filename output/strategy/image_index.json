@@ -1,56 +1,50 @@
 [
   {
-    "title": "RSP热门板块 0811",
-    "image": "screen_hot_sectors_0811.png",
+    "title": "RSP热门板块 0812",
+    "image": "screen_hot_sectors_0812.png",
     "count": 50,
     "base": "screen_hot_sectors"
   },
   {
-    "title": "RSP趋势突破 0811",
-    "image": "screen_rsp_trend_break_0811.png",
-    "count": 191,
+    "title": "RSP趋势突破 0812",
+    "image": "screen_rsp_trend_break_0812.png",
+    "count": 156,
     "base": "screen_rsp_trend_break"
   },
   {
-    "title": "RPS中长期龙头 0811",
-    "image": "screen_rps_trend_v2_0811.png",
-    "count": 22,
+    "title": "RPS中长期龙头 0812",
+    "image": "screen_rps_trend_v2_0812.png",
+    "count": 15,
     "base": "screen_rps_trend_v2"
   },
   {
-    "title": "RSI金叉 0811",
-    "image": "screen_rsi_golden_cross_0811.png",
-    "count": 16,
+    "title": "RSI金叉 0812",
+    "image": "screen_rsi_golden_cross_0812.png",
+    "count": 1,
     "base": "screen_rsi_golden_cross"
   },
   {
-    "title": "EXPMA+多因子 0811",
-    "image": "screen_signals_0811.png",
-    "count": 2,
+    "title": "EXPMA+多因子 0812",
+    "image": "screen_signals_0812.png",
+    "count": 1,
     "base": "screen_signals"
   },
   {
-    "title": "超级顶底买入 0811",
-    "image": "screen_super_top_bottom_buy_0811.png",
-    "count": 3,
-    "base": "screen_super_top_bottom_buy"
-  },
-  {
-    "title": "超级顶底卖出 0811",
-    "image": "screen_super_top_bottom_sell_0811.png",
-    "count": 62,
+    "title": "超级顶底卖出 0812",
+    "image": "screen_super_top_bottom_sell_0812.png",
+    "count": 60,
     "base": "screen_super_top_bottom_sell"
   },
   {
-    "title": "RSI共振 0811",
-    "image": "screen_rsi_stb_resonance_0811.png",
+    "title": "RSI共振 0812",
+    "image": "screen_rsi_stb_resonance_0812.png",
     "count": 1,
     "base": "screen_rsi_stb_resonance"
   },
   {
-    "title": "活跃中盘股 0811",
-    "image": "screen_active_midcap_0811.png",
-    "count": 9,
+    "title": "活跃中盘股 0812",
+    "image": "screen_active_midcap_0812.png",
+    "count": 3,
     "base": "screen_active_midcap"
   }
 ]
