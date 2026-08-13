@@ -1,22 +1,8 @@
 {
   "strategy": "rsi_stb_resonance",
   "strategy_name": "RSI 金叉 + 超级顶底 双重共振",
-  "screen_date": "2026-08-12",
+  "screen_date": "2026-08-13",
   "total_scanned": 4364,
-  "total_matched": 1,
-  "stocks": [
-    {
-      "ticker": "600745",
-      "name": "闻泰科技",
-      "date": "2026-08-12",
-      "close": 17.2,
-      "volume": 26034852,
-      "rsi12": 57.53,
-      "rsi_ma56": 45.77,
-      "trend_line": 14.66,
-      "trend_prev": 9.82,
-      "mcap_yi": 412.0,
-      "jl_growth_pct": 265.09
-    }
-  ]
+  "total_matched": 0,
+  "stocks": []
 }
