@@ -1,22 +1,8 @@
 {
   "strategy": "expma_vol_cr_signals",
   "strategy_name": "EXPMA+VOL+CR 多因子信号",
-  "screen_date": "2026-08-13",
+  "screen_date": "2026-08-14",
   "total_scanned": 4364,
-  "total_matched": 1,
-  "stocks": [
-    {
-      "ticker": "603897",
-      "name": "长城科技",
-      "date": "2026-08-13",
-      "close": 34.2,
-      "ema5": 29.88,
-      "ema29": 28.26,
-      "vol_ma8": 11559681,
-      "vol_ma89": 11161949,
-      "cr": 127.88,
-      "mcap_yi": 61.0,
-      "jl_growth_pct": 13.8
-    }
-  ]
+  "total_matched": 0,
+  "stocks": []
 }
