@@ -1,8 +1,22 @@
 {
   "strategy": "rsi_stb_resonance",
   "strategy_name": "RSI 金叉 + 超级顶底 双重共振",
-  "screen_date": "2026-08-15",
+  "screen_date": "2026-08-17",
   "total_scanned": 4364,
-  "total_matched": 0,
-  "stocks": []
+  "total_matched": 1,
+  "stocks": [
+    {
+      "ticker": "002838",
+      "name": "道恩股份",
+      "date": "2026-08-17",
+      "close": 27.19,
+      "volume": 14419896,
+      "rsi12": 62.03,
+      "rsi_ma56": 44.69,
+      "trend_line": 15.82,
+      "trend_prev": 6.1,
+      "mcap_yi": 121.0,
+      "jl_growth_pct": 32.96
+    }
+  ]
 }

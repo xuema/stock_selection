@@ -1,8 +1,86 @@
 {
   "strategy": "screen_active_midcap",
   "strategy_name": "活跃中盘股",
-  "screen_date": "2026-08-15",
+  "screen_date": "2026-08-17",
   "total_scanned": 4364,
-  "total_matched": 0,
-  "stocks": []
+  "total_matched": 7,
+  "stocks": [
+    {
+      "ticker": "603031",
+      "name": "安孚科技",
+      "date": "2026-08-17",
+      "close": 43.64,
+      "pct": 5.82,
+      "turnover_pct": 5.61,
+      "v_ratio": 2.06,
+      "board": "mb",
+      "mcap_yi": 140.0
+    },
+    {
+      "ticker": "603663",
+      "name": "三祥新材",
+      "date": "2026-08-17",
+      "close": 43.72,
+      "pct": 4.22,
+      "turnover_pct": 6.42,
+      "v_ratio": 1.48,
+      "board": "mb",
+      "mcap_yi": 211.0
+    },
+    {
+      "ticker": "002174",
+      "name": "游族网络",
+      "date": "2026-08-17",
+      "close": 13.18,
+      "pct": 4.6,
+      "turnover_pct": 5.41,
+      "v_ratio": 1.45,
+      "board": "mb",
+      "mcap_yi": 101.0
+    },
+    {
+      "ticker": "603938",
+      "name": "三孚股份",
+      "date": "2026-08-17",
+      "close": 45.68,
+      "pct": 4.13,
+      "turnover_pct": 7.73,
+      "v_ratio": 1.22,
+      "board": "mb",
+      "mcap_yi": 88.0
+    },
+    {
+      "ticker": "600513",
+      "name": "联环药业",
+      "date": "2026-08-17",
+      "close": 18.4,
+      "pct": 5.63,
+      "turnover_pct": 7.99,
+      "v_ratio": 1.21,
+      "board": "mb",
+      "mcap_yi": 63.0
+    },
+    {
+      "ticker": "002929",
+      "name": "润建股份",
+      "date": "2026-08-17",
+      "close": 57.8,
+      "pct": 5.11,
+      "turnover_pct": 6.95,
+      "v_ratio": 1.18,
+      "board": "mb",
+      "mcap_yi": 147.0
+    },
+    {
+      "ticker": "603757",
+      "name": "大元泵业",
+      "date": "2026-08-17",
+      "close": 64.27,
+      "pct": 5.52,
+      "turnover_pct": 6.82,
+      "v_ratio": 1.03,
+      "board": "mb",
+      "mcap_yi": 92.0
+    }
+  ]
 }

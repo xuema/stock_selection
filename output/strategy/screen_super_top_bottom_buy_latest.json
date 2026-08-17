@@ -2,8 +2,37 @@
   "strategy": "screen_super_top_bottom_buy",
   "strategy_name": "超级顶底 买入信号(Top20+评分)",
   "signal_type": "buy",
-  "screen_date": "2026-08-15",
+  "screen_date": "2026-08-17",
   "total_scanned": 4364,
-  "total_matched": 0,
-  "stocks": []
+  "total_matched": 2,
+  "stocks": [
+    {
+      "ticker": "002838",
+      "name": "道恩股份",
+      "date": "2026-08-17",
+      "close": 27.19,
+      "trend_line": 15.82,
+      "trend_prev": 6.1,
+      "v_ratio": 2.55,
+      "atr": 1.36,
+      "score": 110.7,
+      "mcap_yi": null,
+      "atr_stop_price": 24.46,
+      "signal_note": "趋势线上穿11 → 买入"
+    },
+    {
+      "ticker": "600329",
+      "name": "达仁堂",
+      "date": "2026-08-17",
+      "close": 36.13,
+      "trend_line": 13.63,
+      "trend_prev": 8.39,
+      "v_ratio": 1.28,
+      "atr": 0.84,
+      "score": 92.0,
+      "mcap_yi": null,
+      "atr_stop_price": 34.44,
+      "signal_note": "趋势线上穿11 → 买入"
+    }
+  ]
 }
