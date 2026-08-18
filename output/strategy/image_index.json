@@ -14,49 +14,37 @@
   {
     "title": "RPS中长期龙头 0818",
     "image": "screen_rps_trend_v2_0818.png",
-    "count": 22,
+    "count": 41,
     "base": "screen_rps_trend_v2"
   },
   {
     "title": "RPS超强势 0818",
     "image": "screen_rps_trend_pro_0818.png",
-    "count": 12,
+    "count": 8,
     "base": "screen_rps_trend_pro"
   },
   {
     "title": "RSI金叉 0818",
     "image": "screen_rsi_golden_cross_0818.png",
-    "count": 20,
+    "count": 15,
     "base": "screen_rsi_golden_cross"
   },
   {
-    "title": "MA回调 0818",
-    "image": "screen_ma_pullback_0818.png",
-    "count": 1,
-    "base": "screen_ma_pullback"
-  },
-  {
-    "title": "超级顶底买入 0818",
-    "image": "screen_super_top_bottom_buy_0818.png",
+    "title": "EXPMA+多因子 0818",
+    "image": "screen_signals_0818.png",
     "count": 2,
-    "base": "screen_super_top_bottom_buy"
+    "base": "screen_signals"
   },
   {
     "title": "超级顶底卖出 0818",
     "image": "screen_super_top_bottom_sell_0818.png",
-    "count": 102,
+    "count": 122,
     "base": "screen_super_top_bottom_sell"
-  },
-  {
-    "title": "RSI共振 0818",
-    "image": "screen_rsi_stb_resonance_0818.png",
-    "count": 1,
-    "base": "screen_rsi_stb_resonance"
   },
   {
     "title": "活跃中盘股 0818",
     "image": "screen_active_midcap_0818.png",
-    "count": 7,
+    "count": 5,
     "base": "screen_active_midcap"
   }
 ]

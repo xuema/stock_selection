@@ -3,6 +3,33 @@
   "strategy_name": "EXPMA+VOL+CR 多因子信号",
   "screen_date": "2026-08-18",
   "total_scanned": 4364,
-  "total_matched": 0,
-  "stocks": []
+  "total_matched": 2,
+  "stocks": [
+    {
+      "ticker": "002758",
+      "name": "浙农股份",
+      "date": "2026-08-18",
+      "close": 8.24,
+      "ema5": 8.02,
+      "ema29": 7.93,
+      "vol_ma8": 5971843,
+      "vol_ma89": 5674825,
+      "cr": 160.56,
+      "mcap_yi": 50.0,
+      "jl_growth_pct": 35.8
+    },
+    {
+      "ticker": "600598",
+      "name": "北大荒",
+      "date": "2026-08-18",
+      "close": 13.46,
+      "ema5": 12.52,
+      "ema29": 12.25,
+      "vol_ma8": 27113168,
+      "vol_ma89": 24051776,
+      "cr": 153.76,
+      "mcap_yi": 293.0,
+      "jl_growth_pct": 7.26
+    }
+  ]
 }
