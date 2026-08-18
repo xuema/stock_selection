@@ -1,55 +1,61 @@
 [
   {
-    "title": "RSP热门板块 0817",
-    "image": "screen_hot_sectors_0817.png",
+    "title": "RSP热门板块 0818",
+    "image": "screen_hot_sectors_0818.png",
     "count": 50,
     "base": "screen_hot_sectors"
   },
   {
-    "title": "RSP趋势突破 0817",
-    "image": "screen_rsp_trend_break_0817.png",
-    "count": 46,
+    "title": "RSP趋势突破 0818",
+    "image": "screen_rsp_trend_break_0818.png",
+    "count": 96,
     "base": "screen_rsp_trend_break"
   },
   {
-    "title": "RPS中长期龙头 0817",
-    "image": "screen_rps_trend_v2_0817.png",
+    "title": "RPS中长期龙头 0818",
+    "image": "screen_rps_trend_v2_0818.png",
     "count": 22,
     "base": "screen_rps_trend_v2"
   },
   {
-    "title": "RSI金叉 0817",
-    "image": "screen_rsi_golden_cross_0817.png",
+    "title": "RPS超强势 0818",
+    "image": "screen_rps_trend_pro_0818.png",
+    "count": 12,
+    "base": "screen_rps_trend_pro"
+  },
+  {
+    "title": "RSI金叉 0818",
+    "image": "screen_rsi_golden_cross_0818.png",
     "count": 20,
     "base": "screen_rsi_golden_cross"
   },
   {
-    "title": "MA回调 0817",
-    "image": "screen_ma_pullback_0817.png",
+    "title": "MA回调 0818",
+    "image": "screen_ma_pullback_0818.png",
     "count": 1,
     "base": "screen_ma_pullback"
   },
   {
-    "title": "超级顶底买入 0817",
-    "image": "screen_super_top_bottom_buy_0817.png",
+    "title": "超级顶底买入 0818",
+    "image": "screen_super_top_bottom_buy_0818.png",
     "count": 2,
     "base": "screen_super_top_bottom_buy"
   },
   {
-    "title": "超级顶底卖出 0817",
-    "image": "screen_super_top_bottom_sell_0817.png",
+    "title": "超级顶底卖出 0818",
+    "image": "screen_super_top_bottom_sell_0818.png",
     "count": 102,
     "base": "screen_super_top_bottom_sell"
   },
   {
-    "title": "RSI共振 0817",
-    "image": "screen_rsi_stb_resonance_0817.png",
+    "title": "RSI共振 0818",
+    "image": "screen_rsi_stb_resonance_0818.png",
     "count": 1,
     "base": "screen_rsi_stb_resonance"
   },
   {
-    "title": "活跃中盘股 0817",
-    "image": "screen_active_midcap_0817.png",
+    "title": "活跃中盘股 0818",
+    "image": "screen_active_midcap_0818.png",
     "count": 7,
     "base": "screen_active_midcap"
   }
