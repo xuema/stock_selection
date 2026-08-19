@@ -1,64 +1,20 @@
 {
   "strategy": "screen_active_midcap",
   "strategy_name": "活跃中盘股",
-  "screen_date": "2026-08-18",
+  "screen_date": "2026-08-19",
   "total_scanned": 4364,
-  "total_matched": 5,
+  "total_matched": 1,
   "stocks": [
     {
-      "ticker": "002346",
-      "name": "柘中股份",
-      "date": "2026-08-18",
-      "close": 25.95,
-      "pct": 5.79,
-      "turnover_pct": 5.58,
-      "v_ratio": 3.24,
+      "ticker": "002907",
+      "name": "华森制药",
+      "date": "2026-08-19",
+      "close": 15.91,
+      "pct": 2.71,
+      "turnover_pct": 9.51,
+      "v_ratio": 3.12,
       "board": "mb",
-      "mcap_yi": 91.0
-    },
-    {
-      "ticker": "002706",
-      "name": "良信股份",
-      "date": "2026-08-18",
-      "close": 10.51,
-      "pct": 4.89,
-      "turnover_pct": 6.63,
-      "v_ratio": 2.38,
-      "board": "mb",
-      "mcap_yi": 132.0
-    },
-    {
-      "ticker": "600216",
-      "name": "浙江医药",
-      "date": "2026-08-18",
-      "close": 13.68,
-      "pct": 3.79,
-      "turnover_pct": 5.75,
-      "v_ratio": 2.28,
-      "board": "mb",
-      "mcap_yi": 170.0
-    },
-    {
-      "ticker": "603663",
-      "name": "三祥新材",
-      "date": "2026-08-18",
-      "close": 45.58,
-      "pct": 4.25,
-      "turnover_pct": 8.17,
-      "v_ratio": 1.65,
-      "board": "mb",
-      "mcap_yi": 211.0
-    },
-    {
-      "ticker": "300843",
-      "name": "胜蓝股份",
-      "date": "2026-08-18",
-      "close": 136.9,
-      "pct": 7.87,
-      "turnover_pct": 11.21,
-      "v_ratio": 1.18,
-      "board": "cx",
-      "mcap_yi": 94.0
+      "mcap_yi": 56.0
     }
   ]
 }

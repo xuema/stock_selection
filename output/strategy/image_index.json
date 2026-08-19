@@ -1,50 +1,56 @@
 [
   {
-    "title": "RSP热门板块 0818",
-    "image": "screen_hot_sectors_0818.png",
+    "title": "RSP热门板块 0819",
+    "image": "screen_hot_sectors_0819.png",
     "count": 50,
     "base": "screen_hot_sectors"
   },
   {
-    "title": "RSP趋势突破 0818",
-    "image": "screen_rsp_trend_break_0818.png",
-    "count": 96,
+    "title": "RSP趋势突破 0819",
+    "image": "screen_rsp_trend_break_0819.png",
+    "count": 112,
     "base": "screen_rsp_trend_break"
   },
   {
-    "title": "RPS中长期龙头 0818",
-    "image": "screen_rps_trend_v2_0818.png",
-    "count": 41,
+    "title": "RPS中长期龙头 0819",
+    "image": "screen_rps_trend_v2_0819.png",
+    "count": 60,
     "base": "screen_rps_trend_v2"
   },
   {
-    "title": "RPS超强势 0818",
-    "image": "screen_rps_trend_pro_0818.png",
+    "title": "RSI金叉 0819",
+    "image": "screen_rsi_golden_cross_0819.png",
     "count": 8,
-    "base": "screen_rps_trend_pro"
-  },
-  {
-    "title": "RSI金叉 0818",
-    "image": "screen_rsi_golden_cross_0818.png",
-    "count": 15,
     "base": "screen_rsi_golden_cross"
   },
   {
-    "title": "EXPMA+多因子 0818",
-    "image": "screen_signals_0818.png",
-    "count": 2,
+    "title": "EXPMA+多因子 0819",
+    "image": "screen_signals_0819.png",
+    "count": 1,
     "base": "screen_signals"
   },
   {
-    "title": "超级顶底卖出 0818",
-    "image": "screen_super_top_bottom_sell_0818.png",
-    "count": 122,
+    "title": "MA回调 0819",
+    "image": "screen_ma_pullback_0819.png",
+    "count": 1,
+    "base": "screen_ma_pullback"
+  },
+  {
+    "title": "超级顶底买入 0819",
+    "image": "screen_super_top_bottom_buy_0819.png",
+    "count": 1,
+    "base": "screen_super_top_bottom_buy"
+  },
+  {
+    "title": "超级顶底卖出 0819",
+    "image": "screen_super_top_bottom_sell_0819.png",
+    "count": 200,
     "base": "screen_super_top_bottom_sell"
   },
   {
-    "title": "活跃中盘股 0818",
-    "image": "screen_active_midcap_0818.png",
-    "count": 5,
+    "title": "活跃中盘股 0819",
+    "image": "screen_active_midcap_0819.png",
+    "count": 1,
     "base": "screen_active_midcap"
   }
 ]
