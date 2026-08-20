@@ -1,56 +1,50 @@
 [
   {
-    "title": "RSP热门板块 0819",
-    "image": "screen_hot_sectors_0819.png",
+    "title": "RSP热门板块 0820",
+    "image": "screen_hot_sectors_0820.png",
     "count": 50,
     "base": "screen_hot_sectors"
   },
   {
-    "title": "RSP趋势突破 0819",
-    "image": "screen_rsp_trend_break_0819.png",
-    "count": 112,
+    "title": "RSP趋势突破 0820",
+    "image": "screen_rsp_trend_break_0820.png",
+    "count": 192,
     "base": "screen_rsp_trend_break"
   },
   {
-    "title": "RPS中长期龙头 0819",
-    "image": "screen_rps_trend_v2_0819.png",
-    "count": 60,
+    "title": "RPS中长期龙头 0820",
+    "image": "screen_rps_trend_v2_0820.png",
+    "count": 45,
     "base": "screen_rps_trend_v2"
   },
   {
-    "title": "RSI金叉 0819",
-    "image": "screen_rsi_golden_cross_0819.png",
-    "count": 8,
+    "title": "RSI金叉 0820",
+    "image": "screen_rsi_golden_cross_0820.png",
+    "count": 56,
     "base": "screen_rsi_golden_cross"
   },
   {
-    "title": "EXPMA+多因子 0819",
-    "image": "screen_signals_0819.png",
+    "title": "EXPMA+多因子 0820",
+    "image": "screen_signals_0820.png",
     "count": 1,
     "base": "screen_signals"
   },
   {
-    "title": "MA回调 0819",
-    "image": "screen_ma_pullback_0819.png",
-    "count": 1,
-    "base": "screen_ma_pullback"
-  },
-  {
-    "title": "超级顶底买入 0819",
-    "image": "screen_super_top_bottom_buy_0819.png",
-    "count": 1,
+    "title": "超级顶底买入 0820",
+    "image": "screen_super_top_bottom_buy_0820.png",
+    "count": 2,
     "base": "screen_super_top_bottom_buy"
   },
   {
-    "title": "超级顶底卖出 0819",
-    "image": "screen_super_top_bottom_sell_0819.png",
-    "count": 200,
+    "title": "超级顶底卖出 0820",
+    "image": "screen_super_top_bottom_sell_0820.png",
+    "count": 94,
     "base": "screen_super_top_bottom_sell"
   },
   {
-    "title": "活跃中盘股 0819",
-    "image": "screen_active_midcap_0819.png",
-    "count": 1,
+    "title": "活跃中盘股 0820",
+    "image": "screen_active_midcap_0820.png",
+    "count": 8,
     "base": "screen_active_midcap"
   }
 ]

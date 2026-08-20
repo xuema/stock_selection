@@ -1,22 +1,22 @@
 {
   "strategy": "expma_vol_cr_signals",
   "strategy_name": "EXPMA+VOL+CR 多因子信号",
-  "screen_date": "2026-08-19",
+  "screen_date": "2026-08-20",
   "total_scanned": 4364,
   "total_matched": 1,
   "stocks": [
     {
-      "ticker": "300598",
-      "name": "诚迈科技",
-      "date": "2026-08-19",
-      "close": 36.19,
-      "ema5": 31.26,
-      "ema29": 29.53,
-      "vol_ma8": 7429590,
-      "vol_ma89": 5905460,
-      "cr": 163.83,
-      "mcap_yi": 89.0,
-      "jl_growth_pct": 17.61
+      "ticker": "603334",
+      "name": "丰倍生物",
+      "date": "2026-08-20",
+      "close": 34.62,
+      "ema5": 33.67,
+      "ema29": 33.52,
+      "vol_ma8": 1880858,
+      "vol_ma89": 1797485,
+      "cr": 143.86,
+      "mcap_yi": 79.0,
+      "jl_growth_pct": 35.32
     }
   ]
 }
