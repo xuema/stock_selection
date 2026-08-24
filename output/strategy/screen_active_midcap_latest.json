@@ -1,86 +1,64 @@
 {
   "strategy": "screen_active_midcap",
   "strategy_name": "活跃中盘股",
-  "screen_date": "2026-08-22",
+  "screen_date": "2026-08-24",
   "total_scanned": 4364,
-  "total_matched": 7,
+  "total_matched": 5,
   "stocks": [
     {
-      "ticker": "603123",
-      "name": "翠微股份",
-      "date": "2026-08-21",
-      "close": 9.5,
-      "pct": 2.93,
-      "turnover_pct": 5.51,
-      "v_ratio": 2.47,
-      "board": "mb",
-      "mcap_yi": 108.0
-    },
-    {
-      "ticker": "601609",
-      "name": "金田股份",
-      "date": "2026-08-21",
-      "close": 13.18,
-      "pct": 2.81,
-      "turnover_pct": 6.52,
-      "v_ratio": 1.3,
-      "board": "mb",
-      "mcap_yi": 169.0
-    },
-    {
-      "ticker": "600961",
-      "name": "株冶集团",
-      "date": "2026-08-21",
-      "close": 28.05,
+      "ticker": "601011",
+      "name": "宝泰隆",
+      "date": "2026-08-24",
+      "close": 2.97,
       "pct": 3.12,
-      "turnover_pct": 7.59,
-      "v_ratio": 1.18,
+      "turnover_pct": 7.8,
+      "v_ratio": 2.7,
       "board": "mb",
-      "mcap_yi": 191.0
+      "mcap_yi": 65.0
+    },
+    {
+      "ticker": "000751",
+      "name": "锌业股份",
+      "date": "2026-08-24",
+      "close": 5.19,
+      "pct": 2.77,
+      "turnover_pct": 5.95,
+      "v_ratio": 2.52,
+      "board": "mb",
+      "mcap_yi": 89.0
+    },
+    {
+      "ticker": "002213",
+      "name": "大为股份",
+      "date": "2026-08-24",
+      "close": 31.28,
+      "pct": 5.07,
+      "turnover_pct": 8.4,
+      "v_ratio": 2.14,
+      "board": "mb",
+      "mcap_yi": 67.0
     },
     {
       "ticker": "002721",
       "name": "金一文化",
-      "date": "2026-08-21",
-      "close": 2.75,
-      "pct": 6.18,
-      "turnover_pct": 6.11,
-      "v_ratio": 1.12,
+      "date": "2026-08-24",
+      "close": 2.85,
+      "pct": 3.64,
+      "turnover_pct": 6.63,
+      "v_ratio": 1.28,
       "board": "mb",
       "mcap_yi": 83.0
     },
     {
-      "ticker": "000811",
-      "name": "冰轮环境",
-      "date": "2026-08-21",
-      "close": 40.76,
-      "pct": 3.32,
-      "turnover_pct": 7.87,
-      "v_ratio": 1.11,
+      "ticker": "600403",
+      "name": "大有能源",
+      "date": "2026-08-24",
+      "close": 7.08,
+      "pct": 6.15,
+      "turnover_pct": 5.45,
+      "v_ratio": 1.16,
       "board": "mb",
-      "mcap_yi": 178.0
-    },
-    {
-      "ticker": "002975",
-      "name": "博杰股份",
-      "date": "2026-08-21",
-      "close": 99.87,
-      "pct": 4.47,
-      "turnover_pct": 8.26,
-      "v_ratio": 1.02,
-      "board": "mb",
-      "mcap_yi": 120.0
-    },
-    {
-      "ticker": "002957",
-      "name": "科瑞技术",
-      "date": "2026-08-21",
-      "close": 42.32,
-      "pct": 3.73,
-      "turnover_pct": 7.79,
-      "v_ratio": 1.01,
-      "board": "mb",
-      "mcap_yi": 110.0
+      "mcap_yi": 148.0
     }
   ]
 }

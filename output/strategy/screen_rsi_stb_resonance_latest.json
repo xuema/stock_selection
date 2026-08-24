@@ -1,8 +1,48 @@
 {
   "strategy": "rsi_stb_resonance",
   "strategy_name": "RSI 金叉 + 超级顶底 双重共振",
-  "screen_date": "2026-08-22",
+  "screen_date": "2026-08-24",
   "total_scanned": 4364,
-  "total_matched": 0,
-  "stocks": []
+  "total_matched": 3,
+  "stocks": [
+    {
+      "ticker": "000157",
+      "name": "中联重科",
+      "date": "2026-08-24",
+      "close": 7.06,
+      "volume": 58830484,
+      "rsi12": 51.98,
+      "rsi_ma56": 44.96,
+      "trend_line": 11.95,
+      "trend_prev": 4.22,
+      "mcap_yi": 736.0,
+      "jl_growth_pct": 24.89
+    },
+    {
+      "ticker": "003035",
+      "name": "南网能源",
+      "date": "2026-08-24",
+      "close": 5.73,
+      "volume": 79892649,
+      "rsi12": 67.59,
+      "rsi_ma56": 43.3,
+      "trend_line": 41.25,
+      "trend_prev": 8.24,
+      "mcap_yi": 327.0,
+      "jl_growth_pct": 125.08
+    },
+    {
+      "ticker": "600483",
+      "name": "福能股份",
+      "date": "2026-08-24",
+      "close": 10.82,
+      "volume": 29982933,
+      "rsi12": 67.96,
+      "rsi_ma56": 44.61,
+      "trend_line": 25.1,
+      "trend_prev": 2.53,
+      "mcap_yi": 306.0,
+      "jl_growth_pct": 12.17
+    }
+  ]
 }
