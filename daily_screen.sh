@@ -108,11 +108,7 @@ count_from_json() {
 
 # ─── Step 1: Update stock data ───
 STEP "Step 1/11 — 更新股票数据 (yfinance)..."
-if "$VENV_PYTHON" "$UPDATE_SCRIPT"; then
-  OK "数据更新完成"
-else
-  WARN "数据更新有告，继续筛选..."
-fi
+
 
 
 # ─── Step 2: RSP趋势突破 ───
@@ -247,18 +243,14 @@ OK "docs/ 已同步"
 # ─── Git commit & push ───
 git add output/strategy/ docs/
 
-if git diff --cached --quiet; then
-  WARN "无变更，跳过提交"
-else
-  COMMIT_MSG="A股每日选股更新 $today (RSP:$RSP_COUNT V2:$RPSV2_COUNT Pro:$RPS_PRO_COUNT RSI:$RSI_COUNT SIG:$SIG_COUNT MA:$MA_COUNT STB:${STB_BUY_COUNT}x${STB_SELL_COUNT} Res:$RES_COUNT Mid:$MIDCAP_COUNT Sec:$SECTORS_COUNT)"
-  git commit -m "$COMMIT_MSG"
-  OK "Git 提交完成"
+COMMIT_MSG="A股每日选股更新 $today (RSP:$RSP_COUNT V2:$RPSV2_COUNT Pro:$RPS_PRO_COUNT RSI:$RSI_COUNT SIG:$SIG_COUNT MA:$MA_COUNT STB:${STB_BUY_COUNT}x${STB_SELL_COUNT} Res:$RES_COUNT Mid:$MIDCAP_COUNT Sec:$SECTORS_COUNT)"
+git commit -m "$COMMIT_MSG"
+OK "Git 提交完成"
 
-  if git push origin "$BRANCH" 2>&1; then
-    OK "已推送到 GitHub (Pages 将自动更新)"
-  else
-    WARN "推送失败，请检查网络连接和凭证"
-  fi
+if git push origin "$BRANCH" 2>&1; then
+  OK "已推送到 GitHub (Pages 将自动更新)"
+else
+  WARN "推送失败，请检查网络连接和凭证"
 fi
 
 # ─── Summary ───
