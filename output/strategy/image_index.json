@@ -1,61 +1,61 @@
 [
   {
-    "title": "RSP热门板块 0824",
-    "image": "screen_hot_sectors_0824.png",
+    "title": "RSP热门板块 0825",
+    "image": "screen_hot_sectors_0825.png",
     "count": 50,
     "base": "screen_hot_sectors"
   },
   {
-    "title": "RSP趋势突破 0824",
-    "image": "screen_rsp_trend_break_0824.png",
-    "count": 145,
+    "title": "RSP趋势突破 0825",
+    "image": "screen_rsp_trend_break_0825.png",
+    "count": 164,
     "base": "screen_rsp_trend_break"
   },
   {
-    "title": "RPS中长期龙头 0824",
-    "image": "screen_rps_trend_v2_0824.png",
+    "title": "RPS中长期龙头 0825",
+    "image": "screen_rps_trend_v2_0825.png",
     "count": 27,
     "base": "screen_rps_trend_v2"
   },
   {
-    "title": "RSI金叉 0824",
-    "image": "screen_rsi_golden_cross_0824.png",
+    "title": "RSI金叉 0825",
+    "image": "screen_rsi_golden_cross_0825.png",
     "count": 20,
     "base": "screen_rsi_golden_cross"
   },
   {
-    "title": "EXPMA+多因子 0824",
-    "image": "screen_signals_0824.png",
+    "title": "EXPMA+多因子 0825",
+    "image": "screen_signals_0825.png",
     "count": 1,
     "base": "screen_signals"
   },
   {
-    "title": "MA回调 0824",
-    "image": "screen_ma_pullback_0824.png",
+    "title": "MA回调 0825",
+    "image": "screen_ma_pullback_0825.png",
     "count": 1,
     "base": "screen_ma_pullback"
   },
   {
-    "title": "超级顶底买入 0824",
-    "image": "screen_super_top_bottom_buy_0824.png",
+    "title": "超级顶底买入 0825",
+    "image": "screen_super_top_bottom_buy_0825.png",
     "count": 8,
     "base": "screen_super_top_bottom_buy"
   },
   {
-    "title": "超级顶底卖出 0824",
-    "image": "screen_super_top_bottom_sell_0824.png",
+    "title": "超级顶底卖出 0825",
+    "image": "screen_super_top_bottom_sell_0825.png",
     "count": 127,
     "base": "screen_super_top_bottom_sell"
   },
   {
-    "title": "RSI共振 0824",
-    "image": "screen_rsi_stb_resonance_0824.png",
+    "title": "RSI共振 0825",
+    "image": "screen_rsi_stb_resonance_0825.png",
     "count": 3,
     "base": "screen_rsi_stb_resonance"
   },
   {
-    "title": "活跃中盘股 0824",
-    "image": "screen_active_midcap_0824.png",
+    "title": "活跃中盘股 0825",
+    "image": "screen_active_midcap_0825.png",
     "count": 5,
     "base": "screen_active_midcap"
   }

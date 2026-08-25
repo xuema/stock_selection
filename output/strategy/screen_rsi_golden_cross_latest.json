@@ -1,7 +1,7 @@
 {
   "strategy": "rsi_golden_cross",
   "strategy_name": "RSI(12,56) 金叉",
-  "screen_date": "2026-08-24",
+  "screen_date": "2026-08-25",
   "total_scanned": 4364,
   "total_matched": 20,
   "stocks": [
