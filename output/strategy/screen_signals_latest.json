@@ -3,20 +3,33 @@
   "strategy_name": "EXPMA+VOL+CR 多因子信号",
   "screen_date": "2026-08-25",
   "total_scanned": 4364,
-  "total_matched": 1,
+  "total_matched": 2,
   "stocks": [
     {
-      "ticker": "300468",
-      "name": "四方精创",
-      "date": "2026-08-24",
-      "close": 23.17,
-      "ema5": 21.89,
-      "ema29": 21.49,
-      "vol_ma8": 25975643,
-      "vol_ma89": 22851989,
-      "cr": 158.03,
-      "mcap_yi": 194.0,
-      "jl_growth_pct": 27.36
+      "ticker": "301196",
+      "name": "唯科科技",
+      "date": "2026-08-25",
+      "close": 93.42,
+      "ema5": 89.55,
+      "ema29": 88.69,
+      "vol_ma8": 6715774,
+      "vol_ma89": 6425192,
+      "cr": 118.97,
+      "mcap_yi": 106.0,
+      "jl_growth_pct": 25.2
+    },
+    {
+      "ticker": "301216",
+      "name": "万凯新材",
+      "date": "2026-08-25",
+      "close": 18.1,
+      "ema5": 17.67,
+      "ema29": 17.64,
+      "vol_ma8": 15401493,
+      "vol_ma89": 12442328,
+      "cr": 144.61,
+      "mcap_yi": 146.0,
+      "jl_growth_pct": 183.45
     }
   ]
 }
