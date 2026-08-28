@@ -1,61 +1,22 @@
 {
   "strategy": "expma_vol_cr_signals",
   "strategy_name": "EXPMA+VOL+CR 多因子信号",
-  "screen_date": "2026-08-27",
+  "screen_date": "2026-08-28",
   "total_scanned": 4364,
-  "total_matched": 4,
+  "total_matched": 1,
   "stocks": [
     {
-      "ticker": "000592",
-      "name": "平潭发展",
-      "date": "2026-08-27",
-      "close": 6.81,
-      "ema5": 6.38,
-      "ema29": 6.36,
-      "vol_ma8": 156446147,
-      "vol_ma89": 135735882,
-      "cr": 150.79,
-      "mcap_yi": 193.0,
-      "jl_growth_pct": 38.39
-    },
-    {
-      "ticker": "002837",
-      "name": "英维克",
-      "date": "2026-08-27",
-      "close": 65.36,
-      "ema5": 60.41,
-      "ema29": 58.65,
-      "vol_ma8": 55992439,
-      "vol_ma89": 53935837,
-      "cr": 116.66,
-      "mcap_yi": 1016.0,
-      "jl_growth_pct": 13.13
-    },
-    {
-      "ticker": "301312",
-      "name": "智立方",
-      "date": "2026-08-27",
-      "close": 79.0,
-      "ema5": 74.19,
-      "ema29": 72.69,
-      "vol_ma8": 6586161,
-      "vol_ma89": 6054310,
-      "cr": 140.47,
-      "mcap_yi": 96.0,
-      "jl_growth_pct": 57.59
-    },
-    {
-      "ticker": "688800",
-      "name": "瑞可达",
-      "date": "2026-08-27",
-      "close": 67.24,
-      "ema5": 63.55,
-      "ema29": 63.53,
-      "vol_ma8": 12635903,
-      "vol_ma89": 12404310,
-      "cr": 120.88,
-      "mcap_yi": 196.0,
-      "jl_growth_pct": 119.89
+      "ticker": "002670",
+      "name": "国盛证券",
+      "date": "2026-08-28",
+      "close": 12.1,
+      "ema5": 11.46,
+      "ema29": 11.35,
+      "vol_ma8": 26781500,
+      "vol_ma89": 25770176,
+      "cr": 117.36,
+      "mcap_yi": 292.0,
+      "jl_growth_pct": 191.21
     }
   ]
 }

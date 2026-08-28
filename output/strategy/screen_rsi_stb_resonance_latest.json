@@ -1,48 +1,22 @@
 {
   "strategy": "rsi_stb_resonance",
   "strategy_name": "RSI 金叉 + 超级顶底 双重共振",
-  "screen_date": "2026-08-27",
+  "screen_date": "2026-08-28",
   "total_scanned": 4364,
-  "total_matched": 3,
+  "total_matched": 1,
   "stocks": [
     {
-      "ticker": "603019",
-      "name": "中科曙光",
-      "date": "2026-08-27",
-      "close": 85.98,
-      "volume": 32030534,
-      "rsi12": 52.21,
-      "rsi_ma56": 49.85,
-      "trend_line": 15.32,
-      "trend_prev": 10.72,
-      "mcap_yi": 1225.0,
-      "jl_growth_pct": 25.55
-    },
-    {
-      "ticker": "688256",
-      "name": "寒武纪",
-      "date": "2026-08-27",
-      "close": 1038.98,
-      "volume": 7232954,
-      "rsi12": 46.12,
-      "rsi_ma56": 45.76,
-      "trend_line": 14.89,
-      "trend_prev": 10.75,
-      "mcap_yi": 4599.0,
-      "jl_growth_pct": 555.24
-    },
-    {
-      "ticker": "688521",
-      "name": "芯原股份",
-      "date": "2026-08-27",
-      "close": 192.35,
-      "volume": 23216871,
-      "rsi12": 52.29,
-      "rsi_ma56": 46.3,
-      "trend_line": 19.29,
-      "trend_prev": 9.48,
-      "mcap_yi": 1002.0,
-      "jl_growth_pct": 12.42
+      "ticker": "002230",
+      "name": "科大讯飞",
+      "date": "2026-08-28",
+      "close": 40.07,
+      "volume": 25604624,
+      "rsi12": 47.0,
+      "rsi_ma56": 43.63,
+      "trend_line": 14.07,
+      "trend_prev": 9.64,
+      "mcap_yi": 1134.0,
+      "jl_growth_pct": 80.6
     }
   ]
 }
