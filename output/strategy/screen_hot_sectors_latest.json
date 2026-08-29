@@ -1,7 +1,7 @@
 {
   "strategy": "screen_hot_sectors",
   "strategy_name": "RSP热门板块",
-  "screen_date": "2026-08-28",
+  "screen_date": "2026-08-29",
   "params": {
     "lookback": 3,
     "min_stocks": 3,
@@ -36,12 +36,12 @@
       "sector": "基础材料",
       "sector_en": "Basic Materials",
       "n_stocks": 167,
-      "avg_rsp": 0.0248,
-      "avg_pct": 2.89,
-      "median_pct": 1.93,
+      "avg_rsp": 0.0246,
+      "avg_pct": 2.86,
+      "median_pct": 1.89,
       "max_pct": 16.78,
       "n_leaders": 83,
-      "score": 71.4
+      "score": 71.3
     },
     {
       "sector": "科技",
@@ -1667,11 +1667,11 @@
       "name": "英力特",
       "sector": "基础材料",
       "sector_en": "Basic Materials",
-      "rsp": -0.0064,
-      "pct": 1.08,
-      "close": 6.55,
+      "rsp": -0.007,
+      "pct": -0.3,
+      "close": 6.56,
       "mcap_yi": 36.0,
-      "date": "2026-08-27"
+      "date": "2026-08-28"
     },
     {
       "ticker": "000636",
@@ -6859,11 +6859,11 @@
       "name": "华昌化工",
       "sector": "基础材料",
       "sector_en": "Basic Materials",
-      "rsp": 0.0147,
-      "pct": 3.19,
+      "rsp": -0.004,
+      "pct": 0.0,
       "close": 6.47,
       "mcap_yi": 61.0,
-      "date": "2026-08-27"
+      "date": "2026-08-28"
     },
     {
       "ticker": "002275",

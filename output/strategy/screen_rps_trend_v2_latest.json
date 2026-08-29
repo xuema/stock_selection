@@ -2,7 +2,7 @@
   "strategy": "screen_rps_trend_v2",
   "strategy_name": "RPS趋势策略 V2",
   "signal_type": "buy",
-  "screen_date": "2026-08-28",
+  "screen_date": "2026-08-29",
   "params": {
     "rps_day_min": 70,
     "rps_month_min": 85,
