@@ -1,7 +1,7 @@
 {
   "strategy": "screen_hot_sectors",
   "strategy_name": "RSP热门板块",
-  "screen_date": "2026-08-29",
+  "screen_date": "2026-08-30",
   "params": {
     "lookback": 3,
     "min_stocks": 3,

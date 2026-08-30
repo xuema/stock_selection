@@ -1,7 +1,7 @@
 {
   "strategy": "rsi_stb_resonance",
   "strategy_name": "RSI 金叉 + 超级顶底 双重共振",
-  "screen_date": "2026-08-29",
+  "screen_date": "2026-08-30",
   "total_scanned": 4364,
   "total_matched": 1,
   "stocks": [
