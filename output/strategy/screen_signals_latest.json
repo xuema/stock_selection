@@ -1,22 +1,8 @@
 {
   "strategy": "expma_vol_cr_signals",
   "strategy_name": "EXPMA+VOL+CR 多因子信号",
-  "screen_date": "2026-08-30",
+  "screen_date": "2026-08-31",
   "total_scanned": 4364,
-  "total_matched": 1,
-  "stocks": [
-    {
-      "ticker": "002670",
-      "name": "国盛证券",
-      "date": "2026-08-28",
-      "close": 12.1,
-      "ema5": 11.46,
-      "ema29": 11.35,
-      "vol_ma8": 26781500,
-      "vol_ma89": 25770176,
-      "cr": 117.36,
-      "mcap_yi": 292.0,
-      "jl_growth_pct": 191.21
-    }
-  ]
+  "total_matched": 0,
+  "stocks": []
 }

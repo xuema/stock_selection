@@ -1,22 +1,61 @@
 {
   "strategy": "rsi_stb_resonance",
   "strategy_name": "RSI 金叉 + 超级顶底 双重共振",
-  "screen_date": "2026-08-30",
+  "screen_date": "2026-08-31",
   "total_scanned": 4364,
-  "total_matched": 1,
+  "total_matched": 4,
   "stocks": [
     {
-      "ticker": "002230",
-      "name": "科大讯飞",
-      "date": "2026-08-28",
-      "close": 40.07,
-      "volume": 25604624,
-      "rsi12": 47.0,
-      "rsi_ma56": 43.63,
-      "trend_line": 14.07,
-      "trend_prev": 9.64,
-      "mcap_yi": 1134.0,
-      "jl_growth_pct": 80.6
+      "ticker": "002027",
+      "name": "分众传媒",
+      "date": "2026-08-31",
+      "close": 4.98,
+      "volume": 122078893,
+      "rsi12": 47.66,
+      "rsi_ma56": 47.57,
+      "trend_line": 11.59,
+      "trend_prev": 9.09,
+      "mcap_yi": 922.0,
+      "jl_growth_pct": 6.87
+    },
+    {
+      "ticker": "300251",
+      "name": "光线传媒",
+      "date": "2026-08-31",
+      "close": 11.77,
+      "volume": 88383974,
+      "rsi12": 73.94,
+      "rsi_ma56": 45.78,
+      "trend_line": 34.96,
+      "trend_prev": 9.14,
+      "mcap_yi": 489.0,
+      "jl_growth_pct": 406.78
+    },
+    {
+      "ticker": "300458",
+      "name": "全志科技",
+      "date": "2026-08-31",
+      "close": 32.51,
+      "volume": 52386041,
+      "rsi12": 55.41,
+      "rsi_ma56": 49.57,
+      "trend_line": 13.4,
+      "trend_prev": 7.67,
+      "mcap_yi": 297.0,
+      "jl_growth_pct": 84.41
+    },
+    {
+      "ticker": "603893",
+      "name": "瑞芯微",
+      "date": "2026-08-31",
+      "close": 194.59,
+      "volume": 17573759,
+      "rsi12": 62.24,
+      "rsi_ma56": 51.86,
+      "trend_line": 20.91,
+      "trend_prev": 6.97,
+      "mcap_yi": 703.0,
+      "jl_growth_pct": 121.65
     }
   ]
 }
