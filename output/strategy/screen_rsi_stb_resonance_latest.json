@@ -1,35 +1,8 @@
 {
   "strategy": "rsi_stb_resonance",
   "strategy_name": "RSI 金叉 + 超级顶底 双重共振",
-  "screen_date": "2026-09-01",
+  "screen_date": "2026-09-02",
   "total_scanned": 4364,
-  "total_matched": 2,
-  "stocks": [
-    {
-      "ticker": "000425",
-      "name": "徐工机械",
-      "date": "2026-09-01",
-      "close": 8.16,
-      "volume": 248471027,
-      "rsi12": 61.16,
-      "rsi_ma56": 42.32,
-      "trend_line": 15.01,
-      "trend_prev": 4.86,
-      "mcap_yi": 1204.0,
-      "jl_growth_pct": 11.67
-    },
-    {
-      "ticker": "600699",
-      "name": "均胜电子",
-      "date": "2026-09-01",
-      "close": 19.51,
-      "volume": 29162940,
-      "rsi12": 50.15,
-      "rsi_ma56": 40.93,
-      "trend_line": 15.28,
-      "trend_prev": 7.78,
-      "mcap_yi": 390.0,
-      "jl_growth_pct": 18.98
-    }
-  ]
+  "total_matched": 0,
+  "stocks": []
 }
