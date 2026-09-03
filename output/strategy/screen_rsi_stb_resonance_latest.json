@@ -1,8 +1,22 @@
 {
   "strategy": "rsi_stb_resonance",
   "strategy_name": "RSI 金叉 + 超级顶底 双重共振",
-  "screen_date": "2026-09-02",
+  "screen_date": "2026-09-03",
   "total_scanned": 4364,
-  "total_matched": 0,
-  "stocks": []
+  "total_matched": 1,
+  "stocks": [
+    {
+      "ticker": "002249",
+      "name": "大洋电机",
+      "date": "2026-09-03",
+      "close": 6.82,
+      "volume": 64133284,
+      "rsi12": 48.59,
+      "rsi_ma56": 42.8,
+      "trend_line": 14.82,
+      "trend_prev": 8.25,
+      "mcap_yi": 245.0,
+      "jl_growth_pct": 25.95
+    }
+  ]
 }

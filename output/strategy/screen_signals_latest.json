@@ -1,48 +1,35 @@
 {
   "strategy": "expma_vol_cr_signals",
   "strategy_name": "EXPMA+VOL+CR 多因子信号",
-  "screen_date": "2026-09-02",
+  "screen_date": "2026-09-03",
   "total_scanned": 4364,
-  "total_matched": 3,
+  "total_matched": 2,
   "stocks": [
     {
-      "ticker": "000158",
-      "name": "常山北明",
-      "date": "2026-09-02",
-      "close": 13.94,
-      "ema5": 13.35,
-      "ema29": 13.13,
-      "vol_ma8": 33723478,
-      "vol_ma89": 32784373,
-      "cr": 142.97,
-      "mcap_yi": 322.0,
-      "jl_growth_pct": 48.05
+      "ticker": "603090",
+      "name": "宏盛股份",
+      "date": "2026-09-03",
+      "close": 44.35,
+      "ema5": 41.41,
+      "ema29": 40.55,
+      "vol_ma8": 5146523,
+      "vol_ma89": 4356469,
+      "cr": 144.21,
+      "mcap_yi": 61.0,
+      "jl_growth_pct": 34.78
     },
     {
-      "ticker": "301235",
-      "name": "华康洁净",
-      "date": "2026-09-02",
-      "close": 47.37,
-      "ema5": 45.81,
-      "ema29": 45.79,
-      "vol_ma8": 8224751,
-      "vol_ma89": 8205310,
-      "cr": 136.9,
-      "mcap_yi": 54.0,
-      "jl_growth_pct": 211.46
-    },
-    {
-      "ticker": "688297",
-      "name": "中无人机",
-      "date": "2026-09-02",
-      "close": 42.95,
-      "ema5": 40.85,
-      "ema29": 40.26,
-      "vol_ma8": 7085794,
-      "vol_ma89": 7036762,
-      "cr": 149.41,
-      "mcap_yi": 367.0,
-      "jl_growth_pct": 264.28
+      "ticker": "603989",
+      "name": "艾华集团",
+      "date": "2026-09-03",
+      "close": 31.02,
+      "ema5": 29.98,
+      "ema29": 29.81,
+      "vol_ma8": 23327646,
+      "vol_ma89": 22370086,
+      "cr": 137.42,
+      "mcap_yi": 69.0,
+      "jl_growth_pct": 11.59
     }
   ]
 }

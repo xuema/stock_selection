@@ -1,97 +1,20 @@
 {
   "strategy": "screen_active_midcap",
   "strategy_name": "活跃中盘股",
-  "screen_date": "2026-09-02",
+  "screen_date": "2026-09-03",
   "total_scanned": 4364,
-  "total_matched": 8,
+  "total_matched": 1,
   "stocks": [
-    {
-      "ticker": "600698",
-      "name": "湖南天雁",
-      "date": "2026-09-02",
-      "close": 7.74,
-      "pct": 4.74,
-      "turnover_pct": 7.05,
-      "v_ratio": 2.69,
-      "board": "mb",
-      "mcap_yi": 77.0
-    },
-    {
-      "ticker": "002190",
-      "name": "成飞集成",
-      "date": "2026-09-02",
-      "close": 26.95,
-      "pct": 2.39,
-      "turnover_pct": 5.69,
-      "v_ratio": 2.41,
-      "board": "mb",
-      "mcap_yi": 115.0
-    },
-    {
-      "ticker": "002955",
-      "name": "鸿合科技",
-      "date": "2026-09-02",
-      "close": 40.38,
-      "pct": 3.22,
-      "turnover_pct": 5.79,
-      "v_ratio": 2.35,
-      "board": "mb",
-      "mcap_yi": 56.0
-    },
-    {
-      "ticker": "000670",
-      "name": "盈方微",
-      "date": "2026-09-02",
-      "close": 7.37,
-      "pct": 3.51,
-      "turnover_pct": 6.74,
-      "v_ratio": 1.82,
-      "board": "mb",
-      "mcap_yi": 71.0
-    },
-    {
-      "ticker": "002134",
-      "name": "天津普林",
-      "date": "2026-09-02",
-      "close": 23.46,
-      "pct": 4.17,
-      "turnover_pct": 5.55,
-      "v_ratio": 1.67,
-      "board": "mb",
-      "mcap_yi": 51.0
-    },
-    {
-      "ticker": "603687",
-      "name": "大胜达",
-      "date": "2026-09-02",
-      "close": 16.86,
-      "pct": 3.5,
-      "turnover_pct": 9.98,
-      "v_ratio": 1.57,
-      "board": "mb",
-      "mcap_yi": 55.0
-    },
     {
       "ticker": "002947",
       "name": "恒铭达",
-      "date": "2026-09-02",
-      "close": 67.88,
-      "pct": 5.06,
-      "turnover_pct": 6.87,
-      "v_ratio": 1.35,
+      "date": "2026-09-03",
+      "close": 70.56,
+      "pct": 3.95,
+      "turnover_pct": 8.83,
+      "v_ratio": 1.52,
       "board": "mb",
       "mcap_yi": 126.0
-    },
-    {
-      "ticker": "002017",
-      "name": "东信和平",
-      "date": "2026-09-02",
-      "close": 16.92,
-      "pct": 2.36,
-      "turnover_pct": 9.3,
-      "v_ratio": 1.33,
-      "board": "mb",
-      "mcap_yi": 111.0
     }
   ]
 }
