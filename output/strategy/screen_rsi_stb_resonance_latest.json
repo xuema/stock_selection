@@ -1,22 +1,74 @@
 {
   "strategy": "rsi_stb_resonance",
   "strategy_name": "RSI 金叉 + 超级顶底 双重共振",
-  "screen_date": "2026-09-03",
+  "screen_date": "2026-09-04",
   "total_scanned": 4364,
-  "total_matched": 1,
+  "total_matched": 5,
   "stocks": [
     {
-      "ticker": "002249",
-      "name": "大洋电机",
-      "date": "2026-09-03",
-      "close": 6.82,
-      "volume": 64133284,
-      "rsi12": 48.59,
-      "rsi_ma56": 42.8,
-      "trend_line": 14.82,
-      "trend_prev": 8.25,
-      "mcap_yi": 245.0,
-      "jl_growth_pct": 25.95
+      "ticker": "002472",
+      "name": "双环传动",
+      "date": "2026-09-04",
+      "close": 38.7,
+      "volume": 70140597,
+      "rsi12": 74.92,
+      "rsi_ma56": 44.57,
+      "trend_line": 38.61,
+      "trend_prev": 7.51,
+      "mcap_yi": 324.0,
+      "jl_growth_pct": 21.73
+    },
+    {
+      "ticker": "600021",
+      "name": "上海电力",
+      "date": "2026-09-04",
+      "close": 13.52,
+      "volume": 25231498,
+      "rsi12": 44.72,
+      "rsi_ma56": 39.28,
+      "trend_line": 13.25,
+      "trend_prev": 9.58,
+      "mcap_yi": 598.0,
+      "jl_growth_pct": 24.04
+    },
+    {
+      "ticker": "600115",
+      "name": "中国东航",
+      "date": "2026-09-04",
+      "close": 3.51,
+      "volume": 172881119,
+      "rsi12": 51.88,
+      "rsi_ma56": 42.53,
+      "trend_line": 15.27,
+      "trend_prev": 7.69,
+      "mcap_yi": 1038.0,
+      "jl_growth_pct": 1623.91
+    },
+    {
+      "ticker": "600875",
+      "name": "东方电气",
+      "date": "2026-09-04",
+      "close": 25.33,
+      "volume": 37643749,
+      "rsi12": 47.47,
+      "rsi_ma56": 42.47,
+      "trend_line": 11.97,
+      "trend_prev": 5.47,
+      "mcap_yi": 1327.0,
+      "jl_growth_pct": 13.02
+    },
+    {
+      "ticker": "688390",
+      "name": "固德威",
+      "date": "2026-09-04",
+      "close": 62.03,
+      "volume": 5143304,
+      "rsi12": 41.3,
+      "rsi_ma56": 35.53,
+      "trend_line": 11.23,
+      "trend_prev": 10.22,
+      "mcap_yi": 240.0,
+      "jl_growth_pct": 837.57
     }
   ]
 }

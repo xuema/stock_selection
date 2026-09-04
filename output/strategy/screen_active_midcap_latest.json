@@ -1,20 +1,97 @@
 {
   "strategy": "screen_active_midcap",
   "strategy_name": "活跃中盘股",
-  "screen_date": "2026-09-03",
+  "screen_date": "2026-09-04",
   "total_scanned": 4364,
-  "total_matched": 1,
+  "total_matched": 8,
   "stocks": [
     {
-      "ticker": "002947",
-      "name": "恒铭达",
-      "date": "2026-09-03",
-      "close": 70.56,
-      "pct": 3.95,
-      "turnover_pct": 8.83,
-      "v_ratio": 1.52,
+      "ticker": "605088",
+      "name": "冠盛股份",
+      "date": "2026-09-04",
+      "close": 23.08,
+      "pct": 5.68,
+      "turnover_pct": 7.53,
+      "v_ratio": 6.71,
       "board": "mb",
-      "mcap_yi": 126.0
+      "mcap_yi": 69.0
+    },
+    {
+      "ticker": "600967",
+      "name": "内蒙一机",
+      "date": "2026-09-04",
+      "close": 13.89,
+      "pct": 2.81,
+      "turnover_pct": 7.22,
+      "v_ratio": 3.25,
+      "board": "mb",
+      "mcap_yi": 256.0
+    },
+    {
+      "ticker": "002632",
+      "name": "道明光学",
+      "date": "2026-09-04",
+      "close": 9.56,
+      "pct": 3.8,
+      "turnover_pct": 5.17,
+      "v_ratio": 3.05,
+      "board": "mb",
+      "mcap_yi": 83.0
+    },
+    {
+      "ticker": "603778",
+      "name": "国晟科技",
+      "date": "2026-09-04",
+      "close": 10.75,
+      "pct": 2.19,
+      "turnover_pct": 7.22,
+      "v_ratio": 1.97,
+      "board": "mb",
+      "mcap_yi": 134.0
+    },
+    {
+      "ticker": "300378",
+      "name": "鼎捷数智",
+      "date": "2026-09-04",
+      "close": 39.94,
+      "pct": 4.2,
+      "turnover_pct": 9.52,
+      "v_ratio": 1.66,
+      "board": "cx",
+      "mcap_yi": 116.0
+    },
+    {
+      "ticker": "002279",
+      "name": "久其软件",
+      "date": "2026-09-04",
+      "close": 7.17,
+      "pct": 2.14,
+      "turnover_pct": 5.12,
+      "v_ratio": 1.56,
+      "board": "mb",
+      "mcap_yi": 71.0
+    },
+    {
+      "ticker": "600936",
+      "name": "北投科技",
+      "date": "2026-09-04",
+      "close": 5.52,
+      "pct": 4.55,
+      "turnover_pct": 6.28,
+      "v_ratio": 1.2,
+      "board": "mb",
+      "mcap_yi": 65.0
+    },
+    {
+      "ticker": "002017",
+      "name": "东信和平",
+      "date": "2026-09-04",
+      "close": 17.01,
+      "pct": 3.47,
+      "turnover_pct": 9.45,
+      "v_ratio": 1.17,
+      "board": "mb",
+      "mcap_yi": 111.0
     }
   ]
 }
