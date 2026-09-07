@@ -1,56 +1,56 @@
 [
   {
-    "title": "RSP热门板块 0906",
-    "image": "screen_hot_sectors_0906.png",
+    "title": "RSP热门板块 0907",
+    "image": "screen_hot_sectors_0907.png",
     "count": 50,
     "base": "screen_hot_sectors"
   },
   {
-    "title": "RSP趋势突破 0906",
-    "image": "screen_rsp_trend_break_0906.png",
+    "title": "RSP趋势突破 0907",
+    "image": "screen_rsp_trend_break_0907.png",
     "count": 200,
     "base": "screen_rsp_trend_break"
   },
   {
-    "title": "RPS中长期龙头 0906",
-    "image": "screen_rps_trend_v2_0906.png",
-    "count": 36,
+    "title": "RPS中长期龙头 0907",
+    "image": "screen_rps_trend_v2_0907.png",
+    "count": 31,
     "base": "screen_rps_trend_v2"
   },
   {
-    "title": "RSI金叉 0906",
-    "image": "screen_rsi_golden_cross_0906.png",
-    "count": 36,
+    "title": "RSI金叉 0907",
+    "image": "screen_rsi_golden_cross_0907.png",
+    "count": 76,
     "base": "screen_rsi_golden_cross"
   },
   {
-    "title": "EXPMA+多因子 0906",
-    "image": "screen_signals_0906.png",
+    "title": "EXPMA+多因子 0907",
+    "image": "screen_signals_0907.png",
     "count": 1,
     "base": "screen_signals"
   },
   {
-    "title": "超级顶底买入 0906",
-    "image": "screen_super_top_bottom_buy_0906.png",
-    "count": 18,
+    "title": "超级顶底买入 0907",
+    "image": "screen_super_top_bottom_buy_0907.png",
+    "count": 8,
     "base": "screen_super_top_bottom_buy"
   },
   {
-    "title": "超级顶底卖出 0906",
-    "image": "screen_super_top_bottom_sell_0906.png",
-    "count": 172,
+    "title": "超级顶底卖出 0907",
+    "image": "screen_super_top_bottom_sell_0907.png",
+    "count": 125,
     "base": "screen_super_top_bottom_sell"
   },
   {
-    "title": "RSI共振 0906",
-    "image": "screen_rsi_stb_resonance_0906.png",
-    "count": 5,
+    "title": "RSI共振 0907",
+    "image": "screen_rsi_stb_resonance_0907.png",
+    "count": 4,
     "base": "screen_rsi_stb_resonance"
   },
   {
-    "title": "活跃中盘股 0906",
-    "image": "screen_active_midcap_0906.png",
-    "count": 8,
+    "title": "活跃中盘股 0907",
+    "image": "screen_active_midcap_0907.png",
+    "count": 3,
     "base": "screen_active_midcap"
   }
 ]
