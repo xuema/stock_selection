@@ -1,61 +1,22 @@
 {
   "strategy": "rsi_stb_resonance",
   "strategy_name": "RSI 金叉 + 超级顶底 双重共振",
-  "screen_date": "2026-09-07",
+  "screen_date": "2026-09-08",
   "total_scanned": 4364,
-  "total_matched": 4,
+  "total_matched": 1,
   "stocks": [
     {
-      "ticker": "002056",
-      "name": "横店东磁",
-      "date": "2026-09-07",
-      "close": 20.76,
-      "volume": 29761865,
-      "rsi12": 47.88,
-      "rsi_ma56": 44.39,
-      "trend_line": 17.25,
-      "trend_prev": 9.74,
-      "mcap_yi": 353.0,
-      "jl_growth_pct": 56.8
-    },
-    {
-      "ticker": "601799",
-      "name": "星宇股份",
-      "date": "2026-09-07",
-      "close": 79.21,
-      "volume": 6057631,
-      "rsi12": 42.75,
-      "rsi_ma56": 35.47,
-      "trend_line": 11.49,
-      "trend_prev": 6.18,
-      "mcap_yi": 388.0,
-      "jl_growth_pct": 16.76
-    },
-    {
-      "ticker": "688188",
-      "name": "柏楚电子",
-      "date": "2026-09-07",
-      "close": 102.3,
-      "volume": 3650299,
-      "rsi12": 63.51,
-      "rsi_ma56": 42.8,
-      "trend_line": 21.99,
-      "trend_prev": 1.52,
-      "mcap_yi": 431.0,
-      "jl_growth_pct": 24.61
-    },
-    {
-      "ticker": "688698",
-      "name": "伟创电气",
-      "date": "2026-09-07",
-      "close": 45.06,
-      "volume": 6850608,
-      "rsi12": 62.44,
-      "rsi_ma56": 38.59,
-      "trend_line": 19.45,
-      "trend_prev": 0.26,
-      "mcap_yi": 145.0,
-      "jl_growth_pct": 6.74
+      "ticker": "688019",
+      "name": "安集科技",
+      "date": "2026-09-08",
+      "close": 229.23,
+      "volume": 4416213,
+      "rsi12": 47.69,
+      "rsi_ma56": 47.17,
+      "trend_line": 14.82,
+      "trend_prev": 8.98,
+      "mcap_yi": 400.0,
+      "jl_growth_pct": 54.96
     }
   ]
 }

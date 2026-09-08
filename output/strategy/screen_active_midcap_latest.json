@@ -1,42 +1,53 @@
 {
   "strategy": "screen_active_midcap",
   "strategy_name": "活跃中盘股",
-  "screen_date": "2026-09-07",
+  "screen_date": "2026-09-08",
   "total_scanned": 4364,
-  "total_matched": 3,
+  "total_matched": 4,
   "stocks": [
     {
-      "ticker": "600975",
-      "name": "新五丰",
-      "date": "2026-09-07",
-      "close": 5.78,
-      "pct": 3.4,
-      "turnover_pct": 7.22,
-      "v_ratio": 4.98,
+      "ticker": "002181",
+      "name": "粤传媒",
+      "date": "2026-09-08",
+      "close": 10.13,
+      "pct": 4.87,
+      "turnover_pct": 7.84,
+      "v_ratio": 1.7,
       "board": "mb",
-      "mcap_yi": 69.0
+      "mcap_yi": 121.0
     },
     {
       "ticker": "601566",
       "name": "九牧王",
-      "date": "2026-09-07",
-      "close": 10.7,
-      "pct": 3.38,
-      "turnover_pct": 7.42,
-      "v_ratio": 1.89,
+      "date": "2026-09-08",
+      "close": 10.94,
+      "pct": 2.24,
+      "turnover_pct": 8.07,
+      "v_ratio": 1.68,
       "board": "mb",
       "mcap_yi": 57.0
     },
     {
-      "ticker": "600397",
-      "name": "江钨装备",
-      "date": "2026-09-07",
-      "close": 17.79,
-      "pct": 5.33,
-      "turnover_pct": 9.29,
-      "v_ratio": 1.03,
+      "ticker": "000998",
+      "name": "隆平高科",
+      "date": "2026-09-08",
+      "close": 10.25,
+      "pct": 6.11,
+      "turnover_pct": 7.44,
+      "v_ratio": 1.67,
       "board": "mb",
-      "mcap_yi": 153.0
+      "mcap_yi": 148.0
+    },
+    {
+      "ticker": "000070",
+      "name": "特发信息",
+      "date": "2026-09-08",
+      "close": 16.44,
+      "pct": 2.24,
+      "turnover_pct": 9.79,
+      "v_ratio": 1.53,
+      "board": "mb",
+      "mcap_yi": 136.0
     }
   ]
 }
