@@ -1,22 +1,48 @@
 {
   "strategy": "rsi_stb_resonance",
   "strategy_name": "RSI 金叉 + 超级顶底 双重共振",
-  "screen_date": "2026-09-08",
+  "screen_date": "2026-09-09",
   "total_scanned": 4364,
-  "total_matched": 1,
+  "total_matched": 3,
   "stocks": [
     {
-      "ticker": "688019",
-      "name": "安集科技",
-      "date": "2026-09-08",
-      "close": 229.23,
-      "volume": 4416213,
-      "rsi12": 47.69,
-      "rsi_ma56": 47.17,
-      "trend_line": 14.82,
-      "trend_prev": 8.98,
-      "mcap_yi": 400.0,
-      "jl_growth_pct": 54.96
+      "ticker": "002001",
+      "name": "新和成",
+      "date": "2026-09-09",
+      "close": 27.0,
+      "volume": 16266735,
+      "rsi12": 49.29,
+      "rsi_ma56": 45.8,
+      "trend_line": 13.0,
+      "trend_prev": 10.22,
+      "mcap_yi": 1052.0,
+      "jl_growth_pct": 33.37
+    },
+    {
+      "ticker": "002448",
+      "name": "中原内配",
+      "date": "2026-09-09",
+      "close": 11.99,
+      "volume": 29137400,
+      "rsi12": 49.48,
+      "rsi_ma56": 47.64,
+      "trend_line": 12.27,
+      "trend_prev": 8.35,
+      "mcap_yi": 83.0,
+      "jl_growth_pct": 39.89
+    },
+    {
+      "ticker": "300207",
+      "name": "欣旺达",
+      "date": "2026-09-09",
+      "close": 17.44,
+      "volume": 40170055,
+      "rsi12": 51.42,
+      "rsi_ma56": 41.91,
+      "trend_line": 14.35,
+      "trend_prev": 6.63,
+      "mcap_yi": 500.0,
+      "jl_growth_pct": 15.94
     }
   ]
 }
