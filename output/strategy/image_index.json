@@ -1,50 +1,50 @@
 [
   {
-    "title": "RSP热门板块 0916",
-    "image": "screen_hot_sectors_0916.png",
+    "title": "RSP热门板块 0917",
+    "image": "screen_hot_sectors_0917.png",
     "count": 50,
     "base": "screen_hot_sectors"
   },
   {
-    "title": "RSP趋势突破 0916",
-    "image": "screen_rsp_trend_break_0916.png",
-    "count": 79,
+    "title": "RSP趋势突破 0917",
+    "image": "screen_rsp_trend_break_0917.png",
+    "count": 122,
     "base": "screen_rsp_trend_break"
   },
   {
-    "title": "RPS中长期龙头 0916",
-    "image": "screen_rps_trend_v2_0916.png",
-    "count": 18,
+    "title": "RPS中长期龙头 0917",
+    "image": "screen_rps_trend_v2_0917.png",
+    "count": 16,
     "base": "screen_rps_trend_v2"
   },
   {
-    "title": "RSI金叉 0916",
-    "image": "screen_rsi_golden_cross_0916.png",
-    "count": 51,
+    "title": "RSI金叉 0917",
+    "image": "screen_rsi_golden_cross_0917.png",
+    "count": 28,
     "base": "screen_rsi_golden_cross"
   },
   {
-    "title": "超级顶底买入 0916",
-    "image": "screen_super_top_bottom_buy_0916.png",
-    "count": 58,
+    "title": "超级顶底买入 0917",
+    "image": "screen_super_top_bottom_buy_0917.png",
+    "count": 51,
     "base": "screen_super_top_bottom_buy"
   },
   {
-    "title": "超级顶底卖出 0916",
-    "image": "screen_super_top_bottom_sell_0916.png",
-    "count": 12,
+    "title": "超级顶底卖出 0917",
+    "image": "screen_super_top_bottom_sell_0917.png",
+    "count": 31,
     "base": "screen_super_top_bottom_sell"
   },
   {
-    "title": "RSI共振 0916",
-    "image": "screen_rsi_stb_resonance_0916.png",
-    "count": 26,
+    "title": "RSI共振 0917",
+    "image": "screen_rsi_stb_resonance_0917.png",
+    "count": 12,
     "base": "screen_rsi_stb_resonance"
   },
   {
-    "title": "活跃中盘股 0916",
-    "image": "screen_active_midcap_0916.png",
-    "count": 7,
+    "title": "活跃中盘股 0917",
+    "image": "screen_active_midcap_0917.png",
+    "count": 6,
     "base": "screen_active_midcap"
   }
 ]
