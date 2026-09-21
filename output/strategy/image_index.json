@@ -1,62 +1,62 @@
 [
   {
-    "title": "RSP热门板块 0918",
-    "image": "screen_hot_sectors_0918.png",
+    "title": "RSP热门板块 0921",
+    "image": "screen_hot_sectors_0921.png",
     "count": 50,
     "base": "screen_hot_sectors"
   },
   {
-    "title": "RSP趋势突破 0918",
-    "image": "screen_rsp_trend_break_0918.png",
-    "count": 154,
+    "title": "RSP趋势突破 0921",
+    "image": "screen_rsp_trend_break_0921.png",
+    "count": 200,
     "base": "screen_rsp_trend_break"
   },
   {
-    "title": "RPS中长期龙头 0918",
-    "image": "screen_rps_trend_v2_0918.png",
-    "count": 74,
+    "title": "RPS中长期龙头 0921",
+    "image": "screen_rps_trend_v2_0921.png",
+    "count": 46,
     "base": "screen_rps_trend_v2"
   },
   {
-    "title": "RSI金叉 0918",
-    "image": "screen_rsi_golden_cross_0918.png",
-    "count": 86,
+    "title": "RSI金叉 0921",
+    "image": "screen_rsi_golden_cross_0921.png",
+    "count": 30,
     "base": "screen_rsi_golden_cross"
   },
   {
-    "title": "EXPMA+多因子 0918",
-    "image": "screen_signals_0918.png",
-    "count": 1,
+    "title": "EXPMA+多因子 0921",
+    "image": "screen_signals_0921.png",
+    "count": 3,
     "base": "screen_signals"
   },
   {
-    "title": "MA回调 0918",
-    "image": "screen_ma_pullback_0918.png",
+    "title": "MA回调 0921",
+    "image": "screen_ma_pullback_0921.png",
     "count": 1,
     "base": "screen_ma_pullback"
   },
   {
-    "title": "超级顶底买入 0918",
-    "image": "screen_super_top_bottom_buy_0918.png",
-    "count": 200,
+    "title": "超级顶底买入 0921",
+    "image": "screen_super_top_bottom_buy_0921.png",
+    "count": 161,
     "base": "screen_super_top_bottom_buy"
   },
   {
-    "title": "超级顶底卖出 0918",
-    "image": "screen_super_top_bottom_sell_0918.png",
-    "count": 15,
+    "title": "超级顶底卖出 0921",
+    "image": "screen_super_top_bottom_sell_0921.png",
+    "count": 20,
     "base": "screen_super_top_bottom_sell"
   },
   {
-    "title": "RSI共振 0918",
-    "image": "screen_rsi_stb_resonance_0918.png",
-    "count": 33,
+    "title": "RSI共振 0921",
+    "image": "screen_rsi_stb_resonance_0921.png",
+    "count": 20,
     "base": "screen_rsi_stb_resonance"
   },
   {
-    "title": "活跃中盘股 0918",
-    "image": "screen_active_midcap_0918.png",
-    "count": 9,
+    "title": "活跃中盘股 0921",
+    "image": "screen_active_midcap_0921.png",
+    "count": 6,
     "base": "screen_active_midcap"
   }
 ]

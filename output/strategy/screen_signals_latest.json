@@ -1,22 +1,48 @@
 {
   "strategy": "expma_vol_cr_signals",
   "strategy_name": "EXPMA+VOL+CR 多因子信号",
-  "screen_date": "2026-09-18",
+  "screen_date": "2026-09-21",
   "total_scanned": 4364,
-  "total_matched": 1,
+  "total_matched": 3,
   "stocks": [
     {
-      "ticker": "300836",
-      "name": "佰奥智能",
-      "date": "2026-09-18",
-      "close": 62.6,
-      "ema5": 54.67,
-      "ema29": 51.53,
-      "vol_ma8": 2739540,
-      "vol_ma89": 2336543,
-      "cr": 131.99,
-      "mcap_yi": 51.0,
-      "jl_growth_pct": 178.61
+      "ticker": "600675",
+      "name": "中华企业",
+      "date": "2026-09-21",
+      "close": 2.43,
+      "ema5": 2.3,
+      "ema29": 2.28,
+      "vol_ma8": 33567192,
+      "vol_ma89": 27682625,
+      "cr": 134.63,
+      "mcap_yi": 164.0,
+      "jl_growth_pct": 166.74
+    },
+    {
+      "ticker": "600699",
+      "name": "均胜电子",
+      "date": "2026-09-21",
+      "close": 20.91,
+      "ema5": 19.88,
+      "ema29": 19.71,
+      "vol_ma8": 33525474,
+      "vol_ma89": 33448222,
+      "cr": 101.81,
+      "mcap_yi": 390.0,
+      "jl_growth_pct": 18.98
+    },
+    {
+      "ticker": "600933",
+      "name": "爱柯迪",
+      "date": "2026-09-21",
+      "close": 14.45,
+      "ema5": 13.65,
+      "ema29": 13.51,
+      "vol_ma8": 12458269,
+      "vol_ma89": 10887139,
+      "cr": 125.55,
+      "mcap_yi": 181.0,
+      "jl_growth_pct": 20.7
     }
   ]
 }
