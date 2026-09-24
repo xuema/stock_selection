@@ -1,53 +1,75 @@
 {
   "strategy": "screen_active_midcap",
   "strategy_name": "活跃中盘股",
-  "screen_date": "2026-09-23",
+  "screen_date": "2026-09-24",
   "total_scanned": 4364,
-  "total_matched": 4,
+  "total_matched": 6,
   "stocks": [
     {
-      "ticker": "002367",
-      "name": "康力电梯",
-      "date": "2026-09-23",
-      "close": 6.21,
-      "pct": 2.64,
-      "turnover_pct": 5.82,
-      "v_ratio": 3.02,
+      "ticker": "002935",
+      "name": "天奥电子",
+      "date": "2026-09-24",
+      "close": 18.08,
+      "pct": 3.2,
+      "turnover_pct": 6.88,
+      "v_ratio": 6.28,
       "board": "mb",
-      "mcap_yi": 56.0
+      "mcap_yi": 79.0
     },
     {
-      "ticker": "002768",
-      "name": "国恩股份",
-      "date": "2026-09-23",
-      "close": 78.56,
-      "pct": 4.94,
-      "turnover_pct": 6.67,
-      "v_ratio": 1.78,
-      "board": "mb",
-      "mcap_yi": 142.0
+      "ticker": "688315",
+      "name": "诺禾致源",
+      "date": "2026-09-24",
+      "close": 20.4,
+      "pct": 5.21,
+      "turnover_pct": 12.24,
+      "v_ratio": 2.48,
+      "board": "cx",
+      "mcap_yi": 60.0
     },
     {
-      "ticker": "002264",
-      "name": "新华都",
-      "date": "2026-09-21",
-      "close": 7.69,
-      "pct": 4.77,
-      "turnover_pct": 9.05,
-      "v_ratio": 1.54,
+      "ticker": "600207",
+      "name": "安彩高科",
+      "date": "2026-09-24",
+      "close": 5.16,
+      "pct": 4.45,
+      "turnover_pct": 6.87,
+      "v_ratio": 2.06,
       "board": "mb",
-      "mcap_yi": 56.0
+      "mcap_yi": 61.0
     },
     {
-      "ticker": "002975",
-      "name": "博杰股份",
-      "date": "2026-09-23",
-      "close": 110.7,
-      "pct": 2.98,
-      "turnover_pct": 9.53,
-      "v_ratio": 1.12,
+      "ticker": "002471",
+      "name": "中超控股",
+      "date": "2026-09-24",
+      "close": 5.52,
+      "pct": 2.22,
+      "turnover_pct": 5.23,
+      "v_ratio": 1.8,
       "board": "mb",
-      "mcap_yi": 120.0
+      "mcap_yi": 112.0
+    },
+    {
+      "ticker": "000920",
+      "name": "沃顿科技",
+      "date": "2026-09-24",
+      "close": 12.71,
+      "pct": 2.58,
+      "turnover_pct": 6.77,
+      "v_ratio": 1.76,
+      "board": "mb",
+      "mcap_yi": 59.0
+    },
+    {
+      "ticker": "603686",
+      "name": "福龙马",
+      "date": "2026-09-24",
+      "close": 14.82,
+      "pct": 4.44,
+      "turnover_pct": 9.52,
+      "v_ratio": 1.29,
+      "board": "mb",
+      "mcap_yi": 82.0
     }
   ]
 }

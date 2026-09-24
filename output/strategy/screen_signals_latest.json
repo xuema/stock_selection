@@ -1,35 +1,22 @@
 {
   "strategy": "expma_vol_cr_signals",
   "strategy_name": "EXPMA+VOL+CR 多因子信号",
-  "screen_date": "2026-09-23",
+  "screen_date": "2026-09-24",
   "total_scanned": 4364,
-  "total_matched": 2,
+  "total_matched": 1,
   "stocks": [
     {
-      "ticker": "000877",
-      "name": "天山股份",
-      "date": "2026-09-23",
-      "close": 3.99,
-      "ema5": 3.8,
-      "ema29": 3.75,
-      "vol_ma8": 17082634,
-      "vol_ma89": 11987701,
-      "cr": 133.33,
-      "mcap_yi": 383.0,
-      "jl_growth_pct": 68.5
-    },
-    {
-      "ticker": "600675",
-      "name": "中华企业",
-      "date": "2026-09-21",
-      "close": 2.43,
-      "ema5": 2.3,
-      "ema29": 2.28,
-      "vol_ma8": 33567192,
-      "vol_ma89": 27682625,
-      "cr": 134.63,
-      "mcap_yi": 164.0,
-      "jl_growth_pct": 166.74
+      "ticker": "300652",
+      "name": "雷迪克",
+      "date": "2026-09-24",
+      "close": 28.65,
+      "ema5": 27.91,
+      "ema29": 27.76,
+      "vol_ma8": 3706305,
+      "vol_ma89": 3279921,
+      "cr": 101.79,
+      "mcap_yi": 61.0,
+      "jl_growth_pct": 48.02
     }
   ]
 }
