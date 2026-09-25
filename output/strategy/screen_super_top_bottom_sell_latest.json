@@ -2,9 +2,9 @@
   "strategy": "screen_super_top_bottom_sell",
   "strategy_name": "超级顶底 卖出信号",
   "signal_type": "sell",
-  "screen_date": "2026-09-24",
+  "screen_date": "2026-09-25",
   "total_scanned": 4364,
-  "total_matched": 112,
+  "total_matched": 115,
   "stocks": [
     {
       "ticker": "000510",
@@ -865,6 +865,19 @@
       "atr_stop_price(反向)": 14.79
     },
     {
+      "ticker": "301321",
+      "name": "翰博高新",
+      "date": "2026-09-24",
+      "close": 51.28,
+      "trend_line": 87.87,
+      "trend_prev": 92.3,
+      "v_ratio": 1.0,
+      "atr": 2.88,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 57.04
+    },
+    {
       "ticker": "301329",
       "name": "信音电子",
       "date": "2026-09-24",
@@ -1268,6 +1281,19 @@
       "atr_stop_price(反向)": 9.1
     },
     {
+      "ticker": "603991",
+      "name": "至正股份",
+      "date": "2026-09-24",
+      "close": 175.89,
+      "trend_line": 84.61,
+      "trend_prev": 89.34,
+      "v_ratio": 1.84,
+      "atr": 10.0,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 195.88
+    },
+    {
       "ticker": "605169",
       "name": "洪通燃气",
       "date": "2026-09-24",
@@ -1435,6 +1461,19 @@
       "mcap_yi": null,
       "signal_note": "趋势线下穿89 → 卖出",
       "atr_stop_price(反向)": 41.11
+    },
+    {
+      "ticker": "688611",
+      "name": "杭州柯林",
+      "date": "2026-09-24",
+      "close": 66.43,
+      "trend_line": 81.9,
+      "trend_prev": 91.53,
+      "v_ratio": 0.89,
+      "atr": 3.14,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 72.72
     },
     {
       "ticker": "688785",

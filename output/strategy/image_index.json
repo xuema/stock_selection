@@ -1,55 +1,55 @@
 [
   {
-    "title": "RSP热门板块 0924",
-    "image": "screen_hot_sectors_0924.png",
+    "title": "RSP热门板块 0925",
+    "image": "screen_hot_sectors_0925.png",
     "count": 50,
     "base": "screen_hot_sectors"
   },
   {
-    "title": "RSP趋势突破 0924",
-    "image": "screen_rsp_trend_break_0924.png",
+    "title": "RSP趋势突破 0925",
+    "image": "screen_rsp_trend_break_0925.png",
     "count": 200,
     "base": "screen_rsp_trend_break"
   },
   {
-    "title": "RPS中长期龙头 0924",
-    "image": "screen_rps_trend_v2_0924.png",
-    "count": 35,
+    "title": "RPS中长期龙头 0925",
+    "image": "screen_rps_trend_v2_0925.png",
+    "count": 36,
     "base": "screen_rps_trend_v2"
   },
   {
-    "title": "RSI金叉 0924",
-    "image": "screen_rsi_golden_cross_0924.png",
+    "title": "RSI金叉 0925",
+    "image": "screen_rsi_golden_cross_0925.png",
     "count": 20,
     "base": "screen_rsi_golden_cross"
   },
   {
-    "title": "EXPMA+多因子 0924",
-    "image": "screen_signals_0924.png",
+    "title": "EXPMA+多因子 0925",
+    "image": "screen_signals_0925.png",
     "count": 1,
     "base": "screen_signals"
   },
   {
-    "title": "超级顶底买入 0924",
-    "image": "screen_super_top_bottom_buy_0924.png",
+    "title": "超级顶底买入 0925",
+    "image": "screen_super_top_bottom_buy_0925.png",
     "count": 11,
     "base": "screen_super_top_bottom_buy"
   },
   {
-    "title": "超级顶底卖出 0924",
-    "image": "screen_super_top_bottom_sell_0924.png",
-    "count": 112,
+    "title": "超级顶底卖出 0925",
+    "image": "screen_super_top_bottom_sell_0925.png",
+    "count": 115,
     "base": "screen_super_top_bottom_sell"
   },
   {
-    "title": "RSI共振 0924",
-    "image": "screen_rsi_stb_resonance_0924.png",
+    "title": "RSI共振 0925",
+    "image": "screen_rsi_stb_resonance_0925.png",
     "count": 2,
     "base": "screen_rsi_stb_resonance"
   },
   {
-    "title": "活跃中盘股 0924",
-    "image": "screen_active_midcap_0924.png",
+    "title": "活跃中盘股 0925",
+    "image": "screen_active_midcap_0925.png",
     "count": 6,
     "base": "screen_active_midcap"
   }
