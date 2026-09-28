@@ -1,75 +1,42 @@
 {
   "strategy": "screen_active_midcap",
   "strategy_name": "活跃中盘股",
-  "screen_date": "2026-09-25",
+  "screen_date": "2026-09-28",
   "total_scanned": 4364,
-  "total_matched": 6,
+  "total_matched": 3,
   "stocks": [
     {
-      "ticker": "002935",
-      "name": "天奥电子",
-      "date": "2026-09-24",
-      "close": 18.08,
-      "pct": 3.2,
-      "turnover_pct": 6.88,
-      "v_ratio": 6.28,
+      "ticker": "000756",
+      "name": "新华制药",
+      "date": "2026-09-28",
+      "close": 14.34,
+      "pct": 3.02,
+      "turnover_pct": 7.43,
+      "v_ratio": 1.62,
       "board": "mb",
-      "mcap_yi": 79.0
-    },
-    {
-      "ticker": "688315",
-      "name": "诺禾致源",
-      "date": "2026-09-24",
-      "close": 20.4,
-      "pct": 5.21,
-      "turnover_pct": 12.24,
-      "v_ratio": 2.48,
-      "board": "cx",
-      "mcap_yi": 60.0
+      "mcap_yi": 102.0
     },
     {
       "ticker": "600207",
       "name": "安彩高科",
-      "date": "2026-09-24",
-      "close": 5.16,
-      "pct": 4.45,
-      "turnover_pct": 6.87,
-      "v_ratio": 2.06,
+      "date": "2026-09-28",
+      "close": 5.37,
+      "pct": 4.07,
+      "turnover_pct": 5.74,
+      "v_ratio": 1.43,
       "board": "mb",
       "mcap_yi": 61.0
     },
     {
-      "ticker": "002471",
-      "name": "中超控股",
-      "date": "2026-09-24",
-      "close": 5.52,
-      "pct": 2.22,
-      "turnover_pct": 5.23,
-      "v_ratio": 1.8,
+      "ticker": "600403",
+      "name": "大有能源",
+      "date": "2026-09-28",
+      "close": 7.4,
+      "pct": 2.92,
+      "turnover_pct": 5.31,
+      "v_ratio": 1.14,
       "board": "mb",
-      "mcap_yi": 112.0
-    },
-    {
-      "ticker": "000920",
-      "name": "沃顿科技",
-      "date": "2026-09-24",
-      "close": 12.71,
-      "pct": 2.58,
-      "turnover_pct": 6.77,
-      "v_ratio": 1.76,
-      "board": "mb",
-      "mcap_yi": 59.0
-    },
-    {
-      "ticker": "603686",
-      "name": "福龙马",
-      "date": "2026-09-24",
-      "close": 14.82,
-      "pct": 4.44,
-      "turnover_pct": 9.52,
-      "v_ratio": 1.29,
-      "board": "mb",
-      "mcap_yi": 82.0
+      "mcap_yi": 148.0
     }
   ]
 }

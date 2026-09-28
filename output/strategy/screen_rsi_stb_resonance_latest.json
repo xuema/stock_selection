@@ -1,35 +1,22 @@
 {
   "strategy": "rsi_stb_resonance",
   "strategy_name": "RSI 金叉 + 超级顶底 双重共振",
-  "screen_date": "2026-09-25",
+  "screen_date": "2026-09-28",
   "total_scanned": 4364,
-  "total_matched": 2,
+  "total_matched": 1,
   "stocks": [
     {
-      "ticker": "300718",
-      "name": "长盛轴承",
-      "date": "2026-09-24",
-      "close": 54.38,
-      "volume": 8489235,
-      "rsi12": 59.13,
-      "rsi_ma56": 43.76,
-      "trend_line": 12.4,
-      "trend_prev": 8.94,
-      "mcap_yi": 218.0,
-      "jl_growth_pct": 11.01
-    },
-    {
-      "ticker": "688772",
-      "name": "珠海冠宇",
-      "date": "2026-09-24",
-      "close": 14.03,
-      "volume": 28257243,
-      "rsi12": 50.15,
-      "rsi_ma56": 42.48,
-      "trend_line": 11.28,
-      "trend_prev": 4.76,
-      "mcap_yi": 191.0,
-      "jl_growth_pct": 44.37
+      "ticker": "000963",
+      "name": "华东医药",
+      "date": "2026-09-28",
+      "close": 26.84,
+      "volume": 20559424,
+      "rsi12": 57.18,
+      "rsi_ma56": 43.63,
+      "trend_line": 13.64,
+      "trend_prev": 8.47,
+      "mcap_yi": 613.0,
+      "jl_growth_pct": 7.24
     }
   ]
 }

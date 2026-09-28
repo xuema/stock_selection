@@ -1,22 +1,22 @@
 {
   "strategy": "expma_vol_cr_signals",
   "strategy_name": "EXPMA+VOL+CR 多因子信号",
-  "screen_date": "2026-09-25",
+  "screen_date": "2026-09-28",
   "total_scanned": 4364,
   "total_matched": 1,
   "stocks": [
     {
-      "ticker": "300652",
-      "name": "雷迪克",
-      "date": "2026-09-24",
-      "close": 28.65,
-      "ema5": 27.91,
-      "ema29": 27.76,
-      "vol_ma8": 3706305,
-      "vol_ma89": 3279921,
-      "cr": 101.79,
-      "mcap_yi": 61.0,
-      "jl_growth_pct": 48.02
+      "ticker": "000513",
+      "name": "丽珠集团",
+      "date": "2026-09-28",
+      "close": 30.34,
+      "ema5": 28.18,
+      "ema29": 27.67,
+      "vol_ma8": 6779002,
+      "vol_ma89": 5661601,
+      "cr": 95.01,
+      "mcap_yi": 304.0,
+      "jl_growth_pct": 4.86
     }
   ]
 }
