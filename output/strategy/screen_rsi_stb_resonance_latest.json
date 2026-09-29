@@ -1,22 +1,35 @@
 {
   "strategy": "rsi_stb_resonance",
   "strategy_name": "RSI 金叉 + 超级顶底 双重共振",
-  "screen_date": "2026-09-28",
+  "screen_date": "2026-09-29",
   "total_scanned": 4364,
-  "total_matched": 1,
+  "total_matched": 2,
   "stocks": [
     {
-      "ticker": "000963",
-      "name": "华东医药",
-      "date": "2026-09-28",
-      "close": 26.84,
-      "volume": 20559424,
-      "rsi12": 57.18,
-      "rsi_ma56": 43.63,
-      "trend_line": 13.64,
-      "trend_prev": 8.47,
-      "mcap_yi": 613.0,
-      "jl_growth_pct": 7.24
+      "ticker": "002896",
+      "name": "中大力德",
+      "date": "2026-09-29",
+      "close": 61.63,
+      "volume": 6239949,
+      "rsi12": 50.72,
+      "rsi_ma56": 41.6,
+      "trend_line": 16.19,
+      "trend_prev": 9.33,
+      "mcap_yi": 151.0,
+      "jl_growth_pct": 0.48
+    },
+    {
+      "ticker": "601728",
+      "name": "中国电信",
+      "date": "2026-09-29",
+      "close": 6.3,
+      "volume": 54973719,
+      "rsi12": 64.39,
+      "rsi_ma56": 53.5,
+      "trend_line": 24.46,
+      "trend_prev": 10.99,
+      "mcap_yi": 5435.0,
+      "jl_growth_pct": 5.03
     }
   ]
 }

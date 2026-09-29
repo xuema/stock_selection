@@ -1,55 +1,49 @@
 [
   {
-    "title": "RSP热门板块 0928",
-    "image": "screen_hot_sectors_0928.png",
+    "title": "RSP热门板块 0929",
+    "image": "screen_hot_sectors_0929.png",
     "count": 50,
     "base": "screen_hot_sectors"
   },
   {
-    "title": "RSP趋势突破 0928",
-    "image": "screen_rsp_trend_break_0928.png",
-    "count": 200,
+    "title": "RSP趋势突破 0929",
+    "image": "screen_rsp_trend_break_0929.png",
+    "count": 90,
     "base": "screen_rsp_trend_break"
   },
   {
-    "title": "RPS中长期龙头 0928",
-    "image": "screen_rps_trend_v2_0928.png",
-    "count": 12,
+    "title": "RPS中长期龙头 0929",
+    "image": "screen_rps_trend_v2_0929.png",
+    "count": 8,
     "base": "screen_rps_trend_v2"
   },
   {
-    "title": "RSI金叉 0928",
-    "image": "screen_rsi_golden_cross_0928.png",
-    "count": 9,
+    "title": "RSI金叉 0929",
+    "image": "screen_rsi_golden_cross_0929.png",
+    "count": 16,
     "base": "screen_rsi_golden_cross"
   },
   {
-    "title": "EXPMA+多因子 0928",
-    "image": "screen_signals_0928.png",
-    "count": 1,
-    "base": "screen_signals"
-  },
-  {
-    "title": "超级顶底买入 0928",
-    "image": "screen_super_top_bottom_buy_0928.png",
-    "count": 10,
+    "title": "超级顶底买入 0929",
+    "image": "screen_super_top_bottom_buy_0929.png",
+    "count": 22,
     "base": "screen_super_top_bottom_buy"
   },
   {
-    "title": "超级顶底卖出 0928",
-    "image": "screen_super_top_bottom_sell_0928.png",
-    "count": 113,
+    "title": "超级顶底卖出 0929",
+    "image": "screen_super_top_bottom_sell_0929.png",
+    "count": 27,
     "base": "screen_super_top_bottom_sell"
   },
   {
-    "title": "RSI共振 0928",
-    "image": "screen_rsi_stb_resonance_0928.png",
-    "count": 1,
+    "title": "RSI共振 0929",
+    "image": "screen_rsi_stb_resonance_0929.png",
+    "count": 2,
     "base": "screen_rsi_stb_resonance"
   },
   {
-    "title": "活跃中盘股 0928",
-    "image": "screen_active_midcap_0928.png",
+    "title": "活跃中盘股 0929",
+    "image": "screen_active_midcap_0929.png",
     "count": 3,
     "base": "screen_active_midcap"
   }

@@ -1,42 +1,42 @@
 {
   "strategy": "screen_active_midcap",
   "strategy_name": "活跃中盘股",
-  "screen_date": "2026-09-28",
+  "screen_date": "2026-09-29",
   "total_scanned": 4364,
   "total_matched": 3,
   "stocks": [
     {
-      "ticker": "000756",
-      "name": "新华制药",
-      "date": "2026-09-28",
-      "close": 14.34,
-      "pct": 3.02,
-      "turnover_pct": 7.43,
-      "v_ratio": 1.62,
+      "ticker": "000503",
+      "name": "国新健康",
+      "date": "2026-09-29",
+      "close": 7.63,
+      "pct": 2.55,
+      "turnover_pct": 7.59,
+      "v_ratio": 6.27,
       "board": "mb",
-      "mcap_yi": 102.0
+      "mcap_yi": 80.0
     },
     {
-      "ticker": "600207",
-      "name": "安彩高科",
-      "date": "2026-09-28",
-      "close": 5.37,
-      "pct": 4.07,
-      "turnover_pct": 5.74,
-      "v_ratio": 1.43,
+      "ticker": "002232",
+      "name": "启明信息",
+      "date": "2026-09-29",
+      "close": 16.93,
+      "pct": 3.99,
+      "turnover_pct": 7.92,
+      "v_ratio": 2.15,
       "board": "mb",
-      "mcap_yi": 61.0
+      "mcap_yi": 73.0
     },
     {
-      "ticker": "600403",
-      "name": "大有能源",
-      "date": "2026-09-28",
-      "close": 7.4,
-      "pct": 2.92,
-      "turnover_pct": 5.31,
-      "v_ratio": 1.14,
+      "ticker": "603803",
+      "name": "瑞斯康达",
+      "date": "2026-09-29",
+      "close": 11.48,
+      "pct": 3.33,
+      "turnover_pct": 6.36,
+      "v_ratio": 1.25,
       "board": "mb",
-      "mcap_yi": 148.0
+      "mcap_yi": 56.0
     }
   ]
 }
