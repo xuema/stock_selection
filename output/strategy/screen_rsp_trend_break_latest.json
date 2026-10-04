@@ -1,7 +1,7 @@
 {
   "strategy": "screen_rsp_trend_break",
   "strategy_name": "RSP趋势突破策略",
-  "screen_date": "2026-10-03",
+  "screen_date": "2026-10-04",
   "index": "000300",
   "params": {
     "min_market_cap": 50.0,
@@ -11,7 +11,7 @@
     "volume_ratio_min": 1.2,
     "max_hold_count": 5
   },
-  "total_matched": 256,
+  "total_matched": 255,
   "stocks": [
     {
       "ticker": "601811",
@@ -3456,20 +3456,6 @@
       "atr_stop_2x": 31.44,
       "mcap_yi": 731.0,
       "avg_amount_yi": 5.21
-    },
-    {
-      "ticker": "302132",
-      "name": "中航成飞",
-      "date": "2026-09-29",
-      "close": 56.54,
-      "rsp": 13.01,
-      "rsp_ma20": 13.87,
-      "rsp_ma60": 12.84,
-      "volume_ratio": 1.44,
-      "atr_14": 4.46,
-      "atr_stop_2x": 47.61,
-      "mcap_yi": 1868.0,
-      "avg_amount_yi": 4.29
     },
     {
       "ticker": "603338",
