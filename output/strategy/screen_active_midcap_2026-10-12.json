@@ -1,0 +1,42 @@
+{
+  "strategy": "screen_active_midcap",
+  "strategy_name": "活跃中盘股",
+  "screen_date": "2026-10-12",
+  "total_scanned": 4364,
+  "total_matched": 3,
+  "stocks": [
+    {
+      "ticker": "000420",
+      "name": "吉林化纤",
+      "date": "2026-10-12",
+      "close": 3.89,
+      "pct": 2.1,
+      "turnover_pct": 9.57,
+      "v_ratio": 5.16,
+      "board": "mb",
+      "mcap_yi": 107.0
+    },
+    {
+      "ticker": "002480",
+      "name": "新筑股份",
+      "date": "2026-10-12",
+      "close": 6.1,
+      "pct": 3.57,
+      "turnover_pct": 5.4,
+      "v_ratio": 2.46,
+      "board": "mb",
+      "mcap_yi": 52.0
+    },
+    {
+      "ticker": "600843",
+      "name": "上工申贝",
+      "date": "2026-10-12",
+      "close": 8.42,
+      "pct": 2.93,
+      "turnover_pct": 6.34,
+      "v_ratio": 2.19,
+      "board": "mb",
+      "mcap_yi": 77.0
+    }
+  ]
+}
