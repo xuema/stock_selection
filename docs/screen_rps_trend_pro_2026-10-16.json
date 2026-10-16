@@ -1,0 +1,20 @@
+{
+  "strategy": "screen_rps_trend_pro",
+  "strategy_name": "RPS多周期趋势跟踪 Pro",
+  "signal_type": "buy",
+  "screen_date": "2026-10-16",
+  "market_bullish": false,
+  "params": {
+    "rps_day_min": 85,
+    "rps_month_min": 80,
+    "near_high_ratio": 0.9,
+    "volume_ratio_min": 1.2,
+    "atr_multiplier": 2.0,
+    "hard_stop_loss": 0.08,
+    "min_market_cap": 50.0,
+    "max_hold_count": 5,
+    "high_window": 180
+  },
+  "total_matched": 0,
+  "stocks": []
+}

@@ -1,74 +1,22 @@
 {
   "strategy": "expma_vol_cr_signals",
   "strategy_name": "EXPMA+VOL+CR 多因子信号",
-  "screen_date": "2026-10-12",
+  "screen_date": "2026-10-16",
   "total_scanned": 4364,
-  "total_matched": 5,
+  "total_matched": 1,
   "stocks": [
     {
-      "ticker": "002027",
-      "name": "分众传媒",
-      "date": "2026-10-12",
-      "close": 5.13,
-      "ema5": 4.87,
-      "ema29": 4.84,
-      "vol_ma8": 138001755,
-      "vol_ma89": 137977478,
-      "cr": 109.89,
-      "mcap_yi": 922.0,
-      "jl_growth_pct": 6.87
-    },
-    {
-      "ticker": "300389",
-      "name": "艾比森",
-      "date": "2026-10-12",
-      "close": 13.66,
-      "ema5": 13.01,
-      "ema29": 12.76,
-      "vol_ma8": 5693527,
-      "vol_ma89": 4526080,
-      "cr": 135.85,
-      "mcap_yi": 69.0,
-      "jl_growth_pct": 57.33
-    },
-    {
-      "ticker": "300781",
-      "name": "因赛集团",
-      "date": "2026-10-12",
-      "close": 31.0,
-      "ema5": 27.65,
-      "ema29": 27.16,
-      "vol_ma8": 5117955,
-      "vol_ma89": 4819213,
-      "cr": 130.04,
-      "mcap_yi": 62.0,
-      "jl_growth_pct": null
-    },
-    {
-      "ticker": "600548",
-      "name": "深高速",
-      "date": "2026-10-12",
-      "close": 8.64,
-      "ema5": 8.32,
-      "ema29": 8.23,
-      "vol_ma8": 3608610,
-      "vol_ma89": 2987672,
-      "cr": 125.14,
-      "mcap_yi": 230.0,
-      "jl_growth_pct": 7.01
-    },
-    {
-      "ticker": "688039",
-      "name": "当虹科技",
-      "date": "2026-10-12",
-      "close": 36.04,
-      "ema5": 33.93,
-      "ema29": 33.76,
-      "vol_ma8": 3175951,
-      "vol_ma89": 2602103,
-      "cr": 128.85,
-      "mcap_yi": 50.0,
-      "jl_growth_pct": 68.84
+      "ticker": "301230",
+      "name": "泓博医药",
+      "date": "2026-10-16",
+      "close": 37.9,
+      "ema5": 35.23,
+      "ema29": 34.52,
+      "vol_ma8": 16150892,
+      "vol_ma89": 13657811,
+      "cr": 137.85,
+      "mcap_yi": 55.0,
+      "jl_growth_pct": 127.96
     }
   ]
 }
