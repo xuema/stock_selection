@@ -1,7 +1,7 @@
 {
   "strategy": "screen_active_midcap",
   "strategy_name": "活跃中盘股",
-  "screen_date": "2026-10-16",
+  "screen_date": "2026-10-17",
   "total_scanned": 4364,
   "total_matched": 3,
   "stocks": [
