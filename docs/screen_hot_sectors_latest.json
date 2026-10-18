@@ -1,7 +1,7 @@
 {
   "strategy": "screen_hot_sectors",
   "strategy_name": "RSP热门板块",
-  "screen_date": "2026-10-17",
+  "screen_date": "2026-10-18",
   "params": {
     "lookback": 3,
     "min_stocks": 3,
@@ -91,12 +91,12 @@
       "sector": "科技",
       "sector_en": "Technology",
       "n_stocks": 140,
-      "avg_rsp": -0.0091,
+      "avg_rsp": -0.0092,
       "avg_pct": -2.04,
       "median_pct": -2.18,
       "max_pct": 6.77,
       "n_leaders": 70,
-      "score": 38.2
+      "score": 38.1
     },
     {
       "sector": "公用事业",
@@ -204,11 +204,11 @@
       "name": "深康佳A",
       "sector": "科技",
       "sector_en": "Technology",
-      "rsp": 0.0256,
+      "rsp": 0.0112,
       "pct": 0.0,
       "close": 2.46,
       "mcap_yi": 79.0,
-      "date": "2026-10-15"
+      "date": "2026-10-16"
     },
     {
       "ticker": "000017",
@@ -8080,11 +8080,11 @@
       "name": "新亚制程",
       "sector": "工业制造",
       "sector_en": "Industrials",
-      "rsp": 0.0256,
+      "rsp": 0.0112,
       "pct": 0.0,
       "close": 9.1,
       "mcap_yi": 26.0,
-      "date": "2026-10-15"
+      "date": "2026-10-16"
     },
     {
       "ticker": "002389",
