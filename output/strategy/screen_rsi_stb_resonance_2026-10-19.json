@@ -1,0 +1,113 @@
+{
+  "strategy": "rsi_stb_resonance",
+  "strategy_name": "RSI 金叉 + 超级顶底 双重共振",
+  "screen_date": "2026-10-19",
+  "total_scanned": 4364,
+  "total_matched": 8,
+  "stocks": [
+    {
+      "ticker": "000425",
+      "name": "徐工机械",
+      "date": "2026-10-19",
+      "close": 7.14,
+      "volume": 106796155,
+      "rsi12": 45.63,
+      "rsi_ma56": 37.49,
+      "trend_line": 11.67,
+      "trend_prev": 6.6,
+      "mcap_yi": 1204.0,
+      "jl_growth_pct": 11.67
+    },
+    {
+      "ticker": "000893",
+      "name": "亚钾国际",
+      "date": "2026-10-19",
+      "close": 36.02,
+      "volume": 14736773,
+      "rsi12": 50.33,
+      "rsi_ma56": 41.39,
+      "trend_line": 13.41,
+      "trend_prev": 6.35,
+      "mcap_yi": 554.0,
+      "jl_growth_pct": 163.01
+    },
+    {
+      "ticker": "002050",
+      "name": "三花智控",
+      "date": "2026-10-19",
+      "close": 32.42,
+      "volume": 37111978,
+      "rsi12": 42.95,
+      "rsi_ma56": 41.01,
+      "trend_line": 19.55,
+      "trend_prev": 10.78,
+      "mcap_yi": 1990.0,
+      "jl_growth_pct": 40.85
+    },
+    {
+      "ticker": "002472",
+      "name": "双环传动",
+      "date": "2026-10-19",
+      "close": 35.17,
+      "volume": 13624795,
+      "rsi12": 46.37,
+      "rsi_ma56": 45.89,
+      "trend_line": 21.09,
+      "trend_prev": 9.9,
+      "mcap_yi": 324.0,
+      "jl_growth_pct": 21.73
+    },
+    {
+      "ticker": "300124",
+      "name": "汇川技术",
+      "date": "2026-10-19",
+      "close": 50.47,
+      "volume": 15182199,
+      "rsi12": 45.6,
+      "rsi_ma56": 38.41,
+      "trend_line": 11.33,
+      "trend_prev": 7.99,
+      "mcap_yi": 1970.0,
+      "jl_growth_pct": 26.84
+    },
+    {
+      "ticker": "300748",
+      "name": "金力永磁",
+      "date": "2026-10-19",
+      "close": 23.28,
+      "volume": 18091214,
+      "rsi12": 44.87,
+      "rsi_ma56": 41.26,
+      "trend_line": 18.61,
+      "trend_prev": 9.49,
+      "mcap_yi": 466.0,
+      "jl_growth_pct": 161.81
+    },
+    {
+      "ticker": "600580",
+      "name": "卧龙电驱",
+      "date": "2026-10-19",
+      "close": 24.15,
+      "volume": 20014914,
+      "rsi12": 36.93,
+      "rsi_ma56": 36.89,
+      "trend_line": 13.21,
+      "trend_prev": 7.38,
+      "mcap_yi": 593.0,
+      "jl_growth_pct": 28.26
+    },
+    {
+      "ticker": "688322",
+      "name": "奥比中光",
+      "date": "2026-10-19",
+      "close": 75.85,
+      "volume": 7038703,
+      "rsi12": 38.81,
+      "rsi_ma56": 38.31,
+      "trend_line": 12.59,
+      "trend_prev": 4.92,
+      "mcap_yi": 323.0,
+      "jl_growth_pct": 279.12
+    }
+  ]
+}
