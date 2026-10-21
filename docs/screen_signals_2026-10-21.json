@@ -1,0 +1,74 @@
+{
+  "strategy": "expma_vol_cr_signals",
+  "strategy_name": "EXPMA+VOL+CR 多因子信号",
+  "screen_date": "2026-10-21",
+  "total_scanned": 4364,
+  "total_matched": 5,
+  "stocks": [
+    {
+      "ticker": "003021",
+      "name": "兆威机电",
+      "date": "2026-10-21",
+      "close": 76.38,
+      "ema5": 69.69,
+      "ema29": 69.07,
+      "vol_ma8": 3721100,
+      "vol_ma89": 3598141,
+      "cr": 105.21,
+      "mcap_yi": 289.0,
+      "jl_growth_pct": 13.86
+    },
+    {
+      "ticker": "300007",
+      "name": "汉威科技",
+      "date": "2026-10-21",
+      "close": 33.88,
+      "ema5": 30.05,
+      "ema29": 29.86,
+      "vol_ma8": 11583802,
+      "vol_ma89": 10423911,
+      "cr": 120.01,
+      "mcap_yi": 147.0,
+      "jl_growth_pct": 6.33
+    },
+    {
+      "ticker": "300296",
+      "name": "利亚德",
+      "date": "2026-10-21",
+      "close": 5.63,
+      "ema5": 4.95,
+      "ema29": 4.86,
+      "vol_ma8": 61992843,
+      "vol_ma89": 53839525,
+      "cr": 116.58,
+      "mcap_yi": 249.0,
+      "jl_growth_pct": 53.71
+    },
+    {
+      "ticker": "300354",
+      "name": "东华测试",
+      "date": "2026-10-21",
+      "close": 30.43,
+      "ema5": 27.52,
+      "ema29": 27.1,
+      "vol_ma8": 2827934,
+      "vol_ma89": 2304273,
+      "cr": 123.31,
+      "mcap_yi": 52.0,
+      "jl_growth_pct": 2.23
+    },
+    {
+      "ticker": "603341",
+      "name": "龙旗科技",
+      "date": "2026-10-21",
+      "close": 40.44,
+      "ema5": 36.91,
+      "ema29": 35.91,
+      "vol_ma8": 11019573,
+      "vol_ma89": 10603323,
+      "cr": 109.9,
+      "mcap_yi": 216.0,
+      "jl_growth_pct": 17.74
+    }
+  ]
+}

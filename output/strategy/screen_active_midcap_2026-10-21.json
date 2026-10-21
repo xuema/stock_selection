@@ -1,0 +1,53 @@
+{
+  "strategy": "screen_active_midcap",
+  "strategy_name": "活跃中盘股",
+  "screen_date": "2026-10-21",
+  "total_scanned": 4364,
+  "total_matched": 4,
+  "stocks": [
+    {
+      "ticker": "603341",
+      "name": "龙旗科技",
+      "date": "2026-10-21",
+      "close": 40.44,
+      "pct": 5.7,
+      "turnover_pct": 7.03,
+      "v_ratio": 5.27,
+      "board": "mb",
+      "mcap_yi": 216.0
+    },
+    {
+      "ticker": "002881",
+      "name": "美格智能",
+      "date": "2026-10-21",
+      "close": 41.16,
+      "pct": 6.88,
+      "turnover_pct": 6.97,
+      "v_ratio": 2.91,
+      "board": "mb",
+      "mcap_yi": 128.0
+    },
+    {
+      "ticker": "300045",
+      "name": "华力创通",
+      "date": "2026-10-21",
+      "close": 13.35,
+      "pct": 3.17,
+      "turnover_pct": 6.93,
+      "v_ratio": 1.47,
+      "board": "cx",
+      "mcap_yi": 155.0
+    },
+    {
+      "ticker": "002549",
+      "name": "凯美特气",
+      "date": "2026-10-21",
+      "close": 13.37,
+      "pct": 3.97,
+      "turnover_pct": 5.12,
+      "v_ratio": 1.23,
+      "board": "mb",
+      "mcap_yi": 138.0
+    }
+  ]
+}
