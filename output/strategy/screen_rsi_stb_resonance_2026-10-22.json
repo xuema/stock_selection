@@ -1,0 +1,22 @@
+{
+  "strategy": "rsi_stb_resonance",
+  "strategy_name": "RSI 金叉 + 超级顶底 双重共振",
+  "screen_date": "2026-10-22",
+  "total_scanned": 4364,
+  "total_matched": 1,
+  "stocks": [
+    {
+      "ticker": "002201",
+      "name": "九鼎新材",
+      "date": "2026-10-22",
+      "close": 9.18,
+      "volume": 55148285,
+      "rsi12": 63.66,
+      "rsi_ma56": 53.42,
+      "trend_line": 18.7,
+      "trend_prev": 9.6,
+      "mcap_yi": 76.0,
+      "jl_growth_pct": 180.03
+    }
+  ]
+}

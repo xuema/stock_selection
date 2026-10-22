@@ -1,0 +1,69 @@
+{
+  "strategy": "rsi_golden_cross",
+  "strategy_name": "RSI(12,56) 金叉",
+  "screen_date": "2026-10-22",
+  "total_scanned": 4364,
+  "total_matched": 4,
+  "stocks": [
+    {
+      "ticker": "002097",
+      "name": "山河智能",
+      "date": "2026-10-22",
+      "close": 7.26,
+      "volume": 50950769,
+      "rsi12": 73.23,
+      "rsi_ma56": 48.04,
+      "cross_angle": 25.18,
+      "v_ratio": 4.52,
+      "turnover_yi": 3.7,
+      "score": 130,
+      "mcap_yi": 111.0,
+      "jl_growth_pct": 177.57
+    },
+    {
+      "ticker": "301563",
+      "name": "云汉芯城",
+      "date": "2026-10-22",
+      "close": 101.41,
+      "volume": 3421892,
+      "rsi12": 59.29,
+      "rsi_ma56": 39.67,
+      "cross_angle": 19.62,
+      "v_ratio": 3.42,
+      "turnover_yi": 3.47,
+      "score": 128.1,
+      "mcap_yi": 95.0,
+      "jl_growth_pct": 46.74
+    },
+    {
+      "ticker": "002201",
+      "name": "九鼎新材",
+      "date": "2026-10-22",
+      "close": 9.18,
+      "volume": 55148285,
+      "rsi12": 63.66,
+      "rsi_ma56": 53.42,
+      "cross_angle": 10.24,
+      "v_ratio": 2.72,
+      "turnover_yi": 5.06,
+      "score": 74.0,
+      "mcap_yi": 76.0,
+      "jl_growth_pct": 180.03
+    },
+    {
+      "ticker": "000859",
+      "name": "国风新材",
+      "date": "2026-10-22",
+      "close": 8.6,
+      "volume": 37353979,
+      "rsi12": 54.67,
+      "rsi_ma56": 50.13,
+      "cross_angle": 4.54,
+      "v_ratio": 1.54,
+      "turnover_yi": 3.21,
+      "score": 27.8,
+      "mcap_yi": 96.0,
+      "jl_growth_pct": 14.23
+    }
+  ]
+}
