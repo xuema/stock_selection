@@ -1,0 +1,48 @@
+{
+  "strategy": "expma_vol_cr_signals",
+  "strategy_name": "EXPMA+VOL+CR 多因子信号",
+  "screen_date": "2026-10-23",
+  "total_scanned": 4364,
+  "total_matched": 3,
+  "stocks": [
+    {
+      "ticker": "002009",
+      "name": "天奇股份",
+      "date": "2026-10-23",
+      "close": 17.3,
+      "ema5": 16.12,
+      "ema29": 15.74,
+      "vol_ma8": 18488074,
+      "vol_ma89": 12618011,
+      "cr": 112.43,
+      "mcap_yi": 104.0,
+      "jl_growth_pct": 215.81
+    },
+    {
+      "ticker": "300660",
+      "name": "江苏雷利",
+      "date": "2026-10-23",
+      "close": 25.27,
+      "ema5": 23.95,
+      "ema29": 23.59,
+      "vol_ma8": 8422119,
+      "vol_ma89": 7392732,
+      "cr": 103.99,
+      "mcap_yi": 195.0,
+      "jl_growth_pct": 9.92
+    },
+    {
+      "ticker": "301000",
+      "name": "肇民科技",
+      "date": "2026-10-23",
+      "close": 24.77,
+      "ema5": 23.58,
+      "ema29": 23.29,
+      "vol_ma8": 5271835,
+      "vol_ma89": 4564829,
+      "cr": 101.88,
+      "mcap_yi": 79.0,
+      "jl_growth_pct": 2.34
+    }
+  ]
+}
