@@ -1,0 +1,61 @@
+{
+  "strategy": "expma_vol_cr_signals",
+  "strategy_name": "EXPMA+VOL+CR 多因子信号",
+  "screen_date": "2026-10-26",
+  "total_scanned": 4364,
+  "total_matched": 4,
+  "stocks": [
+    {
+      "ticker": "001298",
+      "name": "好上好",
+      "date": "2026-10-26",
+      "close": 17.28,
+      "ema5": 16.57,
+      "ema29": 16.48,
+      "vol_ma8": 10750076,
+      "vol_ma89": 8622545,
+      "cr": 113.16,
+      "mcap_yi": 93.0,
+      "jl_growth_pct": 152.79
+    },
+    {
+      "ticker": "301225",
+      "name": "恒勃股份",
+      "date": "2026-10-26",
+      "close": 62.62,
+      "ema5": 56.31,
+      "ema29": 55.47,
+      "vol_ma8": 3168260,
+      "vol_ma89": 2757250,
+      "cr": 106.4,
+      "mcap_yi": 118.0,
+      "jl_growth_pct": 8.89
+    },
+    {
+      "ticker": "603901",
+      "name": "永创智能",
+      "date": "2026-10-26",
+      "close": 10.63,
+      "ema5": 9.59,
+      "ema29": 9.26,
+      "vol_ma8": 12749239,
+      "vol_ma89": 7972199,
+      "cr": 120.28,
+      "mcap_yi": 68.0,
+      "jl_growth_pct": 61.17
+    },
+    {
+      "ticker": "688160",
+      "name": "步科股份",
+      "date": "2026-10-26",
+      "close": 102.0,
+      "ema5": 94.98,
+      "ema29": 92.5,
+      "vol_ma8": 2171668,
+      "vol_ma89": 2043456,
+      "cr": 123.61,
+      "mcap_yi": 103.0,
+      "jl_growth_pct": 37.54
+    }
+  ]
+}

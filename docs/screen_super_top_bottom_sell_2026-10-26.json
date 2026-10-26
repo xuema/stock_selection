@@ -1,0 +1,75 @@
+{
+  "strategy": "screen_super_top_bottom_sell",
+  "strategy_name": "超级顶底 卖出信号",
+  "signal_type": "sell",
+  "screen_date": "2026-10-26",
+  "total_scanned": 4364,
+  "total_matched": 5,
+  "stocks": [
+    {
+      "ticker": "002626",
+      "name": "金达威",
+      "date": "2026-10-26",
+      "close": 18.22,
+      "trend_line": 86.77,
+      "trend_prev": 89.82,
+      "v_ratio": 0.63,
+      "atr": 0.8,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 19.81
+    },
+    {
+      "ticker": "600900",
+      "name": "长江电力",
+      "date": "2026-10-26",
+      "close": 29.68,
+      "trend_line": 87.81,
+      "trend_prev": 89.69,
+      "v_ratio": 0.89,
+      "atr": 0.49,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 30.66
+    },
+    {
+      "ticker": "603939",
+      "name": "益丰药房",
+      "date": "2026-10-26",
+      "close": 25.53,
+      "trend_line": 88.94,
+      "trend_prev": 90.78,
+      "v_ratio": 0.76,
+      "atr": 0.89,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 27.31
+    },
+    {
+      "ticker": "688036",
+      "name": "传音控股",
+      "date": "2026-10-26",
+      "close": 56.82,
+      "trend_line": 87.89,
+      "trend_prev": 91.4,
+      "v_ratio": 1.11,
+      "atr": 2.94,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 62.69
+    },
+    {
+      "ticker": "688235",
+      "name": "百济神州",
+      "date": "2026-10-26",
+      "close": 270.0,
+      "trend_line": 86.67,
+      "trend_prev": 89.19,
+      "v_ratio": 0.83,
+      "atr": 11.35,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 292.69
+    }
+  ]
+}
