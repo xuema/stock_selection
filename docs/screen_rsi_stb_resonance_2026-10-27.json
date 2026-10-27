@@ -1,0 +1,22 @@
+{
+  "strategy": "rsi_stb_resonance",
+  "strategy_name": "RSI 金叉 + 超级顶底 双重共振",
+  "screen_date": "2026-10-27",
+  "total_scanned": 4364,
+  "total_matched": 1,
+  "stocks": [
+    {
+      "ticker": "300196",
+      "name": "长海股份",
+      "date": "2026-10-27",
+      "close": 15.28,
+      "volume": 19706031,
+      "rsi12": 50.39,
+      "rsi_ma56": 44.82,
+      "trend_line": 14.15,
+      "trend_prev": 8.6,
+      "mcap_yi": 79.0,
+      "jl_growth_pct": 27.16
+    }
+  ]
+}
