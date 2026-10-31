@@ -1,0 +1,64 @@
+{
+  "strategy": "screen_active_midcap",
+  "strategy_name": "活跃中盘股",
+  "screen_date": "2026-10-31",
+  "total_scanned": 4364,
+  "total_matched": 5,
+  "stocks": [
+    {
+      "ticker": "002865",
+      "name": "钧达股份",
+      "date": "2026-10-30",
+      "close": 40.32,
+      "pct": 4.4,
+      "turnover_pct": 7.64,
+      "v_ratio": 2.68,
+      "board": "mb",
+      "mcap_yi": 257.0
+    },
+    {
+      "ticker": "002565",
+      "name": "顺灏股份",
+      "date": "2026-10-30",
+      "close": 8.33,
+      "pct": 2.33,
+      "turnover_pct": 8.25,
+      "v_ratio": 2.29,
+      "board": "mb",
+      "mcap_yi": 181.0
+    },
+    {
+      "ticker": "002029",
+      "name": "七匹狼",
+      "date": "2026-10-30",
+      "close": 8.56,
+      "pct": 5.16,
+      "turnover_pct": 5.83,
+      "v_ratio": 1.29,
+      "board": "mb",
+      "mcap_yi": 66.0
+    },
+    {
+      "ticker": "601566",
+      "name": "九牧王",
+      "date": "2026-10-30",
+      "close": 10.31,
+      "pct": 4.14,
+      "turnover_pct": 6.91,
+      "v_ratio": 1.17,
+      "board": "mb",
+      "mcap_yi": 57.0
+    },
+    {
+      "ticker": "603366",
+      "name": "日出东方",
+      "date": "2026-10-30",
+      "close": 7.9,
+      "pct": 3.0,
+      "turnover_pct": 5.49,
+      "v_ratio": 1.05,
+      "board": "mb",
+      "mcap_yi": 79.0
+    }
+  ]
+}

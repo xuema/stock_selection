@@ -1,61 +1,61 @@
 [
   {
-    "title": "RSP热门板块 1030",
-    "image": "screen_hot_sectors_1030.png",
+    "title": "RSP热门板块 1031",
+    "image": "screen_hot_sectors_1031.png",
     "count": 50,
     "base": "screen_hot_sectors"
   },
   {
-    "title": "RSP趋势突破 1030",
-    "image": "screen_rsp_trend_break_1030.png",
-    "count": 150,
+    "title": "RSP趋势突破 1031",
+    "image": "screen_rsp_trend_break_1031.png",
+    "count": 180,
     "base": "screen_rsp_trend_break"
   },
   {
-    "title": "RPS中长期龙头 1030",
-    "image": "screen_rps_trend_v2_1030.png",
+    "title": "RPS中长期龙头 1031",
+    "image": "screen_rps_trend_v2_1031.png",
     "count": 39,
     "base": "screen_rps_trend_v2"
   },
   {
-    "title": "RSI金叉 1030",
-    "image": "screen_rsi_golden_cross_1030.png",
+    "title": "RSI金叉 1031",
+    "image": "screen_rsi_golden_cross_1031.png",
     "count": 31,
     "base": "screen_rsi_golden_cross"
   },
   {
-    "title": "EXPMA+多因子 1030",
-    "image": "screen_signals_1030.png",
+    "title": "EXPMA+多因子 1031",
+    "image": "screen_signals_1031.png",
     "count": 1,
     "base": "screen_signals"
   },
   {
-    "title": "MA回调 1030",
-    "image": "screen_ma_pullback_1030.png",
+    "title": "MA回调 1031",
+    "image": "screen_ma_pullback_1031.png",
     "count": 1,
     "base": "screen_ma_pullback"
   },
   {
-    "title": "超级顶底买入 1030",
-    "image": "screen_super_top_bottom_buy_1030.png",
+    "title": "超级顶底买入 1031",
+    "image": "screen_super_top_bottom_buy_1031.png",
     "count": 59,
     "base": "screen_super_top_bottom_buy"
   },
   {
-    "title": "超级顶底卖出 1030",
-    "image": "screen_super_top_bottom_sell_1030.png",
+    "title": "超级顶底卖出 1031",
+    "image": "screen_super_top_bottom_sell_1031.png",
     "count": 21,
     "base": "screen_super_top_bottom_sell"
   },
   {
-    "title": "RSI共振 1030",
-    "image": "screen_rsi_stb_resonance_1030.png",
+    "title": "RSI共振 1031",
+    "image": "screen_rsi_stb_resonance_1031.png",
     "count": 8,
     "base": "screen_rsi_stb_resonance"
   },
   {
-    "title": "活跃中盘股 1030",
-    "image": "screen_active_midcap_1030.png",
+    "title": "活跃中盘股 1031",
+    "image": "screen_active_midcap_1031.png",
     "count": 5,
     "base": "screen_active_midcap"
   }
