@@ -1,48 +1,22 @@
 {
   "strategy": "expma_vol_cr_signals",
   "strategy_name": "EXPMA+VOL+CR 多因子信号",
-  "screen_date": "2026-11-02",
+  "screen_date": "2026-11-04",
   "total_scanned": 4364,
-  "total_matched": 3,
+  "total_matched": 1,
   "stocks": [
     {
-      "ticker": "300043",
-      "name": "星辉娱乐",
-      "date": "2026-11-02",
-      "close": 4.53,
-      "ema5": 4.45,
-      "ema29": 4.42,
-      "vol_ma8": 42658663,
-      "vol_ma89": 40196820,
-      "cr": 100.17,
-      "mcap_yi": 74.0,
-      "jl_growth_pct": 216.26
-    },
-    {
-      "ticker": "600576",
-      "name": "祥源文旅",
-      "date": "2026-11-02",
-      "close": 5.62,
-      "ema5": 5.21,
-      "ema29": 5.16,
-      "vol_ma8": 11107433,
-      "vol_ma89": 10551418,
-      "cr": 98.04,
-      "mcap_yi": 61.0,
-      "jl_growth_pct": 41.8
-    },
-    {
-      "ticker": "601019",
-      "name": "山东出版",
-      "date": "2026-11-02",
-      "close": 7.61,
-      "ema5": 7.13,
-      "ema29": 6.95,
-      "vol_ma8": 11272789,
-      "vol_ma89": 9105509,
-      "cr": 132.12,
-      "mcap_yi": 174.0,
-      "jl_growth_pct": 28.28
+      "ticker": "002216",
+      "name": "三全食品",
+      "date": "2026-11-04",
+      "close": 11.96,
+      "ema5": 11.73,
+      "ema29": 11.67,
+      "vol_ma8": 5801666,
+      "vol_ma89": 5460813,
+      "cr": 127.31,
+      "mcap_yi": 101.0,
+      "jl_growth_pct": 0.37
     }
   ]
 }
