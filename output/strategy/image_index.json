@@ -1,56 +1,56 @@
 [
   {
-    "title": "RSP热门板块 1104",
-    "image": "screen_hot_sectors_1104.png",
+    "title": "RSP热门板块 1105",
+    "image": "screen_hot_sectors_1105.png",
     "count": 50,
     "base": "screen_hot_sectors"
   },
   {
-    "title": "RSP趋势突破 1104",
-    "image": "screen_rsp_trend_break_1104.png",
+    "title": "RSP趋势突破 1105",
+    "image": "screen_rsp_trend_break_1105.png",
     "count": 200,
     "base": "screen_rsp_trend_break"
   },
   {
-    "title": "RPS中长期龙头 1104",
-    "image": "screen_rps_trend_v2_1104.png",
-    "count": 38,
+    "title": "RPS中长期龙头 1105",
+    "image": "screen_rps_trend_v2_1105.png",
+    "count": 114,
     "base": "screen_rps_trend_v2"
   },
   {
-    "title": "RSI金叉 1104",
-    "image": "screen_rsi_golden_cross_1104.png",
-    "count": 67,
+    "title": "RSI金叉 1105",
+    "image": "screen_rsi_golden_cross_1105.png",
+    "count": 200,
     "base": "screen_rsi_golden_cross"
   },
   {
-    "title": "EXPMA+多因子 1104",
-    "image": "screen_signals_1104.png",
+    "title": "EXPMA+多因子 1105",
+    "image": "screen_signals_1105.png",
     "count": 1,
     "base": "screen_signals"
   },
   {
-    "title": "超级顶底买入 1104",
-    "image": "screen_super_top_bottom_buy_1104.png",
-    "count": 93,
+    "title": "超级顶底买入 1105",
+    "image": "screen_super_top_bottom_buy_1105.png",
+    "count": 200,
     "base": "screen_super_top_bottom_buy"
   },
   {
-    "title": "超级顶底卖出 1104",
-    "image": "screen_super_top_bottom_sell_1104.png",
-    "count": 12,
+    "title": "超级顶底卖出 1105",
+    "image": "screen_super_top_bottom_sell_1105.png",
+    "count": 26,
     "base": "screen_super_top_bottom_sell"
   },
   {
-    "title": "RSI共振 1104",
-    "image": "screen_rsi_stb_resonance_1104.png",
-    "count": 35,
+    "title": "RSI共振 1105",
+    "image": "screen_rsi_stb_resonance_1105.png",
+    "count": 108,
     "base": "screen_rsi_stb_resonance"
   },
   {
-    "title": "活跃中盘股 1104",
-    "image": "screen_active_midcap_1104.png",
-    "count": 4,
+    "title": "活跃中盘股 1105",
+    "image": "screen_active_midcap_1105.png",
+    "count": 13,
     "base": "screen_active_midcap"
   }
 ]

@@ -1,22 +1,22 @@
 {
   "strategy": "expma_vol_cr_signals",
   "strategy_name": "EXPMA+VOL+CR 多因子信号",
-  "screen_date": "2026-11-04",
+  "screen_date": "2026-11-05",
   "total_scanned": 4364,
   "total_matched": 1,
   "stocks": [
     {
-      "ticker": "002216",
-      "name": "三全食品",
-      "date": "2026-11-04",
-      "close": 11.96,
-      "ema5": 11.73,
-      "ema29": 11.67,
-      "vol_ma8": 5801666,
-      "vol_ma89": 5460813,
-      "cr": 127.31,
-      "mcap_yi": 101.0,
-      "jl_growth_pct": 0.37
+      "ticker": "605305",
+      "name": "中际联合",
+      "date": "2026-11-05",
+      "close": 31.44,
+      "ema5": 29.47,
+      "ema29": 29.41,
+      "vol_ma8": 4780116,
+      "vol_ma89": 3733210,
+      "cr": 95.14,
+      "mcap_yi": 93.0,
+      "jl_growth_pct": 83.99
     }
   ]
 }
