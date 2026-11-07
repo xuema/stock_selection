@@ -1,49 +1,49 @@
 [
   {
-    "title": "RSP热门板块 1106",
-    "image": "screen_hot_sectors_1106.png",
+    "title": "RSP热门板块 1108",
+    "image": "screen_hot_sectors_1108.png",
     "count": 50,
     "base": "screen_hot_sectors"
   },
   {
-    "title": "RSP趋势突破 1106",
-    "image": "screen_rsp_trend_break_1106.png",
-    "count": 200,
+    "title": "RSP趋势突破 1108",
+    "image": "screen_rsp_trend_break_1108.png",
+    "count": 86,
     "base": "screen_rsp_trend_break"
   },
   {
-    "title": "RPS中长期龙头 1106",
-    "image": "screen_rps_trend_v2_1106.png",
+    "title": "RPS中长期龙头 1108",
+    "image": "screen_rps_trend_v2_1108.png",
     "count": 18,
     "base": "screen_rps_trend_v2"
   },
   {
-    "title": "RSI金叉 1106",
-    "image": "screen_rsi_golden_cross_1106.png",
+    "title": "RSI金叉 1108",
+    "image": "screen_rsi_golden_cross_1108.png",
     "count": 5,
     "base": "screen_rsi_golden_cross"
   },
   {
-    "title": "EXPMA+多因子 1106",
-    "image": "screen_signals_1106.png",
+    "title": "EXPMA+多因子 1108",
+    "image": "screen_signals_1108.png",
     "count": 1,
     "base": "screen_signals"
   },
   {
-    "title": "超级顶底买入 1106",
-    "image": "screen_super_top_bottom_buy_1106.png",
+    "title": "超级顶底买入 1108",
+    "image": "screen_super_top_bottom_buy_1108.png",
     "count": 27,
     "base": "screen_super_top_bottom_buy"
   },
   {
-    "title": "超级顶底卖出 1106",
-    "image": "screen_super_top_bottom_sell_1106.png",
+    "title": "超级顶底卖出 1108",
+    "image": "screen_super_top_bottom_sell_1108.png",
     "count": 30,
     "base": "screen_super_top_bottom_sell"
   },
   {
-    "title": "活跃中盘股 1106",
-    "image": "screen_active_midcap_1106.png",
+    "title": "活跃中盘股 1108",
+    "image": "screen_active_midcap_1108.png",
     "count": 9,
     "base": "screen_active_midcap"
   }
