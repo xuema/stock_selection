@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>概念板块RPS分析</title>
+<style>
+:root{--bg:#0d1117;--card:#161b22;--border:#30363d;--text:#e6edf3;--muted:#8b949e;--green:#3fb950;--red:#f85149;--orange:#d29922;--amber:#f0a030;--lime:#8bc34a}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);padding:20px;max-width:1400px;margin:0 auto}
+h1{font-size:1.4rem;margin-bottom:2px}
+.header{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.badge{background:var(--border);padding:4px 12px;border-radius:20px;font-size:.82rem;color:var(--muted)}
+.badge.live{background:rgba(63,185,80,.15);color:var(--green)}
+.back-link{margin-left:auto;color:var(--lime);text-decoration:none;font-size:.9rem;opacity:.8}
+.back-link:hover{opacity:1}
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:20px}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}
+.stat-card .num{font-size:1.6rem;font-weight:700}
+.stat-card .label{color:var(--muted);font-size:.78rem;margin-top:3px}
+.filter-bar{display:flex;gap:6px;align-items:center;margin-bottom:16px;flex-wrap:wrap}
+.filter-btn{background:var(--card);border:1px solid var(--border);color:var(--muted);padding:6px 16px;font-size:.85rem;cursor:pointer;border-radius:20px;transition:all .2s}
+.filter-btn:hover{color:var(--text)}
+.filter-btn.active{color:var(--lime);border-color:var(--lime);background:rgba(139,195,74,.1)}
+.search-input{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:6px 12px;font-size:.85rem;width:180px}
+.chart-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+@media(max-width:900px){.chart-row{grid-template-columns:1fr}}
+.rps-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px}
+.rps-card h3{font-size:.95rem;margin-bottom:12px;color:var(--lime)}
+.rps-bar{display:flex;align-items:center;gap:8px;margin:3px 0}
+.rps-bar .bar-label{width:130px;text-align:right;font-size:.82rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex-shrink:0}
+.rps-bar .bar-track{flex:1;background:#1e2530;border-radius:3px;height:16px;overflow:hidden}
+.rps-bar .bar-fill{height:100%;border-radius:3px;transition:width .3s}
+.rps-bar .bar-value{font-size:.75rem;font-weight:600;min-width:34px;text-align:right}
+.bg-g{background:linear-gradient(90deg,#2a5a3a,#8bc34a)}.bg-y{background:linear-gradient(90deg,#5a5a2a,#d29922)}.bg-o{background:linear-gradient(90deg,#5a3a2a,#f0a030)}.bg-r{background:linear-gradient(90deg,#5a2a2a,#f85149)}
+.heatmap-wrap{overflow-x:auto;margin-top:12px}
+.heatmap{width:100%;border-collapse:collapse;font-size:.75rem;min-width:700px}
+.heatmap th,.heatmap td{padding:5px 8px;text-align:center;border:1px solid var(--border)}
+.heatmap th{background:#1c222c;color:var(--muted);font-weight:600;position:sticky;top:0;z-index:2}
+.heatmap td:first-child{text-align:left;font-weight:600;min-width:100px;position:sticky;left:0;background:var(--card);z-index:1}
+.heatmap tr:hover td{filter:brightness(1.15)}
+.heatmap tr:hover td:first-child{background:#1e2530}
+.h0{background:#1a2e25}.h30{background:#2a4a35}.h50{background:#3a6a3a}.h70{background:#5a9a3a}.h90{background:#8bc34a;color:#000}
+.detail-wrap{overflow-x:auto;margin-top:12px}
+.detail-table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;font-size:.82rem;min-width:900px}
+.detail-table th,.detail-table td{padding:7px 10px;text-align:left;white-space:nowrap}
+.detail-table th{background:#1c222c;color:var(--muted);font-weight:600;border-bottom:1px solid var(--border);cursor:pointer;user-select:none}
+.detail-table th:hover{color:var(--lime)}
+.detail-table th.s-asc::after{content:" ▲";font-size:.65rem}
+.detail-table th.s-desc::after{content:" ▼";font-size:.65rem}
+.detail-table td{border-bottom:1px solid rgba(48,54,61,.5)}
+.detail-table tr:hover td{background:rgba(139,195,74,.04)}
+.sparkline{display:inline-flex;align-items:flex-end;gap:1px;height:18px;vertical-align:middle}
+.sparkline span{width:4px;border-radius:1px 1px 0 0;min-height:2px}
+.empty{text-align:center;padding:40px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>概念板块 RPS 分析</h1>
+  <span class="badge live" id="statusBadge">加载中</span>
+  <span id="headerDate" style="margin-left:12px;font-size:.85rem;color:var(--muted)"></span>
+  <a class="back-link" href="index.html"> 返回选股看板</a>
+</div>
+
+<div class="summary" id="summary"></div>
+
+<div class="filter-bar">
+  <button class="filter-btn active" data-f="all">全部</button>
+  <button class="filter-btn" data-f="rising">活跃提升</button>
+  <button class="filter-btn" data-f="strong">持续走强</button>
+  <button class="filter-btn" data-f="top20">TOP20</button>
+  <button class="filter-btn" data-f="weak">走弱板块</button>
+  <span style="margin-left:auto"><input class="search-input" id="search" placeholder="搜索板块名称或代码..."></span>
+</div>
+
+<div class="chart-row">
+  <div class="rps-card"><h3>综合RPS TOP20</h3><div id="top20-chart"></div></div>
+  <div class="rps-card"><h3>活跃度提升 TOP15</h3><div id="rising-chart"></div></div>
+</div>
+
+<div class="rps-card"><h3>活跃提升板块热力图</h3><div class="heatmap-wrap" id="heatmap-chart"></div></div>
+
+<div class="rps-card" style="margin-top:16px">
+  <h3>完整数据表 <span id="table-count" style="font-size:.8rem;color:var(--muted);font-weight:400"></span></h3>
+  <div class="detail-wrap"><table class="detail-table" id="detail-table"><tbody><tr><td class="empty">加载中</td></tr></tbody></table></div>
+</div>
+
+<script src="sector_rps_data.js"></script>
+<script>
+var allData=SECTOR_RPS_DATA.sectors||[],filtered=[],curFilter='all',curSort='RPS_avg',curSortDir='desc';
+
+function isRising(s){return s.RPS5!=null&&s.RPS20!=null&&s.RPS5>50&&s.RPS5>s.RPS20}
+function isStrong(s){return s.RPS5!=null&&s.RPS20!=null&&s.RPS60!=null&&s.RPS5>=80&&s.RPS5>s.RPS20&&s.RPS20>s.RPS60}
+function isWeak(s){return s.RPS5!=null&&s.RPS20!=null&&s.RPS5<40&&s.RPS5<s.RPS20}
+
+function applyFilter(){
+  var q=(document.getElementById('search').value||'').toLowerCase().trim();
+  var d=allData.slice();
+  if(curFilter==='rising')d=d.filter(isRising);
+  else if(curFilter==='strong')d=d.filter(isStrong);
+  else if(curFilter==='top20')d.sort(function(a,b){return(b.RPS_avg||0)-(a.RPS_avg||0)}).slice(0,20);
+  else if(curFilter==='weak')d=d.filter(isWeak);
+  if(q)d=d.filter(function(s){return(s.name||'').toLowerCase().includes(q)||(s.code||'').toLowerCase().includes(q)});
+  filtered=d;
+}
+
+function rpsColor(v){if(v==null)return'var(--muted)';if(v>=80)return'var(--green)';if(v>=50)return'var(--lime)';if(v>=30)return'var(--amber)';return'var(--red)'}
+function heatClass(v){if(v==null)return'';if(v>=90)return'h90';if(v>=70)return'h70';if(v>=50)return'h50';if(v>=30)return'h30';return'h0'}
+function barCls(v){if(v>=80)return'bg-g';if(v>=60)return'bg-y';if(v>=40)return'bg-o';return'bg-r'}
+function sparkHTML(arr){
+  if(!arr||!arr.length)return'';
+  var mx=Math.max.apply(null,arr),mn=Math.min.apply(null,arr);
+  var rng=mx-mn||1;
+  return arr.map(function(v){
+    var h=Math.max(2,((v-mn)/rng)*16);
+    var c=v>=50?'var(--green)':'var(--red)';
+    return '<span style="height:'+h+'px;background:'+c+'"></span>';
+  }).join('');
+}
+
+function render(){
+  var d=filtered,a=allData;
+  var rising=a.filter(isRising),strong=a.filter(isStrong),weak=a.filter(isWeak);
+  var hi80=a.filter(function(s){return s.RPS_avg!=null&&s.RPS_avg>=80});
+
+  document.getElementById('summary').innerHTML=
+    '<div class="stat-card"><div class="num" style="color:var(--lime)">'+a.length+'</div><div class="label">概念板块总数</div></div>'+
+    '<div class="stat-card"><div class="num" style="color:var(--green)">'+hi80.length+'</div><div class="label">RPS均值 ≥80</div></div>'+
+    '<div class="stat-card"><div class="num" style="color:var(--orange)">'+rising.length+'</div><div class="label">活跃度提升</div></div>'+
+    '<div class="stat-card"><div class="num" style="color:var(--amber)">'+strong.length+'</div><div class="label">持续走强</div></div>'+
+    '<div class="stat-card"><div class="num" style="color:var(--red)">'+weak.length+'</div><div class="label">走弱板块</div></div>';
+
+  var top20=d.slice().sort(function(a,b){return(b.RPS_avg||0)-(a.RPS_avg||0)}).slice(0,20);
+  var rising15=d.slice().filter(isRising).sort(function(a,b){return(b.RPS_5v20||0)-(a.RPS_5v20||0)}).slice(0,15);
+
+  var h='';
+  top20.forEach(function(s){
+    var v=s.RPS_avg||0;
+    h+='<div class="rps-bar"><span class="bar-label" title="'+s.name+'">'+s.name+'</span><div class="bar-track"><div class="bar-fill '+barCls(v)+'" style="width:'+v+'%"></div></div><span class="bar-value" style="color:'+rpsColor(v)+'">'+v.toFixed(1)+'</span></div>';
+  });
+  document.getElementById('top20-chart').innerHTML=h||'<div class="empty">无数据</div>';
+
+  h='';
+  rising15.forEach(function(s){
+    var delta=s.RPS_5v20||0;
+    var pct=Math.min(100,Math.max(0,(delta+30)*1));
+    h+='<div class="rps-bar"><span class="bar-label" title="'+s.name+'">'+s.name+'</span><div class="bar-track"><div class="bar-fill bg-g" style="width:'+pct+'%"></div></div><span class="bar-value" style="color:var(--green)">+'+delta.toFixed(1)+'</span></div>';
+  });
+  document.getElementById('rising-chart').innerHTML=h||'<div class="empty">无符合条件的板块</div>';
+
+  h='';
+  if(rising15.length){
+    h+='<table class="heatmap"><thead><tr><th>板块</th><th>RPS5</th><th>RPS10</th><th>RPS20</th><th>RPS30</th><th>RPS60</th><th>RPS120</th><th>5v20变化</th></tr></thead><tbody>';
+    rising15.forEach(function(s){
+      var ps=['RPS5','RPS10','RPS20','RPS30','RPS60','RPS120'];
+      h+='<tr><td>'+s.name+'</td>';
+      ps.forEach(function(p){
+        var v=s[p]||0;
+        h+='<td class="'+heatClass(v)+'" style="font-weight:600">'+v.toFixed(1)+'</td>';
+      });
+      h+='<td style="color:var(--green);font-weight:700;font-size:.9rem">+'+(s.RPS_5v20||0).toFixed(1)+'</td></tr>';
+    });
+    h+='</tbody></table>';
+  }
+  document.getElementById('heatmap-chart').innerHTML=h||'<div class="empty">无数据</div>';
+
+  renderTable(d);
+}
+
+function renderTable(d){
+  var el=document.getElementById('detail-table');
+  document.getElementById('table-count').textContent='('+d.length+'条)';
+  if(!d.length){el.innerHTML='<tr><td class="empty">无匹配数据</td></tr>';return}
+
+  d.sort(function(a,b){
+    var av=a[curSort]!=null?a[curSort]:-999;
+    var bv=b[curSort]!=null?b[curSort]:-999;
+    return curSortDir==='asc'?(av-bv):(bv-av);
+  });
+
+  var cols=[['RPS5','RPS5'],['RPS10','RPS10'],['RPS20','RPS20'],['RPS30','RPS30'],['RPS60','RPS60'],['RPS120','RPS120'],['RPS_avg','均值'],['RPS_5v20','5v20']];
+
+  var h='<thead><tr><th style="width:40px">#</th><th>板块</th><th>收盘</th>';
+  cols.forEach(function(c){
+    var k=c[0],l=c[1];
+    var cls=curSort===k?(curSortDir==='asc'?'s-asc':'s-desc'):'';
+    h+='<th class="'+cls+'" data-k="'+k+'">'+l+'</th>';
+  });
+  h+='<th>5日涨幅</th><th>120日涨幅</th><th>趋势</th></tr></thead><tbody>';
+
+  d.forEach(function(s,i){
+    var spVals=['RPS5','RPS10','RPS20','RPS30','RPS60','RPS120'].map(function(k){return s[k]||0});
+    h+='<tr><td>'+(i+1)+'</td>';
+    h+='<td style="font-weight:600">'+s.name+'<br><span style="font-size:.7rem;color:var(--muted)">'+s.code+'</span></td>';
+    h+='<td style="color:var(--text)">'+(s.close||0).toFixed(2)+'</td>';
+
+    ['RPS5','RPS10','RPS20','RPS30','RPS60','RPS120','RPS_avg','RPS_5v20'].forEach(function(k){
+      var v=s[k];
+      if(v==null){h+='<td>-</td>'}
+      else if(k==='RPS_5v20'){
+        var c=v>=0?'var(--green)':'var(--red)';
+        h+='<td style="color:'+c+';font-weight:700">'+(v>=0?'+':'')+v.toFixed(1)+'</td>';
+      }else{
+        h+='<td style="color:'+rpsColor(v)+';font-weight:600">'+v.toFixed(1)+'</td>';
+      }
+    });
+
+    var r5=s.ret_5,r120=s.ret_120;
+    var c5=r5!=null?(r5>=0?'var(--green)':'var(--red)'):'var(--muted)';
+    var v5=r5!=null?(r5>=0?'+':'')+r5.toFixed(1)+'%':'-';
+    h+='<td style="color:'+c5+'">'+v5+'</td>';
+    
+    var c120=r120!=null?(r120>=0?'var(--green)':'var(--red)'):'var(--muted)';
+    var v120=r120!=null?(r120>=0?'+':'')+r120.toFixed(1)+'%':'-';
+    h+='<td style="color:'+c120+'">'+v120+'</td>';
+    
+    h+='<td><div class="sparkline">'+sparkHTML(spVals)+'</div></td>';
+    h+='</tr>';
+  });
+  h+='</tbody>';
+  el.innerHTML=h;
+}
+
+document.querySelectorAll('.filter-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active')});
+    btn.classList.add('active');
+    curFilter=btn.dataset.f;
+    applyFilter();render();
+  });
+});
+
+document.getElementById('search').addEventListener('input',function(){applyFilter();render()});
+
+document.addEventListener('click',function(e){
+  var th=e.target.closest('.detail-table th[data-k]');
+  if(!th)return;
+  var k=th.dataset.k;
+  if(curSort===k){curSortDir=curSortDir==='asc'?'desc':'asc'}
+  else{curSort=k;curSortDir='desc'}
+  applyFilter();render();
+});
+
+if(allData.length){
+  applyFilter();render();
+  document.getElementById('statusBadge').innerHTML=allData.length+'个板块';
+  document.getElementById('headerDate').textContent='数据日期: '+(SECTOR_RPS_DATA.date||'');
+}else{
+  document.getElementById('detail-table').innerHTML='<tr><td class="empty">数据加载失败</td></tr>';
+  document.getElementById('statusBadge').innerHTML='加载失败';
+}
+</script>
+</body>
+</html>
