@@ -47,12 +47,12 @@
       "sector": "科技",
       "sector_en": "Technology",
       "n_stocks": 140,
-      "avg_rsp": 0.0289,
+      "avg_rsp": 0.0292,
       "avg_pct": 1.76,
       "median_pct": 1.37,
       "max_pct": 11.56,
       "n_leaders": 70,
-      "score": 68.6
+      "score": 68.7
     },
     {
       "sector": "必选消费",
@@ -80,12 +80,12 @@
       "sector": "基础材料",
       "sector_en": "Basic Materials",
       "n_stocks": 167,
-      "avg_rsp": 0.0269,
+      "avg_rsp": 0.0272,
       "avg_pct": 1.57,
       "median_pct": 1.13,
       "max_pct": 21.01,
       "n_leaders": 83,
-      "score": 67.0
+      "score": 67.1
     },
     {
       "sector": "可选消费",
@@ -2745,11 +2745,11 @@
       "name": "中国稀土",
       "sector": "基础材料",
       "sector_en": "Basic Materials",
-      "rsp": -0.0261,
+      "rsp": 0.0115,
       "pct": 0.0,
       "close": 47.59,
       "mcap_yi": 507.0,
-      "date": "2026-11-05"
+      "date": "2026-11-06"
     },
     {
       "ticker": "000833",
@@ -5726,11 +5726,11 @@
       "name": "TCL中环",
       "sector": "科技",
       "sector_en": "Technology",
-      "rsp": -0.0261,
+      "rsp": 0.0115,
       "pct": 0.0,
       "close": 9.38,
       "mcap_yi": 410.0,
-      "date": "2026-11-05"
+      "date": "2026-11-06"
     },
     {
       "ticker": "002130",
