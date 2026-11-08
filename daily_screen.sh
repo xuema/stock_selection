@@ -184,10 +184,14 @@ cd "$REPO_DIR"
 DOCS_DIR="$REPO_DIR/docs"
 mkdir -p "$DOCS_DIR"
 if "$VENV_PYTHON" "$SECTOR_RPS_SCRIPT" 2>&1; then
+  # 同步RPS图片和数据到docs目录
+  cp -f "$REPO_DIR/sector_rps/data/concept_rps5_top15.png" "$DOCS_DIR/" 2>/dev/null || true
+  cp -f "$REPO_DIR/sector_rps/data/sector_rps_concept.png" "$DOCS_DIR/" 2>/dev/null || true
+  cp -f "$REPO_DIR/sector_rps/data/sector_rps.json" "$DOCS_DIR/" 2>/dev/null || true
   # 生成HTML页面 + JS数据文件
   if "$VENV_PYTHON" "$GEN_HTML_SCRIPT" 2>&1; then
     SECTOR_RPS_COUNT=$(jq '.sectors | length' "$REPO_DIR/sector_rps/data/sector_rps.json" 2>/dev/null || echo "0")
-    OK "概念板块RPS: $SECTOR_RPS_COUNT 个板块 (HTML已生成)"
+    OK "概念板块RPS: $SECTOR_RPS_COUNT 个板块 (HTML+图片已同步)"
   else
     WARN "概念板块RPS HTML生成失败"
   fi
