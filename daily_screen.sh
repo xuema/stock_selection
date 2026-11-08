@@ -272,11 +272,7 @@ OK "docs/ 已同步"
 # ─── Git commit & push ───
 git add output/strategy/ docs/
 
-if [ -z "${SECTOR_RPS_COUNT:-}" ]; then
-  COMMIT_MSG="A股每日选股更新 $today (RSP:$RSP_COUNT V2:$RPSV2_COUNT Pro:$RPS_PRO_COUNT RSI:$RSI_COUNT SIG:$SIG_COUNT MA:$MA_COUNT STB:${STB_BUY_COUNT}x${STB_SELL_COUNT} Res:$RES_COUNT Mid:$MIDCAP_COUNT Sec:$SECTORS_COUNT)"
-else
-  COMMIT_MSG="A股每日选股更新 $today (RSP:$RSP_COUNT V2:$RPSV2_COUNT Pro:$RPS_PRO_COUNT RSI:$RSI_COUNT SIG:$SIG_COUNT MA:$MA_COUNT STB:${STB_BUY_COUNT}x${STB_SELL_COUNT} Res:$RES_COUNT Mid:$MIDCAP_COUNT Sec:$SECTORS_COUNT RPS:$SECTOR_RPS_COUNT个板块)"
-fi
+COMMIT_MSG="A股每日选股更新 $today (RSP:$RSP_COUNT V2:$RPSV2_COUNT Pro:$RPS_PRO_COUNT RSI:$RSI_COUNT SIG:$SIG_COUNT MA:$MA_COUNT STB:${STB_BUY_COUNT}x${STB_SELL_COUNT} Res:$RES_COUNT Mid:$MIDCAP_COUNT Sec:$SECTORS_COUNT RPS:${SECTOR_RPS_COUNT}个板块)"
 git commit -m "$COMMIT_MSG"
 OK "Git 提交完成"
 
@@ -302,7 +298,7 @@ printf "  超级顶底卖出:    %s 只\n" "$STB_SELL_COUNT"
 printf "  RSI+共振:        %s 只\n" "$RES_COUNT"
 printf "  活跃中盘股:      %s 只\n" "$MIDCAP_COUNT"
 printf "  RSP热门板块:     %s 个板块\n" "$SECTORS_COUNT"
-if [ -n "${SECTOR_RPS_COUNT:-}" ]; then
+if [ -n "${SECTOR_RPS_COUNT:-}" ] && [ "$SECTOR_RPS_COUNT" -gt 0 ] 2>/dev/null; then
   printf "  概念板块RPS:     %s 个板块\n" "$SECTOR_RPS_COUNT"
 fi
 echo ""
