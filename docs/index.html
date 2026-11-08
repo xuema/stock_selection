@@ -111,7 +111,7 @@
   <button class="tab-btn resonance" data-tab="resonance">🔗 RSI+顶底共振</button>
   <button class="tab-btn" id="tab-midcap" data-tab="midcap">🔥 活跃中盘</button>
   <button class="tab-btn" id="tab-sectors" data-tab="sectors">📊 RSP热门板块</button>
-  <button class="tab-btn" style="border-bottom:2px solid var(--cyan);color:var(--cyan)" id="tab-conceptrps" data-tab="conceptrps">🟢 概念板块RPS</button>
+  <button class="tab-btn" id="tab-conceptrps" data-tab="conceptrps" style="color:var(--cyan);border-bottom-color:var(--cyan)">🟢 概念板块RPS</button>
   <button class="tab-btn" data-tab="history">历史数据</button>
 </div>
 
@@ -406,7 +406,7 @@
 
 <!-- 概念板块RPS -->
 <div class="strategy-section" id="sec-conceptrps">
-  <h2>🟢 概念板块RPS <span class="badge" style="color:var(--cyan)">自动刷新</span></h2>
+  <h2>🟢 概念板块RPS <span class="badge" style="color:var(--cyan)">实时</span></h2>
   <div class="screenshot-wrap">
     <img src="concept_rps5_top15.png" alt="RPS5 Top15" onclick="showModal(this.src)">
   </div>
@@ -416,25 +416,24 @@
   <div class="download-row">
     <a href="sector_rps.json" class="download-link" download>📥 下载完整RPS数据 (JSON)</a>
   </div>
-  <div class="sub-section active" style="display:block;max-height:600px;overflow:auto">
+  <div style="max-height:600px;overflow:auto">
     <table class="stock-table" id="rps-table">
       <thead><tr><th>排名</th><th>板块</th><th>收盘</th><th>RPS5</th><th>RPS20</th><th>RPS60</th><th>综合</th><th>5v20</th></tr></thead>
-      <tbody><tr><td colspan="8" class="loading">点击加载数据...</td></tr></tbody>
+      <tbody><tr><td colspan="8" class="loading">加载中</td></tr></tbody>
     </table>
   </div>
 </div>
 
-<script src="sector_rps_data.js"></script>
 <script>
 (function(){
-  var rpsLoaded=false;
+  var loaded=false;
   var btn=document.getElementById('tab-conceptrps');
   if(!btn)return;
   btn.addEventListener('click',function(){
-    if(rpsLoaded)return; rpsLoaded=true;
+    if(loaded)return;loaded=true;
     if(typeof SECTOR_RPS_DATA==='undefined'||!SECTOR_RPS_DATA||!SECTOR_RPS_DATA.sectors)return;
     var d=SECTOR_RPS_DATA.sectors.slice().sort(function(a,b){return(b.RPS_avg||0)-(a.RPS_avg||0)});
-    var tb=document.querySelector('#rps-table tbody'); tb.innerHTML='';
+    var tb=document.querySelector('#rps-table tbody');tb.innerHTML='';
     d.forEach(function(s,i){
       var tr=document.createElement('tr');
       var c5=(s.RPS5>80)?'signal-buy':'';
@@ -444,6 +443,7 @@
   });
 })();
 </script>
+<script src="sector_rps_data.js"></script>
 
 <!-- History -->
 <div class="strategy-section" id="sec-history">
