@@ -109,12 +109,7 @@ count_from_json() {
 }
 
 # ─── Step 1: Update stock data ───
-STEP "Step 1/11 — 更新股票数据 (yfinance)..."
-if "$VENV_PYTHON" "$UPDATE_SCRIPT"; then
-  OK "数据更新完成"
-else
-  WARN "数据更新有告，继续筛选..."
-fi
+
 
 
 # ─── Step 2: RSP趋势突破 ───
@@ -182,6 +177,7 @@ OK "RSP热门板块: $SECTORS_COUNT 个板块"
 STEP "Step 12/12 — 概念板块RPS分析..."
 cd "$REPO_DIR"
 DOCS_DIR="$REPO_DIR/docs"
+SECTOR_RPS_COUNT=0
 mkdir -p "$DOCS_DIR"
 if "$VENV_PYTHON" "$SECTOR_RPS_SCRIPT" 2>&1; then
   # 同步RPS图片和数据到docs目录
