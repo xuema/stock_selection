@@ -18,7 +18,7 @@ from datetime import datetime, timedelta
 warnings.filterwarnings("ignore")
 
 RPS_PERIODS = [5, 10, 20, 30, 60, 120]
-OUTPUT_DIR = Path("data")
+OUTPUT_DIR = Path(__file__).parent / "data"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 BASE_KLINE = "https://push2his.eastmoney.com/api/qt/stock/kline/get"
