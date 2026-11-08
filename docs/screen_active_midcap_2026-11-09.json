@@ -1,0 +1,108 @@
+{
+  "strategy": "screen_active_midcap",
+  "strategy_name": "活跃中盘股",
+  "screen_date": "2026-11-09",
+  "total_scanned": 4364,
+  "total_matched": 9,
+  "stocks": [
+    {
+      "ticker": "600986",
+      "name": "浙文互联",
+      "date": "2026-11-06",
+      "close": 7.85,
+      "pct": 2.61,
+      "turnover_pct": 9.79,
+      "v_ratio": 4.14,
+      "board": "mb",
+      "mcap_yi": 156.0
+    },
+    {
+      "ticker": "000603",
+      "name": "盛达资源",
+      "date": "2026-11-06",
+      "close": 26.85,
+      "pct": 3.07,
+      "turnover_pct": 6.98,
+      "v_ratio": 2.73,
+      "board": "mb",
+      "mcap_yi": 273.0
+    },
+    {
+      "ticker": "688652",
+      "name": "京仪装备",
+      "date": "2026-11-06",
+      "close": 107.61,
+      "pct": 5.31,
+      "turnover_pct": 7.1,
+      "v_ratio": 2.29,
+      "board": "cx",
+      "mcap_yi": 184.0
+    },
+    {
+      "ticker": "002865",
+      "name": "钧达股份",
+      "date": "2026-11-06",
+      "close": 45.49,
+      "pct": 4.17,
+      "turnover_pct": 9.13,
+      "v_ratio": 1.67,
+      "board": "mb",
+      "mcap_yi": 257.0
+    },
+    {
+      "ticker": "001330",
+      "name": "博纳影业",
+      "date": "2026-11-06",
+      "close": 6.34,
+      "pct": 2.92,
+      "turnover_pct": 9.93,
+      "v_ratio": 1.41,
+      "board": "mb",
+      "mcap_yi": 101.0
+    },
+    {
+      "ticker": "603636",
+      "name": "南威软件",
+      "date": "2026-11-06",
+      "close": 8.98,
+      "pct": 2.75,
+      "turnover_pct": 9.36,
+      "v_ratio": 1.22,
+      "board": "mb",
+      "mcap_yi": 57.0
+    },
+    {
+      "ticker": "002943",
+      "name": "宇晶股份",
+      "date": "2026-11-06",
+      "close": 31.2,
+      "pct": 6.19,
+      "turnover_pct": 5.75,
+      "v_ratio": 1.19,
+      "board": "mb",
+      "mcap_yi": 111.0
+    },
+    {
+      "ticker": "002149",
+      "name": "西部材料",
+      "date": "2026-11-06",
+      "close": 38.36,
+      "pct": 5.24,
+      "turnover_pct": 9.22,
+      "v_ratio": 1.17,
+      "board": "mb",
+      "mcap_yi": 214.0
+    },
+    {
+      "ticker": "002181",
+      "name": "粤传媒",
+      "date": "2026-11-06",
+      "close": 11.39,
+      "pct": 2.98,
+      "turnover_pct": 9.98,
+      "v_ratio": 1.01,
+      "board": "mb",
+      "mcap_yi": 121.0
+    }
+  ]
+}

@@ -111,7 +111,6 @@
   <button class="tab-btn resonance" data-tab="resonance">🔗 RSI+顶底共振</button>
   <button class="tab-btn" id="tab-midcap" data-tab="midcap">🔥 活跃中盘</button>
   <button class="tab-btn" id="tab-sectors" data-tab="sectors">📊 RSP热门板块</button>
-  <button class="tab-btn" id="tab-conceptrps" data-tab="conceptrps" style="color:var(--cyan);border-bottom-color:var(--cyan)">🟢 概念板块RPS</button>
   <button class="tab-btn" data-tab="history">历史数据</button>
 </div>
 
@@ -403,52 +402,6 @@
   <div class="download-row" id="sectors-download"></div>
   <div id="sectors-table-area"><div class="loading">加载中</div></div>
 </div>
-
-<!-- 概念板块RPS -->
-<div class="strategy-section" id="sec-conceptrps">
-  <h2>🟢 概念板块RPS <span class="badge" style="color:var(--cyan)">实时</span></h2>
-  <div class="screenshot-wrap">
-    <img src="concept_rps5_top15.png" alt="RPS5 Top15" onclick="showModal(this.src)">
-  </div>
-  <div class="screenshot-wrap">
-    <img src="sector_rps_concept.png" alt="RPS总览" onclick="showModal(this.src)" style="max-width:100%">
-  </div>
-  <div class="download-row">
-    <a href="sector_rps.json" class="download-link" download>📥 下载完整RPS数据 (JSON)</a>
-  </div>
-  <div style="max-height:600px;overflow:auto">
-    <table class="stock-table" id="rps-table">
-      <thead><tr><th>排名</th><th>板块</th><th>收盘</th><th>RPS5</th><th>RPS20</th><th>RPS60</th><th>综合</th><th>5v20</th></tr></thead>
-      <tbody><tr><td colspan="8" class="loading">加载中</td></tr></tbody>
-    </table>
-  </div>
-</div>
-
-<script>
-(function(){
-  var loaded=false;
-  var btn=document.getElementById('tab-conceptrps');
-  if(!btn)return;
-  btn.addEventListener('click',function(){
-    if(loaded)return;loaded=true;
-    if(typeof SECTOR_RPS_DATA!=='undefined'&&SECTOR_RPS_DATA&&SECTOR_RPS_DATA.sectors){
-      _renderRps(SECTOR_RPS_DATA);return;
-    }
-    var s=document.createElement('script');s.src='sector_rps_data.js';s.onload=function(){if(typeof SECTOR_RPS_DATA!=='undefined')_renderRps(SECTOR_RPS_DATA)};document.body.appendChild(s);
-  });
-})();
-function _renderRps(data){
-  if(!data||!data.sectors)return;
-  var d=data.sectors.slice().sort(function(a,b){return(b.RPS_avg||0)-(a.RPS_avg||0)});
-  var tb=document.querySelector('#rps-table tbody');tb.innerHTML='';
-  d.forEach(function(s,i){
-    var tr=document.createElement('tr');
-    var c5=(s.RPS5>80)?'signal-buy':'';
-    tr.innerHTML='<td>'+((i+1))+'</td><td><strong>'+s.name+'</strong></td><td class="num">'+s.close+'</td><td class="num '+c5+'">'+(s.RPS5||'-')+'</td><td class="num">'+(s.RPS20||'-')+'</td><td class="num">'+(s.RPS60||'-')+'</td><td class="num" style="font-weight:700;color:#58a6ff">'+(s.RPS_avg||'-')+'</td><td class="num">'+(s.RPS_5v20||'-')+'</td>';
-    tb.appendChild(tr);
-  });
-}
-</script>
 
 <!-- History -->
 <div class="strategy-section" id="sec-history">
