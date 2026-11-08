@@ -14,6 +14,8 @@ STB_SCRIPT="$REPO_DIR/strategy/screen_super_top_bottom_v2.py"
 RSI_STB_SCRIPT="$REPO_DIR/strategy/screen_rsi_stb_resonance.py"
 ACTIVE_MIDCAP_SCRIPT="$REPO_DIR/strategy/screen_active_midcap.py"
 HOT_SECTORS_SCRIPT="$REPO_DIR/strategy/screen_hot_sectors.py"
+SECTOR_RPS_SCRIPT="$REPO_DIR/sector_rps/sector_rps_concept.py"
+GEN_HTML_SCRIPT="$REPO_DIR/sector_rps/gen_html.py"
 OUTPUT_DIR="$REPO_DIR/output/strategy"
 DATA_DIR="$REPO_DIR/data_cache_daily"
 TDX_BLOCK_SCRIPT="$REPO_DIR/tools/tdx_add_blocks.py"
@@ -108,7 +110,11 @@ count_from_json() {
 
 # ─── Step 1: Update stock data ───
 STEP "Step 1/11 — 更新股票数据 (yfinance)..."
-
+if "$VENV_PYTHON" "$UPDATE_SCRIPT"; then
+  OK "数据更新完成"
+else
+  WARN "数据更新有告，继续筛选..."
+fi
 
 
 # ─── Step 2: RSP趋势突破 ───
@@ -171,6 +177,23 @@ STEP "Step 11/11 — RSP热门板块筛选..."
 "$VENV_PYTHON" "$HOT_SECTORS_SCRIPT" --data-dir "$DATA_DIR" --output-dir "$OUTPUT_DIR" 2>&1 || true
 SECTORS_COUNT=$(count_from_json "$OUTPUT_DIR/screen_hot_sectors_latest.json")
 OK "RSP热门板块: $SECTORS_COUNT 个板块"
+
+# ─── Step 12: 概念板块RPS ───
+STEP "Step 12/12 — 概念板块RPS分析..."
+cd "$REPO_DIR"
+DOCS_DIR="$REPO_DIR/docs"
+mkdir -p "$DOCS_DIR"
+if "$VENV_PYTHON" "$SECTOR_RPS_SCRIPT" 2>&1; then
+  # 生成HTML页面 + JS数据文件
+  if "$VENV_PYTHON" "$GEN_HTML_SCRIPT" 2>&1; then
+    SECTOR_RPS_COUNT=$(jq '.sectors | length' "$REPO_DIR/sector_rps/data/sector_rps.json" 2>/dev/null || echo "0")
+    OK "概念板块RPS: $SECTOR_RPS_COUNT 个板块 (HTML已生成)"
+  else
+    WARN "概念板块RPS HTML生成失败"
+  fi
+else
+  WARN "概念板块RPS分析失败，继续后续步骤..."
+fi
 
 # ─── Generate Strategy Images (PNG) ───
 STEP "生成策略图片 (PNG)..."
@@ -238,12 +261,22 @@ cp "$REPO_DIR/stock_names.json" "$DOCS_DIR/" 2>/dev/null || true
 cp "$OUTPUT_DIR"/screen_*_latest.json "$DOCS_DIR/" 2>/dev/null || true
 cp "$OUTPUT_DIR"/screen_*_????-??-??.json "$DOCS_DIR/" 2>/dev/null || true
 cp "$OUTPUT_DIR"/*.png "$DOCS_DIR/" 2>/dev/null || true
+
+# Sync sector RPS files (gen_html.py 已生成HTML+JS)
+if [ -f "$REPO_DIR/sector_rps/data/sector_rps.json" ]; then
+  cp "$REPO_DIR/sector_rps/data/sector_rps.json" "$DOCS_DIR/sector_rps.json"
+  cp "$REPO_DIR/sector_rps/data/*.png" "$DOCS_DIR/" 2>/dev/null || true
+fi
 OK "docs/ 已同步"
 
 # ─── Git commit & push ───
 git add output/strategy/ docs/
 
-COMMIT_MSG="A股每日选股更新 $today (RSP:$RSP_COUNT V2:$RPSV2_COUNT Pro:$RPS_PRO_COUNT RSI:$RSI_COUNT SIG:$SIG_COUNT MA:$MA_COUNT STB:${STB_BUY_COUNT}x${STB_SELL_COUNT} Res:$RES_COUNT Mid:$MIDCAP_COUNT Sec:$SECTORS_COUNT)"
+if [ -z "${SECTOR_RPS_COUNT:-}" ]; then
+  COMMIT_MSG="A股每日选股更新 $today (RSP:$RSP_COUNT V2:$RPSV2_COUNT Pro:$RPS_PRO_COUNT RSI:$RSI_COUNT SIG:$SIG_COUNT MA:$MA_COUNT STB:${STB_BUY_COUNT}x${STB_SELL_COUNT} Res:$RES_COUNT Mid:$MIDCAP_COUNT Sec:$SECTORS_COUNT)"
+else
+  COMMIT_MSG="A股每日选股更新 $today (RSP:$RSP_COUNT V2:$RPSV2_COUNT Pro:$RPS_PRO_COUNT RSI:$RSI_COUNT SIG:$SIG_COUNT MA:$MA_COUNT STB:${STB_BUY_COUNT}x${STB_SELL_COUNT} Res:$RES_COUNT Mid:$MIDCAP_COUNT Sec:$SECTORS_COUNT RPS:$SECTOR_RPS_COUNT个板块)"
+fi
 git commit -m "$COMMIT_MSG"
 OK "Git 提交完成"
 
@@ -269,4 +302,7 @@ printf "  超级顶底卖出:    %s 只\n" "$STB_SELL_COUNT"
 printf "  RSI+共振:        %s 只\n" "$RES_COUNT"
 printf "  活跃中盘股:      %s 只\n" "$MIDCAP_COUNT"
 printf "  RSP热门板块:     %s 个板块\n" "$SECTORS_COUNT"
+if [ -n "${SECTOR_RPS_COUNT:-}" ]; then
+  printf "  概念板块RPS:     %s 个板块\n" "$SECTOR_RPS_COUNT"
+fi
 echo ""
