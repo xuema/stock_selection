@@ -3,20 +3,46 @@
   "strategy_name": "EXPMA+VOL+CR 多因子信号",
   "screen_date": "2026-11-09",
   "total_scanned": 4364,
-  "total_matched": 1,
+  "total_matched": 3,
   "stocks": [
     {
-      "ticker": "002309",
-      "name": "中利集团",
-      "date": "2026-11-06",
-      "close": 2.81,
-      "ema5": 2.7,
-      "ema29": 2.69,
-      "vol_ma8": 107040501,
-      "vol_ma89": 107016382,
-      "cr": 102.61,
-      "mcap_yi": 104.0,
-      "jl_growth_pct": 69.09
+      "ticker": "000975",
+      "name": "山金国际",
+      "date": "2026-11-09",
+      "close": 25.0,
+      "ema5": 23.91,
+      "ema29": 23.48,
+      "vol_ma8": 49299582,
+      "vol_ma89": 46610805,
+      "cr": 114.22,
+      "mcap_yi": 810.0,
+      "jl_growth_pct": 36.75
+    },
+    {
+      "ticker": "601908",
+      "name": "京运通",
+      "date": "2026-11-09",
+      "close": 2.86,
+      "ema5": 2.84,
+      "ema29": 2.84,
+      "vol_ma8": 29099082,
+      "vol_ma89": 28085205,
+      "cr": 93.19,
+      "mcap_yi": 100.0,
+      "jl_growth_pct": 83.86
+    },
+    {
+      "ticker": "603529",
+      "name": "爱玛科技",
+      "date": "2026-11-09",
+      "close": 21.9,
+      "ema5": 21.14,
+      "ema29": 21.05,
+      "vol_ma8": 5097502,
+      "vol_ma89": 4870886,
+      "cr": 111.91,
+      "mcap_yi": 249.0,
+      "jl_growth_pct": 22.78
     }
   ]
 }

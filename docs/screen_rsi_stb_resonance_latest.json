@@ -3,6 +3,85 @@
   "strategy_name": "RSI 金叉 + 超级顶底 双重共振",
   "screen_date": "2026-11-09",
   "total_scanned": 4364,
-  "total_matched": 0,
-  "stocks": []
+  "total_matched": 6,
+  "stocks": [
+    {
+      "ticker": "000988",
+      "name": "华工科技",
+      "date": "2026-11-09",
+      "close": 64.67,
+      "volume": 25143221,
+      "rsi12": 39.17,
+      "rsi_ma56": 34.02,
+      "trend_line": 11.41,
+      "trend_prev": 9.73,
+      "mcap_yi": 1194.0,
+      "jl_growth_pct": 40.92
+    },
+    {
+      "ticker": "001267",
+      "name": "汇绿生态",
+      "date": "2026-11-09",
+      "close": 22.9,
+      "volume": 24287826,
+      "rsi12": 40.58,
+      "rsi_ma56": 35.92,
+      "trend_line": 12.75,
+      "trend_prev": 10.93,
+      "mcap_yi": 335.0,
+      "jl_growth_pct": 96.96
+    },
+    {
+      "ticker": "002297",
+      "name": "博云新材",
+      "date": "2026-11-09",
+      "close": 14.9,
+      "volume": 41995335,
+      "rsi12": 45.51,
+      "rsi_ma56": 43.91,
+      "trend_line": 12.33,
+      "trend_prev": 10.11,
+      "mcap_yi": 63.0,
+      "jl_growth_pct": 278.32
+    },
+    {
+      "ticker": "301312",
+      "name": "智立方",
+      "date": "2026-11-09",
+      "close": 49.13,
+      "volume": 6778318,
+      "rsi12": 45.71,
+      "rsi_ma56": 44.93,
+      "trend_line": 13.62,
+      "trend_prev": 10.16,
+      "mcap_yi": 96.0,
+      "jl_growth_pct": 57.59
+    },
+    {
+      "ticker": "600498",
+      "name": "烽火通信",
+      "date": "2026-11-09",
+      "close": 28.83,
+      "volume": 100071666,
+      "rsi12": 54.63,
+      "rsi_ma56": 39.99,
+      "trend_line": 15.43,
+      "trend_prev": 9.99,
+      "mcap_yi": 623.0,
+      "jl_growth_pct": 30.28
+    },
+    {
+      "ticker": "603118",
+      "name": "共进股份",
+      "date": "2026-11-09",
+      "close": 12.27,
+      "volume": 28951255,
+      "rsi12": 47.33,
+      "rsi_ma56": 41.74,
+      "trend_line": 11.35,
+      "trend_prev": 9.17,
+      "mcap_yi": 96.0,
+      "jl_growth_pct": 529.94
+    }
+  ]
 }

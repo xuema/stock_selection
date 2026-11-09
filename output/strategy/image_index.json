@@ -8,43 +8,49 @@
   {
     "title": "RSP趋势突破 1109",
     "image": "screen_rsp_trend_break_1109.png",
-    "count": 86,
+    "count": 147,
     "base": "screen_rsp_trend_break"
   },
   {
     "title": "RPS中长期龙头 1109",
     "image": "screen_rps_trend_v2_1109.png",
-    "count": 18,
+    "count": 23,
     "base": "screen_rps_trend_v2"
   },
   {
     "title": "RSI金叉 1109",
     "image": "screen_rsi_golden_cross_1109.png",
-    "count": 5,
+    "count": 15,
     "base": "screen_rsi_golden_cross"
   },
   {
     "title": "EXPMA+多因子 1109",
     "image": "screen_signals_1109.png",
-    "count": 1,
+    "count": 3,
     "base": "screen_signals"
   },
   {
     "title": "超级顶底买入 1109",
     "image": "screen_super_top_bottom_buy_1109.png",
-    "count": 27,
+    "count": 31,
     "base": "screen_super_top_bottom_buy"
   },
   {
     "title": "超级顶底卖出 1109",
     "image": "screen_super_top_bottom_sell_1109.png",
-    "count": 30,
+    "count": 87,
     "base": "screen_super_top_bottom_sell"
+  },
+  {
+    "title": "RSI共振 1109",
+    "image": "screen_rsi_stb_resonance_1109.png",
+    "count": 6,
+    "base": "screen_rsi_stb_resonance"
   },
   {
     "title": "活跃中盘股 1109",
     "image": "screen_active_midcap_1109.png",
-    "count": 9,
+    "count": 4,
     "base": "screen_active_midcap"
   }
 ]
