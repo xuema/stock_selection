@@ -270,7 +270,7 @@ cp "$OUTPUT_DIR"/*.png "$DOCS_DIR/" 2>/dev/null || true
 # Sync sector RPS files (gen_html.py 已生成HTML+JS)
 if [ -f "$REPO_DIR/sector_rps/data/sector_rps.json" ]; then
   cp "$REPO_DIR/sector_rps/data/sector_rps.json" "$DOCS_DIR/sector_rps.json"
-  cp "$REPO_DIR/sector_rps/data/*.png" "$DOCS_DIR/" 2>/dev/null || true
+  cp "$REPO_DIR/sector_rps/data/"*.png "$DOCS_DIR/" 2>/dev/null || true
 fi
 OK "docs/ 已同步"
 
