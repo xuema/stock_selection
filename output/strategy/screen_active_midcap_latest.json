@@ -1,53 +1,119 @@
 {
   "strategy": "screen_active_midcap",
   "strategy_name": "活跃中盘股",
-  "screen_date": "2026-11-09",
+  "screen_date": "2026-11-10",
   "total_scanned": 4364,
-  "total_matched": 4,
+  "total_matched": 10,
   "stocks": [
     {
-      "ticker": "000533",
-      "name": "顺钠股份",
-      "date": "2026-11-09",
-      "close": 10.1,
-      "pct": 2.64,
-      "turnover_pct": 8.03,
-      "v_ratio": 3.81,
+      "ticker": "600278",
+      "name": "东方创业",
+      "date": "2026-11-10",
+      "close": 8.15,
+      "pct": 4.09,
+      "turnover_pct": 9.88,
+      "v_ratio": 3.42,
       "board": "mb",
-      "mcap_yi": 117.0
+      "mcap_yi": 61.0
     },
     {
-      "ticker": "000603",
-      "name": "盛达资源",
-      "date": "2026-11-09",
-      "close": 27.73,
-      "pct": 3.28,
-      "turnover_pct": 5.96,
-      "v_ratio": 1.82,
-      "board": "mb",
-      "mcap_yi": 273.0
+      "ticker": "300493",
+      "name": "润欣科技",
+      "date": "2026-11-10",
+      "close": 14.47,
+      "pct": 7.26,
+      "turnover_pct": 10.03,
+      "v_ratio": 2.08,
+      "board": "cx",
+      "mcap_yi": 84.0
     },
     {
-      "ticker": "002307",
-      "name": "北新路桥",
-      "date": "2026-11-09",
-      "close": 3.59,
-      "pct": 2.57,
-      "turnover_pct": 8.12,
+      "ticker": "603901",
+      "name": "永创智能",
+      "date": "2026-11-10",
+      "close": 11.6,
+      "pct": 5.36,
+      "turnover_pct": 7.85,
       "v_ratio": 1.59,
       "board": "mb",
-      "mcap_yi": 74.0
+      "mcap_yi": 68.0
     },
     {
-      "ticker": "000417",
-      "name": "合百集团",
-      "date": "2026-11-09",
-      "close": 6.0,
-      "pct": 3.09,
-      "turnover_pct": 7.45,
-      "v_ratio": 1.03,
+      "ticker": "601929",
+      "name": "吉视传媒",
+      "date": "2026-11-10",
+      "close": 2.5,
+      "pct": 4.17,
+      "turnover_pct": 5.61,
+      "v_ratio": 1.53,
       "board": "mb",
-      "mcap_yi": 53.0
+      "mcap_yi": 110.0
+    },
+    {
+      "ticker": "300071",
+      "name": "福石控股",
+      "date": "2026-11-10",
+      "close": 4.29,
+      "pct": 3.62,
+      "turnover_pct": 9.21,
+      "v_ratio": 1.23,
+      "board": "cx",
+      "mcap_yi": 50.0
+    },
+    {
+      "ticker": "300788",
+      "name": "中信出版",
+      "date": "2026-11-10",
+      "close": 34.84,
+      "pct": 5.48,
+      "turnover_pct": 6.31,
+      "v_ratio": 1.22,
+      "board": "cx",
+      "mcap_yi": 68.0
+    },
+    {
+      "ticker": "001330",
+      "name": "博纳影业",
+      "date": "2026-11-10",
+      "close": 6.74,
+      "pct": 5.81,
+      "turnover_pct": 9.48,
+      "v_ratio": 1.17,
+      "board": "mb",
+      "mcap_yi": 101.0
+    },
+    {
+      "ticker": "300709",
+      "name": "精研科技",
+      "date": "2026-11-10",
+      "close": 42.03,
+      "pct": 6.06,
+      "turnover_pct": 6.97,
+      "v_ratio": 1.06,
+      "board": "cx",
+      "mcap_yi": 79.0
+    },
+    {
+      "ticker": "002292",
+      "name": "奥飞娱乐",
+      "date": "2026-11-10",
+      "close": 9.67,
+      "pct": 4.31,
+      "turnover_pct": 7.23,
+      "v_ratio": 1.04,
+      "board": "mb",
+      "mcap_yi": 115.0
+    },
+    {
+      "ticker": "002865",
+      "name": "钧达股份",
+      "date": "2026-11-10",
+      "close": 46.21,
+      "pct": 3.96,
+      "turnover_pct": 7.23,
+      "v_ratio": 1.04,
+      "board": "mb",
+      "mcap_yi": 257.0
     }
   ]
 }
