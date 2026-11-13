@@ -1,0 +1,38 @@
+{
+  "strategy": "screen_super_top_bottom_buy",
+  "strategy_name": "超级顶底 买入信号(Top20+评分)",
+  "signal_type": "buy",
+  "screen_date": "2026-11-13",
+  "total_scanned": 4364,
+  "total_matched": 2,
+  "stocks": [
+    {
+      "ticker": "688110",
+      "name": "东芯股份",
+      "date": "2026-11-13",
+      "close": 55.05,
+      "trend_line": 11.41,
+      "trend_prev": 10.66,
+      "v_ratio": 1.53,
+      "atr": 3.78,
+      "score": 108.2,
+      "mcap_yi": null,
+      "atr_stop_price": 47.48,
+      "signal_note": "趋势线上穿11 → 买入"
+    },
+    {
+      "ticker": "003013",
+      "name": "地铁设计",
+      "date": "2026-11-13",
+      "close": 15.27,
+      "trend_line": 13.26,
+      "trend_prev": 5.95,
+      "v_ratio": 1.35,
+      "atr": 0.85,
+      "score": 95.4,
+      "mcap_yi": null,
+      "atr_stop_price": 13.58,
+      "signal_note": "趋势线上穿11 → 买入"
+    }
+  ]
+}

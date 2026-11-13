@@ -1,56 +1,50 @@
 [
   {
-    "title": "RSP热门板块 1112",
-    "image": "screen_hot_sectors_1112.png",
+    "title": "RSP热门板块 1113",
+    "image": "screen_hot_sectors_1113.png",
     "count": 50,
     "base": "screen_hot_sectors"
   },
   {
-    "title": "RSP趋势突破 1112",
-    "image": "screen_rsp_trend_break_1112.png",
-    "count": 88,
+    "title": "RSP趋势突破 1113",
+    "image": "screen_rsp_trend_break_1113.png",
+    "count": 107,
     "base": "screen_rsp_trend_break"
   },
   {
-    "title": "RPS中长期龙头 1112",
-    "image": "screen_rps_trend_v2_1112.png",
-    "count": 26,
+    "title": "RPS中长期龙头 1113",
+    "image": "screen_rps_trend_v2_1113.png",
+    "count": 18,
     "base": "screen_rps_trend_v2"
   },
   {
-    "title": "RSI金叉 1112",
-    "image": "screen_rsi_golden_cross_1112.png",
-    "count": 7,
+    "title": "RSI金叉 1113",
+    "image": "screen_rsi_golden_cross_1113.png",
+    "count": 3,
     "base": "screen_rsi_golden_cross"
   },
   {
-    "title": "EXPMA+多因子 1112",
-    "image": "screen_signals_1112.png",
-    "count": 1,
+    "title": "EXPMA+多因子 1113",
+    "image": "screen_signals_1113.png",
+    "count": 2,
     "base": "screen_signals"
   },
   {
-    "title": "超级顶底买入 1112",
-    "image": "screen_super_top_bottom_buy_1112.png",
-    "count": 7,
+    "title": "超级顶底买入 1113",
+    "image": "screen_super_top_bottom_buy_1113.png",
+    "count": 2,
     "base": "screen_super_top_bottom_buy"
   },
   {
-    "title": "超级顶底卖出 1112",
-    "image": "screen_super_top_bottom_sell_1112.png",
-    "count": 110,
+    "title": "超级顶底卖出 1113",
+    "image": "screen_super_top_bottom_sell_1113.png",
+    "count": 57,
     "base": "screen_super_top_bottom_sell"
   },
   {
-    "title": "RSI共振 1112",
-    "image": "screen_rsi_stb_resonance_1112.png",
+    "title": "活跃中盘股 1113",
+    "image": "screen_active_midcap_1113.png",
     "count": 1,
-    "base": "screen_rsi_stb_resonance"
-  },
-  {
-    "title": "活跃中盘股 1112",
-    "image": "screen_active_midcap_1112.png",
-    "count": 2,
     "base": "screen_active_midcap"
   }
 ]

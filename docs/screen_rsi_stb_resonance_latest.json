@@ -1,22 +1,8 @@
 {
   "strategy": "rsi_stb_resonance",
   "strategy_name": "RSI 金叉 + 超级顶底 双重共振",
-  "screen_date": "2026-11-12",
+  "screen_date": "2026-11-13",
   "total_scanned": 4364,
-  "total_matched": 1,
-  "stocks": [
-    {
-      "ticker": "603083",
-      "name": "剑桥科技",
-      "date": "2026-11-12",
-      "close": 122.75,
-      "volume": 43036762,
-      "rsi12": 49.84,
-      "rsi_ma56": 42.99,
-      "trend_line": 15.47,
-      "trend_prev": 9.78,
-      "mcap_yi": 385.0,
-      "jl_growth_pct": 70.88
-    }
-  ]
+  "total_matched": 0,
+  "stocks": []
 }

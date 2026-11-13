@@ -1,0 +1,20 @@
+{
+  "strategy": "screen_active_midcap",
+  "strategy_name": "活跃中盘股",
+  "screen_date": "2026-11-13",
+  "total_scanned": 4364,
+  "total_matched": 1,
+  "stocks": [
+    {
+      "ticker": "300539",
+      "name": "横河精密",
+      "date": "2026-11-13",
+      "close": 19.5,
+      "pct": 6.56,
+      "turnover_pct": 7.57,
+      "v_ratio": 1.83,
+      "board": "cx",
+      "mcap_yi": 77.0
+    }
+  ]
+}
