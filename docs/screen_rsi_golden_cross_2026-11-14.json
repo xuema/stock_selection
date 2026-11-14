@@ -1,0 +1,54 @@
+{
+  "strategy": "rsi_golden_cross",
+  "strategy_name": "RSI(12,56) 金叉",
+  "screen_date": "2026-11-14",
+  "total_scanned": 4364,
+  "total_matched": 3,
+  "stocks": [
+    {
+      "ticker": "301236",
+      "name": "软通动力",
+      "date": "2026-11-13",
+      "close": 34.46,
+      "volume": 33726121,
+      "rsi12": 59.16,
+      "rsi_ma56": 40.8,
+      "cross_angle": 18.36,
+      "v_ratio": 3.08,
+      "turnover_yi": 11.62,
+      "score": 120.0,
+      "mcap_yi": 409.0,
+      "jl_growth_pct": 30.21
+    },
+    {
+      "ticker": "002039",
+      "name": "黔源电力",
+      "date": "2026-11-13",
+      "close": 19.28,
+      "volume": 16683600,
+      "rsi12": 67.27,
+      "rsi_ma56": 49.57,
+      "cross_angle": 17.7,
+      "v_ratio": 3.62,
+      "turnover_yi": 3.22,
+      "score": 118.5,
+      "mcap_yi": 83.0,
+      "jl_growth_pct": 85.74
+    },
+    {
+      "ticker": "600959",
+      "name": "江苏有线",
+      "date": "2026-11-13",
+      "close": 3.29,
+      "volume": 113602713,
+      "rsi12": 65.32,
+      "rsi_ma56": 52.97,
+      "cross_angle": 12.35,
+      "v_ratio": 3.19,
+      "turnover_yi": 3.74,
+      "score": 91.7,
+      "mcap_yi": 193.0,
+      "jl_growth_pct": 40.73
+    }
+  ]
+}
