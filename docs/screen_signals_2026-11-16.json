@@ -1,0 +1,22 @@
+{
+  "strategy": "expma_vol_cr_signals",
+  "strategy_name": "EXPMA+VOL+CR 多因子信号",
+  "screen_date": "2026-11-16",
+  "total_scanned": 4364,
+  "total_matched": 1,
+  "stocks": [
+    {
+      "ticker": "001258",
+      "name": "立新能源",
+      "date": "2026-11-16",
+      "close": 9.82,
+      "ema5": 9.46,
+      "ema29": 9.37,
+      "vol_ma8": 75753805,
+      "vol_ma89": 70655622,
+      "cr": 92.05,
+      "mcap_yi": 87.0,
+      "jl_growth_pct": 2.44
+    }
+  ]
+}

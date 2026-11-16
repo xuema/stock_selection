@@ -1,0 +1,22 @@
+{
+  "strategy": "rsi_stb_resonance",
+  "strategy_name": "RSI 金叉 + 超级顶底 双重共振",
+  "screen_date": "2026-11-16",
+  "total_scanned": 4364,
+  "total_matched": 1,
+  "stocks": [
+    {
+      "ticker": "603358",
+      "name": "华达科技",
+      "date": "2026-11-16",
+      "close": 32.37,
+      "volume": 14880394,
+      "rsi12": 43.98,
+      "rsi_ma56": 41.77,
+      "trend_line": 11.48,
+      "trend_prev": 8.11,
+      "mcap_yi": 227.0,
+      "jl_growth_pct": 96.51
+    }
+  ]
+}
