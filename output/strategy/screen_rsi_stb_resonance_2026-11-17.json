@@ -1,0 +1,35 @@
+{
+  "strategy": "rsi_stb_resonance",
+  "strategy_name": "RSI 金叉 + 超级顶底 双重共振",
+  "screen_date": "2026-11-17",
+  "total_scanned": 4364,
+  "total_matched": 2,
+  "stocks": [
+    {
+      "ticker": "300905",
+      "name": "宝丽迪",
+      "date": "2026-11-17",
+      "close": 28.76,
+      "volume": 12206090,
+      "rsi12": 52.04,
+      "rsi_ma56": 41.35,
+      "trend_line": 12.42,
+      "trend_prev": 7.08,
+      "mcap_yi": 53.0,
+      "jl_growth_pct": 31.25
+    },
+    {
+      "ticker": "600711",
+      "name": "盛屯矿业",
+      "date": "2026-11-17",
+      "close": 7.98,
+      "volume": 113932068,
+      "rsi12": 42.73,
+      "rsi_ma56": 36.17,
+      "trend_line": 11.63,
+      "trend_prev": 6.71,
+      "mcap_yi": 425.0,
+      "jl_growth_pct": 0.06
+    }
+  ]
+}

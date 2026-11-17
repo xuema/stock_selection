@@ -1,20 +1,31 @@
 {
   "strategy": "screen_active_midcap",
   "strategy_name": "活跃中盘股",
-  "screen_date": "2026-11-16",
+  "screen_date": "2026-11-17",
   "total_scanned": 4364,
-  "total_matched": 1,
+  "total_matched": 2,
   "stocks": [
     {
-      "ticker": "603103",
-      "name": "横店影视",
-      "date": "2026-11-16",
-      "close": 20.2,
-      "pct": 4.61,
-      "turnover_pct": 5.24,
-      "v_ratio": 3.73,
+      "ticker": "000628",
+      "name": "高新发展",
+      "date": "2026-11-17",
+      "close": 48.1,
+      "pct": 3.33,
+      "turnover_pct": 7.7,
+      "v_ratio": 3.85,
       "board": "mb",
-      "mcap_yi": 152.0
+      "mcap_yi": 188.0
+    },
+    {
+      "ticker": "605378",
+      "name": "野马电池",
+      "date": "2026-11-17",
+      "close": 16.11,
+      "pct": 3.8,
+      "turnover_pct": 6.39,
+      "v_ratio": 3.17,
+      "board": "mb",
+      "mcap_yi": 55.0
     }
   ]
 }
