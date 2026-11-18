@@ -1,0 +1,42 @@
+{
+  "strategy": "screen_active_midcap",
+  "strategy_name": "活跃中盘股",
+  "screen_date": "2026-11-18",
+  "total_scanned": 4364,
+  "total_matched": 3,
+  "stocks": [
+    {
+      "ticker": "000521",
+      "name": "长虹美菱",
+      "date": "2026-11-18",
+      "close": 5.0,
+      "pct": 5.49,
+      "turnover_pct": 8.46,
+      "v_ratio": 8.55,
+      "board": "mb",
+      "mcap_yi": 63.0
+    },
+    {
+      "ticker": "600881",
+      "name": "亚泰集团",
+      "date": "2026-11-18",
+      "close": 1.79,
+      "pct": 3.47,
+      "turnover_pct": 7.63,
+      "v_ratio": 6.34,
+      "board": "mb",
+      "mcap_yi": 53.0
+    },
+    {
+      "ticker": "688135",
+      "name": "利扬芯片",
+      "date": "2026-11-18",
+      "close": 32.41,
+      "pct": 5.43,
+      "turnover_pct": 11.95,
+      "v_ratio": 1.22,
+      "board": "cx",
+      "mcap_yi": 62.0
+    }
+  ]
+}
