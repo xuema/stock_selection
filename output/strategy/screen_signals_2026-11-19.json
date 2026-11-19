@@ -1,0 +1,35 @@
+{
+  "strategy": "expma_vol_cr_signals",
+  "strategy_name": "EXPMA+VOL+CR 多因子信号",
+  "screen_date": "2026-11-19",
+  "total_scanned": 4364,
+  "total_matched": 2,
+  "stocks": [
+    {
+      "ticker": "000158",
+      "name": "常山北明",
+      "date": "2026-11-19",
+      "close": 12.83,
+      "ema5": 12.01,
+      "ema29": 11.72,
+      "vol_ma8": 41905306,
+      "vol_ma89": 27644051,
+      "cr": 113.55,
+      "mcap_yi": 322.0,
+      "jl_growth_pct": 48.05
+    },
+    {
+      "ticker": "002668",
+      "name": "TCL智家",
+      "date": "2026-11-19",
+      "close": 9.19,
+      "ema5": 8.74,
+      "ema29": 8.64,
+      "vol_ma8": 15239368,
+      "vol_ma89": 14150458,
+      "cr": 98.99,
+      "mcap_yi": 97.0,
+      "jl_growth_pct": 10.22
+    }
+  ]
+}
