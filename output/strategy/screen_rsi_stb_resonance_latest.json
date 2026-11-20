@@ -1,61 +1,8 @@
 {
   "strategy": "rsi_stb_resonance",
   "strategy_name": "RSI 金叉 + 超级顶底 双重共振",
-  "screen_date": "2026-11-19",
+  "screen_date": "2026-11-20",
   "total_scanned": 4364,
-  "total_matched": 4,
-  "stocks": [
-    {
-      "ticker": "002579",
-      "name": "中京电子",
-      "date": "2026-11-19",
-      "close": 12.17,
-      "volume": 74029276,
-      "rsi12": 54.53,
-      "rsi_ma56": 44.48,
-      "trend_line": 13.55,
-      "trend_prev": 6.31,
-      "mcap_yi": 73.0,
-      "jl_growth_pct": 127.34
-    },
-    {
-      "ticker": "600744",
-      "name": "华银电力",
-      "date": "2026-11-19",
-      "close": 5.44,
-      "volume": 59223757,
-      "rsi12": 44.14,
-      "rsi_ma56": 38.66,
-      "trend_line": 13.71,
-      "trend_prev": 9.37,
-      "mcap_yi": 169.0,
-      "jl_growth_pct": 954.94
-    },
-    {
-      "ticker": "688469",
-      "name": "芯联集成",
-      "date": "2026-11-19",
-      "close": 7.08,
-      "volume": 118198855,
-      "rsi12": 48.38,
-      "rsi_ma56": 40.43,
-      "trend_line": 19.75,
-      "trend_prev": 10.83,
-      "mcap_yi": 587.0,
-      "jl_growth_pct": 32.32
-    },
-    {
-      "ticker": "688498",
-      "name": "源杰科技",
-      "date": "2026-11-19",
-      "close": 633.5,
-      "volume": 5241819,
-      "rsi12": 40.03,
-      "rsi_ma56": 36.59,
-      "trend_line": 11.46,
-      "trend_prev": 10.62,
-      "mcap_yi": 958.0,
-      "jl_growth_pct": 19348.65
-    }
-  ]
+  "total_matched": 0,
+  "stocks": []
 }
