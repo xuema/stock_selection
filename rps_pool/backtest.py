@@ -29,13 +29,20 @@ BTOUT = os.path.join(C.OUT, "backtest")
 
 
 def build_signals(P, pool, universe, float_shares, min_bar_amount, sell_mode="cross",
+                  rank_universe="full",
                   three_line=None, rps_sum=None):
     cols = [c for c in (pool["code"] if universe == "pool" else P["Close"].columns)
             if c in P["Close"].columns]
     prm = {}
     if rps_sum:
         prm["sum_min"] = rps_sum
-    F = I.sxhcg(P, focus=cols, float_shares=float_shares, params=prm or None)
+    rank_cols = None
+    if rank_universe == "pool":
+        if universe != "pool":
+            raise SystemExit("--rank-universe pool 只能配 --universe pool 用(全市场候选需要全市场排名)")
+        rank_cols = [c for c in pool["code"] if c in P["Close"].columns]
+    F = I.sxhcg(P, focus=cols, float_shares=float_shares, params=prm or None,
+                rank_cols=rank_cols)
     W = I.weekly_rsi_daily(P["Close"][cols], C.WK_RSI["rsi_period"], C.WK_RSI["sig_window"],
                            C.WK_RSI["mid_line"],
                            C.WK_RSI["three_line"] if three_line is None else three_line,
@@ -198,6 +205,9 @@ def main():
     ap.add_argument("--three-line", action="store_true")
     ap.add_argument("--rps-sum", type=float, default=None)
     ap.add_argument("--counts", action="store_true", help="额外输出逐日入选数量 counts_<tag>.csv")
+    ap.add_argument("--rank-universe", default=C.RPS.get("rank_universe", "full"),
+                    choices=["full", "pool"],
+                    help="RPS 横截面: full=全市场排名(通达信口径, 默认), pool=只在池内排名")
     a = ap.parse_args()
     os.makedirs(BTOUT, exist_ok=True)
 
@@ -213,8 +223,8 @@ def main():
 
     print("计算信号 ...")
     t0 = time.time()
-    S = build_signals(P, pool, a.universe, fs, C.BT["min_bar_amount"], a.sell_mode,
-                      a.three_line, a.rps_sum)
+    S = build_signals(P, pool, a.universe, fs, C.BT["min_bar_amount"], sell_mode=a.sell_mode,
+                      rank_universe=a.rank_universe, three_line=a.three_line, rps_sum=a.rps_sum)
     print(f"  {len(S['cols'])} 只候选, {time.time()-t0:.1f}s")
     if a.counts:
         dump_counts(S, a)

@@ -313,10 +313,12 @@ def weekly_rsi_plain(Close: pd.DataFrame, period: int = 12, sig: int = 5,
 # ══════════════════════ 5. RPS 选股公式全套 ══════════════════════
 def sxhcg(P: dict, focus: list[str] | None = None, params: dict | None = None,
           newhigh_ratio: float | None = None, float_shares: dict | None = None,
-          rps_cache: dict | None = None) -> dict:
+          rps_cache: dict | None = None, rank_cols: list[str] | None = None) -> dict:
     """SXHCG1..5 及合成。返回布尔宽表 + 关键中间量。
 
     focus 之外的票只参与 RPS 横截面排名, 不算变长窗口那些慢条件。
+    rank_cols: 限定 RPS 横截面的样本集(默认 None = 缓存里的全部股票, 即通达信那样
+      全市场排名)。传股票池进去 => "池内分位", 阈值含义会变, 见 README。
     """
     p = dict(C.RPS)
     if params:
@@ -326,14 +328,22 @@ def sxhcg(P: dict, focus: list[str] | None = None, params: dict | None = None,
     live = live_mask(P)
     cols = [c for c in (focus if focus is not None else Close.columns) if c in Close.columns]
 
-    key = (p["w_fast"], p["w_slow"])
-    r120 = r250 = None
-    if rps_cache is not None and key in rps_cache:
-        r120, r250 = rps_cache[key]
-    else:
-        r120, r250 = RPS(ret_n(Close, p["w_fast"], live)), RPS(ret_n(Close, p["w_slow"], live))
+    rc = list(Close.columns) if rank_cols is None else [c for c in rank_cols if c in Close.columns]
+    if not set(cols) <= set(rc):
+        raise SystemExit("rank_cols 必须包含 focus(否则池外的票没有排名)")
+    key = (p["w_fast"], p["w_slow"], tuple(rc) if rank_cols is not None else None)
+    got = None
+    if rps_cache is not None:
+        got = rps_cache.get(key)
+    if got is None:
+        sub = {"Close": Close[rc], "High": High[rc], "Low": Low[rc],
+               "Volume": Vol[rc], "_first": P["_first"][rc], "_hasdata": P["_hasdata"][rc]}
+        live_rc = live_mask(sub) if rank_cols is not None else live[rc]
+        got = (RPS(ret_n(Close[rc], p["w_fast"], live_rc)),
+               RPS(ret_n(Close[rc], p["w_slow"], live_rc)))
         if rps_cache is not None:
-            rps_cache[key] = (r120, r250)
+            rps_cache[key] = got
+    r120, r250 = got
     s1_full = (r120 + r250) > p["sum_min"]
     s1 = s1_full[cols]
 
@@ -380,7 +390,7 @@ def sxhcg(P: dict, focus: list[str] | None = None, params: dict | None = None,
     allc = s1 & s2 & s3 & s4 & s5
     rt120, rt250 = ret_n(Close, p["w_fast"], live), ret_n(Close, p["w_slow"], live)
     return dict(SXHCG1=s1, SXHCG2=s2, SXHCG3=s3, SXHCG31=s31, SXHCG32=s32, SXHCG4=s4,
-                SXHCG5=s5, SXHCG=allc, RPS120=r120, RPS250=r250, SXHCG1_all=s1_full,  # 全市场布尔
+                SXHCG5=s5, SXHCG=allc, RPS120=r120, RPS250=r250, SXHCG1_all=s1_full,  # 排名口径布尔
                 ma10=q10, ma20=q20, ma250=q250, dd=dd, hhb=hhb, turn=turn,
                 newhigh=nh_c, newhigh_h=nh_h, live=live[cols],
                 cols=cols, ret120=rt120, ret250=rt250)

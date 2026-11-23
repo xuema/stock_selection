@@ -39,8 +39,24 @@ def bars_needed(rsi_lookback: int) -> int:
     return max(rsi_lookback, p["w_slow"] + p["count250_days"] + 20, 400)
 
 
+def expect_bar_date(now: pd.Timestamp | None = None) -> pd.Timestamp:
+    """最近一个"本该已有日线"的交易日。
+
+    粗略口径: 15:30 之前当天这根 bar 还没走完 => 算前一天; 跳过周末。
+    不识别法定节假日, 所以它只用于"行情是不是根本没更新"的提醒, 不是硬判断。
+    """
+    from datetime import timedelta
+    n = now or pd.Timestamp.now()
+    d = n.normalize()
+    if n.hour * 60 + n.minute < 15 * 60 + 30:
+        d -= timedelta(days=1)
+    while d.weekday() >= 5:
+        d -= timedelta(days=1)
+    return d
+
+
 def run(asof: str | None, top: int, dirn: str | None, min_list_days_pool: int,
-        a_sell_win: int = SELL_WIN) -> dict:
+        a_sell_win: int = SELL_WIN, rank_universe: str | None = None) -> dict:
     pool = load_pool()
     names = dict(zip(pool["code"], pool.get("name", pd.Series(dtype=str))))
     fs = poolio.float_shares(pool)
@@ -70,7 +86,11 @@ def run(asof: str | None, top: int, dirn: str | None, min_list_days_pool: int,
     print(f"股票池 {len(pool)} 只, 其中有日线 {len(poolcols)} 只"
           + (f", 缺 {len(miss)} 只(示例 {miss[:6]})" if miss else ""))
 
-    F = I.sxhcg(P, focus=poolcols, newhigh_ratio=C.RPS["hhv250_ratio"], float_shares=fs)
+    ru = rank_universe or C.RPS.get("rank_universe", "full")
+    rank_cols = poolcols if ru == "pool" else None      # full = 通达信口径(全市场排名)
+    print(f"RPS 横截面口径: {ru}({len(poolcols) if ru == 'pool' else P['Close'].shape[1]} 只参与排名)")
+    F = I.sxhcg(P, focus=poolcols, newhigh_ratio=C.RPS["hhv250_ratio"], float_shares=fs,
+                rank_cols=rank_cols)
     W = I.weekly_rsi_daily(P["Close"][poolcols], C.WK_RSI["rsi_period"], C.WK_RSI["sig_window"],
                            C.WK_RSI["mid_line"], C.WK_RSI["three_line"], C.WK_RSI["slow_window"],
                            lookback_days=0)
@@ -167,21 +187,30 @@ def run(asof: str | None, top: int, dirn: str | None, min_list_days_pool: int,
     near.sort_values(["未过", "RPS_sum"], ascending=[True, False]).to_csv(
         os.path.join(outdir, "near_miss.csv"), encoding="utf-8-sig")
 
-    summary = _summary(date_str, pool, d, s1, s2, sell, miss, a_sell_win)
+    stale = ""
+    if asof is None and last < expect_bar_date():
+        stale = (f"  ⚠ 行情最后一根 = {date_str}, 早于应有的 {expect_bar_date():%Y-%m-%d}"
+                 " —— fetch_history 可能失败了, 本次基于旧行情(法定节假日除外)")
+        print(stale)
+
+    summary = _summary(date_str, pool, d, s1, s2, sell, miss, a_sell_win, ru, stale)
     open(os.path.join(outdir, "summary.txt"), "w", encoding="utf-8").write(summary)
     dump_dash(outdir, date_str, d, s1, s2, sell, P, pool, names, a_sell_win)
     print(summary)
     return {"date": date_str, "s1": s1, "s2": s2, "detail": d, "outdir": outdir}
 
 
-def _summary(date_str, pool, d, s1, s2, sell, miss, a_sw=SELL_WIN) -> str:
+def _summary(date_str, pool, d, s1, s2, sell, miss, a_sw=SELL_WIN, ru="full", stale="") -> str:
     ln = []
     A = lambda n: f"{n:>10}"
     ln.append("=" * 74)
     ln.append(f" 每日筛选  {date_str}   (买入参考 = 当日最后一根日线收盘 = 13:50 快照价)")
     ln.append("=" * 74)
+    if stale:
+        ln.append(stale.strip())
     ln.append(f"股票池 {len(pool)} 只 | 有日线 {len(d)} 只 | 缺数据 {len(miss)} 只")
-    ln.append(f"过 RPS 选股(SXHCG 全条) {int(d['all'].sum())} 只")
+    ln.append(f"过 RPS 选股(SXHCG 全条) {int(d['all'].sum())} 只"
+              + ("" if ru == "full" else f"   [RPS 口径={ru}: 池内分位, 阈值含义与通达信不同]"))
     ln.append(f"  ├ 策略1 RPS+周线RSI多头确认 : {len(s1)} 只")
     ln.append(f"  └ 策略2 RPS+接近一年新高>0.90: {len(s2)} 只")
     ln.append(f"卖出提示(近 {a_sw} 个交易日内出现周线RSI死叉, 且近 {LOOKBACK_HELD} 日内入选过策略) {len(sell)} 只")
@@ -268,8 +297,10 @@ def main():
     ap.add_argument("--dir", help="日线目录, 默认 5y 缓存")
     ap.add_argument("--min-list-days", type=int, default=0)
     ap.add_argument("--sell-win", type=int, default=SELL_WIN, help="卖出提示回看天数")
+    ap.add_argument("--rank-universe", choices=["full", "pool"],
+                    help="RPS 横截面: full=全市场排名(通达信口径, 默认), pool=只在池内排名")
     a = ap.parse_args()
-    run(a.asof, a.top, a.dir, a.min_list_days, a.sell_win)
+    run(a.asof, a.top, a.dir, a.min_list_days, a.sell_win, a.rank_universe)
 
 
 if __name__ == "__main__":
