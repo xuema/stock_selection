@@ -15,6 +15,7 @@ RSI_STB_SCRIPT="$REPO_DIR/strategy/screen_rsi_stb_resonance.py"
 ACTIVE_MIDCAP_SCRIPT="$REPO_DIR/strategy/screen_active_midcap.py"
 HOT_SECTORS_SCRIPT="$REPO_DIR/strategy/screen_hot_sectors.py"
 SECTOR_RPS_SCRIPT="$REPO_DIR/sector_rps/sector_rps_concept.py"
+RPS_POOL_DIR="$REPO_DIR/rps_pool"
 GEN_HTML_SCRIPT="$REPO_DIR/sector_rps/gen_html.py"
 OUTPUT_DIR="$REPO_DIR/output/strategy"
 DATA_DIR="$REPO_DIR/data_cache_daily"
@@ -116,6 +117,37 @@ else
   WARN "数据更新有告，继续筛选..."
 fi
 
+
+# ─── Step 1b: 基金+北向池 RPS 双策略(rps_pool) ───
+STEP "Step 1b — 基金+北向池 RPS 双策略(rps_pool)..."
+if [ -d "$RPS_POOL_DIR" ]; then
+  # 1b.1 该策略需要 250 日以上的历史, data_cache_daily 只有 ~14 个月, 所以用 rps_pool
+  #      自己的 5 年缓存(yfinance 前复权, 与 Step 1 同源不同目录)。
+  #      串行放在 Step 1 之后跑: 两个 yfinance 任务并发容易触发 Yahoo 限流,
+  #      会把现有那些策略一起带坑。代价是快照时间从 13:50 变成约 14:20(仍在收盘前)。
+  #      盘中想反复重跑就 RPSPOOL_SKIP_FETCH=1 ./daily_screen.sh 跳过抓取。
+  RPSPOOL_FETCH_LOG="$REPO_DIR/rps_pool/logs/fetch_daily.log"
+  if [ "${RPSPOOL_SKIP_FETCH:-0}" != "1" ]; then
+    mkdir -p "$(dirname "$RPSPOOL_FETCH_LOG")"
+    STEP "rps_pool 5年行情增量更新(全市场约 5200 只, 日志: $RPSPOOL_FETCH_LOG)..."
+    if ( cd "$RPS_POOL_DIR" && "$VENV_PYTHON" -u fetch_history.py --update --universe full \
+           --chunk 100 --sleep 0.2 ) >> "$RPSPOOL_FETCH_LOG" 2>&1; then
+      OK "rps_pool 行情更新完成"
+    else
+      WARN "rps_pool 行情更新失败/超时, 用现有缓存继续"
+    fi
+  else
+    WARN "RPSPOOL_SKIP_FETCH=1, 跳过 rps_pool 行情更新(用现有缓存)"
+  fi
+  ( cd "$RPS_POOL_DIR" && "$VENV_PYTHON" -u screen_daily.py ) \
+    && ( cd "$RPS_POOL_DIR" && "$VENV_PYTHON" -u export_pipeline.py --output-dir "$OUTPUT_DIR" ) \
+    || WARN "rps_pool 筛选/导出失败, 继续后续步骤..."
+  RPSPOOL_DUAL=$(count_from_json "$OUTPUT_DIR/screen_rps_pool_dual_latest.json")
+  RPSPOOL_SELL=$(count_from_json "$OUTPUT_DIR/screen_rps_pool_sell_latest.json")
+  OK "RPS池双策略: $RPSPOOL_DUAL 只入选 / $RPSPOOL_SELL 只卖出提示"
+else
+  WARN "缺少 $RPS_POOL_DIR, 跳过 RPS 池双策略"
+fi
 
 # ─── Step 2: RSP趋势突破 ───
 STEP "Step 2/11 — RSP趋势突破策略..."
@@ -226,6 +258,8 @@ RPSV2_DATES=$(date_list_from_pattern "screen_rps_trend_v2")
 RPS_PRO_DATES=$(date_list_from_pattern "screen_rps_trend_pro")
 MIDCAP_DATES=$(date_list_from_pattern "screen_active_midcap")
 SECTORS_DATES=$(date_list_from_pattern "screen_hot_sectors")
+RPSPOOL_DUAL_DATES=$(date_list_from_pattern "screen_rps_pool_dual")
+RPSPOOL_SELL_DATES=$(date_list_from_pattern "screen_rps_pool_sell")
 
 jq -n \
   --argjson rsi "$RSI_DATES" \
@@ -238,6 +272,8 @@ jq -n \
   --argjson pro "$RPS_PRO_DATES" \
   --argjson midcap "$MIDCAP_DATES" \
   --argjson sectors "$SECTORS_DATES" \
+  --argjson rpspool_dual "$RPSPOOL_DUAL_DATES" \
+  --argjson rpspool_sell "$RPSPOOL_SELL_DATES" \
   '{
     rsi: $rsi,
     signals: $signals,
@@ -248,7 +284,9 @@ jq -n \
     rpsv2: $rpsv2,
     pro: $pro,
     midcap: $midcap,
-    sectors: $sectors
+    sectors: $sectors,
+    rpspool: $rpspool_dual,
+    rpspoolSell: $rpspool_sell
   }' > "$OUTPUT_DIR/dates.json"
 
 OK "dates.json 已生成"
@@ -277,7 +315,7 @@ OK "docs/ 已同步"
 # ─── Git commit & push ───
 git add output/strategy/ docs/
 
-COMMIT_MSG="A股每日选股更新 $today (RSP:$RSP_COUNT V2:$RPSV2_COUNT Pro:$RPS_PRO_COUNT RSI:$RSI_COUNT SIG:$SIG_COUNT MA:$MA_COUNT STB:${STB_BUY_COUNT}x${STB_SELL_COUNT} Res:$RES_COUNT Mid:$MIDCAP_COUNT Sec:$SECTORS_COUNT RPS:${SECTOR_RPS_COUNT}个板块)"
+COMMIT_MSG="A股每日选股更新 $today (RSP:$RSP_COUNT V2:$RPSV2_COUNT Pro:$RPS_PRO_COUNT RSI:$RSI_COUNT SIG:$SIG_COUNT MA:$MA_COUNT STB:${STB_BUY_COUNT}x${STB_SELL_COUNT} Res:$RES_COUNT Mid:$MIDCAP_COUNT Sec:$SECTORS_COUNT RPS:${SECTOR_RPS_COUNT}个板块 Pool:${RPSPOOL_DUAL:-0}只/卖出${RPSPOOL_SELL:-0}只)"
 git commit -m "$COMMIT_MSG"
 OK "Git 提交完成"
 
@@ -305,5 +343,8 @@ printf "  活跃中盘股:      %s 只\n" "$MIDCAP_COUNT"
 printf "  RSP热门板块:     %s 个板块\n" "$SECTORS_COUNT"
 if [ -n "${SECTOR_RPS_COUNT:-}" ] && [ "$SECTOR_RPS_COUNT" -gt 0 ] 2>/dev/null; then
   printf "  概念板块RPS:     %s 个板块\n" "$SECTOR_RPS_COUNT"
+fi
+if [ -n "${RPSPOOL_DUAL:-}" ]; then
+  printf "  RPS池双策略:     %s 只入选, %s 只卖出提示 (基金+北向池)\n" "$RPSPOOL_DUAL" "$RPSPOOL_SELL"
 fi
 echo ""

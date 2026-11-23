@@ -52,5 +52,17 @@
     "image": "screen_active_midcap_1123.png",
     "count": 3,
     "base": "screen_active_midcap"
+  },
+  {
+    "title": "RPS池·双策略入选 1123",
+    "image": "screen_rps_pool_dual_1123.png",
+    "count": 14,
+    "base": "screen_rps_pool_dual"
+  },
+  {
+    "title": "RPS池·周线死叉卖出 1123",
+    "image": "screen_rps_pool_sell_1123.png",
+    "count": 43,
+    "base": "screen_rps_pool_sell"
   }
 ]

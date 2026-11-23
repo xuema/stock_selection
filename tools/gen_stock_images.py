@@ -19,6 +19,8 @@ STRATEGY_CONFIGS = [
     {"prefix": "screen_super_top_bottom_sell", "title": "超级顶底卖出"},
     {"prefix": "screen_rsi_stb_resonance", "title": "RSI共振"},
     {"prefix": "screen_active_midcap",     "title": "活跃中盘股"},
+    {"prefix": "screen_rps_pool_dual",     "title": "RPS池·双策略入选"},
+    {"prefix": "screen_rps_pool_sell",     "title": "RPS池·周线死叉卖出"},
 ]
 
 def load_stocks(json_path):

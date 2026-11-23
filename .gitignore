@@ -1,0 +1,19 @@
+# 本地缓存与产物, 不入库
+__pycache__/
+*.pyc
+.DS_Store
+
+# 行情缓存(yfinance CSV, 几万个小文件)
+data_cache_daily/
+data_cache_daily_5y/
+
+# 虚拟环境
+venv/
+
+# 日志
+*.log
+
+# rps_pool 的中间产物(每日筛选/回测/看板), 交给主流水线把 result JSON 导出到 output/strategy
+rps_pool/out/
+rps_pool/data/
+rps_pool/logs/
