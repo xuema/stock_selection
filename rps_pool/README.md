@@ -23,7 +23,7 @@ fetch_history.py --update ──> data_cache_daily_5y/*.csv ──────�
 | `emhttp.py` | HTTP 客户端,自动在直连与环境代理之间选可用通道(东财 datacenter 走代理,新浪/推送接口必须直连) |
 | `fetch_quarterly.py` | 抓三张季度表:基金持仓、前十大流通股东里的北向席位、上市日期 |
 | `build_pool.py` | 第一步:按 A(基金/流通股 > 3%)+ B(北向市值 > 3000 万)+ C(上市满 1 年)+ D(本机有日线)建池 |
-| `fetch_history.py` | 日线缓存:`--build` 全量回填(6 年)、`--update` 每日增量并做复权漂移检测、`--rebuild` 强制重下 |
+| `fetch_history.py` | 日线缓存:`--build` 全量回填(6 年)、`--update` 每日增量并做复权漂移检测、`--rebuild` 强制重下。合并时只取 `Close` 非空的行(停牌日不入缓存),且各列同源,否则拼 DataFrame 会因长度不等直接崩 |
 | `indicators.py` | 指标引擎:通达信公式向量化,SXHCG1..5 + RPS + 周线 RSI 全部在这里 |
 | `poolio.py` | 读池子;从基金持仓表反推流通股本 `float_shares_calc = 基金持股数 / (持股占流通股比例/100)`,供 SXHCG5 换手率用 |
 | `screen_daily.py` | 第二步:每日筛选,写 `out/screen/<日期>/` 与 `dashboard.json` |
@@ -159,12 +159,17 @@ cd rps_pool
 
 本机 crontab 本来就有一行 `50 13 * * * .../daily_screen.sh`,rps_pool 现在是它的一部分,不需要新装 cron:
 
-- **Step 1a**(后台启动,与 Step 1..12 并行):`fetch_history.py --update --universe full --chunk 100`,
-  日志 `rps_pool/logs/fetch_daily.log`。全市场约 5000 只,实测 6~20 分钟;因为并行,基本不拖慢整条流水线。
-- **Step 1b**:`wait` 上一步 → `screen_daily.py` → `export_pipeline.py --output-dir $OUTPUT_DIR`,之后按
-  其它策略的老规矩统计 `total_matched`、写进 `dates.json`、生成 PNG、随主仓一起 commit + push。
+- **Step 1b** 紧跟在 Step 1 后面:`fetch_history.py --update --universe full --chunk 100 --sleep 0.2`
+  → `screen_daily.py` → `export_pipeline.py --output-dir $OUTPUT_DIR`,之后按其它策略的老规矩统计
+  `total_matched`、写进 `dates.json`、生成 PNG、随主仓一起 commit + push。抓取日志在 `rps_pool/logs/fetch_daily.log`。
+- 行情更新是**串行**而不是后台并行:Step 1 那个 `2_update_a_stock_data.py` 自己就要跑 13:50~14:15,
+  两个 yfinance 任务并发很容易撞 Yahoo 限流,会把现有那些策略一起带坑。实测全市场 5255 只约
+  3.6 只/s ≈ **22 分钟**,于是整条流水线的收尾从 14:21 推迟到约 14:45,仍在 15:00 收盘前;
+  代价是 rps_pool 的"当日收盘"快照实际取到的是 ~14:20 的价格,比另外那些策略的 13:50 晚一些。
 - 任一环节失败只打 `WARN` 并继续,不会把后面的策略带崩。
 - 盘中反复调参想跳过行情:`RPSPOOL_SKIP_FETCH=1 ./daily_screen.sh`。
+- 只更新池内 600 只是不够的:RPS 是全市场横截面排名,缓存里其他票若缺当日 bar 会把排名算歪,
+  所以 `--universe full` 不能省。真要省时间,只能改成"用 Step 1 的当日数据补最后一根"这种做法。
 - 池子季报期落后时 `summary.txt` 会多打一行 `⚠ 已落后于应有的 <报告期>, 请跑 ./run_quarterly.sh`;
   季度那一套(季报→建池→回测→敏感性)仍然手动/按需跑,不塞进每日任务。
 

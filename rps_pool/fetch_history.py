@@ -150,23 +150,32 @@ def run_batch(codes: list[str], period: str, chunk: int, mode: str,
                     re_full.append(c)
                     continue
                 oc = old.set_index("Date")["Close"].astype(float)
-                nx = x["Close"].astype(float).dropna()
+                # 停牌日 yfinance 会给整行 NaN, 只保留有成交的那些天; 注意各列必须同一批行,
+                # 否则拼 DataFrame 会 "All arrays must be of the same length"
+                nx = x.dropna(subset=["Close"]).copy()
+                if nx.empty:
+                    re_full.append(c)
+                    continue
                 nx.index = pd.to_datetime(nx.index).strftime("%Y-%m-%d")
+                cl = nx["Close"].astype(float)
                 ov = [d for d in nx.index if d in oc.index]
                 if len(ov) < 5:
                     re_full.append(c)          # 重叠太少, 无法判断漂移 => 保守整段重下
                     continue
-                ratio = np.array([nx[d] / oc[d] for d in ov], dtype=float)
+                ratio = np.array([cl[d] / oc[d] for d in ov], dtype=float)
                 if np.nanmax(np.abs(ratio - 1.0)) > DRIFT:
                     re_full.append(c)          # 期间除权, 全序列重下
                     continue
-                merged = pd.concat([old[old.Date < min(ov)],
-                                    pd.DataFrame({"Date": nx.index,
-                                                  "Open": x["Open"].values,
-                                                  "High": x["High"].values,
-                                                  "Low": x["Low"].values,
-                                                  "Close": nx.values,
-                                                  "Volume": x["Volume"].values})])
+                def _col(nm):
+                    s = pd.to_numeric(nx[nm], errors="coerce") if nm in nx.columns else None
+                    return s.to_numpy(dtype=float) if s is not None else np.full(len(nx), np.nan)
+                new = pd.DataFrame({"Date": list(nx.index), "Open": _col("Open"),
+                                    "High": _col("High"), "Low": _col("Low"),
+                                    "Close": cl.to_numpy(dtype=float),
+                                    "Volume": _col("Volume")})
+                newd = set(new["Date"])
+                merged = pd.concat([old[~old["Date"].isin(newd)], new])   # 重叠日以后来的为准
+                merged = merged.sort_values("Date").reset_index(drop=True)
                 n = write_one(c, merged.reset_index(drop=True))
             else:
                 n = write_one(c, x)
