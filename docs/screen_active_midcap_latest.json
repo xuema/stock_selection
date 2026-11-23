@@ -1,20 +1,42 @@
 {
   "strategy": "screen_active_midcap",
   "strategy_name": "活跃中盘股",
-  "screen_date": "2026-11-22",
+  "screen_date": "2026-11-23",
   "total_scanned": 4364,
-  "total_matched": 1,
+  "total_matched": 3,
   "stocks": [
     {
-      "ticker": "688507",
-      "name": "索辰科技",
-      "date": "2026-11-20",
-      "close": 156.4,
-      "pct": 3.85,
-      "turnover_pct": 14.78,
-      "v_ratio": 1.03,
-      "board": "cx",
-      "mcap_yi": 82.0
+      "ticker": "002749",
+      "name": "国光股份",
+      "date": "2026-11-23",
+      "close": 9.06,
+      "pct": 4.26,
+      "turnover_pct": 5.42,
+      "v_ratio": 6.74,
+      "board": "mb",
+      "mcap_yi": 60.0
+    },
+    {
+      "ticker": "605287",
+      "name": "德才股份",
+      "date": "2026-11-23",
+      "close": 34.97,
+      "pct": 5.39,
+      "turnover_pct": 6.39,
+      "v_ratio": 1.16,
+      "board": "mb",
+      "mcap_yi": 60.0
+    },
+    {
+      "ticker": "603068",
+      "name": "博通集成",
+      "date": "2026-11-23",
+      "close": 31.38,
+      "pct": 2.89,
+      "turnover_pct": 5.62,
+      "v_ratio": 1.15,
+      "board": "mb",
+      "mcap_yi": 50.0
     }
   ]
 }
