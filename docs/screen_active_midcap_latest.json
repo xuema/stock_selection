@@ -1,42 +1,53 @@
 {
   "strategy": "screen_active_midcap",
   "strategy_name": "活跃中盘股",
-  "screen_date": "2026-11-23",
+  "screen_date": "2026-11-24",
   "total_scanned": 4364,
-  "total_matched": 3,
+  "total_matched": 4,
   "stocks": [
     {
-      "ticker": "002749",
-      "name": "国光股份",
-      "date": "2026-11-23",
-      "close": 9.06,
-      "pct": 4.26,
-      "turnover_pct": 5.42,
-      "v_ratio": 6.74,
+      "ticker": "000593",
+      "name": "德龙汇能",
+      "date": "2026-11-24",
+      "close": 19.87,
+      "pct": 3.17,
+      "turnover_pct": 9.46,
+      "v_ratio": 2.48,
       "board": "mb",
-      "mcap_yi": 60.0
+      "mcap_yi": 53.0
     },
     {
-      "ticker": "605287",
-      "name": "德才股份",
-      "date": "2026-11-23",
-      "close": 34.97,
-      "pct": 5.39,
-      "turnover_pct": 6.39,
-      "v_ratio": 1.16,
+      "ticker": "600619",
+      "name": "海立股份",
+      "date": "2026-11-24",
+      "close": 14.94,
+      "pct": 5.29,
+      "turnover_pct": 5.68,
+      "v_ratio": 1.6,
       "board": "mb",
-      "mcap_yi": 60.0
+      "mcap_yi": 191.0
     },
     {
-      "ticker": "603068",
-      "name": "博通集成",
-      "date": "2026-11-23",
-      "close": 31.38,
-      "pct": 2.89,
+      "ticker": "002009",
+      "name": "天奇股份",
+      "date": "2026-11-24",
+      "close": 15.05,
+      "pct": 3.15,
+      "turnover_pct": 5.39,
+      "v_ratio": 1.14,
+      "board": "mb",
+      "mcap_yi": 104.0
+    },
+    {
+      "ticker": "603381",
+      "name": "永臻股份",
+      "date": "2026-11-24",
+      "close": 15.01,
+      "pct": 2.32,
       "turnover_pct": 5.62,
-      "v_ratio": 1.15,
+      "v_ratio": 1.11,
       "board": "mb",
-      "mcap_yi": 50.0
+      "mcap_yi": 63.0
     }
   ]
 }
