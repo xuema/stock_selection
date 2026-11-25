@@ -17,3 +17,9 @@ venv/
 rps_pool/out/
 rps_pool/data/
 rps_pool/logs/
+
+# 板块RPS: K线断点缓存(约550个小文件, 每次运行重取)与覆盖前备份, 不进版本库
+sector_rps/data/kline_cache/
+sector_rps/data/*.prev.json
+# 图片每天重画且看板页面并不引用它们, 别把 4.5MB 二进制写进历史
+sector_rps/data/*.png

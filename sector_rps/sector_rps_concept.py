@@ -14,7 +14,12 @@ import warnings
 import json
 import argparse
 import concurrent.futures
+import os
+import shutil
+import socket
+import sys
 import time
+import threading
 from datetime import datetime, timedelta
 
 from board_filter import split_boards
@@ -27,33 +32,191 @@ RPS_PERIODS = [5, 10, 20, 30, 60, 120]
 RPS_PERIODS_TDX = [5, 10, 15, 20, 50]
 ALL_PERIODS = sorted(set(RPS_PERIODS) | set(RPS_PERIODS_TDX))
 
-OUTPUT_DIR = Path(__file__).parent / "data"
+# RPS_DATA_DIR 只用于测试/试运行，避免把试跑结果写进 cron 依赖的真实快照
+OUTPUT_DIR = Path(os.environ.get("RPS_DATA_DIR") or Path(__file__).parent / "data")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 HISTORY_DIR = OUTPUT_DIR / "history"
 HISTORY_DIR.mkdir(parents=True, exist_ok=True)
+KLINE_CACHE_DIR = OUTPUT_DIR / "kline_cache"
+KLINE_CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
 BASE_KLINE = "https://push2his.eastmoney.com/api/qt/stock/kline/get"
 BASE_BOARD_LIST = "https://push2.eastmoney.com/api/qt/clist/get"
 
+# 代理抖动时整轮请求会一起失败，靠两道闸门兜底：
+#   连通性预检失败 → 立刻退出，不跑满 550 次超时
+#   覆盖率低于 MIN_COVER_RATIO → 不覆盖上一份可用快照
+MIN_COVER_RATIO = 0.6
+MIN_BOARDS = 300
+PROBE_BOARDS = 3
+# 连续失败这么多板块就判定数据源整体不可用，不再把 550 次超时跑满
+MAX_STREAK_FAIL = 25
+
+
+PIN_HOSTS = ("push2.eastmoney.com", "push2his.eastmoney.com")
+DOH_ENDPOINTS = ("https://223.5.5.5/resolve", "https://dns.google/resolve")
+# 东财 push2 走 trafficmanager，不同 CDN 节点表现差别很大(同一时刻有节点 200、有节点 502)，
+# DoH 拿到的又只是其中一两个，所以候选池要合并多个来源，再逐个实测筛掉坏节点。
+FALLBACK_IPS = {
+    "push2.eastmoney.com": ["120.79.191.232", "119.3.232.150", "120.76.218.228", "101.226.30.206", "61.129.129.196"],
+    "push2his.eastmoney.com": ["120.79.191.232", "119.3.232.150", "120.76.218.228", "117.184.40.129", "103.220.167.80"],
+}
+PROBE_SPECS = {
+    "push2.eastmoney.com": (BASE_BOARD_LIST, {"pn": "1", "pz": "1", "fltt": "2", "invt": "2",
+                                              "fid": "f3", "fs": "m:90 t:3 f:!50", "fields": "f12"}),
+    "push2his.eastmoney.com": (BASE_KLINE, {"secid": "90.BK1031", "fields1": "f1", "fields2": "f51,f53",
+                                            "klt": "101", "fqt": "1", "beg": "20260101", "end": "20261231"}),
+}
+_pinned_ips = {}
+_pinned_attempted = False
+_pin_slot = {}
+_direct_sess = None
+
+
+def _doh_lookup(host):
+    sess = requests.Session()
+    sess.trust_env = False
+    ips = []
+    for url in DOH_ENDPOINTS:
+        try:
+            answers = (sess.get(url, params={"name": host, "type": "A"}, timeout=6).json() or {}).get("Answer") or []
+        except Exception:
+            continue
+        for a in answers:
+            val = str(a.get("data", ""))
+            if a.get("type") == 1 and val.split(".")[0].isdigit() and val not in ips:
+                ips.append(val)
+    return ips
+
+
+def _ip_probe(host, ip):
+    """把解析临时锁死到这一个 IP，看它能不能真出数据。"""
+    saved = _pinned_ips.get(host)
+    _pinned_ips[host] = [ip]
+    try:
+        url, params = PROBE_SPECS[host]
+        return _http_get(url, params, 5).status_code == 200
+    except Exception:
+        return False
+    finally:
+        if saved:
+            _pinned_ips[host] = saved
+
+
+def pin_eastmoney_dns():
+    """接管这两个域名的解析，其余域名不受影响。"""
+    global _pinned_attempted
+    _pinned_attempted = True
+    for host in PIN_HOSTS:
+        pool = _doh_lookup(host)
+        pool += [ip for ip in FALLBACK_IPS.get(host, []) if ip not in pool]
+        if pool:
+            _pinned_ips[host] = pool
+            _pin_slot[host] = 0
+    if not _pinned_ips:
+        print("  ⚠️ DoH 也没解析到东财真实 IP，保持原解析")
+        return False
+
+    real_getaddrinfo = socket.getaddrinfo
+
+    def getaddrinfo(host, *args, **kwargs):
+        ips = _pinned_ips.get(host)
+        if ips:
+            host = ips[_pin_slot.get(host, 0) % len(ips)]
+        return real_getaddrinfo(host, *args, **kwargs)
+
+    socket.getaddrinfo = getaddrinfo
+
+    # 先实测再定池：坏节点直接踢掉，免得把整轮 retries 耗在连不通的 IP 上
+    for host in list(_pinned_ips):
+        pool = _pinned_ips[host][:4]
+        good = [ip for ip in pool if _ip_probe(host, ip)]
+        detail = f"{host}: 可用 {len(good)}/{len(pool)}"
+        if good:
+            _pinned_ips[host] = good
+            _pin_slot[host] = 0
+        print("  🔌 " + detail)
+    print("  🔌 绑定节点 " + "  ".join(f"{h}→{'/'.join(v)}" for h, v in _pinned_ips.items()))
+    return True
+
+
+def rotate_eastmoney_ip():
+    """同一时刻不同出口 IP 表现不一致(有的 200 有的 502)，失败就换下一个再试。"""
+    for host, ips in _pinned_ips.items():
+        if len(ips) > 1:
+            _pin_slot[host] = _pin_slot.get(host, 0) + 1
+
+
+def _http_get(url, params, timeout):
+    global _direct_sess
+    if not _pinned_ips:
+        return requests.get(url, params=params, timeout=timeout)
+    if _direct_sess is None:
+        _direct_sess = requests.Session()
+        _direct_sess.trust_env = False   # 走代理会让上游重新解析回假 IP，必须直连
+    return _direct_sess.get(url, params=params, timeout=timeout)
+
+
+def _get_json(url, params, retries=4, pause=1.5, timeout=10):
+    """东财接口在代理断连时抛 ProxyError/RemoteDisconnected，重试后仍失败返回 None。"""
+    for attempt in range(retries):
+        try:
+            resp = _http_get(url, params, timeout)
+            if resp.status_code == 200:
+                return resp.json()
+        except Exception:
+            pass
+        if attempt < retries - 1:
+            rotate_eastmoney_ip()
+            time.sleep(pause)
+    if not _pinned_attempted and pin_eastmoney_dns():
+        return _get_json(url, params, retries=2, pause=pause, timeout=timeout)
+    return None
+
+
+def _diff_of(payload):
+    data = (payload or {}).get("data") or {}
+    diff = data.get("diff") or []
+    return list(diff.values()) if isinstance(diff, dict) else diff
+
 
 # ─── 获取概念板块列表 ───
-def fetch_concept_boards():
+def fetch_concept_boards(max_pages=15):
     all_boards = []
-    for page in range(1, 15):
+    for page in range(1, max_pages + 1):
         params = {
             "pn": page, "pz": 100, "po": "1", "np": "1", "fltt": "2", "invt": "2",
             "fid": "f3", "fs": "m:90 t:3 f:!50",
             "fields": "f2,f3,f4,f12,f14"
         }
-        resp = requests.get(BASE_BOARD_LIST, params=params, timeout=10)
-        items = resp.json().get("data", {}).get("diff", [])
+        items = _diff_of(_get_json(BASE_BOARD_LIST, params))
         if not items:
+            if page > 1:
+                print(f"    板块列表止于第 {page - 1} 页(第 {page} 页重试后仍无数据)")
             break
         for item in items:
-            all_boards.append({"code": item["f12"], "name": item["f14"]})
+            if item.get("f12"):
+                all_boards.append({"code": item["f12"], "name": item["f14"]})
         if len(items) < 100:
             break
     return all_boards
+
+
+def load_boards_snapshot():
+    """clist 不可用时用上一份快照的板块名单：算 RPS 只需要 code/name，名单不会天天变。"""
+    for path in (OUTPUT_DIR / "sector_rps.prev.json", OUTPUT_DIR / "sector_rps.json"):
+        if not path.exists():
+            continue
+        try:
+            payload = json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        boards = [{"code": s["code"], "name": s["name"]}
+                  for s in payload.get("sectors", []) if s.get("code") and s.get("name")]
+        if len(boards) >= MIN_BOARDS:
+            print(f"  ↩️ 名单来源 {path.name}({len(boards)} 个，快照日期 {payload.get('date')})，K线仍走实时接口")
+            return boards
+    return []
 
 
 # ─── 获取板块资金流(主力净流入) ───
@@ -80,20 +243,12 @@ def fetch_fund_flow(max_pages=12, retries=6):
             "fid": "f62", "fs": "m:90 t:3 f:!50", "stat": "1",
             "fields": FUND_FIELDS,
         }
-        data = None
-        for _ in range(retries):
-            try:
-                data = requests.get(BASE_BOARD_LIST, params=params, timeout=10).json().get("data")
-                if data:
-                    break
-            except Exception:
-                pass
-            time.sleep(2)
+        payload = _get_json(BASE_BOARD_LIST, params, retries=retries, pause=2)
+        data = (payload or {}).get("data")
         if not data:
             print(f"    资金流第 {page} 页获取失败，跳过该页")
             continue
-        diff = data.get("diff") or []
-        items = list(diff.values()) if isinstance(diff, dict) else diff
+        items = _diff_of(payload)
         if not items:
             break
         for it in items:
@@ -118,8 +273,35 @@ def fetch_fund_flow(max_pages=12, retries=6):
     return df
 
 
-# ─── 获取单个板块K线 ───
-def fetch_board_kline(board_code):
+# ─── 板块K线本地缓存 ───
+# 一轮要取 550 个板块，代理半路断掉时缓存能让下一次运行(13:50 补跑或次日 08:30 定版)接着跑完
+def _kline_cache_path(board_code):
+    return KLINE_CACHE_DIR / f"{board_code}.csv"
+
+
+def _read_kline_cache(board_code):
+    path = _kline_cache_path(board_code)
+    if not path.exists():
+        return None
+    try:
+        df = pd.read_csv(path, encoding="utf-8-sig")
+        if not len(df):
+            return None
+        df["date"] = pd.to_datetime(df["date"])
+        return df.sort_values("date").reset_index(drop=True)
+    except Exception:
+        return None
+
+
+def _write_kline_cache(board_code, df):
+    try:
+        df.assign(date=df["date"].dt.strftime("%Y-%m-%d")).to_csv(
+            _kline_cache_path(board_code), index=False, encoding="utf-8")
+    except Exception:
+        pass
+
+
+def _fetch_kline_remote(board_code, retries=2):
     try:
         end_date = datetime.now().strftime("%Y%m%d")
         start_date = (datetime.now() - timedelta(days=200)).strftime("%Y%m%d")
@@ -131,8 +313,8 @@ def fetch_board_kline(board_code):
             "beg": start_date, "end": end_date,
             "lmt": "300",
         }
-        resp = requests.get(BASE_KLINE, params=params, timeout=10)
-        klines = resp.json().get("data", {}).get("klines", [])
+        payload = _get_json(BASE_KLINE, params, retries=retries, pause=1.0)
+        klines = ((payload or {}).get("data") or {}).get("klines") or []
         if not klines:
             return None
         records = []
@@ -147,28 +329,67 @@ def fetch_board_kline(board_code):
                 })
         df = pd.DataFrame(records)
         df["date"] = pd.to_datetime(df["date"])
-        df.sort_values("date", inplace=True)
-        df.reset_index(drop=True, inplace=True)
-        return df if len(df) >= 120 else None
+        return df.sort_values("date").reset_index(drop=True)
     except Exception:
         return None
 
 
+# ─── 获取单个板块K线 ───
+def fetch_board_kline(board_code, asof=None, use_cache=True, retries=2):
+    cache = _read_kline_cache(board_code) if use_cache else None
+    if cache is not None and len(cache) >= 120 and asof is not None and cache["date"].iloc[-1] >= asof:
+        return cache
+    df = _fetch_kline_remote(board_code, retries=retries)
+    if df is None:
+        return cache if cache is not None and len(cache) >= 120 else None
+    if cache is not None:
+        df = (pd.concat([cache, df], ignore_index=True)
+              .drop_duplicates("date", keep="last")
+              .sort_values("date").reset_index(drop=True))
+    _write_kline_cache(board_code, df)
+    return df if len(df) >= 120 else None
+
+
+def probe_asof_date(boards):
+    """确认数据源最新交易日，顺带当连通性预检：3 个板块全取不到就判定本轮不可用。"""
+    dates = []
+    for board in boards[:PROBE_BOARDS]:
+        df = fetch_board_kline(board["code"], asof=None, use_cache=False)
+        if df is not None and len(df):
+            dates.append(df["date"].iloc[-1])
+    return max(dates) if dates else None
+
+
 # ─── 并发获取所有K线 ───
-def fetch_all_klines(boards):
+def fetch_all_klines(boards, asof=None):
     print(f"  并发获取 {len(boards)} 个板块K线...")
     kline_data = {}
+    lock = threading.Lock()
+    streak = 0
     with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
-        future_to_code = {executor.submit(fetch_board_kline, b["code"]): b for b in boards}
+        future_to_code = {executor.submit(fetch_board_kline, b["code"], asof=asof): b for b in boards}
         done = 0
-        for future in concurrent.futures.as_completed(future_to_code):
+        for future in concurrent.futures.as_completed(future_to_code, timeout=1800):
             board = future_to_code[future]
             done += 1
             if done % 100 == 0:
                 print(f"    进度: {done}/{len(boards)}")
-            df = future.result()
-            if df is not None:
-                kline_data[board["code"]] = df
+            try:
+                df = future.result()
+            except Exception:
+                df = None
+            with lock:
+                if df is None:
+                    streak += 1
+                else:
+                    streak = 0
+                    kline_data[board["code"]] = df
+                halted = streak >= MAX_STREAK_FAIL
+            if halted:
+                print(f"    ❌ 连续 {streak} 个板块取不到K线，判定行情源不可用，中断本轮")
+                for fut in future_to_code:
+                    fut.cancel()
+                break
     print(f"  成功: {len(kline_data)}/{len(boards)}")
     return kline_data
 
@@ -331,11 +552,15 @@ def add_persistence(rps_df, history):
 
 # ─── 可视化 ───
 def plot_rps(rps_df, periods=RPS_PERIODS):
+    import matplotlib
+    matplotlib.use("Agg")  # cron 无 GUI 会话，默认后端在 launchd/cron 下会起不来
     import matplotlib.pyplot as plt
     import matplotlib.font_manager as fm
     
     font_path = "/System/Library/AssetsV2/com_apple_MobileAsset_Font8/86ba2c91f017a3749571a82f2c6d890ac7ffb2fb.asset/AssetData/PingFang.ttc"
-    fm.fontManager.addfont(font_path)
+    # 该路径带 macOS 版本哈希，系统升级后可能失效；缺字体只影响图片，不该拖垮快照
+    if os.path.exists(font_path):
+        fm.fontManager.addfont(font_path)
     plt.rcParams["font.sans-serif"] = ["PingFang SC", "Heiti SC", "STHeiti"]
     plt.rcParams["axes.unicode_minus"] = False
     
@@ -591,6 +816,15 @@ def print_summary(rps_df, periods=RPS_PERIODS):
 
 
 # ─── Main ───
+def _prev_snapshot_date(json_path):
+    """上一份可用快照的数据日期，用来判断这一轮到底有没有拿到新bar。"""
+    try:
+        with open(json_path, encoding="utf-8") as f:
+            return json.load(f).get("date")
+    except Exception:
+        return None
+
+
 def main():
     parser = argparse.ArgumentParser(description="A股概念板块 RPS 分析")
     parser.add_argument("--session", choices=["intraday", "final", "auto"], default="auto",
@@ -603,36 +837,64 @@ def main():
     print("=" * 60)
 
     raw_boards = fetch_concept_boards()
+    if len(raw_boards) < MIN_BOARDS:
+        print(f"  ⚠️ 板块列表只取到 {len(raw_boards)} 个(<{MIN_BOARDS})，改用上一份可用快照的名单")
+        raw_boards = load_boards_snapshot()
+    if len(raw_boards) < MIN_BOARDS:
+        print(f"  ❌ 板块名单不足 {MIN_BOARDS} 个(快照也只有 {len(raw_boards)})，保留上一份快照")
+        return 1
     boards, excluded = split_boards(raw_boards)
     print(f"  概念板块 {len(raw_boards)} 个 → 题材口径保留 {len(boards)} 个 / 剔除 {len(excluded)} 个(技术形态·风格·宽基指数)")
     if excluded:
         pd.DataFrame(excluded).to_csv(OUTPUT_DIR / "excluded_boards.csv", index=False, encoding="utf-8-sig")
 
-    kline_data = fetch_all_klines(boards)
-    if not kline_data:
-        print("  未能获取到数据")
-        return
+    asof = probe_asof_date(boards)
+    if asof is None:
+        print("  ❌ K线接口(push2his)无响应，保留上一份快照")
+        return 1
+    print(f"  数据源最新交易日: {asof:%Y-%m-%d}")
+
+    kline_data = fetch_all_klines(boards, asof=asof)
+    cover = len(kline_data) / max(len(boards), 1)
+    if cover < MIN_COVER_RATIO:
+        print(f"  ❌ K线覆盖 {len(kline_data)}/{len(boards)} = {cover:.0%}，低于 {MIN_COVER_RATIO:.0%}，保留上一份快照")
+        return 1
 
     print("\n  计算RPS...")
     rps_df = calculate_rps(kline_data, boards)
 
     print("\n  获取板块资金流(主力净流入)...")
-    rps_df = add_fund_flow(rps_df, fetch_fund_flow())
+    fund_asof = datetime.now().strftime("%Y-%m-%d %H:%M")
+    fund_df = fetch_fund_flow()
+    if fund_df is None:
+        print("  ⚠️  资金流本轮未取到，资金列留空(RPS 仍照常出快照)")
+    rps_df = add_fund_flow(rps_df, fund_df)
 
     snapshot_path, snapshot_date = archive_snapshot(rps_df, session)
     print(f"  快照归档: {snapshot_path.name}")
     rps_df = add_persistence(rps_df, load_history())
 
     print("\n  生成可视化...")
-    plot_rps(rps_df)
+    try:
+        plot_rps(rps_df)
+    except Exception as exc:
+        print(f"  ⚠️  图片生成失败({exc.__class__.__name__}: {exc})，不影响 JSON 快照")
 
     print_summary(rps_df)
 
     # ── 导出 JSON 供可视化使用 ──
     json_path = OUTPUT_DIR / "sector_rps.json"
+    prev_date = _prev_snapshot_date(json_path)
+    if prev_date and snapshot_date <= prev_date:
+        print(f"  ⚠️  数据日期未前进(仍是 {prev_date})，东财当日K线可能尚未生成")
+    if json_path.exists():
+        shutil.copy2(json_path, json_path.with_suffix(".prev.json"))
     export_data = {
         "date": snapshot_date,
         "session": session,
+        "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "fund_asof": fund_asof if fund_df is not None else None,
+        "kline_cover": f"{len(kline_data)}/{len(boards)}",
         "universe": {"total": len(raw_boards), "theme": len(boards), "excluded": len(excluded)},
         "sectors": []
     }
@@ -674,7 +936,8 @@ def main():
     print(f"  数据JSON: {json_path} ({len(export_data['sectors'])} sectors, session={session})")
 
     print("\n  完成!")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

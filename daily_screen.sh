@@ -15,6 +15,7 @@ RSI_STB_SCRIPT="$REPO_DIR/strategy/screen_rsi_stb_resonance.py"
 ACTIVE_MIDCAP_SCRIPT="$REPO_DIR/strategy/screen_active_midcap.py"
 HOT_SECTORS_SCRIPT="$REPO_DIR/strategy/screen_hot_sectors.py"
 SECTOR_RPS_SCRIPT="$REPO_DIR/sector_rps/sector_rps_concept.py"
+SECTOR_RPS_TDX_SCRIPT="$REPO_DIR/sector_rps/sector_rps_tdx.py"
 RPS_POOL_DIR="$REPO_DIR/rps_pool"
 GEN_HTML_SCRIPT="$REPO_DIR/sector_rps/gen_html.py"
 OUTPUT_DIR="$REPO_DIR/output/strategy"
@@ -224,12 +225,24 @@ if "$VENV_PYTHON" "$SECTOR_RPS_SCRIPT" 2>&1; then
   # 生成HTML页面 + JS数据文件
   if "$VENV_PYTHON" "$GEN_HTML_SCRIPT" 2>&1; then
     SECTOR_RPS_COUNT=$(jq '.sectors | length' "$REPO_DIR/sector_rps/data/sector_rps.json" 2>/dev/null || echo "0")
-    OK "概念板块RPS: $SECTOR_RPS_COUNT 个板块 (HTML+图片已同步)"
+    SECTOR_RPS_FRESH=1
+    OK "概念板块RPS: $SECTOR_RPS_COUNT 个板块 / 数据日期 $(jq -r '.date' "$REPO_DIR/sector_rps/data/sector_rps.json" 2>/dev/null) (HTML+图片已同步)"
   else
     WARN "概念板块RPS HTML生成失败"
   fi
 else
   WARN "概念板块RPS分析失败，继续后续步骤..."
+fi
+
+# ─── Step 12b: 通达信板块指数RPS对照表 ───
+STEP "Step 12b — 通达信板块指数(88xxxx) RPS 对照表..."
+TDX_RPS_COUNT=0
+if "$VENV_PYTHON" "$SECTOR_RPS_TDX_SCRIPT" 2>&1; then
+  TDX_RPS_COUNT=$(jq '.sectors | length' "$REPO_DIR/sector_rps/data/tdx_rps.json" 2>/dev/null || echo "0")
+  cp -f "$REPO_DIR/sector_rps/data/tdx_rps.json" "$DOCS_DIR/" 2>/dev/null || true
+  OK "通达信对照表: $TDX_RPS_COUNT 个板块"
+else
+  WARN "通达信对照表失败/不可用，跳过(东财主流程不受影响)"
 fi
 
 # ─── Generate Strategy Images (PNG) ───
@@ -306,9 +319,12 @@ cp "$OUTPUT_DIR"/screen_*_????-??-??.json "$DOCS_DIR/" 2>/dev/null || true
 cp "$OUTPUT_DIR"/*.png "$DOCS_DIR/" 2>/dev/null || true
 
 # Sync sector RPS files (gen_html.py 已生成HTML+JS)
-if [ -f "$REPO_DIR/sector_rps/data/sector_rps.json" ]; then
+# 只在本轮 Step 12 真的重算了快照时才覆盖 docs/，否则线上保留上一版可用数据
+if [ "${SECTOR_RPS_FRESH:-0}" -eq 1 ] && [ -f "$REPO_DIR/sector_rps/data/sector_rps.json" ]; then
   cp "$REPO_DIR/sector_rps/data/sector_rps.json" "$DOCS_DIR/sector_rps.json"
   cp "$REPO_DIR/sector_rps/data/"*.png "$DOCS_DIR/" 2>/dev/null || true
+else
+  WARN "本轮板块RPS未更新，docs/ 保留上一版快照"
 fi
 OK "docs/ 已同步"
 
@@ -343,6 +359,9 @@ printf "  活跃中盘股:      %s 只\n" "$MIDCAP_COUNT"
 printf "  RSP热门板块:     %s 个板块\n" "$SECTORS_COUNT"
 if [ -n "${SECTOR_RPS_COUNT:-}" ] && [ "$SECTOR_RPS_COUNT" -gt 0 ] 2>/dev/null; then
   printf "  概念板块RPS:     %s 个板块\n" "$SECTOR_RPS_COUNT"
+fi
+if [ -n "${TDX_RPS_COUNT:-}" ] && [ "$TDX_RPS_COUNT" -gt 0 ] 2>/dev/null; then
+  printf "  通达信对照表:    %s 个板块 (88xxxx, RPS 5/10/15/20/50)\n" "$TDX_RPS_COUNT"
 fi
 if [ -n "${RPSPOOL_DUAL:-}" ]; then
   printf "  RPS池双策略:     %s 只入选, %s 只卖出提示 (基金+北向池)\n" "$RPSPOOL_DUAL" "$RPSPOOL_SELL"

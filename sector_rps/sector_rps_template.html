@@ -12,6 +12,7 @@ h1{font-size:1.4rem;margin-bottom:2px}
 .header{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
 .badge{background:var(--border);padding:4px 12px;border-radius:20px;font-size:.82rem;color:var(--muted)}
 .badge.live{background:rgba(63,185,80,.15);color:var(--green)}
+.badge.warn{background:rgba(227,179,65,.18);color:var(--orange);margin-left:10px;display:none}
 .back-link{margin-left:auto;color:var(--lime);text-decoration:none;font-size:.9rem;opacity:.8}
 .back-link:hover{opacity:1}
 .summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:20px}
@@ -74,6 +75,7 @@ h1{font-size:1.4rem;margin-bottom:2px}
   <h1>概念板块 RPS 分析</h1>
   <span class="badge live" id="statusBadge">加载中</span>
   <span id="headerDate" style="margin-left:12px;font-size:.85rem;color:var(--muted)"></span>
+  <span class="badge warn" id="basisWarn"></span>
   <a class="back-link" href="index.html"> 返回选股看板</a>
 </div>
 
@@ -333,7 +335,18 @@ document.addEventListener('click',function(e){
 if(allData.length){
   applyFilter();render();
   document.getElementById('statusBadge').innerHTML=allData.length+'个板块';
-  document.getElementById('headerDate').textContent='数据日期: '+(DATA.date||'');
+  var genDate=(DATA.generated_at||'').slice(0,10), rpsDate=(DATA.date||'').slice(0,10);
+  var parts=['RPS数据日期 '+(rpsDate||'未知')+' ('+(DATA.session==='final'?'定版':'盘中')+')'];
+  if(DATA.fund_asof) parts.push('资金抓取 '+DATA.fund_asof);
+  if(DATA.kline_cover) parts.push('K线覆盖 '+DATA.kline_cover);
+  if(DATA.generated_at) parts.push('页面生成 '+DATA.generated_at);
+  document.getElementById('headerDate').textContent=parts.join('  ·  ');
+  // 盘中快照本该含当日bar；日期落后说明这一轮拿的是旧数据，不能当今日读数用
+  if(DATA.session!=='final' && genDate && rpsDate && rpsDate!==genDate){
+    var bw=document.getElementById('basisWarn');
+    bw.textContent='⚠ RPS 仍是 '+rpsDate+'，未更新到 '+genDate;
+    bw.style.display='inline-block';
+  }
 }else{
   document.getElementById('detail-table').innerHTML='<tr><td class="empty">数据加载失败</td></tr>';
   document.getElementById('statusBadge').innerHTML='加载失败';
