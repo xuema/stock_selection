@@ -492,7 +492,8 @@ def detect_session(now=None):
 def archive_snapshot(rps_df, session):
     latest_date = rps_df["latest_date"].mode().iloc[0]
     cols = (["code", "name", "latest_date", "close", "amount", "amount_ratio5"]
-            + [f"RPS{p}" for p in ALL_PERIODS] + ["RPS_avg", "RPS_tdx"])
+            + [f"RPS{p}" for p in ALL_PERIODS] + ["RPS_avg", "RPS_tdx"]
+            + ["RPS_5v10", "RPS_5v20", "mf_5", "mf_5_pct", "mf_today_pct", "MF5_rank", "money_sig"])
     path = HISTORY_DIR / f"concept_rps_{latest_date}_{session}.csv"
     rps_df[cols].to_csv(path, index=False, encoding="utf-8-sig")
     return path, latest_date
@@ -934,6 +935,11 @@ def main():
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(export_data, f, ensure_ascii=False, indent=2)
     print(f"  数据JSON: {json_path} ({len(export_data['sectors'])} sectors, session={session})")
+
+    # 按交易日留档一份完整快照：sector_rps.json 是覆盖式的，历史回看只能靠这里
+    hist_path = HISTORY_DIR / f"sector_rps_{export_data['date']}_{session}.json"
+    hist_path.write_text(json.dumps(export_data, ensure_ascii=False), encoding="utf-8")
+    print(f"  历史留档: {hist_path.name}")
 
     print("\n  完成!")
     return 0

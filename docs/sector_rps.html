@@ -24,6 +24,9 @@ h1{font-size:1.4rem;margin-bottom:2px}
 .filter-btn:hover{color:var(--text)}
 .filter-btn.active{color:var(--lime);border-color:var(--lime);background:rgba(139,195,74,.1)}
 .search-input{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:6px 12px;font-size:.85rem;width:180px}
+.date-sel{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:5px 8px;font-size:.82rem;cursor:pointer;margin-right:8px}
+.date-sel:disabled{cursor:default;color:var(--muted)}
+.date-lab{font-size:.75rem;color:var(--muted);margin-right:4px}
 .chart-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
 @media(max-width:900px){.chart-row{grid-template-columns:1fr}}
 .rps-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px}
@@ -95,7 +98,7 @@ h1{font-size:1.4rem;margin-bottom:2px}
   <button class="filter-btn" data-f="strong">持续走强</button>
   <button class="filter-btn" data-f="top20">TOP20</button>
   <button class="filter-btn" data-f="weak">走弱板块</button>
-  <span style="margin-left:auto"><input class="search-input" id="search" placeholder="搜索板块名称或代码..."></span>
+  <span style="margin-left:auto"><label class="date-lab" for="date-sel">数据日期</label><select class="date-sel" id="date-sel" title="切换历史交易日快照"><option>加载中</option></select><input class="search-input" id="search" placeholder="搜索板块名称或代码..."></span>
 </div>
 
 <div class="chart-row">
@@ -343,25 +346,74 @@ document.addEventListener('click',function(e){
   applyFilter();render();
 });
 
-if(allData.length){
-  applyFilter();render();
-  document.getElementById('statusBadge').innerHTML=allData.length+'个板块';
-  var genDate=(DATA.generated_at||'').slice(0,10), rpsDate=(DATA.date||'').slice(0,10);
-  var parts=['RPS数据日期 '+(rpsDate||'未知')+' ('+(DATA.session==='final'?'定版':'盘中')+')'];
-  if(DATA.fund_asof) parts.push('资金抓取 '+DATA.fund_asof);
-  if(DATA.kline_cover) parts.push('K线覆盖 '+DATA.kline_cover);
-  if(DATA.generated_at) parts.push('页面生成 '+DATA.generated_at);
+// ─── 历史回看：每日快照存成 rps_history/<date>.js，切日期即换数据源重渲染 ───
+var liveSectors=allData;
+var liveMeta={date:DATA.date,session:DATA.session,generated_at:DATA.generated_at,fund_asof:DATA.fund_asof,kline_cover:DATA.kline_cover};
+var META=liveMeta,curDay=null,histDates=[],histCache={};
+
+function renderMeta(){
+  var genDate=(META.generated_at||'').slice(0,10),rpsDate=(META.date||'').slice(0,10);
+  var parts=[(curDay?'⟲ 历史回看 · ':'')+'RPS数据日期 '+(rpsDate||'未知')+' ('+(META.session==='final'?'定版':'盘中')+')'];
+  if(META.fund_asof) parts.push('资金抓取 '+META.fund_asof);
+  if(META.kline_cover) parts.push('K线覆盖 '+META.kline_cover);
+  if(META.generated_at) parts.push('页面生成 '+META.generated_at);
   document.getElementById('headerDate').textContent=parts.join('  ·  ');
+  document.getElementById('statusBadge').innerHTML=allData.length+'个板块';
+  var bw=document.getElementById('basisWarn');bw.style.display='none';
   // 盘中快照本该含当日bar；日期落后说明这一轮拿的是旧数据，不能当今日读数用
-  if(DATA.session!=='final' && genDate && rpsDate && rpsDate!==genDate){
-    var bw=document.getElementById('basisWarn');
+  if(!curDay&&META.session!=='final'&&genDate&&rpsDate&&rpsDate!==genDate){
     bw.textContent='⚠ RPS 仍是 '+rpsDate+'，未更新到 '+genDate;
     bw.style.display='inline-block';
   }
-}else{
+}
+
+function injectScript(src,cb){
+  var sc=document.createElement('script');
+  sc.src=src;sc.onload=function(){cb(true)};sc.onerror=function(){cb(false)};
+  document.body.appendChild(sc);
+}
+
+function useDay(day){
+  var sel=document.getElementById('date-sel');
+  function apply(pkg){
+    if(!pkg||!pkg.sectors||!pkg.sectors.length){
+      sel.value=curDay||'live';
+      document.getElementById('headerDate').innerHTML='<span style="color:var(--red)">⚠ '+day+' 的历史快照加载失败，下方仍是上一份数据</span>';
+      return;
+    }
+    histCache[day]=pkg;
+    curDay=day;META=pkg;allData=pkg.sectors;
+    renderMeta();applyFilter();render();
+  }
+  if(day==='live'){curDay=null;META=liveMeta;allData=liveSectors;renderMeta();applyFilter();render();return}
+  if(histCache[day]){apply(histCache[day]);return}
+  injectScript('rps_history/'+day+'.js',function(ok){
+    // 快速连点时以文件自带日期为准，避免把 A 日数据标成 B 日
+    var pkg=ok?window.SECTOR_RPS_DAY:null;
+    if(pkg&&pkg.date&&String(pkg.date).slice(0,10)!==day)pkg=null;
+    apply(pkg);
+  });
+}
+
+document.getElementById('date-sel').addEventListener('change',function(){useDay(this.value)});
+injectScript('rps_history/dates.js',function(ok){
+  histDates=ok?(window.SECTOR_RPS_DATES||[]):[];
+  var sel=document.getElementById('date-sel');
+  if(!histDates.length){sel.innerHTML='<option value="live">最新（历史快照待积累）</option>';sel.disabled=true;return}
+  var h='<option value="live">最新（'+String(DATA.date||'').slice(0,10)+(DATA.session==='final'?' 定版':' 盘中')+'）</option>';
+  histDates.forEach(function(d){
+    // 与内联那份同日同口径的历史包是重复项，藏在"最新"里就够
+    if(d.date===String(DATA.date||'').slice(0,10)&&(d.session||'')===DATA.session)return;
+    h+='<option value="'+d.date+'">'+d.date+' '+(d.session==='final'?'定版':'盘中')+' · '+d.boards+'板块/资金'+d.money+'</option>';
+  });
+  sel.innerHTML=h;sel.value='live';
+});
+
+if(allData.length){renderMeta();applyFilter();render();}else{
   document.getElementById('detail-table').innerHTML='<tr><td class="empty">数据加载失败</td></tr>';
   document.getElementById('statusBadge').innerHTML='加载失败';
 }
+
 </script>
 </body>
 </html>
