@@ -394,14 +394,18 @@ def carry_forward_money(rps_df, prev_money):
     """本轮没取到的资金格，沿用同日上一份快照的值：重跑只能补数，不能把已经补好的抹掉。"""
     if not prev_money:
         return rps_df
+    src = {c: (v or {}) for c, v in prev_money.items()}
     for col in MONEY_COLS:
         if col not in rps_df.columns:
             rps_df[col] = np.nan
+        if pd.api.types.is_integer_dtype(rps_df[col]):
+            rps_df[col] = rps_df[col].astype("float64")
         blank = rps_df[col].isna()
         if not blank.any():
             continue
-        rps_df.loc[blank, col] = rps_df.loc[blank, "code"].map(
-            {c: (v or {}).get(col) for c, v in prev_money.items()})
+        add = pd.to_numeric(rps_df.loc[blank, "code"].map(
+            lambda c: src.get(c, {}).get(col)), errors="coerce")
+        rps_df[col] = rps_df[col].where(~blank, add.reindex(rps_df.index))
     kept = int(rps_df["mf_5_pct"].notna().sum())
     print(f"    ↪️ 同日结转后资金覆盖: 5日 {kept} 个 / 当日 "
           f"{int(rps_df['mf_today_pct'].notna().sum())} 个")
@@ -1016,6 +1020,10 @@ def main():
 
     # push2 挂了就补当日那一层；5 日/10 日只能等 push2 或靠本地累计满 5 天
     dc_df, dc_date = fetch_fund_datacenter()
+    if dc_df is not None and dc_date != data_date:
+        # 兜底源只给"最新交易日"，日期一错就会把昨日资金记成今日，还会污染本地累计的 5 日窗口
+        print(f"    ⚠️  datacenter 资金日期 {dc_date} ≠ RPS 数据日期 {data_date}，本轮不用它兜底")
+        dc_df = None
     rps_df, _ = fill_from_frame(rps_df, dc_df, ["mf_today", "mf_today_pct"], "datacenter 当日")
     money_log = append_money_daily(rps_df, data_date)
     rps_df, _ = fill_from_frame(rps_df, mf5_from_log(money_log, data_date),
