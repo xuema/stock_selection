@@ -2,17 +2,21 @@
 """
 从财务 Excel 文件中提取股票的净利同比增长和总市值数据，生成 JSON 缓存。
 
-注意：这是 Q1 季度数据，非最新季度！
+数据口径: 净利同比增长取 Excel 里的最新已披露报告期 (D 列"报告期")，
+          总市值来自同一份文件，需要 update_finance_latest_quarter.py 之外
+          再刷估值才有更新。
+刷新链路: update_finance_latest_quarter.py → 本脚本 → strategy/*.py
 
 输出: stock_fundamentals_cache.json
 用法: python3 export_fundamentals_cache.py
 """
 import os
+import re
 import json
 from openpyxl import load_workbook
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-EXCEL_FILE = os.path.join(BASE, "final_rankings_with_details_Q1.xlsx")
+EXCEL_FILE = os.path.join(BASE, "final_rankings_with_details_latest.xlsx")
 CACHE_FILE = os.path.join(BASE, "stock_fundamentals_cache.json")
 
 def export():
@@ -23,32 +27,37 @@ def export():
     print("读取 Excel...")
     wb = load_workbook(EXCEL_FILE, read_only=True, data_only=True)  # data_only=True 读值不读公式
     ws = wb.active
-    rows = ws.max_row
-    print(f"共 {rows} 行，提取中...")
+
+    COL_CODE = 0       # A 代码
+    COL_PERIOD = 3     # D 报告期
+    COL_JLZZ = 5       # F 净利同比增长
+    COL_MCAP = 13      # N 总市值
 
     cache = {}
-    COL_CODE = 0       # A 代码
-    COL_JLZZ = 5       # F 净利同比增长 (Q1)
-    COL_MCAP = 13      # N 总市值 (Q1)
-
-    for r in range(2, rows + 1):
-        code_raw = ws.cell(row=r, column=COL_CODE + 1).value
-        if not code_raw:
+    period = None
+    # read_only 模式下 ws.cell() 每次都从头扫表，只能一次顺序遍历
+    for row in ws.iter_rows(min_row=2, values_only=True):
+        if not row or row[COL_CODE] is None:
             continue
-        code = str(code_raw).zfill(6)
+        m = re.search(r"\d{6}", str(row[COL_CODE]))
+        if not m:
+            continue
+        code = m.group(0)
+        if period is None and len(row) > COL_PERIOD and row[COL_PERIOD]:
+            period = str(row[COL_PERIOD])[:10]
 
-        # 净利同比增长 (Q1)
-        jl_raw = ws.cell(row=r, column=COL_JLZZ + 1).value
+        # 净利同比增长
         jl_growth = None
+        jl_raw = row[COL_JLZZ] if len(row) > COL_JLZZ else None
         if jl_raw and jl_raw != '-':
             try:
                 jl_growth = float(str(jl_raw).replace('%', ''))
             except (ValueError, TypeError):
                 pass
 
-        # 总市值 (Q1) (格式如 "68亿")
-        mcap_raw = ws.cell(row=r, column=COL_MCAP + 1).value
+        # 总市值 (格式如 "68亿")
         mcap_yi = None
+        mcap_raw = row[COL_MCAP] if len(row) > COL_MCAP else None
         if mcap_raw and mcap_raw != '-':
             try:
                 s = str(mcap_raw).lower()
@@ -77,6 +86,7 @@ def export():
     pos = sum(1 for v in jl_vals if v > 0) if jl_vals else 0
 
     print(f"💾 已保存 {len(cache)} 只")
+    print(f"   净利同比增长口径: 报告期 {period or '未知(旧文件无D列)'}")
     print(f"   净利同比正增长: {pos} 只")
     if mc_vals:
         mc_sorted = sorted(mc_vals)

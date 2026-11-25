@@ -2,7 +2,7 @@ import pandas as pd
 import json
 
 print('Loading Excel...')
-df = pd.read_excel('final_rankings_with_details_Q1.xlsx')
+df = pd.read_excel('final_rankings_with_details_latest.xlsx')
 print(f'Total rows: {len(df)}')
 
 cache = {}
