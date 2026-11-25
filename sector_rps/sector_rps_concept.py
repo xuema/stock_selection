@@ -12,14 +12,25 @@ import numpy as np
 from pathlib import Path
 import warnings
 import json
+import argparse
 import concurrent.futures
+import time
 from datetime import datetime, timedelta
+
+from board_filter import split_boards
 
 warnings.filterwarnings("ignore")
 
+# 主口径：保持原 6 周期不变，HTML 面板(sector_rps_template.html)硬编码依赖这些键
 RPS_PERIODS = [5, 10, 20, 30, 60, 120]
+# 对齐通达信「板块指数RPS」的周期口径，只增列不改主口径
+RPS_PERIODS_TDX = [5, 10, 15, 20, 50]
+ALL_PERIODS = sorted(set(RPS_PERIODS) | set(RPS_PERIODS_TDX))
+
 OUTPUT_DIR = Path(__file__).parent / "data"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+HISTORY_DIR = OUTPUT_DIR / "history"
+HISTORY_DIR.mkdir(parents=True, exist_ok=True)
 
 BASE_KLINE = "https://push2his.eastmoney.com/api/qt/stock/kline/get"
 BASE_BOARD_LIST = "https://push2.eastmoney.com/api/qt/clist/get"
@@ -45,6 +56,68 @@ def fetch_concept_boards():
     return all_boards
 
 
+# ─── 获取板块资金流(主力净流入) ───
+# 单次 clist/get 请求即同时返回今日(f62/f184)、5日(f164/f165)、10日(f174/f175)，
+# stat 参数只切换服务端排序口径、不影响字段填充，因此不需要按窗口重复请求。
+# 净额字段单位是元，净占比字段已是 %。
+FUND_FIELDS = "f12,f14,f62,f184,f164,f165,f174,f175"
+
+
+def _fund_val(raw, scale=1.0):
+    try:
+        if raw in (None, "-", ""):
+            return np.nan
+        return float(raw) * scale
+    except (TypeError, ValueError):
+        return np.nan
+
+
+def fetch_fund_flow(max_pages=12, retries=6):
+    rows = {}
+    for page in range(1, max_pages + 1):
+        params = {
+            "pn": page, "pz": 100, "po": "1", "np": "1", "fltt": "2", "invt": "2",
+            "fid": "f62", "fs": "m:90 t:3 f:!50", "stat": "1",
+            "fields": FUND_FIELDS,
+        }
+        data = None
+        for _ in range(retries):
+            try:
+                data = requests.get(BASE_BOARD_LIST, params=params, timeout=10).json().get("data")
+                if data:
+                    break
+            except Exception:
+                pass
+            time.sleep(2)
+        if not data:
+            print(f"    资金流第 {page} 页获取失败，跳过该页")
+            continue
+        diff = data.get("diff") or []
+        items = list(diff.values()) if isinstance(diff, dict) else diff
+        if not items:
+            break
+        for it in items:
+            code = it.get("f12")
+            if not code:
+                continue
+            rows[code] = {
+                "mf_today": _fund_val(it.get("f62"), 1e-8),
+                "mf_today_pct": _fund_val(it.get("f184")),
+                "mf_5": _fund_val(it.get("f164"), 1e-8),
+                "mf_5_pct": _fund_val(it.get("f165")),
+                "mf_10": _fund_val(it.get("f174"), 1e-8),
+                "mf_10_pct": _fund_val(it.get("f175")),
+            }
+        if len(rows) >= (data.get("total") or 0):
+            break
+
+    if not rows:
+        return None
+    df = pd.DataFrame.from_dict(rows, orient="index").reset_index(names="code")
+    print(f"    资金流获取 {len(df)} 个板块主力净流入")
+    return df
+
+
 # ─── 获取单个板块K线 ───
 def fetch_board_kline(board_code):
     try:
@@ -66,9 +139,11 @@ def fetch_board_kline(board_code):
         for line in klines:
             parts = line.split(",")
             if len(parts) >= 3:
+                # fields2: f51日期 f52开 f53收 f54高 f55低 f56量 f57额 → parts[6] 是成交额(元)
                 records.append({
                     "date": parts[0],
                     "close": float(parts[2]),
+                    "amount": float(parts[6]) if len(parts) >= 7 else np.nan,
                 })
         df = pd.DataFrame(records)
         df["date"] = pd.to_datetime(df["date"])
@@ -99,14 +174,22 @@ def fetch_all_klines(boards):
 
 
 # ─── 计算RPS ───
-def calculate_rps(kline_data, board_info, periods=RPS_PERIODS):
+def calculate_rps(kline_data, board_info, periods=ALL_PERIODS):
     results = []
     for code, df in kline_data.items():
         close = df["close"]
         latest = close.iloc[-1]
         name = next((b["name"] for b in board_info if b["code"] == code), code)
-        
+
         row = {"code": code, "name": name, "latest_date": df["date"].iloc[-1].strftime("%Y-%m-%d"), "close": round(latest, 2)}
+        amount = df["amount"].dropna() if "amount" in df else pd.Series(dtype=float)
+        if len(amount):
+            row["amount"] = round(float(amount.iloc[-1]) / 1e8, 2)
+            base = amount.iloc[-6:-1] if len(amount) >= 6 else amount.iloc[:-1]
+            row["amount_avg5"] = round(float(base.mean()) / 1e8, 2) if len(base) else np.nan
+        else:
+            row["amount"] = np.nan
+            row["amount_avg5"] = np.nan
         for p in periods:
             if len(close) > p:
                 past = close.iloc[-(p + 1)]
@@ -114,9 +197,9 @@ def calculate_rps(kline_data, board_info, periods=RPS_PERIODS):
             else:
                 row[f"ret_{p}"] = np.nan
         results.append(row)
-    
+
     rps_df = pd.DataFrame(results)
-    
+
     # 计算RPS排名
     for p in periods:
         col = f"ret_{p}"
@@ -124,16 +207,125 @@ def calculate_rps(kline_data, board_info, periods=RPS_PERIODS):
             rank = rps_df[col].rank(method="min", ascending=True)
             valid = rps_df[col].notna().sum()
             rps_df[f"RPS{p}"] = (rank / valid * 100).round(1)
-    
-    # 综合RPS
-    rps_cols = [f"RPS{p}" for p in periods]
-    rps_df["RPS_avg"] = rps_df[rps_cols].mean(axis=1).round(1)
-    
+
+    # 综合RPS：仍用原 6 周期，保证与历史快照、HTML 面板口径一致
+    rps_df["RPS_avg"] = rps_df[[f"RPS{p}" for p in RPS_PERIODS]].mean(axis=1).round(1)
+    # 通达信口径综合值
+    rps_df["RPS_tdx"] = rps_df[[f"RPS{p}" for p in RPS_PERIODS_TDX]].mean(axis=1).round(1)
+
     # RPS变化 (短期vs中期)
     rps_df["RPS_5v20"] = (rps_df["RPS5"] - rps_df["RPS20"]).round(1)
     rps_df["RPS_20v60"] = (rps_df["RPS20"] - rps_df["RPS60"]).round(1)
     rps_df["RPS_5v60"] = (rps_df["RPS5"] - rps_df["RPS60"]).round(1)
-    
+    rps_df["RPS_20v50"] = (rps_df["RPS20"] - rps_df["RPS50"]).round(1)
+    rps_df["RPS_5v10"] = (rps_df["RPS5"] - rps_df["RPS10"]).round(1)
+
+    # 短线转强分档，与 HTML 高亮口径一致：lo=RPS5>RPS10，hi=且三周期峰值>95
+    rps_df["turn_tier"] = np.where(rps_df["RPS_5v10"] > 0, "lo", "")
+    peak = rps_df[["RPS5", "RPS10", "RPS20"]].max(axis=1)
+    rps_df["turn_tier"] = np.where(
+        (rps_df["RPS_5v10"] > 0) & (peak > 95), "hi", rps_df["turn_tier"])
+
+    rps_df["amount_ratio5"] = (rps_df["amount"] / rps_df["amount_avg5"]).round(2)
+
+    return rps_df
+
+
+# ─── 并入板块资金流并给出资金/价格交叉信号 ───
+def add_fund_flow(rps_df, mf_df):
+    mf_cols = ["mf_today", "mf_today_pct", "mf_5", "mf_5_pct", "mf_10", "mf_10_pct"]
+    if mf_df is None or mf_df.empty:
+        for c in mf_cols + ["MF5_rank", "MFT_rank", "mf_5v10", "money_sig"]:
+            rps_df[c] = "" if c == "money_sig" else np.nan
+        return rps_df
+
+    rps_df = rps_df.merge(mf_df, on="code", how="left")
+
+    # 净占比已按成交额归一，横向可比；绝对额受板块体量支配，只作展示不作排名
+    for src, out in (("mf_5_pct", "MF5_rank"), ("mf_today_pct", "MFT_rank")):
+        rank = rps_df[src].rank(method="min", ascending=True)
+        valid = rps_df[src].notna().sum()
+        rps_df[out] = (rank / valid * 100).round(1) if valid else np.nan
+
+    rps_df["mf_5v10"] = (rps_df["mf_5_pct"] - rps_df["mf_10_pct"]).round(2)
+
+    turn = rps_df["RPS_5v10"] > 0
+    inflow = rps_df["mf_5_pct"] > 0
+    # NaN 参与比较恒为 False，不先排除 notna 会把"无资金数据"误判成背离
+    known = rps_df["mf_5_pct"].notna()
+    rps_df["money_sig"] = np.select(
+        [known & turn & inflow,
+         known & turn & ~inflow,
+         known & (~turn) & inflow & (rps_df["MF5_rank"] >= 85)],
+        ["confirm", "diverge", "accum"], default="")
+    return rps_df
+
+
+# ─── 快照归档 + 强度持续性 ───
+def detect_session(now=None):
+    now = now or datetime.now()
+    hhmm = now.strftime("%H:%M")
+    return "intraday" if "09:15" <= hhmm < "15:05" else "final"
+
+
+def archive_snapshot(rps_df, session):
+    latest_date = rps_df["latest_date"].mode().iloc[0]
+    cols = (["code", "name", "latest_date", "close", "amount", "amount_ratio5"]
+            + [f"RPS{p}" for p in ALL_PERIODS] + ["RPS_avg", "RPS_tdx"])
+    path = HISTORY_DIR / f"concept_rps_{latest_date}_{session}.csv"
+    rps_df[cols].to_csv(path, index=False, encoding="utf-8-sig")
+    return path, latest_date
+
+
+def load_history(keep=10):
+    """同一 latest_date 优先取 final 快照，其次 intraday。返回 [(date, df)] 时间升序。"""
+    frames = {}
+    for path in HISTORY_DIR.glob("concept_rps_*.csv"):
+        date, _, sess = path.stem[len("concept_rps_"):].rpartition("_")
+        if sess not in ("final", "intraday"):
+            continue
+        if date not in frames or sess == "final":
+            try:
+                frames[date] = pd.read_csv(path)
+            except Exception:
+                continue
+    return sorted(frames.items())[-keep:]
+
+
+def add_persistence(rps_df, history):
+    """连续强势天数 / 近期强势次数 / RPS_avg 较5次前变化 —— 需要历史快照才能算。"""
+    if not history:
+        rps_df["strong_streak"] = 0
+        rps_df["days_ge90"] = 0
+        rps_df["RPS_avg_chg5"] = np.nan
+        return rps_df
+
+    snaps = [(d, df.set_index("code")) for d, df in history]
+    codes = rps_df["code"].tolist()
+
+    streak = pd.Series(0, index=codes, dtype=float)
+    alive = pd.Series(True, index=codes)
+    for _, frame in reversed(snaps):
+        rps5 = frame["RPS5"].reindex(codes)
+        hit = (rps5 >= 85) & alive
+        streak.loc[hit[hit].index] += 1
+        alive &= rps5.fillna(-1) >= 85
+
+    ge90 = pd.Series(0, index=codes, dtype=float)
+    for _, frame in snaps[-10:]:
+        hit = (frame["RPS_avg"].reindex(codes) >= 90).fillna(False)
+        ge90.loc[hit[hit].index] += 1
+
+    cur = rps_df.set_index("code")["RPS_avg"]
+    base = snaps[-6][1] if len(snaps) >= 6 else None
+    if base is not None:
+        diff = (cur - base["RPS_avg"].reindex(codes)).round(1)
+        rps_df["RPS_avg_chg5"] = rps_df["code"].map(diff)
+    else:
+        rps_df["RPS_avg_chg5"] = np.nan
+
+    rps_df["strong_streak"] = rps_df["code"].map(streak).fillna(0).astype(int)
+    rps_df["days_ge90"] = rps_df["code"].map(ge90).fillna(0).astype(int)
     return rps_df
 
 
@@ -295,9 +487,37 @@ def print_summary(rps_df, periods=RPS_PERIODS):
     
     # 保存CSV
     csv_path = OUTPUT_DIR / "concept_rps_full.csv"
-    cols = ["code", "name", "latest_date", "close"] + [f"ret_{p}" for p in periods] + [f"RPS{p}" for p in periods] + ["RPS_avg", "RPS_5v20", "RPS_20v60", "RPS_5v60"]
-    rps_df[cols].to_csv(csv_path, index=False, encoding="utf-8-sig")
+    all_periods = sorted(set(periods) | set(ALL_PERIODS))
+    cols = (["code", "name", "latest_date", "close", "amount", "amount_avg5", "amount_ratio5"]
+            + [f"ret_{p}" for p in all_periods] + [f"RPS{p}" for p in all_periods]
+            + ["RPS_avg", "RPS_tdx", "RPS_5v10", "RPS_5v20", "RPS_20v60", "RPS_5v60", "RPS_20v50",
+               "turn_tier", "strong_streak", "days_ge90", "RPS_avg_chg5"]
+            + ["mf_today", "mf_today_pct", "mf_5", "mf_5_pct", "mf_10", "mf_10_pct",
+               "MF5_rank", "MFT_rank", "mf_5v10", "money_sig"])
+    rps_df[[c for c in cols if c in rps_df.columns]].to_csv(csv_path, index=False, encoding="utf-8-sig")
     print(f"\n  完整数据: {csv_path}")
+
+    # 价格转强 × 资金确认 四象限
+    if "money_sig" in rps_df.columns and rps_df["mf_5_pct"].notna().any():
+        has_mf = rps_df["mf_5_pct"].notna()
+        print("\n" + "="*100)
+        print("  💰 RPS转强 × 主力资金 交叉")
+        print("="*100)
+        pos = int((rps_df.loc[has_mf, "mf_5_pct"] > 0).sum())
+        print(f"  有资金数据的板块 {int(has_mf.sum())} 个，其中 5日主力净流入为正 {pos} 个"
+              f" ({pos / max(1, int(has_mf.sum())) * 100:.0f}%)")
+        for label, sig in (("转强+资金确认(可交易候选)", "confirm"),
+                           ("转强+资金流出(背离，剔除)", "diverge"),
+                           ("未转强+资金最强(潜伏吸筹)", "accum")):
+            hit = rps_df[rps_df["money_sig"] == sig].sort_values("mf_5_pct", ascending=False)
+            print(f"\n  {label:<24} {len(hit):>3} 个")
+            if not hit.empty:
+                print(f"  {'板块':<18} RPS5   RPS10  RPS20  Δ5-10  5日净占比  5日净额   资金分位")
+                print("  " + "-" * 84)
+                for _, row in hit.head(12).iterrows():
+                    print(f"  {row['name']:<18} {row['RPS5']:>5.1f}  {row['RPS10']:>5.1f}  "
+                          f"{row['RPS20']:>5.1f}  {row['RPS_5v10']:>+5.1f}  "
+                          f"{row['mf_5_pct']:>+7.2f}%  {row['mf_5']:>+7.2f}亿  {row['MF5_rank']:>6.1f}")
     
     # 重点关注板块
     print("\n" + "="*100)
@@ -334,51 +554,124 @@ def print_summary(rps_df, periods=RPS_PERIODS):
     else:
         print("  无符合条件的板块")
 
+    # 通达信口径 (RPS 5/10/15/20/50) TOP15
+    print("\n" + "=" * 100)
+    print("  通达信口径 RPS(5/10/15/20/50) TOP15")
+    print("=" * 100)
+    if "RPS_tdx" in rps_df.columns:
+        tdx_cols = [f"RPS{p}" for p in RPS_PERIODS_TDX]
+        top = rps_df.nlargest(15, "RPS_tdx")
+        print(f"  {'板块':<16} {'额(亿)':>7} {'额比':>5} " + " ".join(f"{c:>7}" for c in tdx_cols) + f" {'RPStdx':>7} {'连续':>4} {'90+':>4}")
+        print("  " + "-" * 96)
+        for _, row in top.iterrows():
+            amt = f"{row['amount']:.1f}" if pd.notna(row.get("amount")) else "--"
+            rat = f"{row['amount_ratio5']:.2f}" if pd.notna(row.get("amount_ratio5")) else "--"
+            vals = " ".join(f"{row[c]:>7.1f}" if pd.notna(row.get(c)) else f"{'--':>7}" for c in tdx_cols)
+            print(f"  {row['name']:<16} {amt:>7} {rat:>5} {vals} {row['RPS_tdx']:>7.1f} "
+                  f"{row.get('strong_streak', 0):>4} {row.get('days_ge90', 0):>4}")
+
+    # 强度分层：把"持续强"和"刚转强"分开，避免只看榜单排序
+    print("\n" + "=" * 100)
+    print("  强度分层")
+    print("=" * 100)
+    tiers = [
+        ("持续强势 (RPS_tdx>=90 且 连续>=3日)", lambda d: (d["RPS_tdx"] >= 90) & (d["strong_streak"] >= 3)),
+        ("新转强 (RPS_tdx>=85 且 RPS5-RPS20>+5)", lambda d: (d["RPS_tdx"] >= 85) & (d["RPS_5v20"] > 5)),
+        ("放量确认 (RPS_tdx>=80 且 成交额比>=1.3)", lambda d: (d["RPS_tdx"] >= 80) & (d["amount_ratio5"] >= 1.3)),
+        ("缩量新高 (RPS_tdx>=85 但 成交额比<0.8)", lambda d: (d["RPS_tdx"] >= 85) & (d["amount_ratio5"] < 0.8)),
+        ("高位衰减 (RPS_tdx>=85 但 RPS_avg较5日前<-5)", lambda d: (d["RPS_tdx"] >= 85) & (d["RPS_avg_chg5"] < -5)),
+    ]
+    for label, cond in tiers:
+        try:
+            hit = rps_df[cond(rps_df)]
+        except Exception:
+            continue
+        names = "  ".join(hit.nlargest(10, "RPS_tdx")["name"]) or "—"
+        print(f"  {label:<40} {len(hit):>3} 个: {names}")
+
 
 # ─── Main ───
 def main():
-    print("="*60)
-    print("  A股概念板块 RPS 分析")
-    print("="*60)
-    
-    boards = fetch_concept_boards()
-    print(f"  获取 {len(boards)} 个概念板块")
-    
+    parser = argparse.ArgumentParser(description="A股概念板块 RPS 分析")
+    parser.add_argument("--session", choices=["intraday", "final", "auto"], default="auto",
+                        help="intraday=盘中(东财当日K线未定版), final=收盘后定版; 默认按当前时间自动判断")
+    args = parser.parse_args()
+    session = detect_session() if args.session == "auto" else args.session
+
+    print("=" * 60)
+    print(f"  A股概念板块 RPS 分析  [{session}]")
+    print("=" * 60)
+
+    raw_boards = fetch_concept_boards()
+    boards, excluded = split_boards(raw_boards)
+    print(f"  概念板块 {len(raw_boards)} 个 → 题材口径保留 {len(boards)} 个 / 剔除 {len(excluded)} 个(技术形态·风格·宽基指数)")
+    if excluded:
+        pd.DataFrame(excluded).to_csv(OUTPUT_DIR / "excluded_boards.csv", index=False, encoding="utf-8-sig")
+
     kline_data = fetch_all_klines(boards)
     if not kline_data:
         print("  未能获取到数据")
         return
-    
+
     print("\n  计算RPS...")
     rps_df = calculate_rps(kline_data, boards)
-    
+
+    print("\n  获取板块资金流(主力净流入)...")
+    rps_df = add_fund_flow(rps_df, fetch_fund_flow())
+
+    snapshot_path, snapshot_date = archive_snapshot(rps_df, session)
+    print(f"  快照归档: {snapshot_path.name}")
+    rps_df = add_persistence(rps_df, load_history())
+
     print("\n  生成可视化...")
     plot_rps(rps_df)
-    
+
     print_summary(rps_df)
 
     # ── 导出 JSON 供可视化使用 ──
     json_path = OUTPUT_DIR / "sector_rps.json"
     export_data = {
-        "date": rps_df["latest_date"].mode().iloc[0] if len(rps_df) else datetime.now().strftime("%Y-%m-%d"),
+        "date": snapshot_date,
+        "session": session,
+        "universe": {"total": len(raw_boards), "theme": len(boards), "excluded": len(excluded)},
         "sectors": []
     }
     for _, row in rps_df.iterrows():
+        # 模板用到的键沿用 0 兜底(历史行为)，新键才允许 null，避免 JS 端 toFixed 报错
+        def num(key, digits=1, na=0):
+            val = row.get(key)
+            return round(float(val), digits) if pd.notna(val) else na
         export_data["sectors"].append({
             "code": row["code"],
             "name": row["name"],
             "close": row["close"],
             "latest_date": row["latest_date"],
-            **{f"ret_{p}": round(float(row.get(f"ret_{p}", 0)), 2) if pd.notna(row.get(f"ret_{p}")) else 0 for p in RPS_PERIODS},
-            **{f"RPS{p}": round(float(row.get(f"RPS{p}", 0)), 1) if pd.notna(row.get(f"RPS{p}")) else 0 for p in RPS_PERIODS},
-            "RPS_avg": round(float(row["RPS_avg"]), 1),
-            "RPS_5v20": round(float(row["RPS_5v20"]), 1),
-            "RPS_20v60": round(float(row["RPS_20v60"]), 1),
-            "RPS_5v60": round(float(row["RPS_5v60"]), 1),
+            "amount": num("amount", 2, None),
+            "amount_avg5": num("amount_avg5", 2, None),
+            "amount_ratio5": num("amount_ratio5", 2, None),
+            **{f"ret_{p}": num(f"ret_{p}", 2) for p in RPS_PERIODS},
+            **{f"RPS{p}": num(f"RPS{p}") for p in RPS_PERIODS},
+            **{f"ret_{p}": num(f"ret_{p}", 2, None) for p in RPS_PERIODS_TDX if p not in RPS_PERIODS},
+            **{f"RPS{p}": num(f"RPS{p}", 1, None) for p in RPS_PERIODS_TDX if p not in RPS_PERIODS},
+            "RPS_avg": num("RPS_avg"),
+            "RPS_tdx": num("RPS_tdx", 1, None),
+            "RPS_5v10": num("RPS_5v10"),
+            "RPS_5v20": num("RPS_5v20"),
+            "RPS_20v60": num("RPS_20v60"),
+            "RPS_5v60": num("RPS_5v60"),
+            "RPS_20v50": num("RPS_20v50", 1, None),
+            "strong_streak": num("strong_streak", 0),
+            "days_ge90": num("days_ge90", 0),
+            "RPS_avg_chg5": num("RPS_avg_chg5", 1, None),
+            "turn_tier": row.get("turn_tier", "") or "",
+            "money_sig": row.get("money_sig", "") or "",
+            **{k: num(k, 2, None) for k in
+               ("mf_today", "mf_today_pct", "mf_5", "mf_5_pct", "mf_10", "mf_10_pct",
+                "MF5_rank", "MFT_rank", "mf_5v10")},
         })
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(export_data, f, ensure_ascii=False, indent=2)
-    print(f"  数据JSON: {json_path} ({len(export_data['sectors'])} sectors)")
+    print(f"  数据JSON: {json_path} ({len(export_data['sectors'])} sectors, session={session})")
 
     print("\n  完成!")
 
