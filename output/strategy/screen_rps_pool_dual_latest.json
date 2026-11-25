@@ -1,29 +1,10 @@
 {
   "total_scanned": 598,
-  "screen_date": "2026-11-24",
-  "rps_passed": 1,
+  "screen_date": "2026-11-25",
+  "rps_passed": 0,
   "pool_rule": "最新季报 基金持股/流通股 > 3.0% + 北向席位持股市值 > 3000 万 + 上市满 365 天",
   "strategy": "rps_pool_dual",
   "strategy_name": "RPS池·双策略入选(S1=周线RSI确认 / S2=接近一年新高)",
-  "total_matched": 1,
-  "stocks": [
-    {
-      "ticker": "000333",
-      "name": "美的集团",
-      "date": "2026-11-24",
-      "close": 93.81,
-      "rps_120": 97.8,
-      "rps_250": 96.1,
-      "rps_sum": 193.9,
-      "newhigh_pct": 0.9773,
-      "wk_rsi1": 70.1,
-      "wk_rsi2": 68.5,
-      "gold_days": 7,
-      "turnover_pct": 0.44,
-      "fund_pct": 5.1,
-      "north_yi": 766.07,
-      "strat": "S1+S2",
-      "buy_price": 93.81
-    }
-  ]
+  "total_matched": 0,
+  "stocks": []
 }

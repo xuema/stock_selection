@@ -1,53 +1,42 @@
 {
   "strategy": "screen_active_midcap",
   "strategy_name": "活跃中盘股",
-  "screen_date": "2026-11-24",
+  "screen_date": "2026-11-25",
   "total_scanned": 4364,
-  "total_matched": 4,
+  "total_matched": 3,
   "stocks": [
     {
-      "ticker": "000593",
-      "name": "德龙汇能",
-      "date": "2026-11-24",
-      "close": 19.87,
-      "pct": 3.17,
-      "turnover_pct": 9.46,
-      "v_ratio": 2.48,
+      "ticker": "002154",
+      "name": "报喜鸟",
+      "date": "2026-11-25",
+      "close": 3.33,
+      "pct": 3.74,
+      "turnover_pct": 5.72,
+      "v_ratio": 1.54,
       "board": "mb",
-      "mcap_yi": 53.0
+      "mcap_yi": 56.0
     },
     {
-      "ticker": "600619",
-      "name": "海立股份",
-      "date": "2026-11-24",
-      "close": 14.94,
-      "pct": 5.29,
-      "turnover_pct": 5.68,
-      "v_ratio": 1.6,
-      "board": "mb",
-      "mcap_yi": 191.0
-    },
-    {
-      "ticker": "002009",
-      "name": "天奇股份",
-      "date": "2026-11-24",
-      "close": 15.05,
-      "pct": 3.15,
-      "turnover_pct": 5.39,
-      "v_ratio": 1.14,
-      "board": "mb",
-      "mcap_yi": 104.0
-    },
-    {
-      "ticker": "603381",
-      "name": "永臻股份",
-      "date": "2026-11-24",
-      "close": 15.01,
-      "pct": 2.32,
-      "turnover_pct": 5.62,
-      "v_ratio": 1.11,
+      "ticker": "000521",
+      "name": "长虹美菱",
+      "date": "2026-11-25",
+      "close": 4.68,
+      "pct": 6.36,
+      "turnover_pct": 6.28,
+      "v_ratio": 1.47,
       "board": "mb",
       "mcap_yi": 63.0
+    },
+    {
+      "ticker": "002042",
+      "name": "华孚时尚",
+      "date": "2026-11-25",
+      "close": 4.0,
+      "pct": 3.09,
+      "turnover_pct": 7.09,
+      "v_ratio": 1.29,
+      "board": "mb",
+      "mcap_yi": 71.0
     }
   ]
 }

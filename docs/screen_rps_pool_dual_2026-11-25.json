@@ -1,0 +1,10 @@
+{
+  "total_scanned": 598,
+  "screen_date": "2026-11-25",
+  "rps_passed": 0,
+  "pool_rule": "最新季报 基金持股/流通股 > 3.0% + 北向席位持股市值 > 3000 万 + 上市满 365 天",
+  "strategy": "rps_pool_dual",
+  "strategy_name": "RPS池·双策略入选(S1=周线RSI确认 / S2=接近一年新高)",
+  "total_matched": 0,
+  "stocks": []
+}
