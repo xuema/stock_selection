@@ -108,7 +108,7 @@ h1{font-size:1.4rem;margin-bottom:2px}
 </div>
 
 <div class="rps-card"><h3>转强 × 主力资金 四象限</h3>
-  <div class="caliber"><b>两个独立维度交叉</b>：价格轴「转强」= <b>RPS5 &gt; RPS10</b>（RPS_5v10&gt;0）；资金轴「主力净流入」= <b>5 日主力净流入占成交额比 mf_5_pct &gt; 0</b>（已按成交额归一，横向可比）。<span style="color:var(--green)">■ 确认</span> 转强 + 净流入，按 mf_5_pct 降序取前 12；<span style="color:var(--steel)">■ 潜伏</span> 未转强但 5 日净占比分位 MF5_rank ≥ 85，与"确认"同列展示；<span style="color:var(--red)">■ 背离</span> 转强但主力净流出，按 RPS_5v10 降序取前 6（跌得多跌得快的假转强，不建议交易）。<b>取不到资金字段的板块不参与判定</b>（既不算确认也不算背离），第 4 象限"未转强+净流出"不展示。</div>
+  <div class="caliber"><b>两个独立维度交叉</b>：价格轴「转强」= <b>RPS5 &gt; RPS10</b>（RPS_5v10&gt;0）；资金轴「主力净流入」= <b>5 日主力净流入占成交额比 mf_5_pct &gt; 0</b>（已按成交额归一，横向可比）。<span style="color:var(--green)">■ 确认</span> 转强 + 净流入，按 mf_5_pct 降序取前 12；<span style="color:var(--steel)">■ 潜伏</span> 未转强但 <b>5日主力资金分位 MF5_rank ≥ 85</b> 且净占比为正，与"确认"同列展示；<span style="color:var(--red)">■ 背离</span> 转强但主力净流出，按 RPS_5v10 降序取前 6（跌得多跌得快的假转强，不建议交易）。<b>取不到资金字段的板块不参与判定</b>（既不算确认也不算背离），第 4 象限"未转强+净流出"不展示。<b>「5日主力资金分位」</b>= 该板块的 5 日主力净占比在<b>有资金数据的板块</b>中做百分位排名×100（与 RPS 同一套算法，今天分母 323 个）；它是<b>相对值</b>——今天分位≥85 的 49 个板块里只有 12 个净占比为正，其余只是"流出得比别人少"，所以判吸筹必须同时看净占比是否为正。</div>
   <div id="mf-chart"></div></div>
 
 <div class="rps-card"><h3>活跃提升板块热力图</h3>
@@ -125,7 +125,7 @@ h1{font-size:1.4rem;margin-bottom:2px}
       <span style="display:inline-block;width:10px;height:10px;background:rgba(248,81,73,.14);border-left:4px solid var(--red);vertical-align:-1px;margin-left:8px"></span>
       转强+资金背离
       <span style="display:inline-block;width:10px;height:10px;background:rgba(91,141,184,.14);border-left:4px solid var(--steel);vertical-align:-1px;margin-left:8px"></span>
-      未转强但资金分位≥85</span></h3>
+      未转强但5日主力资金分位≥85</span></h3>
   <div class="detail-wrap"><table class="detail-table" id="detail-table"><tbody><tr><td class="empty">加载中</td></tr></tbody></table></div>
 </div>
 
@@ -199,7 +199,7 @@ function render(){
     '<div class="stat-card"><div class="num" style="color:var(--red)">'+weak.length+'</div><div class="label">走弱板块</div></div>'+
     '<div class="stat-card"><div class="num" style="color:var(--green)">'+confirm.length+'</div><div class="label">转强+资金确认</div></div>'+
     '<div class="stat-card"><div class="num" style="color:var(--red)">'+diverge.length+'</div><div class="label">转强+资金背离</div></div>'+
-    '<div class="stat-card"><div class="num" style="color:var(--steel)">'+accum.length+'</div><div class="label">潜伏吸筹（资金分位≥85）</div></div>'+
+    '<div class="stat-card"><div class="num" style="color:var(--steel)">'+accum.length+'</div><div class="label">潜伏吸筹（5日主力资金分位≥85）</div></div>'+
     '<div class="stat-card"><div class="num" style="color:var(--muted)">'+(mfN.length?Math.round(a.filter(function(s){return mfKnown(s)&&s.mf_5_pct>0}).length/mfN.length*100)+'%':'-')+'</div><div class="label">5日主力净流入为正占比（'+mfN.length+'个有数据）</div></div>';
 
   var top20=d.slice().sort(function(a,b){return(b.RPS_avg||0)-(a.RPS_avg||0)}).slice(0,20);
@@ -269,7 +269,7 @@ function renderTable(d){
     return curSortDir==='asc'?(av-bv):(bv-av);
   });
 
-  var cols=[['RPS5','RPS5'],['RPS10','RPS10'],['RPS_5v10','Δ5-10'],['RPS20','RPS20'],['RPS30','RPS30'],['RPS60','RPS60'],['RPS120','RPS120'],['RPS_avg','均值'],['RPS_5v20','5v20'],['mf_5_pct','5日净占比'],['MF5_rank','资金分位']];
+  var cols=[['RPS5','RPS5'],['RPS10','RPS10'],['RPS_5v10','Δ5-10'],['RPS20','RPS20'],['RPS30','RPS30'],['RPS60','RPS60'],['RPS120','RPS120'],['RPS_avg','均值'],['RPS_5v20','5v20'],['mf_5_pct','5日净占比'],['MF5_rank','5日资金分位']];
 
   var h='<thead><tr><th style="width:40px">#</th><th>板块</th><th>收盘</th>';
   cols.forEach(function(c){
