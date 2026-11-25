@@ -273,6 +273,162 @@ def fetch_fund_flow(max_pages=12, retries=6):
     return df
 
 
+# ─── 资金第二来源：datacenter-web ───
+# push2 与 datacenter-web 是不同 CDN 池：2026-11-25 晚 push2 全部节点 502 时，这里照常出 433 个板块。
+# 口径已核对：与 clist f184 在 336 个可比板块上，当日主力净占比中位差 0.0000pp（最大 0.36pp）。
+# 局限：该报表只存"当日"一天，5/10 日窗口只能靠 push2 或下面的本地累计。
+DC_FUND_URL = "https://datacenter-web.eastmoney.com/api/data/v1/get"
+DC_FUND_REPORT = "RPT_CONCEPT_FUNDFLOW"
+MONEY_LOG = HISTORY_DIR / "money_daily.csv"
+MONEY_LOG_DAYS_MIN = 5      # 攒满 5 个交易日才开始出本地 5 日窗口
+MONEY_LOG_MIN_BOARDS = 50   # 凑满窗口的板块太少时不值得一用，宁可显示缺失
+
+
+def fetch_fund_datacenter(retries=4):
+    rows, page, dc_date = {}, 1, None
+    while page <= 5:
+        params = {"reportName": DC_FUND_REPORT, "columns": "ALL", "pageSize": "500",
+                  "pageNumber": str(page), "source": "WEB", "client": "WEB"}
+        payload = _get_json(DC_FUND_URL, params, retries=retries, pause=2)
+        res = (payload or {}).get("result") or {}
+        items = res.get("data") or []
+        if not items:
+            print(f"    资金兜底第 {page} 页未取到" + ("" if payload else "（接口整体不可用）"))
+            break
+        for it in items:
+            code = it.get("BOARD_CODE")
+            if not code:
+                continue
+            # 东财口径的"主力" = 超大单 + 大单
+            net = (it.get("SUPERDEAL_NET") or 0) + (it.get("BIGDEAL_NET") or 0)
+            pct = (it.get("SUPERDEAL_NET_RATIO") or 0) + (it.get("BIGDEAL_NET_RATIO") or 0)
+            rows[code] = {"mf_today": round(net * 1e-8, 4), "mf_today_pct": round(pct, 4)}
+            dc_date = (it.get("TRADE_DATE") or "")[:10]
+        if page >= (res.get("pages") or 1):
+            break
+        page += 1
+    if not rows:
+        return None, None
+    df = pd.DataFrame.from_dict(rows, orient="index").reset_index(names="code")
+    print(f"    资金兜底(datacenter) {len(df)} 个板块，数据日期 {dc_date}")
+    return df, dc_date
+
+
+def fill_from_frame(rps_df, add_df, cols, label):
+    """只填 rps_df 里为空的那些格，绝不覆盖 push2 已经取到的值。"""
+    if add_df is None or add_df.empty:
+        return rps_df, 0
+    merged = rps_df[["code"]].merge(add_df, on="code", how="left", suffixes=("", "_alt"))
+    filled = 0
+    for col in cols:
+        before = rps_df[col].isna()
+        rps_df[col] = rps_df[col].where(~before, merged[col])
+        filled = max(filled, int((before & rps_df[col].notna()).sum()))
+    if filled:
+        print(f"    ↩️ {label} 补上 {filled} 个板块的 {'/'.join(cols)}")
+    return rps_df, filled
+
+
+def append_money_daily(rps_df, data_date):
+    """逐日累存当日主力净额与成交额；攒够 5 天后 5 日窗口不再依赖 push2 可用性。"""
+    keep = rps_df.loc[rps_df["mf_today"].notna(), ["code", "name", "mf_today", "mf_today_pct", "amount"]].copy()
+    if keep.empty:
+        return None
+    keep.insert(0, "date", data_date)
+    old = None
+    if MONEY_LOG.exists():
+        try:
+            old = pd.read_csv(MONEY_LOG, dtype={"code": str})
+        except Exception as exc:
+            print(f"    ⚠️ 资金累计表读不动({exc.__class__.__name__})，本轮重建")
+    frames = []
+    if old is not None and not old.empty:
+        frames.append(old[old["date"] != data_date])   # 只丢旧的同日行，本轮这份必须留下
+    if not keep.empty:
+        frames.append(keep)
+    out = pd.concat(frames, ignore_index=True)
+    out.to_csv(MONEY_LOG, index=False, encoding="utf-8-sig")
+    return out
+
+
+def mf5_from_log(log, data_date, need=MONEY_LOG_DAYS_MIN, min_boards=MONEY_LOG_MIN_BOARDS):
+    """近 need 个交易日窗口：净额除以同期成交额合计，与东财 5 日净占比同式。"""
+    if log is None or log.empty:
+        return None
+    days = sorted(d for d in log["date"].unique() if d <= data_date)[-need:]
+    if len(days) < need:
+        print(f"    资金累计表只有 {len(days)}/{need} 天，5 日窗口继续等 push2")
+        return None
+    if days[-1] != data_date:
+        print(f"    ⚠️ 资金累计表最新只到 {days[-1]}，不含 {data_date}，本轮不用它补 5 日窗口")
+        return None
+    sub = log[log["date"].isin(days)]
+    grp = sub.groupby("code")
+    full = grp["date"].nunique()[lambda x: x == need].index
+    if len(full) < min_boards:
+        print(f"    资金累计表里凑满 {need} 天的板块只有 {len(full)} 个(<{min_boards})，不足以来补 5 日窗口")
+        return None
+    net = grp["mf_today"].sum().reindex(full)
+    turn = grp["amount"].sum().reindex(full).replace(0, np.nan)
+    print(f"    ↩️ 用本地累计算 5 日窗口（{days[0]}~{days[-1]}，{len(full)} 个板块）")
+    return pd.DataFrame({"code": full, "mf_5": net.round(4).values,
+                         "mf_5_pct": (net / turn * 100).round(4).values})
+
+
+MONEY_COLS = ("mf_today", "mf_today_pct", "mf_5", "mf_5_pct", "mf_10", "mf_10_pct")
+
+
+def load_prev_money(json_path, data_date):
+    """读上一份快照的资金列，只认同一个数据日期——跨日结转会算出假资金。"""
+    try:
+        prev = json.loads(Path(json_path).read_text(encoding="utf-8"))
+    except Exception:
+        return None
+    if prev.get("date") != data_date:
+        return None
+    rows = {s.get("code"): {c: s.get(c) for c in MONEY_COLS} for s in prev.get("sectors", [])}
+    return rows or None
+
+
+def carry_forward_money(rps_df, prev_money):
+    """本轮没取到的资金格，沿用同日上一份快照的值：重跑只能补数，不能把已经补好的抹掉。"""
+    if not prev_money:
+        return rps_df
+    for col in MONEY_COLS:
+        if col not in rps_df.columns:
+            rps_df[col] = np.nan
+        blank = rps_df[col].isna()
+        if not blank.any():
+            continue
+        rps_df.loc[blank, col] = rps_df.loc[blank, "code"].map(
+            {c: (v or {}).get(col) for c, v in prev_money.items()})
+    kept = int(rps_df["mf_5_pct"].notna().sum())
+    print(f"    ↪️ 同日结转后资金覆盖: 5日 {kept} 个 / 当日 "
+          f"{int(rps_df['mf_today_pct'].notna().sum())} 个")
+    return rps_df
+
+
+def rank_money(rps_df):
+    """净占比排名 + 交叉信号；任何一次补数之后都要重跑，否则分位还是按旧分母算的。"""
+    for src, out in (("mf_5_pct", "MF5_rank"), ("mf_today_pct", "MFT_rank")):
+        rank = rps_df[src].rank(method="min", ascending=True)
+        valid = rps_df[src].notna().sum()
+        rps_df[out] = (rank / valid * 100).round(1) if valid else np.nan
+
+    rps_df["mf_5v10"] = (rps_df["mf_5_pct"] - rps_df["mf_10_pct"]).round(2)
+
+    turn = rps_df["RPS_5v10"] > 0
+    inflow = rps_df["mf_5_pct"] > 0
+    # NaN 参与比较恒为 False，不先排除 notna 会把"无资金数据"误判成背离
+    known = rps_df["mf_5_pct"].notna()
+    rps_df["money_sig"] = np.select(
+        [known & turn & inflow,
+         known & turn & ~inflow,
+         known & (~turn) & inflow & (rps_df["MF5_rank"] >= 85)],
+        ["confirm", "diverge", "accum"], default="")
+    return rps_df
+
+
 # ─── 板块K线本地缓存 ───
 # 一轮要取 550 个板块，代理半路断掉时缓存能让下一次运行(13:50 补跑或次日 08:30 定版)接着跑完
 def _kline_cache_path(board_code):
@@ -454,32 +610,16 @@ def calculate_rps(kline_data, board_info, periods=ALL_PERIODS):
 
 # ─── 并入板块资金流并给出资金/价格交叉信号 ───
 def add_fund_flow(rps_df, mf_df):
+    """把 push2 的三层资金字段并进来；缺列一律先建好，后续兜底补数才有地方写。"""
     mf_cols = ["mf_today", "mf_today_pct", "mf_5", "mf_5_pct", "mf_10", "mf_10_pct"]
     if mf_df is None or mf_df.empty:
-        for c in mf_cols + ["MF5_rank", "MFT_rank", "mf_5v10", "money_sig"]:
-            rps_df[c] = "" if c == "money_sig" else np.nan
-        return rps_df
-
-    rps_df = rps_df.merge(mf_df, on="code", how="left")
-
-    # 净占比已按成交额归一，横向可比；绝对额受板块体量支配，只作展示不作排名
-    for src, out in (("mf_5_pct", "MF5_rank"), ("mf_today_pct", "MFT_rank")):
-        rank = rps_df[src].rank(method="min", ascending=True)
-        valid = rps_df[src].notna().sum()
-        rps_df[out] = (rank / valid * 100).round(1) if valid else np.nan
-
-    rps_df["mf_5v10"] = (rps_df["mf_5_pct"] - rps_df["mf_10_pct"]).round(2)
-
-    turn = rps_df["RPS_5v10"] > 0
-    inflow = rps_df["mf_5_pct"] > 0
-    # NaN 参与比较恒为 False，不先排除 notna 会把"无资金数据"误判成背离
-    known = rps_df["mf_5_pct"].notna()
-    rps_df["money_sig"] = np.select(
-        [known & turn & inflow,
-         known & turn & ~inflow,
-         known & (~turn) & inflow & (rps_df["MF5_rank"] >= 85)],
-        ["confirm", "diverge", "accum"], default="")
-    return rps_df
+        for c in mf_cols:
+            rps_df[c] = np.nan
+    else:
+        rps_df = rps_df.merge(mf_df, on="code", how="left")
+    for c in [c for c in mf_cols if c not in rps_df.columns]:
+        rps_df[c] = np.nan
+    return rank_money(rps_df)
 
 
 # ─── 快照归档 + 强度持续性 ───
@@ -866,10 +1006,22 @@ def main():
 
     print("\n  获取板块资金流(主力净流入)...")
     fund_asof = datetime.now().strftime("%Y-%m-%d %H:%M")
+    data_date = asof.strftime("%Y-%m-%d")
+    # 快照待会被覆盖，先把上一份的资金列留在内存里做同日结转
+    prev_money = load_prev_money(OUTPUT_DIR / "sector_rps.json", data_date)
     fund_df = fetch_fund_flow()
     if fund_df is None:
-        print("  ⚠️  资金流本轮未取到，资金列留空(RPS 仍照常出快照)")
+        print("  ⚠️  资金流(push2)本轮未取到，改用 datacenter 兜底(RPS 仍照常出快照)")
     rps_df = add_fund_flow(rps_df, fund_df)
+
+    # push2 挂了就补当日那一层；5 日/10 日只能等 push2 或靠本地累计满 5 天
+    dc_df, dc_date = fetch_fund_datacenter()
+    rps_df, _ = fill_from_frame(rps_df, dc_df, ["mf_today", "mf_today_pct"], "datacenter 当日")
+    money_log = append_money_daily(rps_df, data_date)
+    rps_df, _ = fill_from_frame(rps_df, mf5_from_log(money_log, data_date),
+                                ["mf_5", "mf_5_pct"], "本地累计 5 日")
+    rps_df = carry_forward_money(rps_df, prev_money)
+    rps_df = rank_money(rps_df)
 
     snapshot_path, snapshot_date = archive_snapshot(rps_df, session)
     print(f"  快照归档: {snapshot_path.name}")
