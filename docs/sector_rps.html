@@ -28,6 +28,9 @@ h1{font-size:1.4rem;margin-bottom:2px}
 @media(max-width:900px){.chart-row{grid-template-columns:1fr}}
 .rps-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px}
 .rps-card h3{font-size:.95rem;margin-bottom:12px;color:var(--lime)}
+/* 口径说明：把每个面板"用什么算的、取几个、跟随不跟随筛选"写死在卡片上，避免跨页签对比时误读 */
+.caliber{font-size:.72rem;line-height:1.6;color:var(--muted);font-weight:400;margin:-8px 0 12px;padding-left:2px}
+.caliber b{color:#9fb0c4;font-weight:600}
 .rps-bar{display:flex;align-items:center;gap:8px;margin:3px 0}
 .rps-bar .bar-label{width:130px;text-align:right;font-size:.82rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex-shrink:0}
 .rps-bar .bar-track{flex:1;background:#1e2530;border-radius:3px;height:16px;overflow:hidden}
@@ -96,13 +99,21 @@ h1{font-size:1.4rem;margin-bottom:2px}
 </div>
 
 <div class="chart-row">
-  <div class="rps-card"><h3>综合RPS TOP20</h3><div id="top20-chart"></div></div>
-  <div class="rps-card"><h3>活跃度提升 TOP15</h3><div id="rising-chart"></div></div>
+  <div class="rps-card"><h3>综合RPS TOP20</h3>
+    <div class="caliber"><b>算法</b> RPS_avg = RPS5 / RPS10 / RPS20 / RPS30 / RPS60 / RPS120 <b>六个周期的算术均值</b>，降序取前 20。每个 RPSp 是该板块「p 个交易日涨幅」在全部概念板块里的<b>百分位排名×100</b>（相对强弱，不是涨幅本身；并列取最小名次）。<b>榜单跟随上方页签</b>：切到"活跃提升"后是在提升池内取前 20，与"全部"页的名单只部分重合。</div>
+    <div id="top20-chart"></div></div>
+  <div class="rps-card"><h3>活跃度提升 TOP15</h3>
+    <div class="caliber"><b>先筛</b> RPS5&gt;50 且 RPS5&gt;RPS20（短线强度已过半数、且高于 20 日位置）；<b>再排</b> 按 <b>RPS_5v20 = RPS5 − RPS20</b> 降序取前 15。条上数字是<b>排名差（点）</b>，不是涨跌幅——+20 表示 5 日强度排名比 20 日位置高出 20 个百分位。同样只在当前页签的板块范围内取。</div>
+    <div id="rising-chart"></div></div>
 </div>
 
-<div class="rps-card"><h3>转强 × 主力资金 四象限</h3><div id="mf-chart"></div></div>
+<div class="rps-card"><h3>转强 × 主力资金 四象限</h3>
+  <div class="caliber"><b>两个独立维度交叉</b>：价格轴「转强」= <b>RPS5 &gt; RPS10</b>（RPS_5v10&gt;0）；资金轴「主力净流入」= <b>5 日主力净流入占成交额比 mf_5_pct &gt; 0</b>（已按成交额归一，横向可比）。<span style="color:var(--green)">■ 确认</span> 转强 + 净流入，按 mf_5_pct 降序取前 12；<span style="color:var(--steel)">■ 潜伏</span> 未转强但 5 日净占比分位 MF5_rank ≥ 85，与"确认"同列展示；<span style="color:var(--red)">■ 背离</span> 转强但主力净流出，按 RPS_5v10 降序取前 6（跌得多跌得快的假转强，不建议交易）。<b>取不到资金字段的板块不参与判定</b>（既不算确认也不算背离），第 4 象限"未转强+净流出"不展示。</div>
+  <div id="mf-chart"></div></div>
 
-<div class="rps-card"><h3>活跃提升板块热力图</h3><div class="heatmap-wrap" id="heatmap-chart"></div></div>
+<div class="rps-card"><h3>活跃提升板块热力图</h3>
+  <div class="caliber"><b>行</b> = 上面「活跃度提升 TOP15」的同一批板块（同一筛选+排序口径）；<b>格</b> = 该板块在 RPS5/10/20/30/60/120 六个周期上的<b>分位值本身</b>，配色阈值 ≥90 / ≥70 / ≥50 / ≥30 / &lt;30；末列 = RPS5 − RPS20。<b>整行越往右越绿＝长期一直强；只有左边几列亮＝刚起来的新强度，持续性未证实。</b></div>
+  <div class="heatmap-wrap" id="heatmap-chart"></div></div>
 
 <div class="rps-card" style="margin-top:16px">
   <h3>完整数据表 <span id="table-count" style="font-size:.8rem;color:var(--muted);font-weight:400"></span>
