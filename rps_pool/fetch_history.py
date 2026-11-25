@@ -21,9 +21,17 @@
   python3 fetch_history.py --build --limit 200 --period 6y
   python3 fetch_history.py --update --codes-file out/pool/pool_codes_latest.txt
 """
-import argparse, os, sys, time, json
+import argparse, os, sys, time, json, tempfile
 import numpy as np
 import pandas as pd
+
+# ⚠ 必须在 import yfinance 之前设好: yfinance 1.x 会在 ~/Library/Caches 下建 sqlite 缓存,
+#   而 cron 起的进程写那个路径会被 macOS 挡掉, 整批下载直接抛
+#   OperationalError('unable to open database file') -> 一天行情静默丢光(2026-11-24/25 就这么废的)。
+#   主仓 2_update_a_stock_data.py 早就踩过, 照它的办法把缓存指到 /tmp 的独立目录。
+_YF_TMP = os.path.join(tempfile.gettempdir(), f"yf_cache_{os.getpid()}")
+os.makedirs(_YF_TMP, exist_ok=True)
+os.environ.setdefault("YF_CACHE_DIR", _YF_TMP)
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import config as C

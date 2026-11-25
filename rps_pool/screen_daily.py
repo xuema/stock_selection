@@ -191,6 +191,14 @@ def run(asof: str | None, top: int, dirn: str | None, min_list_days_pool: int,
     if asof is None and last < expect_bar_date():
         stale = (f"  ⚠ 行情最后一根 = {date_str}, 早于应有的 {expect_bar_date():%Y-%m-%d}"
                  " —— fetch_history 可能失败了, 本次基于旧行情(法定节假日除外)")
+    # 覆盖度检查: 最后一根当天"真的有成交"的票有多少。RPS 是横截面排名, 样本塌了排名就废了,
+    # 而这种情况面板最后一根日期看起来仍是"今天", 上面那条日期检查抓不到。
+    live_n = int(P["_hasdata"].loc[last].fillna(False).sum())
+    if live_n < 3000:
+        stale += ("\n" if stale else "") + (
+            f"  ⚠ {date_str} 当日有行情的只有 {live_n} 只(全市场约 5000)"
+            " —— 大部分票的行情没更新, RPS 横截面失真, 今日入选数不可信")
+    if stale:
         print(stale)
 
     summary = _summary(date_str, pool, d, s1, s2, sell, miss, a_sell_win, ru, stale)
