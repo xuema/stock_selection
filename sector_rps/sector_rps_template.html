@@ -89,6 +89,7 @@ h1{font-size:1.4rem;margin-bottom:2px}
 
 <div class="filter-bar">
   <button class="filter-btn active" data-f="all">全部</button>
+  <button class="filter-btn" data-f="turn15" title="转强候选：先筛 RPS5&gt;RPS10（短线强度已越过 10 日位置），再按 Δ5-10 降序取前 15（同分按 RPS5 高者优先，保证切榜可复现）。68 个交易日回测：入选后 5 日相对全体概念板块超额 +0.58pp（t=3.0，45/68 天跑赢），且上涨市况(+0.97pp)与下跌市况(+0.33pp)都为正；对照「综合RPS TOP20」同期 −0.64pp、「持续走强」−0.45pp。默认按 Δ5-10 排序，资金三态看「转强+资金确认/背离」。">转强候选 TOP15</button>
   <button class="filter-btn" data-f="rising">活跃提升</button>
   <button class="filter-btn" data-f="turnhi">转强·峰值&gt;95</button>
   <button class="filter-btn" data-f="turn">RPS5&gt;RPS10</button>
@@ -166,6 +167,10 @@ function applyFilter(){
   else if(curFilter==='confirm')d=d.filter(isConfirm);
   else if(curFilter==='diverge')d=d.filter(isDiverge);
   else if(curFilter==='accum')d=d.filter(isAccum);
+  else if(curFilter==='turn15')d=d.filter(isTurn).sort(function(a,b){
+        var t=(b.RPS_5v10||-999)-(a.RPS_5v10||-999);        // 主键 Δ5-10
+        return t!==0?t:(b.RPS5||0)-(a.RPS5||0);             // 同分时短线位置高者优先，切前15才有确定性
+      }).slice(0,15);
   else if(curFilter==='top20')d.sort(function(a,b){return(b.RPS_avg||0)-(a.RPS_avg||0)}).slice(0,20);
   else if(curFilter==='weak')d=d.filter(isWeak);
   if(q)d=d.filter(function(s){return(s.name||'').toLowerCase().includes(q)||(s.code||'').toLowerCase().includes(q)});
@@ -331,6 +336,7 @@ document.querySelectorAll('.filter-btn').forEach(function(btn){
     document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active')});
     btn.classList.add('active');
     curFilter=btn.dataset.f;
+    if(curFilter==='turn15'){curSort='RPS_5v10';curSortDir='desc'}   // 候选榜按 Δ5-10 定序，否则被全局排序打乱
     applyFilter();render();
   });
 });
