@@ -285,13 +285,13 @@ function renderTable(d){
 
   var cols=[['MF5_rank','5日资金分位'],['mf_5','5日净额(亿)'],['mf_5_pct','5日净占比'],['RPS5','RPS5'],['RPS10','RPS10'],['RPS_5v10','Δ5-10'],['RPS20','RPS20'],['RPS30','RPS30'],['RPS60','RPS60'],['RPS120','RPS120'],['RPS_avg','均值'],['RPS_5v20','5v20']];
 
-  var h='<thead><tr><th style="width:40px">#</th><th>板块</th><th>收盘</th>';
+  var h='<thead><tr><th style="width:40px">#</th><th>板块</th>';
   cols.forEach(function(c){
     var k=c[0],l=c[1];
     var cls=curSort===k?(curSortDir==='asc'?'s-asc':'s-desc'):'';
     h+='<th class="'+cls+'" data-k="'+k+'">'+l+'</th>';
   });
-  h+='<th>5日涨幅</th><th>120日涨幅</th><th>趋势</th></tr></thead><tbody>';
+  h+='<th>收盘</th><th>5日涨幅</th><th>120日涨幅</th><th>趋势</th></tr></thead><tbody>';
 
   d.forEach(function(s,i){
     var spVals=['RPS5','RPS10','RPS20','RPS30','RPS60','RPS120'].map(function(k){return s[k]||0});
@@ -306,7 +306,6 @@ function renderTable(d){
     if(thick)chip+='<span class="chip cf" title="5日资金分位≥90 且 5日净额≥5亿">厚</span>';
     h+='<tr'+(rc.length?' class="'+rc.join(' ')+'"':'')+'><td>'+(i+1)+'</td>';
     h+='<td style="font-weight:600">'+s.name+chip+'<br><span style="font-size:.7rem;color:var(--muted)">'+s.code+'</span></td>';
-    h+='<td style="color:var(--text)">'+(s.close||0).toFixed(2)+'</td>';
 
     ['MF5_rank','mf_5','mf_5_pct','RPS5','RPS10','RPS_5v10','RPS20','RPS30','RPS60','RPS120','RPS_avg','RPS_5v20'].forEach(function(k){
       var v=s[k];
@@ -329,6 +328,8 @@ function renderTable(d){
         h+='<td style="color:'+rpsColor(v)+';font-weight:600">'+v.toFixed(1)+'</td>';
       }
     });
+
+    h+='<td style="color:var(--text)">'+(s.close||0).toFixed(2)+'</td>';
 
     var r5=s.ret_5,r120=s.ret_120;
     var c5=r5!=null?(r5>=0?'var(--green)':'var(--red)'):'var(--muted)';
