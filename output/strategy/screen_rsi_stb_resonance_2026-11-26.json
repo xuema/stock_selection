@@ -1,0 +1,87 @@
+{
+  "strategy": "rsi_stb_resonance",
+  "strategy_name": "RSI 金叉 + 超级顶底 双重共振",
+  "screen_date": "2026-11-26",
+  "total_scanned": 4364,
+  "total_matched": 6,
+  "stocks": [
+    {
+      "ticker": "000506",
+      "name": "招金黄金",
+      "date": "2026-11-26",
+      "close": 12.68,
+      "volume": 74905049,
+      "rsi12": 48.42,
+      "rsi_ma56": 35.84,
+      "trend_line": 15.05,
+      "trend_prev": 9.2,
+      "mcap_yi": 154.0,
+      "jl_growth_pct": 185.55
+    },
+    {
+      "ticker": "002648",
+      "name": "卫星化学",
+      "date": "2026-11-26",
+      "close": 23.33,
+      "volume": 20932386,
+      "rsi12": 45.54,
+      "rsi_ma56": 39.81,
+      "trend_line": 16.37,
+      "trend_prev": 10.79,
+      "mcap_yi": 951.0,
+      "jl_growth_pct": 141.24
+    },
+    {
+      "ticker": "600489",
+      "name": "中金黄金",
+      "date": "2026-11-26",
+      "close": 17.11,
+      "volume": 54955655,
+      "rsi12": 36.29,
+      "rsi_ma56": 35.58,
+      "trend_line": 12.17,
+      "trend_prev": 10.04,
+      "mcap_yi": 1294.0,
+      "jl_growth_pct": 54.64
+    },
+    {
+      "ticker": "600938",
+      "name": "中国海油",
+      "date": "2026-11-26",
+      "close": 30.9,
+      "volume": 43562419,
+      "rsi12": 56.41,
+      "rsi_ma56": 45.91,
+      "trend_line": 11.39,
+      "trend_prev": 3.06,
+      "mcap_yi": 20076.0,
+      "jl_growth_pct": 16.8
+    },
+    {
+      "ticker": "603979",
+      "name": "金诚信",
+      "date": "2026-11-26",
+      "close": 45.68,
+      "volume": 7253738,
+      "rsi12": 33.02,
+      "rsi_ma56": 32.93,
+      "trend_line": 11.62,
+      "trend_prev": 9.36,
+      "mcap_yi": 330.0,
+      "jl_growth_pct": 41.83
+    },
+    {
+      "ticker": "603993",
+      "name": "洛阳钼业",
+      "date": "2026-11-26",
+      "close": 11.83,
+      "volume": 120057109,
+      "rsi12": 36.05,
+      "rsi_ma56": 32.47,
+      "trend_line": 14.26,
+      "trend_prev": 10.78,
+      "mcap_yi": 3818.0,
+      "jl_growth_pct": 68.21
+    }
+  ]
+}
