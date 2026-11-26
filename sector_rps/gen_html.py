@@ -13,7 +13,7 @@ data_file = data_dir / "sector_rps.json"
 # 历史包只带页面真正读到的字段：整份快照 456KB/天，砍到这里约 120KB/天
 UI_FIELDS = ["code", "name", "close", "RPS5", "RPS10", "RPS20", "RPS30", "RPS60", "RPS120",
              "RPS_avg", "RPS_5v10", "RPS_5v20", "ret_5", "ret_120",
-             "mf_5_pct", "MF5_rank", "money_sig"]
+             "mf_5", "mf_5_pct", "MF5_rank", "money_sig"]
 META_FIELDS = ["date", "session", "generated_at", "fund_asof", "kline_cover"]
 
 

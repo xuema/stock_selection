@@ -49,7 +49,7 @@ h1{font-size:1.4rem;margin-bottom:2px}
 .heatmap tr:hover td:first-child{background:#1e2530}
 .h0{background:#1a2e25}.h30{background:#2a4a35}.h50{background:#3a6a3a}.h70{background:#5a9a3a}.h90{background:#8bc34a;color:#000}
 .detail-wrap{overflow-x:auto;margin-top:12px}
-.detail-table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;font-size:.82rem;min-width:1080px}
+.detail-table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;font-size:.82rem;min-width:1260px}
 .detail-table th,.detail-table td{padding:7px 10px;text-align:left;white-space:nowrap}
 .detail-table th{background:#1c222c;color:var(--muted);font-weight:600;border-bottom:1px solid var(--border);cursor:pointer;user-select:none}
 .detail-table th:hover{color:var(--lime)}
@@ -66,6 +66,9 @@ h1{font-size:1.4rem;margin-bottom:2px}
 .detail-table tr.mf-accum td:first-child{box-shadow:inset 4px 0 0 var(--steel)}
 .detail-table tr.mf-confirm:not(.turn) td{background:rgba(63,185,80,.10)}
 .detail-table tr.mf-accum:not(.turn) td{background:rgba(91,141,184,.09)}
+/* 资金厚实（5日资金分位≥90 且 5日净额≥5亿）：右侧色条 + 两个资金单元格底色，与左侧资金信号色条互不占用 */
+.detail-table tr.thick td:last-child{box-shadow:inset -5px 0 0 var(--lime)}
+.detail-table tr.thick td.mf-thick{background:rgba(139,195,74,.16)}
 .chip{display:inline-block;font-size:.62rem;padding:1px 6px;border-radius:9px;margin-left:5px;vertical-align:1px;font-weight:600;white-space:nowrap}
 .chip.cf{background:rgba(63,185,80,.16);color:var(--green)}
 .chip.dv{background:rgba(248,81,73,.16);color:var(--red)}
@@ -129,7 +132,10 @@ h1{font-size:1.4rem;margin-bottom:2px}
       <span style="display:inline-block;width:10px;height:10px;background:rgba(248,81,73,.14);border-left:4px solid var(--red);vertical-align:-1px;margin-left:8px"></span>
       转强+资金背离
       <span style="display:inline-block;width:10px;height:10px;background:rgba(91,141,184,.14);border-left:4px solid var(--steel);vertical-align:-1px;margin-left:8px"></span>
-      未转强但5日主力资金分位≥85</span></h3>
+      未转强但5日主力资金分位≥85
+      <span style="display:inline-block;width:10px;height:10px;background:rgba(139,195,74,.16);border-right:5px solid var(--lime);border-left:none;vertical-align:-1px;margin-left:8px"></span>
+      资金厚实：5日资金分位≥90 且 5日净额≥5亿</span></h3>
+  <div class="caliber" style="margin-top:-6px"><b>「5日净额」</b>= 近 5 个交易日主力净流入<b>金额</b>（亿元，东财 f164）；<b>「5日净占比」</b>= 同一笔净额 ÷ 该板块 5 日成交额（东财 f165）。金额看<b>有没有真钱进来</b>，占比看<b>相对板块自身体量的强度</b>。<b>「5日资金分位」排的是占比、不是金额</b>，所以大盘板块金额最大而分位可能平庸，小盘板块金额很小却能分位登顶。<span style="color:var(--lime)">资金厚实</span>高亮用来挡掉后一种假象：<b>5日资金分位 ≥ 90 且 5日净额 ≥ 5 亿</b>，两个条件同时成立才亮，说明流入既有相对强度、又有承接量，不是小盘子噪声。</div>
   <div class="detail-wrap"><table class="detail-table" id="detail-table"><tbody><tr><td class="empty">加载中</td></tr></tbody></table></div>
 </div>
 
@@ -277,7 +283,7 @@ function renderTable(d){
     return curSortDir==='asc'?(av-bv):(bv-av);
   });
 
-  var cols=[['RPS5','RPS5'],['RPS10','RPS10'],['RPS_5v10','Δ5-10'],['RPS20','RPS20'],['RPS30','RPS30'],['RPS60','RPS60'],['RPS120','RPS120'],['RPS_avg','均值'],['RPS_5v20','5v20'],['mf_5_pct','5日净占比'],['MF5_rank','5日资金分位']];
+  var cols=[['MF5_rank','5日资金分位'],['mf_5','5日净额(亿)'],['mf_5_pct','5日净占比'],['RPS5','RPS5'],['RPS10','RPS10'],['RPS_5v10','Δ5-10'],['RPS20','RPS20'],['RPS30','RPS30'],['RPS60','RPS60'],['RPS120','RPS120'],['RPS_avg','均值'],['RPS_5v20','5v20']];
 
   var h='<thead><tr><th style="width:40px">#</th><th>板块</th><th>收盘</th>';
   cols.forEach(function(c){
@@ -290,26 +296,35 @@ function renderTable(d){
   d.forEach(function(s,i){
     var spVals=['RPS5','RPS10','RPS20','RPS30','RPS60','RPS120'].map(function(k){return s[k]||0});
     var sg=sigOf(s);
+    // 资金厚实：分位高(相对强度) + 绝对额有承接，两者同时成立才算，单看分位会把 3 亿成交的小盘推上榜首
+    var thick=s.mf_5!=null&&s.MF5_rank!=null&&s.MF5_rank>=90&&s.mf_5>=5;
     var rc=[];
     if(isTurnHi(s))rc.push('turn');
     if(sg)rc.push('mf-'+sg);
+    if(thick)rc.push('thick');
     var chip=sg==='confirm'?'<span class="chip cf">确认</span>':sg==='diverge'?'<span class="chip dv">背离</span>':sg==='accum'?'<span class="chip ac">吸筹</span>':'';
+    if(thick)chip+='<span class="chip cf" title="5日资金分位≥90 且 5日净额≥5亿">厚</span>';
     h+='<tr'+(rc.length?' class="'+rc.join(' ')+'"':'')+'><td>'+(i+1)+'</td>';
     h+='<td style="font-weight:600">'+s.name+chip+'<br><span style="font-size:.7rem;color:var(--muted)">'+s.code+'</span></td>';
     h+='<td style="color:var(--text)">'+(s.close||0).toFixed(2)+'</td>';
 
-    ['RPS5','RPS10','RPS_5v10','RPS20','RPS30','RPS60','RPS120','RPS_avg','RPS_5v20','mf_5_pct','MF5_rank'].forEach(function(k){
+    ['MF5_rank','mf_5','mf_5_pct','RPS5','RPS10','RPS_5v10','RPS20','RPS30','RPS60','RPS120','RPS_avg','RPS_5v20'].forEach(function(k){
       var v=s[k];
-      if(v==null){h+='<td style="color:var(--border)">-</td>'}
+      var mny=(k==='MF5_rank'||k==='mf_5'||k==='mf_5_pct')&&thick;
+      var td=mny?' class="mf-thick"':'';
+      if(v==null){h+='<td'+td+' style="color:var(--border)">-</td>'}
       else if(k==='RPS_5v20'||k==='RPS_5v10'){
         var c=v>=0?'var(--green)':'var(--red)';
         h+='<td style="color:'+c+';font-weight:700">'+(v>=0?'+':'')+v.toFixed(1)+'</td>';
+      }else if(k==='mf_5'){
+        var c=v>=0?(thick?'var(--lime)':'var(--green)'):'var(--red)';
+        h+='<td'+td+' style="color:'+c+';font-weight:'+(thick?'800':'700')+'">'+(v>=0?'+':'')+v.toFixed(1)+'亿</td>';
       }else if(k==='mf_5_pct'){
         var c=v>0?'var(--green)':'var(--red)';
-        h+='<td style="color:'+c+';font-weight:700">'+(v>=0?'+':'')+v.toFixed(2)+'%</td>';
+        h+='<td'+td+' style="color:'+c+';font-weight:700">'+(v>=0?'+':'')+v.toFixed(2)+'%</td>';
       }else if(k==='MF5_rank'){
-        var c=v>=85?'var(--green)':v>=50?'var(--lime)':'var(--muted)';
-        h+='<td style="color:'+c+';font-weight:600">'+v.toFixed(1)+'</td>';
+        var c=v>=90?'var(--lime)':v>=85?'var(--green)':v>=50?'var(--muted)':'var(--border)';
+        h+='<td'+td+' style="color:'+c+';font-weight:'+(v>=90?'800':'600')+'">'+v.toFixed(1)+'</td>';
       }else{
         h+='<td style="color:'+rpsColor(v)+';font-weight:600">'+v.toFixed(1)+'</td>';
       }
