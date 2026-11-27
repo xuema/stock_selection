@@ -1,1 +1,1 @@
-window.SECTOR_RPS_DATES = [{"date":"2026-11-26","session":"intraday","cover":"438/457","money":438,"boards":438},{"date":"2026-11-25","session":"final","cover":"436/436","money":347,"boards":436}];
+window.SECTOR_RPS_DATES = [{"date":"2026-11-26","session":"final","cover":"436/436","money":436,"boards":436},{"date":"2026-11-25","session":"final","cover":"436/436","money":347,"boards":436}];
