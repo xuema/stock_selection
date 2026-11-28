@@ -1,67 +1,67 @@
 [
   {
-    "title": "RSP热门板块 1127",
-    "image": "screen_hot_sectors_1127.png",
+    "title": "RSP热门板块 1128",
+    "image": "screen_hot_sectors_1128.png",
     "count": 50,
     "base": "screen_hot_sectors"
   },
   {
-    "title": "RSP趋势突破 1127",
-    "image": "screen_rsp_trend_break_1127.png",
-    "count": 54,
+    "title": "RSP趋势突破 1128",
+    "image": "screen_rsp_trend_break_1128.png",
+    "count": 200,
     "base": "screen_rsp_trend_break"
   },
   {
-    "title": "RPS中长期龙头 1127",
-    "image": "screen_rps_trend_v2_1127.png",
+    "title": "RPS中长期龙头 1128",
+    "image": "screen_rps_trend_v2_1128.png",
     "count": 112,
     "base": "screen_rps_trend_v2"
   },
   {
-    "title": "RSI金叉 1127",
-    "image": "screen_rsi_golden_cross_1127.png",
-    "count": 130,
+    "title": "RSI金叉 1128",
+    "image": "screen_rsi_golden_cross_1128.png",
+    "count": 200,
     "base": "screen_rsi_golden_cross"
   },
   {
-    "title": "EXPMA+多因子 1127",
-    "image": "screen_signals_1127.png",
+    "title": "EXPMA+多因子 1128",
+    "image": "screen_signals_1128.png",
     "count": 1,
     "base": "screen_signals"
   },
   {
-    "title": "超级顶底买入 1127",
-    "image": "screen_super_top_bottom_buy_1127.png",
+    "title": "超级顶底买入 1128",
+    "image": "screen_super_top_bottom_buy_1128.png",
     "count": 200,
     "base": "screen_super_top_bottom_buy"
   },
   {
-    "title": "超级顶底卖出 1127",
-    "image": "screen_super_top_bottom_sell_1127.png",
+    "title": "超级顶底卖出 1128",
+    "image": "screen_super_top_bottom_sell_1128.png",
     "count": 5,
     "base": "screen_super_top_bottom_sell"
   },
   {
-    "title": "RSI共振 1127",
-    "image": "screen_rsi_stb_resonance_1127.png",
+    "title": "RSI共振 1128",
+    "image": "screen_rsi_stb_resonance_1128.png",
     "count": 200,
     "base": "screen_rsi_stb_resonance"
   },
   {
-    "title": "活跃中盘股 1127",
-    "image": "screen_active_midcap_1127.png",
+    "title": "活跃中盘股 1128",
+    "image": "screen_active_midcap_1128.png",
     "count": 5,
     "base": "screen_active_midcap"
   },
   {
-    "title": "RPS池·双策略入选 1127",
-    "image": "screen_rps_pool_dual_1127.png",
+    "title": "RPS池·双策略入选 1128",
+    "image": "screen_rps_pool_dual_1128.png",
     "count": 2,
     "base": "screen_rps_pool_dual"
   },
   {
-    "title": "RPS池·周线死叉卖出 1127",
-    "image": "screen_rps_pool_sell_1127.png",
+    "title": "RPS池·周线死叉卖出 1128",
+    "image": "screen_rps_pool_sell_1128.png",
     "count": 53,
     "base": "screen_rps_pool_sell"
   }

@@ -1,0 +1,75 @@
+{
+  "strategy": "screen_super_top_bottom_sell",
+  "strategy_name": "超级顶底 卖出信号",
+  "signal_type": "sell",
+  "screen_date": "2026-11-28",
+  "total_scanned": 4364,
+  "total_matched": 5,
+  "stocks": [
+    {
+      "ticker": "000651",
+      "name": "格力电器",
+      "date": "2026-11-27",
+      "close": 40.07,
+      "trend_line": 86.83,
+      "trend_prev": 92.84,
+      "v_ratio": 1.26,
+      "atr": 0.66,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 41.39
+    },
+    {
+      "ticker": "001872",
+      "name": "招商港口",
+      "date": "2026-11-27",
+      "close": 27.16,
+      "trend_line": 88.5,
+      "trend_prev": 92.69,
+      "v_ratio": 0.84,
+      "atr": 0.8,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 28.75
+    },
+    {
+      "ticker": "600025",
+      "name": "华能水电",
+      "date": "2026-11-27",
+      "close": 11.49,
+      "trend_line": 87.53,
+      "trend_prev": 90.79,
+      "v_ratio": 1.35,
+      "atr": 0.24,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 11.96
+    },
+    {
+      "ticker": "600941",
+      "name": "中国移动",
+      "date": "2026-11-27",
+      "close": 105.07,
+      "trend_line": 81.42,
+      "trend_prev": 93.06,
+      "v_ratio": 1.36,
+      "atr": 2.51,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 110.08
+    },
+    {
+      "ticker": "601088",
+      "name": "中国神华",
+      "date": "2026-11-27",
+      "close": 50.76,
+      "trend_line": 78.88,
+      "trend_prev": 90.03,
+      "v_ratio": 2.36,
+      "atr": 1.16,
+      "mcap_yi": null,
+      "signal_note": "趋势线下穿89 → 卖出",
+      "atr_stop_price(反向)": 53.07
+    }
+  ]
+}

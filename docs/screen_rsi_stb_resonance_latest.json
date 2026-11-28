@@ -1,9 +1,9 @@
 {
   "strategy": "rsi_stb_resonance",
   "strategy_name": "RSI 金叉 + 超级顶底 双重共振",
-  "screen_date": "2026-11-27",
+  "screen_date": "2026-11-28",
   "total_scanned": 4364,
-  "total_matched": 223,
+  "total_matched": 224,
   "stocks": [
     {
       "ticker": "000021",
@@ -56,6 +56,19 @@
       "trend_prev": 7.53,
       "mcap_yi": 136.0,
       "jl_growth_pct": 1487.24
+    },
+    {
+      "ticker": "000300",
+      "name": "",
+      "date": "2026-11-27",
+      "close": 4063.06,
+      "volume": 25676381500,
+      "rsi12": 66.81,
+      "rsi_ma56": 31.59,
+      "trend_line": 38.59,
+      "trend_prev": 10.49,
+      "mcap_yi": null,
+      "jl_growth_pct": null
     },
     {
       "ticker": "000408",

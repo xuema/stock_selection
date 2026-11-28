@@ -100,7 +100,7 @@
       "pick_age": 73,
       "wk_rsi1": 36.8,
       "wk_rsi2": 31.0,
-      "rps_sum": 109.5,
+      "rps_sum": 109.3,
       "was": "S1"
     },
     {
@@ -184,19 +184,19 @@
       "pick_age": 109,
       "wk_rsi1": 41.9,
       "wk_rsi2": 39.4,
-      "rps_sum": 113.8,
+      "rps_sum": 113.4,
       "was": "S1+S2"
     },
     {
       "ticker": "300054",
       "name": "鼎龙股份",
       "date": "2026-11-27",
-      "close": 53.33,
+      "close": 62.05,
       "dead_days": 2,
       "pick_age": 100,
-      "wk_rsi1": 38.7,
-      "wk_rsi2": 41.4,
-      "rps_sum": NaN,
+      "wk_rsi1": 47.7,
+      "wk_rsi2": 43.2,
+      "rps_sum": 170.3,
       "was": "S1+S2"
     },
     {
@@ -455,12 +455,12 @@
       "ticker": "301282",
       "name": "金禄电子",
       "date": "2026-11-27",
-      "close": 29.3,
+      "close": 41.3,
       "dead_days": 3,
       "pick_age": 40,
-      "wk_rsi1": 44.3,
-      "wk_rsi2": 46.6,
-      "rps_sum": NaN,
+      "wk_rsi1": 58.7,
+      "wk_rsi2": 49.5,
+      "rps_sum": 198.2,
       "was": "S1+S2"
     },
     {
